@@ -1,0 +1,316 @@
+{
+ "93310": {
+  "nome": "Transforpel Combustíveis Marinha Grande (Marinha Grande)",
+  "precos": {
+   "GPL Auto": [
+    "0,930 €/litro",
+    "02-10-2026 16:30"
+   ],
+   "Gasóleo simples": [
+    "2,009 €/litro",
+    "02-10-2026 16:30"
+   ],
+   "Gasóleo especial": [
+    "2,049 €/litro",
+    "02-10-2026 16:30"
+   ],
+   "Gasolina simples 95": [
+    "1,929 €/litro",
+    "02-10-2026 16:30"
+   ]
+  }
+ },
+ "66583": {
+  "nome": "REPSOL E.S. ALBERGARIA (Albergaria)",
+  "precos": {
+   "GPL Auto": [
+    "0,999 €/litro",
+    "07-10-2026 00:00"
+   ],
+   "Gasóleo simples": [
+    "2,209 €/litro",
+    "07-10-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,279 €/litro",
+    "07-10-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "2,114 €/litro",
+    "07-10-2026 00:00"
+   ],
+   "Gasolina especial 95": [
+    "2,184 €/litro",
+    "07-10-2026 00:00"
+   ],
+   "Gasolina especial 98": [
+    "2,314 €/litro",
+    "07-10-2026 00:00"
+   ]
+  }
+ },
+ "93762": {
+  "nome": "PRIO Marinha Grande (Pedreanes)",
+  "precos": {
+   "Gasóleo especial": [
+    "2,209 €/litro",
+    "07-10-2026 08:55"
+   ],
+   "Biodiesel B15": [
+    "2,249 €/litro",
+    "07-10-2026 08:55"
+   ],
+   "Gasóleo colorido": [
+    "1,799 €/litro",
+    "07-10-2026 08:55"
+   ],
+   "Gasolina simples 95": [
+    "2,169 €/litro",
+    "07-10-2026 08:55"
+   ],
+   "Gasolina especial 95": [
+    "2,119 €/litro",
+    "07-10-2026 08:55"
+   ]
+  }
+ },
+ "70428": {
+  "nome": "ALVES BANDEIRA Moita (Moita)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,224 €/litro",
+    "05-10-2026 11:05"
+   ],
+   "Gasóleo colorido": [
+    "1,859 €/litro",
+    "05-10-2026 11:05"
+   ],
+   "Gasolina simples 95": [
+    "2,139 €/litro",
+    "05-10-2026 11:05"
+   ],
+   "Gasolina 98": [
+    "2,309 €/litro",
+    "05-10-2026 11:05"
+   ]
+  }
+ },
+ "67331": {
+  "nome": "Intermarché da Marinha Grande (Marinha Grande)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,099 €/litro",
+    "06-10-2026 18:05"
+   ],
+   "Gasóleo especial": [
+    "2,139 €/litro",
+    "06-10-2026 18:05"
+   ],
+   "Gasolina simples 95": [
+    "2,009 €/litro",
+    "06-10-2026 18:05"
+   ],
+   "Gasolina 98": [
+    "2,189 €/litro",
+    "06-10-2026 18:05"
+   ]
+  }
+ },
+ "91178": {
+  "nome": "PRIO Leiria Circular (Leiria)",
+  "precos": {
+   "Gasóleo especial": [
+    "2,144 €/litro",
+    "07-10-2026 00:30"
+   ],
+   "Biodiesel B15": [
+    "2,114 €/litro",
+    "07-10-2026 00:30"
+   ],
+   "Gasolina simples 95": [
+    "2,119 €/litro",
+    "07-10-2026 00:30"
+   ],
+   "Gasolina especial 95": [
+    "2,044 €/litro",
+    "07-10-2026 00:30"
+   ]
+  }
+ },
+ "78233": {
+  "nome": "PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,092 €/litro",
+    "06-10-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,399 €/litro",
+    "06-10-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "2,048 €/litro",
+    "06-10-2026 00:00"
+   ],
+   "Gasolina especial 98": [
+    "2,409 €/litro",
+    "06-10-2026 00:00"
+   ]
+  }
+ },
+ "95309": {
+  "nome": "OZ ENERGIA - MARINHA GRANDE (Amieirinha)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,174 €/litro",
+    "06-10-2026 15:05"
+   ],
+   "Gasóleo especial": [
+    "2,214 €/litro",
+    "06-10-2026 15:05"
+   ],
+   "Gasolina simples 95": [
+    "2,069 €/litro",
+    "06-10-2026 15:05"
+   ],
+   "Gasolina 98": [
+    "2,289 €/litro",
+    "06-10-2026 15:05"
+   ]
+  }
+ },
+ "66596": {
+  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,209 €/litro",
+    "07-10-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,279 €/litro",
+    "07-10-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "2,114 €/litro",
+    "07-10-2026 00:00"
+   ],
+   "Gasolina especial 95": [
+    "2,184 €/litro",
+    "07-10-2026 00:00"
+   ]
+  }
+ },
+ "66582": {
+  "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,209 €/litro",
+    "07-10-2026 10:10"
+   ],
+   "Gasóleo especial": [
+    "2,279 €/litro",
+    "07-10-2026 10:10"
+   ],
+   "Gasolina simples 95": [
+    "2,114 €/litro",
+    "07-10-2026 10:10"
+   ],
+   "Gasolina especial 95": [
+    "2,184 €/litro",
+    "07-10-2026 10:10"
+   ],
+   "Gasolina especial 98": [
+    "2,314 €/litro",
+    "07-10-2026 10:10"
+   ]
+  }
+ },
+ "65416": {
+  "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,266 €/litro",
+    "05-10-2026 22:15"
+   ],
+   "Gasóleo especial": [
+    "2,316 €/litro",
+    "05-10-2026 22:15"
+   ],
+   "Gasolina simples 95": [
+    "2,164 €/litro",
+    "05-10-2026 22:15"
+   ],
+   "Gasolina especial 95": [
+    "2,214 €/litro",
+    "05-10-2026 22:15"
+   ],
+   "Gasolina especial 98": [
+    "2,394 €/litro",
+    "05-10-2026 22:15"
+   ]
+  }
+ },
+ "65415": {
+  "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,266 €/litro",
+    "05-10-2026 22:20"
+   ],
+   "Gasóleo especial": [
+    "2,316 €/litro",
+    "05-10-2026 22:20"
+   ],
+   "Gasolina simples 95": [
+    "2,164 €/litro",
+    "05-10-2026 22:20"
+   ],
+   "Gasolina especial 95": [
+    "2,214 €/litro",
+    "05-10-2026 22:20"
+   ]
+  }
+ },
+ "67868": {
+  "nome": "BP Marinha Grande (Marinha Grande)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,274 €/litro",
+    "07-10-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,399 €/litro",
+    "07-10-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "2,179 €/litro",
+    "07-10-2026 00:00"
+   ],
+   "Gasolina especial 98": [
+    "2,409 €/litro",
+    "07-10-2026 00:00"
+   ]
+  }
+ },
+ "93075": {
+  "nome": "BP Embra (Marinha Grande) (Embra)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,274 €/litro",
+    "07-10-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,399 €/litro",
+    "07-10-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "2,179 €/litro",
+    "07-10-2026 00:00"
+   ],
+   "Gasolina especial 98": [
+    "2,409 €/litro",
+    "07-10-2026 00:00"
+   ]
+  }
+ }
+}
