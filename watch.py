@@ -45,6 +45,16 @@ NOMES_POSTOS = {
     93762: "PRIO (Marinha Grande)",
 }
 
+# Plenergy: os precos vem da pagina deles (variavel datosPrecio), indexados por idalvic.
+PLENERGY_URL = "https://plenergy.pt/estacoes-de-servico/"
+PLENERGY_POSTOS = {"404": "Marinha Grande"}  # idalvic -> localidade
+PLENERGY_CAMPOS = {
+    "diesel": "Gasóleo simples",
+    "goa_add": "Gasóleo plus",
+    "splomo": "Gasolina 95 simples",
+    "sp95_add": "Gasolina 95 plus",
+}
+
 NOMES = ("TipoCombustivel", "Combustivel", "NomeCombustivel")
 PRECOS = ("Preco", "PrecoCombustivel", "Valor")
 
@@ -65,12 +75,40 @@ def listar_postos():
     return res or []
 
 
+def precos_plenergy():
+    """Le a variavel datosPrecio da pagina da Plenergy. Devolve {idalvic: {combustivel: preco}}."""
+    r = requests.get(PLENERGY_URL, headers=HEADERS, timeout=60)
+    r.raise_for_status()
+    m = re.search(r"var\s+datosPrecio\s*=\s*", r.text)
+    if not m:
+        raise RuntimeError("datosPrecio nao encontrado na pagina da Plenergy")
+    dados, _ = json.JSONDecoder().raw_decode(r.text, m.end())
+    saida = {}
+    for idalvic in PLENERGY_POSTOS:
+        d = dados.get(idalvic)
+        if not isinstance(d, dict):
+            continue
+        precos = {}
+        for campo, nome in PLENERGY_CAMPOS.items():
+            try:
+                v = float(str(d.get(campo, "")).strip())
+            except ValueError:
+                continue
+            if v > 0:
+                precos[nome] = f"{v:.3f}".replace(".", ",") + " €/litro"
+        if precos:
+            saida[idalvic] = precos
+    return saida
+
+
 def filtrar(postos):
     """Filtra por municipio/marca e remove duplicados (a lista repete o posto por combustivel)."""
     unicos = {}
     for p in postos:
         if p.get("Id") in EXCLUIR_IDS:
             continue
+        if any(x in str(p.get("Marca", "")).lower() for x in ("plenergy", "plenoil")):
+            continue  # a Plenergy e lida do site deles (evita avisos duplicados)
         mun = str(p.get("Municipio", "")).strip().lower()
         marca = str(p.get("Marca", "")).strip().lower()
         for r in REGRAS:
@@ -155,6 +193,26 @@ def main():
         enviar("Combustiveis", "Teste: as notificacoes estao a funcionar.")
         return
 
+    if "--plenergy" in args:
+        for idalvic, precos in precos_plenergy().items():
+            print(f"PLENERGY ({PLENERGY_POSTOS[idalvic]}):")
+            for comb, preco in precos.items():
+                print(f"  {comb}: {preco}")
+        return
+
+    if "--procurar" in sys.argv:
+        termo = " ".join(sys.argv[sys.argv.index("--procurar") + 1:]).strip().lower()
+        vistos = {}
+        for p in listar_postos():
+            texto = " ".join(str(v) for v in p.values() if isinstance(v, (str, int, float))).lower()
+            if termo in texto:
+                vistos[p.get("Id")] = p
+        print(f"{len(vistos)} postos com '{termo}':")
+        for pid, p in vistos.items():
+            print(f"- Id {pid} | {p.get('Marca')} | {p.get('Nome')} | "
+                  f"{p.get('Localidade')} | Municipio: {p.get('Municipio')}")
+        return
+
     postos = filtrar(listar_postos())
     print(f"{len(postos)} postos encontrados")
 
@@ -200,10 +258,34 @@ def main():
                 mudancas.append(linha_aviso(p, comb, a[0] if a else None, preco,
                                             contagem_marcas[str(p.get("Marca"))] > 1))
 
+    # --- Plenergy (site deles) ---
+    try:
+        dados_pl = precos_plenergy()
+    except Exception as e:
+        print(f"Falhou Plenergy: {e}")
+        dados_pl = None
+    for idalvic, localidade in PLENERGY_POSTOS.items():
+        pid = f"plenergy-{idalvic}"
+        p = {"Id": pid, "Marca": "PLENERGY", "Localidade": localidade}
+        if dados_pl is None or idalvic not in dados_pl:
+            if antigo_estado and pid in antigo_estado:
+                novo_estado[pid] = antigo_estado[pid]  # mantem o estado antigo
+            continue
+        precos = {k: [v, ""] for k, v in dados_pl[idalvic].items()}
+        novo_estado[pid] = {"nome": f"PLENERGY ({localidade})", "precos": precos}
+        if antigo_estado is None:
+            continue
+        antes = antigo_estado.get(pid, {}).get("precos", {})
+        for comb, (preco, _) in precos.items():
+            a = antes.get(comb)
+            if a is None or a[0] != preco:
+                mudancas.append(linha_aviso(p, comb, a[0] if a else None, preco))
+
     ESTADO.write_text(json.dumps(novo_estado, ensure_ascii=False, indent=1), encoding="utf-8")
 
+    total = len(postos) + len(PLENERGY_POSTOS)
     if antigo_estado is None:
-        enviar("Combustiveis", f"A vigiar {len(postos)} postos. Aviso-te quando houver atualizacoes.")
+        enviar("Combustiveis", f"A vigiar {total} postos. Aviso-te quando houver atualizacoes.")
     elif mudancas:
         enviar("Combustiveis", "\n".join(mudancas[:25]))
     print(f"{len(mudancas)} alteracoes")
