@@ -11,6 +11,7 @@ Variavel de ambiente necessaria para as notificacoes: NTFY_TOPIC (o teu topico n
 """
 import json
 import os
+import re
 import sys
 import time
 from pathlib import Path
@@ -35,6 +36,13 @@ EXCLUIR_IDS = {
     93219,  # CEPSA Vieira de Leiria
     65417,  # GALP Cunha e Monteiro (Vieira de Leiria)
     75757,  # Intermarche Supervieira (Praia da Vieira)
+}
+
+# Nomes personalizados nos avisos (por Id). Os restantes usam a marca.
+NOMES_POSTOS = {
+    66596: "REPSOL (R. Mc)",
+    66582: "REPSOL (R. Videiro)",
+    93762: "PRIO (Marinha Grande)",
 }
 
 NOMES = ("TipoCombustivel", "Combustivel", "NomeCombustivel")
@@ -98,6 +106,35 @@ def rotulo(p):
     return " ".join(x for x in (marca, nome, f"({local})" if local else "") if x).strip()
 
 
+def numero(preco):
+    """'2,209 €/litro' -> 2.209"""
+    m = re.search(r"\d+[.,]\d+", str(preco))
+    return float(m.group().replace(",", ".")) if m else None
+
+
+def curto(preco):
+    """'2,209 €/litro' -> '2,209 €'"""
+    return str(preco).replace("/litro", "").strip()
+
+
+def linha_aviso(p, comb, antes, agora, repetida=False):
+    marca = p.get("Marca") or p.get("Nome") or "Posto"
+    if p.get("Id") in NOMES_POSTOS:
+        marca = NOMES_POSTOS[p.get("Id")]
+    elif repetida:  # varios postos da mesma marca: junta a localidade
+        local = (p.get("Localidade") or p.get("Municipio") or "").strip()
+        if local:
+            marca = f"{marca} ({local})"
+    if antes is None:
+        return f"{marca}: {comb} {curto(agora)}"
+    na, nb = numero(agora), numero(antes)
+    if na is not None and nb is not None:
+        verbo = "desceu" if na < nb else "subiu"
+    else:
+        verbo = "mudou"
+    return f"{marca}: {comb} {verbo} para {curto(agora)} (ultimo {curto(antes)})"
+
+
 def enviar(titulo, mensagem):
     mensagem = mensagem[:3800]
     if not TOPICO:
@@ -134,6 +171,10 @@ def main():
 
     antigo_estado = json.loads(ESTADO.read_text(encoding="utf-8")) if ESTADO.exists() else None
     novo_estado, mudancas = {}, []
+    contagem_marcas = {}
+    for p in postos:
+        m = str(p.get("Marca"))
+        contagem_marcas[m] = contagem_marcas.get(m, 0) + 1
 
     for p in postos:
         pid = str(p.get("Id"))
@@ -156,8 +197,8 @@ def main():
         for comb, (preco, _) in precos.items():
             a = antes.get(comb)
             if a is None or a[0] != preco:  # so avisa se o preco mudou
-                de = f"{a[0]} -> " if a else ""
-                mudancas.append(f"{rotulo(p)}: {comb} {de}{preco}")
+                mudancas.append(linha_aviso(p, comb, a[0] if a else None, preco,
+                                            contagem_marcas[str(p.get("Marca"))] > 1))
 
     ESTADO.write_text(json.dumps(novo_estado, ensure_ascii=False, indent=1), encoding="utf-8")
 
