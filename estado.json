@@ -1,6 +1,7 @@
 {
  "93310": {
   "nome": "Transforpel Combustíveis Marinha Grande (Marinha Grande)",
+  "aviso": "TRANSOGÁS",
   "precos": {
    "GPL Auto": [
     "0,930 €/litro",
@@ -22,6 +23,7 @@
  },
  "66583": {
   "nome": "REPSOL E.S. ALBERGARIA (Albergaria)",
+  "aviso": "REPSOL (Albergaria)",
   "precos": {
    "GPL Auto": [
     "0,999 €/litro",
@@ -51,6 +53,7 @@
  },
  "93762": {
   "nome": "PRIO Marinha Grande (Pedreanes)",
+  "aviso": "PRIO (Marinha Grande)",
   "precos": {
    "Gasóleo especial": [
     "2,209 €/litro",
@@ -76,6 +79,7 @@
  },
  "70428": {
   "nome": "ALVES BANDEIRA Moita (Moita)",
+  "aviso": "ALVES BANDEIRA",
   "precos": {
    "Gasóleo simples": [
     "2,224 €/litro",
@@ -97,6 +101,7 @@
  },
  "67331": {
   "nome": "Intermarché da Marinha Grande (Marinha Grande)",
+  "aviso": "INTERMARCHÉ",
   "precos": {
    "Gasóleo simples": [
     "2,099 €/litro",
@@ -118,6 +123,7 @@
  },
  "91178": {
   "nome": "PRIO Leiria Circular (Leiria)",
+  "aviso": "PRIO (Leiria)",
   "precos": {
    "Gasóleo especial": [
     "2,144 €/litro",
@@ -139,6 +145,7 @@
  },
  "78233": {
   "nome": "PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água)",
+  "aviso": "PINGO DOCE",
   "precos": {
    "Gasóleo simples": [
     "2,092 €/litro",
@@ -160,6 +167,7 @@
  },
  "95309": {
   "nome": "OZ ENERGIA - MARINHA GRANDE (Amieirinha)",
+  "aviso": "OZ Energia",
   "precos": {
    "Gasóleo simples": [
     "2,174 €/litro",
@@ -181,6 +189,7 @@
  },
  "66596": {
   "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
+  "aviso": "REPSOL (R. Mc)",
   "precos": {
    "Gasóleo simples": [
     "2,209 €/litro",
@@ -202,6 +211,7 @@
  },
  "66582": {
   "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
+  "aviso": "REPSOL (R. Videiro)",
   "precos": {
    "Gasóleo simples": [
     "2,209 €/litro",
@@ -227,6 +237,7 @@
  },
  "65416": {
   "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",
+  "aviso": "GALP (Marinha Grande)",
   "precos": {
    "Gasóleo simples": [
     "2,266 €/litro",
@@ -252,6 +263,7 @@
  },
  "65415": {
   "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
+  "aviso": "GALP (Embra)",
   "precos": {
    "Gasóleo simples": [
     "2,266 €/litro",
@@ -273,6 +285,7 @@
  },
  "67868": {
   "nome": "BP Marinha Grande (Marinha Grande)",
+  "aviso": "BP (Marinha Grande)",
   "precos": {
    "Gasóleo simples": [
     "2,274 €/litro",
@@ -294,6 +307,7 @@
  },
  "93075": {
   "nome": "BP Embra (Marinha Grande) (Embra)",
+  "aviso": "BP (Embra)",
   "precos": {
    "Gasóleo simples": [
     "2,274 €/litro",
@@ -315,6 +329,7 @@
  },
  "plenergy-404": {
   "nome": "PLENERGY (Marinha Grande)",
+  "aviso": "PLENERGY",
   "precos": {
    "Gasóleo simples": [
     "2,019 €/litro",
@@ -333,5 +348,9 @@
     ""
    ]
   }
+ },
+ "_meta": {
+  "falhas": {},
+  "ultimo_resumo": ""
  }
 }
