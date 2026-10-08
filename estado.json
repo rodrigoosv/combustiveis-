@@ -312,5 +312,26 @@
     "08-10-2026 00:00"
    ]
   }
+ },
+ "plenergy-404": {
+  "nome": "PLENERGY (Marinha Grande)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,019 €/litro",
+    ""
+   ],
+   "Gasóleo plus": [
+    "2,069 €/litro",
+    ""
+   ],
+   "Gasolina 95 simples": [
+    "1,939 €/litro",
+    ""
+   ],
+   "Gasolina 95 plus": [
+    "1,989 €/litro",
+    ""
+   ]
+  }
  }
 }
