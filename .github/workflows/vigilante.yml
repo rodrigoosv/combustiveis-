@@ -2,7 +2,7 @@ name: Vigilante combustiveis
 
 on:
   schedule:
-    - cron: "17 */3 * * *"  # de 3 em 3 horas
+    - cron: "17 * * * *"   # de hora a hora
   workflow_dispatch:       # permite correr manualmente
 
 permissions:
