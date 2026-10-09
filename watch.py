@@ -8,6 +8,8 @@ Uso:
   py watch.py --procurar X  lista os postos da DGEG que contem o texto X
   py watch.py --plenergy    mostra os precos lidos do site da Plenergy
   py watch.py --resumo      envia (ou mostra) o resumo dos gasoleos mais baratos
+  py watch.py --extremos    mostra preco atual, minimo e maximo historicos de cada posto (gasoleo; 'todos' para tudo)
+  py watch.py --grafico     (re)gera o grafico.svg a partir do estado.json e do historico.csv
   py watch.py --isp         mostra os artigos 'ATUALIZACAO ISP' do Contas Poupanca e a previsao do ultimo
   py watch.py               execucao normal: compara com estado.json e avisa se algo mudou
 
@@ -22,7 +24,7 @@ import sys
 import time
 import unicodedata
 import xml.etree.ElementTree as ET
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 from email.utils import parsedate_to_datetime
 from pathlib import Path
 from urllib.parse import urljoin
@@ -33,6 +35,7 @@ BASE = "https://precoscombustiveis.dgeg.gov.pt/api/PrecoComb"
 TOPICO = os.environ.get("NTFY_TOPIC", "").strip()
 ESTADO = Path(__file__).with_name("estado.json")
 HISTORICO = Path(__file__).with_name("historico.csv")
+GRAFICO = Path(__file__).with_name("grafico.svg")
 HEADERS = {"User-Agent": "vigilante-combustiveis-pessoal/1.0"}
 
 # Que postos seguir: o municipio tem de ser exatamente este;
@@ -84,6 +87,7 @@ CP_HEADERS = {  # o site bloqueia pedidos sem cabecalhos de browser (erro 403)
 GN_RSS = "https://news.google.com/rss/search"  # alternativa quando o site bloqueia o script
 CP_TITULOS = ("atualizacao isp", "preco dos combustiveis na proxima semana")  # sem acentos
 
+DIAS_MIN_RECORDE = 7  # so assinala "minimo/maximo historico" depois de tantos dias de registo
 HORA_RESUMO = 8      # resumo diario a partir desta hora (hora de Portugal)
 FALHAS_ALERTA = 3    # avisa quando uma fonte falha este numero de vezes seguidas
 
@@ -314,7 +318,7 @@ def nome_posto(p, repetida=False):
     return marca
 
 
-def linha_aviso(p, comb, antes, atual, repetida=False):
+def linha_aviso(p, comb, antes, atual, repetida=False, recorde=None):
     nome = nome_posto(p, repetida)
     if antes is None:
         return f"{nome}: {comb} {curto(atual)}"
@@ -324,6 +328,10 @@ def linha_aviso(p, comb, antes, atual, repetida=False):
     else:
         emoji, verbo = "", "mudou"
     texto = f"{nome}: {comb} {verbo} para {curto(atual)} (ultimo {curto(antes)})"
+    if recorde == "min":
+        texto += " 🏆 mínimo histórico"
+    elif recorde == "max":
+        texto += " 📈 máximo histórico"
     return f"{emoji} {texto}" if emoji else texto
 
 
@@ -349,6 +357,69 @@ def resumo(estado):
     return "\n\n".join(blocos)  # linha em branco entre os grupos
 
 
+CABECALHO = ["data_hora", "posto", "combustivel", "preco_anterior", "preco_novo",
+             "variacao_cent", "direcao", "minimo_historico", "data_minimo",
+             "maximo_historico", "data_maximo"]
+
+
+def fmt3(x):
+    return f"{x:.3f}" if isinstance(x, (int, float)) else ""
+
+
+def variacao(antes, depois):
+    """Devolve (variacao em centimos com sinal, direcao). Precos como numeros ou None."""
+    if antes is None or depois is None:
+        return "", "novo"
+    v = round((depois - antes) * 100, 1)
+    if v == 0:
+        return "", "mudou"
+    return f"{v:+.1f}", ("subiu" if v > 0 else "desceu")
+
+
+def normalizar_data(d, fallback):
+    """'09-10-2026 00:00' -> '2026-10-09 00:00' (se nao der, usa o fallback)."""
+    d = str(d or "").strip()
+    for formato in ("%d-%m-%Y %H:%M", "%Y-%m-%d %H:%M"):
+        try:
+            return datetime.strptime(d, formato).strftime("%Y-%m-%d %H:%M")
+        except ValueError:
+            pass
+    return fallback
+
+
+def atualizar_extremos(ext_posto, comb, n, data):
+    """Guarda o preco mais baixo e mais alto ja visto (e quando). Empates mantem a data mais antiga."""
+    e = ext_posto.setdefault(comb, {})
+    novo = "min" not in e
+    recorde = None
+    if novo or n < e["min"][0]:
+        e["min"] = [n, data]
+        recorde = None if novo else "min"
+    if novo or n > e["max"][0]:
+        e["max"] = [n, data]
+        recorde = None if novo else "max"
+    return recorde  # "min"/"max" se bateu um recorde (nao conta a primeira vez que o preco e visto)
+
+
+def migrar_historico():
+    """Se o historico.csv for de uma versao antiga (5 colunas), acrescenta as colunas novas."""
+    if not HISTORICO.exists():
+        return
+    with HISTORICO.open(newline="", encoding="utf-8") as f:
+        linhas = list(csv.reader(f))
+    if not linhas or linhas[0] == CABECALHO:
+        return
+    novas = [CABECALHO]
+    for l in linhas[1:]:
+        l = (l + [""] * 5)[:5]
+        antes = numero(l[3]) if l[3] else None
+        depois = numero(l[4]) if l[4] else None
+        var, direcao = variacao(antes, depois)
+        novas.append(l + [var, direcao, "", "", "", ""])
+    with HISTORICO.open("w", newline="", encoding="utf-8") as f:
+        csv.writer(f).writerows(novas)
+
+
 def registar_historico(linhas):
     if not linhas:
         return
@@ -356,8 +427,176 @@ def registar_historico(linhas):
     with HISTORICO.open("a", newline="", encoding="utf-8") as f:
         w = csv.writer(f)
         if novo:
-            w.writerow(["data_hora", "posto", "combustivel", "preco_anterior", "preco_novo"])
+            w.writerow(CABECALHO)
         w.writerows(linhas)
+
+
+def pt(x):
+    return fmt3(x).replace(".", ",")
+
+
+PALETA = ["#e6194b", "#3cb44b", "#4363d8", "#f58231", "#911eb4", "#008080", "#9a6324", "#800000",
+          "#808000", "#000075", "#d4a000", "#46a0c8", "#f032e6", "#555555", "#2e8b57", "#b8860b"]
+
+
+def series_grafico(estado, desde, agora):
+    """{tipo: [(nome, [(datetime, preco), ...], preco_atual)]} a partir do historico.csv e do estado."""
+    linhas = []
+    if HISTORICO.exists():
+        with HISTORICO.open(newline="", encoding="utf-8") as f:
+            linhas = list(csv.DictReader(f))
+    por_posto, instantes = {}, [desde]
+    for l in linhas:
+        try:
+            t = datetime.strptime(l["data_hora"], "%Y-%m-%d %H:%M")
+            novo = float(l["preco_novo"])
+            ant = float(l["preco_anterior"]) if l["preco_anterior"] else None
+        except (ValueError, KeyError, TypeError):
+            continue
+        por_posto.setdefault((l["posto"], l["combustivel"]), []).append((t, ant, novo))
+        instantes.append(t)
+    x0 = min(instantes)
+    res = {"simples": [], "especial": []}
+    for pid, v in estado.items():
+        if pid == "_meta":
+            continue
+        nome = v.get("aviso") or v.get("nome")
+        for comb, (preco, _) in v.get("precos", {}).items():
+            tipo, atual = tipo_gasoleo(comb), numero(preco)
+            if not tipo or atual is None:
+                continue
+            rows = sorted(por_posto.get((v.get("nome"), comb), []))
+            pts = []
+            if rows:
+                if rows[0][1] is not None:
+                    pts.append((x0, rows[0][1]))  # preco antes da primeira mudanca registada
+                pts += [(t, novo) for t, _, novo in rows]
+            else:
+                pts.append((x0, atual))
+            pts.append((agora, atual))
+            res[tipo].append((nome, pts, atual))
+    return res, x0
+
+
+def vc(x):
+    return f"{x:.3f}".replace(".", ",")
+
+
+def desenhar_grafico(res, x0, x1, atualizado):
+    """Grafico SVG (sem dependencias): preco ao longo do tempo, uma linha por posto."""
+    W, PH, ML, MR, MT, MB = 940, 340, 64, 260, 62, 44
+    paineis = [(t, titulo) for t, titulo in (("simples", "Gasóleo simples"), ("especial", "Gasóleo especial / plus"))
+               if res.get(t)]
+    H = 56 + PH * max(1, len(paineis))
+    if x1 <= x0:
+        x1 = x0 + timedelta(hours=24)
+    span = (x1 - x0).total_seconds()
+    o = [f'<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {W} {H}" width="{W}" height="{H}" '
+         'font-family="Segoe UI, Arial, sans-serif">',
+         f'<rect width="{W}" height="{H}" fill="#ffffff"/>',
+         f'<text x="{ML}" y="30" font-size="20" font-weight="bold" fill="#222">Preço dos combustíveis</text>',
+         f'<text x="{ML}" y="48" font-size="12" fill="#666">Atualizado em {html.escape(atualizado)}</text>']
+    if not paineis:
+        o.append(f'<text x="{ML}" y="100" font-size="14" fill="#666">Ainda não há dados de gasóleo.</text>')
+    for i, (tipo, titulo) in enumerate(paineis):
+        series = sorted(res[tipo], key=lambda x: (x[2], x[0]))
+        yo = 56 + i * PH
+        top, bot, left, right = yo + MT, yo + PH - MB, ML, W - MR
+        valores = [p for _, pts, _ in series for _, p in pts]
+        vmin, vmax = min(valores), max(valores)
+        pad = max(0.02, (vmax - vmin) * 0.12)
+        lo, hi = vmin - pad, vmax + pad
+
+        def X(t):
+            return left + (t - x0).total_seconds() / span * (right - left)
+
+        def Y(v):
+            return bot - (v - lo) / (hi - lo) * (bot - top)
+
+        # titulo + extremos do painel
+        mn = min(((p, n, t) for n, pts, _ in series for t, p in pts), key=lambda z: z[0])
+        mx = max(((p, n, t) for n, pts, _ in series for t, p in pts), key=lambda z: z[0])
+        o.append(f'<text x="{left}" y="{yo + 24}" font-size="16" font-weight="bold" fill="#222">{titulo} (€/litro)</text>')
+        o.append(f'<text x="{left}" y="{yo + 42}" font-size="12" fill="#666">'
+                 f'Mais baixo: {vc(mn[0])} € ({html.escape(mn[1])}, {mn[2]:%d/%m}) · '
+                 f'Mais alto: {vc(mx[0])} € ({html.escape(mx[1])}, {mx[2]:%d/%m})</text>')
+        # grelha
+        for k in range(5):
+            v = lo + (hi - lo) * k / 4
+            y = Y(v)
+            o.append(f'<line x1="{left}" y1="{y:.1f}" x2="{right}" y2="{y:.1f}" stroke="#e5e5e5"/>')
+            o.append(f'<text x="{left - 8}" y="{y + 4:.1f}" font-size="11" fill="#666" text-anchor="end">'
+                     f'{vc(v)}</text>')
+        for k in range(5):
+            t = x0 + timedelta(seconds=span * k / 4)
+            x = X(t)
+            fmt = "%d/%m %Hh" if span < 2 * 86400 else "%d/%m"
+            o.append(f'<line x1="{x:.1f}" y1="{top}" x2="{x:.1f}" y2="{bot}" stroke="#f0f0f0"/>')
+            o.append(f'<text x="{x:.1f}" y="{bot + 18}" font-size="11" fill="#666" text-anchor="middle">{t.strftime(fmt)}</text>')
+        o.append(f'<rect x="{left}" y="{top}" width="{right - left}" height="{bot - top}" fill="none" stroke="#bbb"/>')
+        # linhas em degrau + legenda
+        for j, (nome, pts, atual) in enumerate(series):
+            cor = PALETA[j % len(PALETA)]
+            d = f"M{X(pts[0][0]):.1f},{Y(pts[0][1]):.1f}"
+            for (_, pa), (t, p) in zip(pts, pts[1:]):
+                d += f" H{X(t):.1f} V{Y(p):.1f}"
+            o.append(f'<path d="{d}" fill="none" stroke="{cor}" stroke-width="2"/>')
+            for t, p in pts[1:-1]:
+                o.append(f'<circle cx="{X(t):.1f}" cy="{Y(p):.1f}" r="3" fill="{cor}"/>')
+            o.append(f'<circle cx="{X(pts[-1][0]):.1f}" cy="{Y(atual):.1f}" r="4" fill="{cor}" stroke="#fff"/>')
+            ly = top + 12 + j * 19
+            o.append(f'<line x1="{right + 16}" y1="{ly - 4}" x2="{right + 36}" y2="{ly - 4}" stroke="{cor}" stroke-width="3"/>')
+            o.append(f'<text x="{right + 42}" y="{ly}" font-size="12" fill="#222">{html.escape(nome[:24])}</text>')
+            o.append(f'<text x="{W - 8}" y="{ly}" font-size="12" fill="#222" text-anchor="end">'
+                     f'{vc(atual)}</text>')
+    o.append("</svg>")
+    return "\n".join(o)
+
+
+def escrever_grafico(estado, hora, desde_txt):
+    agora = hora.replace(tzinfo=None)
+    try:
+        desde = datetime.strptime(desde_txt, "%Y-%m-%d")
+    except ValueError:
+        desde = agora
+    res, x0 = series_grafico(estado, desde, agora)
+    GRAFICO.write_text(desenhar_grafico(res, x0, agora, agora.strftime("%d/%m/%Y %H:%M")), encoding="utf-8")
+
+
+def mostrar_extremos(estado, so_gasoleo=True):
+    """Imprime preco atual, minimo e maximo historicos (e quando) de cada posto."""
+    ext = estado.get("_meta", {}).get("extremos", {})
+    if not ext:
+        print("Ainda nao ha extremos guardados (corre o vigilante uma vez).")
+        return
+    globais = {"simples": {"min": None, "max": None}, "especial": {"min": None, "max": None}}
+    for pid, v in estado.items():
+        if pid == "_meta":
+            continue
+        nome = v.get("aviso") or v.get("nome")
+        linhas = []
+        for comb, e in sorted(ext.get(pid, {}).items()):
+            if so_gasoleo and not quer_aviso(comb):
+                continue
+            atual = v.get("precos", {}).get(comb, ["", ""])[0]
+            linhas.append(f"  {comb}: atual {curto(atual)} | min {pt(e['min'][0])} € ({e['min'][1]}) "
+                          f"| max {pt(e['max'][0])} € ({e['max'][1]})")
+            t = tipo_gasoleo(comb)
+            if t:
+                for k, f_ in (("min", min), ("max", max)):
+                    g = globais[t][k]
+                    if g is None or f_(e[k][0], g[0]) != g[0]:
+                        globais[t][k] = (e[k][0], nome, e[k][1])
+        if linhas:
+            print(nome)
+            print("\n".join(linhas))
+    print("\nEntre todos os postos seguidos:")
+    for t, titulo in (("simples", "Gasóleo simples"), ("especial", "Gasóleo especial/plus")):
+        g = globais[t]
+        if g["min"] and g["max"]:
+            print(f"  {titulo}: mais baixo {pt(g['min'][0])} € ({g['min'][1]}, {g['min'][2]}) | "
+                  f"mais alto {pt(g['max'][0])} € ({g['max'][1]}, {g['max'][2]})")
+    print("\n(Valores desde que o vigilante comecou a registar.)")
 
 
 def enviar(titulo, mensagem, click=None):
@@ -392,6 +631,17 @@ def main():
             print(f"PLENERGY ({PLENERGY_POSTOS[idalvic]}):")
             for comb, preco in precos.items():
                 print(f"  {comb}: {preco}")
+        return
+
+    if "--grafico" in args:
+        estado = json.loads(ESTADO.read_text(encoding="utf-8"))
+        hora = hora_local()
+        escrever_grafico(estado, hora, estado.get("_meta", {}).get("extremos_desde") or hora.strftime("%Y-%m-%d"))
+        print(f"Grafico guardado em {GRAFICO}")
+        return
+
+    if "--extremos" in args:
+        mostrar_extremos(json.loads(ESTADO.read_text(encoding="utf-8")), so_gasoleo="todos" not in args)
         return
 
     if "--isp" in args:
@@ -436,6 +686,7 @@ def main():
         return
 
     # ---------------- execucao normal ----------------
+    migrar_historico()
     hora = hora_local()
     antigo_estado = json.loads(ESTADO.read_text(encoding="utf-8")) if ESTADO.exists() else None
     meta_antiga = (antigo_estado or {}).get("_meta", {})
@@ -462,7 +713,22 @@ def main():
     novo_estado, mudancas, historico = {}, [], []
     stamp = hora.strftime("%Y-%m-%d %H:%M")
 
-    def comparar(p, pid, precos, repetida, nome_hist):
+    extremos = json.loads(json.dumps(meta_antiga.get("extremos", {})))  # copia
+    desde = meta_antiga.get("extremos_desde") or hora.strftime("%Y-%m-%d")
+    dias_registo = (hora.date() - datetime.strptime(desde, "%Y-%m-%d").date()).days
+    marcar_recordes = dias_registo >= DIAS_MIN_RECORDE
+
+    def comparar(p, pid, precos, repetida, nome_hist, data_posto=""):
+        ext_posto = extremos.setdefault(pid, {})
+        ref = normalizar_data(data_posto, stamp)
+        recordes = {}
+        for comb, (preco, _) in precos.items():
+            n = numero(preco)
+            if n is not None:
+                antes_preco = antigo_estado.get(pid, {}).get("precos", {}).get(comb) if antigo_estado else None
+                r = atualizar_extremos(ext_posto, comb, n, ref)
+                if r and antes_preco and antes_preco[0] != preco:
+                    recordes[comb] = r
         if antigo_estado is None:
             return
         antes = antigo_estado.get(pid, {}).get("precos", {})
@@ -470,10 +736,15 @@ def main():
             a = antes.get(comb)
             if a is not None and a[0] == preco:
                 continue
+            var, direcao = variacao(numero(a[0]) if a else None, numero(preco))
+            e = ext_posto.get(comb, {})
+            mn, mx = e.get("min", ["", ""]), e.get("max", ["", ""])
             historico.append([stamp, nome_hist, comb,
-                              num3(a[0]) if a else "", num3(preco)])
+                              num3(a[0]) if a else "", num3(preco), var, direcao,
+                              fmt3(mn[0]), mn[1], fmt3(mx[0]), mx[1]])
             if quer_aviso(comb):
-                mudancas.append(linha_aviso(p, comb, a[0] if a else None, preco, repetida))
+                mudancas.append(linha_aviso(p, comb, a[0] if a else None, preco, repetida,
+                                            recordes.get(comb) if marcar_recordes else None))
 
     contagem_marcas = {}
     for p in postos:
@@ -495,7 +766,7 @@ def main():
         repetida = contagem_marcas[str(p.get("Marca"))] > 1
         novo_estado[pid] = {"nome": rotulo(p), "aviso": nome_posto(p, repetida), "precos": precos}
         time.sleep(0.5)  # nao sobrecarregar o servidor da DGEG
-        comparar(p, pid, precos, repetida, rotulo(p))
+        comparar(p, pid, precos, repetida, rotulo(p), data)
 
     if not dgeg_ok:  # lista da DGEG falhou: mantem os postos DGEG antigos
         for pid, v in antigo_estado.items():
@@ -529,7 +800,8 @@ def main():
     isp_vistos = meta_antiga.get("isp_vistos")  # None = ainda nao inicializado (nao avisa dos antigos)
     avisos_isp = []
     try:
-        artigos, _ = obter_artigos_isp()
+        artigos, origem_isp = obter_artigos_isp()
+        print(f"Contas Poupança: {len(artigos)} artigos de previsao (fonte: {origem_isp})")
         chaves = [sem_acentos(t) for t, _ in artigos]  # o titulo identifica a semana (igual em qualquer fonte)
         if isp_vistos is None:
             isp_vistos = chaves
@@ -550,12 +822,17 @@ def main():
     meta = {"falhas": falhas, "ultimo_resumo": meta_antiga.get("ultimo_resumo", "")}
     if isp_vistos is not None:
         meta["isp_vistos"] = isp_vistos
+    meta["extremos_desde"] = desde
+    meta["extremos"] = {pid: v for pid, v in extremos.items() if pid in novo_estado}
     hoje = hora.strftime("%Y-%m-%d")
     texto_resumo = ""
     if antigo_estado is not None and hora.hour >= HORA_RESUMO and meta["ultimo_resumo"] != hoje:
         texto_resumo = resumo(novo_estado)
         if texto_resumo:
             meta["ultimo_resumo"] = hoje
+    gerar_grafico = (not GRAFICO.exists()) or bool(historico) or meta_antiga.get("ultimo_grafico") != hoje
+    if gerar_grafico:
+        meta["ultimo_grafico"] = hoje
     novo_estado["_meta"] = meta
 
     # --- enviar (antes de gravar: se o envio falhar, tenta de novo na proxima execucao) ---
@@ -574,6 +851,11 @@ def main():
 
     ESTADO.write_text(json.dumps(novo_estado, ensure_ascii=False, indent=1), encoding="utf-8")
     registar_historico(historico)
+    if gerar_grafico:
+        try:
+            escrever_grafico(novo_estado, hora, desde)
+        except Exception as e:  # o grafico nunca deve estragar a execucao
+            print(f"Nao consegui gerar o grafico: {e}")
     print(f"{len(mudancas)} avisos, {len(historico)} alteracoes no historico")
 
 
