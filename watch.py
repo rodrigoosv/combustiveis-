@@ -8,18 +8,24 @@ Uso:
   py watch.py --procurar X  lista os postos da DGEG que contem o texto X
   py watch.py --plenergy    mostra os precos lidos do site da Plenergy
   py watch.py --resumo      envia (ou mostra) o resumo dos gasoleos mais baratos
+  py watch.py --isp         mostra os artigos 'ATUALIZACAO ISP' do Contas Poupanca e a previsao do ultimo
   py watch.py               execucao normal: compara com estado.json e avisa se algo mudou
 
 Variavel de ambiente necessaria para as notificacoes: NTFY_TOPIC (o teu topico no ntfy)
 """
 import csv
+import html
 import json
 import os
 import re
 import sys
 import time
+import unicodedata
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
+from email.utils import parsedate_to_datetime
 from pathlib import Path
+from urllib.parse import urljoin
 
 import requests
 
@@ -65,6 +71,18 @@ PLENERGY_CAMPOS = {
 # So avisa de combustiveis cujo nome contenha um destes textos (minusculas).
 # Todos os tipos de gasoleo: simples, especial/plus, colorido...
 COMBUSTIVEIS_AVISO = ("gasóleo", "gasoleo")
+
+# Contas Poupanca: avisa quando sai um novo artigo de previsao semanal (ATUALIZACAO ISP)
+CP_URL = "https://contaspoupanca.pt/carro/combustiveis"
+CP_HEADERS = {  # o site bloqueia pedidos sem cabecalhos de browser (erro 403)
+    "User-Agent": ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"),
+    "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+    "Accept-Language": "pt-PT,pt;q=0.9,en;q=0.8",
+    "Referer": "https://contaspoupanca.pt/carro",
+}
+GN_RSS = "https://news.google.com/rss/search"  # alternativa quando o site bloqueia o script
+CP_TITULOS = ("atualizacao isp", "preco dos combustiveis na proxima semana")  # sem acentos
 
 HORA_RESUMO = 8      # resumo diario a partir desta hora (hora de Portugal)
 FALHAS_ALERTA = 3    # avisa quando uma fonte falha este numero de vezes seguidas
@@ -158,6 +176,89 @@ def precos_plenergy():
         if precos:
             saida[idalvic] = precos
     return saida
+
+
+# ------------------------------------------------------- Contas Poupanca
+def sem_acentos(t):
+    return "".join(c for c in unicodedata.normalize("NFKD", t) if not unicodedata.combining(c)).lower()
+
+
+def limpar_html(h):
+    h = re.sub(r"(?is)<(script|style).*?</\1>", " ", h)
+    h = re.sub(r"(?s)<[^>]+>", " ", h)
+    return re.sub(r"\s+", " ", html.unescape(h)).strip()
+
+
+def artigos_isp():
+    """Artigos de previsao semanal na pagina de combustiveis. Devolve [(titulo, url)], mais recente primeiro."""
+    r = requests.get(CP_URL, headers=CP_HEADERS, timeout=60)
+    r.raise_for_status()
+    vistos, saida = set(), []
+    for href, interior in re.findall(r'(?is)<a\b[^>]*?\bhref="([^"]+)"[^>]*>(.*?)</a>', r.text):
+        titulo = limpar_html(interior)
+        if not titulo or not any(x in sem_acentos(titulo) for x in CP_TITULOS):
+            continue
+        url = urljoin(CP_URL, href.split("?")[0])
+        if "contaspoupanca.pt" in url and url not in vistos:
+            vistos.add(url)
+            saida.append((titulo, url))
+    return saida
+
+
+def artigos_isp_rss():
+    """Alternativa: feed de pesquisa do Google Noticias (nao tem os numeros da previsao, so titulo e link)."""
+    q = 'site:contaspoupanca.pt "preço dos combustíveis na próxima semana" when:14d'
+    r = requests.get(GN_RSS, params={"q": q, "hl": "pt-PT", "gl": "PT", "ceid": "PT:pt-150"},
+                     headers=HEADERS, timeout=60)
+    r.raise_for_status()
+    itens = []
+    for it in ET.fromstring(r.content).iter("item"):
+        titulo = (it.findtext("title") or "").strip()
+        link = (it.findtext("link") or "").strip()
+        fonte = it.find("source")
+        fonte_txt = ((fonte.text or "") if fonte is not None else "").strip()
+        origem = sem_acentos(fonte_txt + (fonte.get("url", "") if fonte is not None else "")).replace(" ", "")
+        if "contaspoupanca" not in origem:
+            continue
+        if fonte_txt and titulo.endswith(" - " + fonte_txt):
+            titulo = titulo[: -len(" - " + fonte_txt)].strip()
+        if not any(x in sem_acentos(titulo) for x in CP_TITULOS):
+            continue
+        try:
+            data = parsedate_to_datetime(it.findtext("pubDate") or "")
+        except Exception:
+            data = datetime.fromtimestamp(0, timezone.utc)
+        itens.append((data, titulo, link))
+    itens.sort(key=lambda x: x[0], reverse=True)
+    return [(t, u) for _, t, u in itens]
+
+
+def obter_artigos_isp():
+    """Tenta o site; se bloquear (403), usa o feed do Google Noticias. Devolve (artigos, origem)."""
+    try:
+        return artigos_isp(), "site"
+    except Exception as e:
+        print(f"Contas Poupança bloqueou o acesso direto ({e}); a tentar o Google Noticias")
+        return artigos_isp_rss(), "google"
+
+
+def previsao_isp(url):
+    """Le a previsao (em centimos) do artigo. Devolve linhas de texto; vazio se nao conseguir."""
+    if "contaspoupanca.pt" not in url:
+        return []  # links do Google Noticias nao permitem ler o artigo
+    r = requests.get(url, headers=CP_HEADERS, timeout=60)
+    r.raise_for_status()
+    texto = limpar_html(r.text)
+    linhas = []
+    for nome, chave in (("Gasóleo", r"Gas[óo]leo"), ("Gasolina", r"Gasolina")):
+        m = re.search(chave + r"\s*\(.{0,80}?\)\s*=\s*([+\-−–]?\s*\d+(?:[.,]\d+)?)\s*c[eê]ntimos", texto, re.I)
+        if not m:
+            continue
+        valor = re.sub(r"[\s]", "", m.group(1)).replace("−", "-").replace("–", "-")
+        n = float(valor.lstrip("+-").replace(",", "."))
+        emoji = "" if n == 0 else ("⬇️ " if valor.startswith("-") else "⬆️ ")
+        linhas.append(f"{emoji}{nome}: {valor} cêntimos")
+    return linhas
 
 
 # ------------------------------------------------------------ formatacao
@@ -259,15 +360,18 @@ def registar_historico(linhas):
         w.writerows(linhas)
 
 
-def enviar(titulo, mensagem):
+def enviar(titulo, mensagem, click=None):
     mensagem = mensagem[:3800]
     if not TOPICO:
-        print(f"[sem NTFY_TOPIC] {titulo}: {mensagem}")
+        print(f"[sem NTFY_TOPIC] {titulo}: {mensagem}" + (f"\n  -> {click}" if click else ""))
         return
+    headers = {"Title": titulo, "Tags": "fuelpump", "Priority": "high"}  # titulo so em ASCII
+    if click:
+        headers["Click"] = click  # tocar na notificacao abre o artigo
     r = requests.post(
         f"https://ntfy.sh/{TOPICO}",
         data=mensagem.encode("utf-8"),
-        headers={"Title": titulo, "Tags": "fuelpump", "Priority": "high"},  # titulo so em ASCII
+        headers=headers,
         timeout=30,
     )
     r.raise_for_status()
@@ -288,6 +392,16 @@ def main():
             print(f"PLENERGY ({PLENERGY_POSTOS[idalvic]}):")
             for comb, preco in precos.items():
                 print(f"  {comb}: {preco}")
+        return
+
+    if "--isp" in args:
+        artigos, origem = obter_artigos_isp()
+        print(f"{len(artigos)} artigos de previsao semanal (fonte: {origem}):")
+        for titulo, url in artigos:
+            print(f"- {titulo}\n  {url}")
+        if artigos:
+            print("\nPrevisao do mais recente:")
+            print("\n".join(previsao_isp(artigos[0][1])) or "(nao consegui ler a previsao)")
         return
 
     if "--resumo" in args:
@@ -411,8 +525,31 @@ def main():
         if n >= FALHAS_ALERTA and chave not in falhas:
             alertas.append(f"Recuperou: {chave}")
 
+    # --- Contas Poupanca: novos artigos de previsao semanal ---
+    isp_vistos = meta_antiga.get("isp_vistos")  # None = ainda nao inicializado (nao avisa dos antigos)
+    avisos_isp = []
+    try:
+        artigos, _ = obter_artigos_isp()
+        chaves = [sem_acentos(t) for t, _ in artigos]  # o titulo identifica a semana (igual em qualquer fonte)
+        if isp_vistos is None:
+            isp_vistos = chaves
+        else:
+            novos = [(t, u) for t, u in artigos if sem_acentos(t) not in isp_vistos]
+            for titulo, url in reversed(novos):  # do mais antigo para o mais recente
+                try:
+                    linhas = previsao_isp(url)
+                except Exception as e:
+                    print(f"Nao consegui ler a previsao de {url}: {e}")
+                    linhas = []
+                avisos_isp.append((titulo, "\n".join([titulo] + ([""] + linhas if linhas else [])), url))
+            isp_vistos = (isp_vistos + [sem_acentos(t) for t, _ in novos])[-60:]
+    except Exception as e:
+        falhou("Contas Poupança (site)", e)
+
     # --- resumo diario ---
     meta = {"falhas": falhas, "ultimo_resumo": meta_antiga.get("ultimo_resumo", "")}
+    if isp_vistos is not None:
+        meta["isp_vistos"] = isp_vistos
     hoje = hora.strftime("%Y-%m-%d")
     texto_resumo = ""
     if antigo_estado is not None and hora.hour >= HORA_RESUMO and meta["ultimo_resumo"] != hoje:
@@ -432,6 +569,8 @@ def main():
             enviar("Combustiveis ALERTA", "\n".join(alertas))
         if texto_resumo:
             enviar("Resumo combustiveis", texto_resumo)
+        for _, mensagem, url in avisos_isp:
+            enviar("ISP - previsao semanal", mensagem, click=url)
 
     ESTADO.write_text(json.dumps(novo_estado, ensure_ascii=False, indent=1), encoding="utf-8")
     registar_historico(historico)
