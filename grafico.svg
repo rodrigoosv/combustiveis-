@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 736" width="940" height="736" font-family="Segoe UI, Arial, sans-serif">
 <rect width="940" height="736" fill="#ffffff"/>
 <text x="64" y="30" font-size="20" font-weight="bold" fill="#222">Preço dos combustíveis</text>
-<text x="64" y="48" font-size="12" fill="#666">Atualizado em 10/10/2026 03:52</text>
+<text x="64" y="48" font-size="12" fill="#666">Atualizado em 10/10/2026 04:20</text>
 <text x="64" y="80" font-size="16" font-weight="bold" fill="#222">Gasóleo simples (€/litro)</text>
 <text x="64" y="98" font-size="12" fill="#666">Mais baixo: 2,009 € (TRANSOGÁS, 08/10) · Mais alto: 2,274 € (BP (Embra), 08/10)</text>
 <line x1="64" y1="352.0" x2="680" y2="352.0" stroke="#e5e5e5"/>
@@ -67,20 +67,20 @@
 <line x1="696" y1="259" x2="716" y2="259" stroke="#800000" stroke-width="3"/>
 <text x="722" y="263" font-size="12" fill="#222">GALP (Marinha Grande)</text>
 <text x="932" y="263" font-size="12" fill="#222" text-anchor="end">2,266</text>
-<path d="M64.0,186.9 H363.8 V144.2 H680.0 V144.2" fill="none" stroke="#808000" stroke-width="2"/>
-<circle cx="363.8" cy="144.2" r="3" fill="#808000"/>
+<path d="M64.0,186.9 H361.0 V144.2 H680.0 V144.2" fill="none" stroke="#808000" stroke-width="2"/>
+<circle cx="361.0" cy="144.2" r="3" fill="#808000"/>
 <circle cx="680.0" cy="144.2" r="4" fill="#808000" stroke="#fff"/>
 <line x1="696" y1="278" x2="716" y2="278" stroke="#808000" stroke-width="3"/>
 <text x="722" y="282" font-size="12" fill="#222">REPSOL (Albergaria)</text>
 <text x="932" y="282" font-size="12" fill="#222" text-anchor="end">2,269</text>
-<path d="M64.0,186.9 H363.8 V144.2 H680.0 V144.2" fill="none" stroke="#000075" stroke-width="2"/>
-<circle cx="363.8" cy="144.2" r="3" fill="#000075"/>
+<path d="M64.0,186.9 H361.0 V144.2 H680.0 V144.2" fill="none" stroke="#000075" stroke-width="2"/>
+<circle cx="361.0" cy="144.2" r="3" fill="#000075"/>
 <circle cx="680.0" cy="144.2" r="4" fill="#000075" stroke="#fff"/>
 <line x1="696" y1="297" x2="716" y2="297" stroke="#000075" stroke-width="3"/>
 <text x="722" y="301" font-size="12" fill="#222">REPSOL (R. Mc)</text>
 <text x="932" y="301" font-size="12" fill="#222" text-anchor="end">2,269</text>
-<path d="M64.0,186.9 H363.8 V144.2 H680.0 V144.2" fill="none" stroke="#d4a000" stroke-width="2"/>
-<circle cx="363.8" cy="144.2" r="3" fill="#d4a000"/>
+<path d="M64.0,186.9 H361.0 V144.2 H680.0 V144.2" fill="none" stroke="#d4a000" stroke-width="2"/>
+<circle cx="361.0" cy="144.2" r="3" fill="#d4a000"/>
 <circle cx="680.0" cy="144.2" r="4" fill="#d4a000" stroke="#fff"/>
 <line x1="696" y1="316" x2="716" y2="316" stroke="#d4a000" stroke-width="3"/>
 <text x="722" y="320" font-size="12" fill="#222">REPSOL (R. Videiro)</text>
@@ -160,20 +160,20 @@
 <line x1="696" y1="599" x2="716" y2="599" stroke="#800000" stroke-width="3"/>
 <text x="722" y="603" font-size="12" fill="#222">GALP (Marinha Grande)</text>
 <text x="932" y="603" font-size="12" fill="#222" text-anchor="end">2,316</text>
-<path d="M64.0,540.2 H363.8 V510.4 H680.0 V510.4" fill="none" stroke="#808000" stroke-width="2"/>
-<circle cx="363.8" cy="510.4" r="3" fill="#808000"/>
+<path d="M64.0,540.2 H361.0 V510.4 H680.0 V510.4" fill="none" stroke="#808000" stroke-width="2"/>
+<circle cx="361.0" cy="510.4" r="3" fill="#808000"/>
 <circle cx="680.0" cy="510.4" r="4" fill="#808000" stroke="#fff"/>
 <line x1="696" y1="618" x2="716" y2="618" stroke="#808000" stroke-width="3"/>
 <text x="722" y="622" font-size="12" fill="#222">REPSOL (Albergaria)</text>
 <text x="932" y="622" font-size="12" fill="#222" text-anchor="end">2,339</text>
-<path d="M64.0,540.2 H363.8 V510.4 H680.0 V510.4" fill="none" stroke="#000075" stroke-width="2"/>
-<circle cx="363.8" cy="510.4" r="3" fill="#000075"/>
+<path d="M64.0,540.2 H361.0 V510.4 H680.0 V510.4" fill="none" stroke="#000075" stroke-width="2"/>
+<circle cx="361.0" cy="510.4" r="3" fill="#000075"/>
 <circle cx="680.0" cy="510.4" r="4" fill="#000075" stroke="#fff"/>
 <line x1="696" y1="637" x2="716" y2="637" stroke="#000075" stroke-width="3"/>
 <text x="722" y="641" font-size="12" fill="#222">REPSOL (R. Mc)</text>
 <text x="932" y="641" font-size="12" fill="#222" text-anchor="end">2,339</text>
-<path d="M64.0,540.2 H363.8 V510.4 H680.0 V510.4" fill="none" stroke="#d4a000" stroke-width="2"/>
-<circle cx="363.8" cy="510.4" r="3" fill="#d4a000"/>
+<path d="M64.0,540.2 H361.0 V510.4 H680.0 V510.4" fill="none" stroke="#d4a000" stroke-width="2"/>
+<circle cx="361.0" cy="510.4" r="3" fill="#d4a000"/>
 <circle cx="680.0" cy="510.4" r="4" fill="#d4a000" stroke="#fff"/>
 <line x1="696" y1="656" x2="716" y2="656" stroke="#d4a000" stroke-width="3"/>
 <text x="722" y="660" font-size="12" fill="#222">REPSOL (R. Videiro)</text>
