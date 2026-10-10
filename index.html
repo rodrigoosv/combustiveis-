@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="pt"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preços dos combustíveis</title>
+<style>
+:root{--bg:#fff;--fg:#1d1d1f;--mut:#6b6b70;--grid:#e6e6e8;--grid2:#f1f1f2;--card:#f4f4f6;--line:#d8d8dc}
+@media(prefers-color-scheme:dark){:root{--bg:#121316;--fg:#ececec;--mut:#9a9aa0;--grid:#2c2e33;--grid2:#202226;--card:#1c1e22;--line:#34363b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:20px 16px 40px}
+h1{margin:0 0 2px;font-size:22px}
+.sub{color:var(--mut);font-size:13px;margin-bottom:16px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+select,button.act{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.chips div{background:var(--card);border-radius:10px;padding:8px 12px;font-size:12px;color:var(--mut);min-width:190px}
+.chips b{display:block;font-size:18px;color:var(--fg);margin:2px 0}
+.chips small{font-size:12px}
+#box{position:relative}
+svg{display:block;width:100%;touch-action:pan-y}
+.g{stroke:var(--grid)}.g2{stroke:var(--grid2)}.t{fill:var(--mut);font-size:11px}
+.cur{stroke:var(--mut);stroke-dasharray:3 3}
+#tip{position:absolute;display:none;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12px;box-shadow:0 4px 14px rgba(0,0,0,.18);min-width:190px;z-index:2}
+#tip div{display:flex;align-items:center;gap:6px;margin-top:3px}
+#tip span{margin-left:auto;font-variant-numeric:tabular-nums;padding-left:12px}
+#tip i,.lg i{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block}
+#legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.lg{display:flex;align-items:center;gap:7px;font:inherit;font-size:13px;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 11px;cursor:pointer}
+.lg span{color:var(--mut);font-variant-numeric:tabular-nums}
+.lg.off{opacity:.38}
+.nota{color:var(--mut);font-size:12px;margin-top:18px;line-height:1.5}
+</style></head><body><main>
+<h1>Preços dos combustíveis</h1>
+<div class="sub" id="sub"></div>
+<div class="bar"><select id="sel"></select>
+<button class="act" id="todos">Mostrar todos</button><button class="act" id="nenhum">Ocultar todos</button></div>
+<div class="chips" id="chips"></div>
+<div id="box"><svg id="svg"></svg><div id="tip"></div></div>
+<div id="legend"></div>
+<p class="nota">Passa o rato (ou o dedo) sobre o gráfico para ver o preço de cada posto nesse momento. Clica num posto da legenda para o esconder ou mostrar.
+Os valores são os que o vigilante registou desde que começou; cada degrau é uma mudança de preço. Fonte: DGEG e Plenergy.</p>
+</main>
+<script>
+const D = {"atualizado": "10/10/2026 03:52", "x0": 1791431160000, "x1": 1791604369253, "grupos": {"Gasóleo simples": [{"n": "TRANSOGÁS", "c": "#2e8b57", "a": 2.009, "p": [[1791431160000, 2.109], [1791431160000, 2.009], [1791604369253, 2.009]]}, {"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 2.269, "p": [[1791431160000, 2.209], [1791515460000, 2.269], [1791604369253, 2.269]]}, {"n": "ALVES BANDEIRA", "c": "#e6194b", "a": 2.224, "p": [[1791431160000, 2.224], [1791604369253, 2.224]]}, {"n": "INTERMARCHÉ", "c": "#008080", "a": 2.099, "p": [[1791431160000, 2.099], [1791604369253, 2.099]]}, {"n": "PINGO DOCE", "c": "#800000", "a": 2.092, "p": [[1791431160000, 2.092], [1791604369253, 2.092]]}, {"n": "OZ Energia", "c": "#9a6324", "a": 2.174, "p": [[1791431160000, 2.174], [1791604369253, 2.174]]}, {"n": "GALP (Marinha Grande)", "c": "#911eb4", "a": 2.266, "p": [[1791431160000, 2.266], [1791604369253, 2.266]]}, {"n": "GALP (Embra)", "c": "#f58231", "a": 2.266, "p": [[1791431160000, 2.266], [1791604369253, 2.266]]}, {"n": "REPSOL (R. Mc)", "c": "#f032e6", "a": 2.269, "p": [[1791431160000, 2.209], [1791515460000, 2.269], [1791604369253, 2.269]]}, {"n": "REPSOL (R. Videiro)", "c": "#555555", "a": 2.269, "p": [[1791431160000, 2.209], [1791515460000, 2.269], [1791604369253, 2.269]]}, {"n": "BP (Marinha Grande)", "c": "#4363d8", "a": 2.274, "p": [[1791431160000, 2.274], [1791604369253, 2.274]]}, {"n": "BP (Embra)", "c": "#3cb44b", "a": 2.274, "p": [[1791431160000, 2.274], [1791604369253, 2.274]]}, {"n": "PLENERGY", "c": "#808000", "a": 2.019, "p": [[1791431160000, 2.219], [1791431160000, 2.019], [1791604369253, 2.019]]}], "Gasóleo especial / plus": [{"n": "TRANSOGÁS", "c": "#2e8b57", "a": 2.049, "p": [[1791431160000, 2.049], [1791604369253, 2.049]]}, {"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 2.339, "p": [[1791431160000, 2.279], [1791515460000, 2.339], [1791604369253, 2.339]]}, {"n": "PRIO (Marinha Grande)", "c": "#d4a000", "a": 2.209, "p": [[1791431160000, 2.219], [1791431160000, 2.209], [1791604369253, 2.209]]}, {"n": "INTERMARCHÉ", "c": "#008080", "a": 2.139, "p": [[1791431160000, 2.139], [1791604369253, 2.139]]}, {"n": "PRIO (Leiria)", "c": "#000075", "a": 2.144, "p": [[1791431160000, 2.144], [1791604369253, 2.144]]}, {"n": "PINGO DOCE", "c": "#800000", "a": 2.399, "p": [[1791431160000, 2.399], [1791604369253, 2.399]]}, {"n": "OZ Energia", "c": "#9a6324", "a": 2.214, "p": [[1791431160000, 2.214], [1791604369253, 2.214]]}, {"n": "GALP (Marinha Grande)", "c": "#911eb4", "a": 2.316, "p": [[1791431160000, 2.316], [1791604369253, 2.316]]}, {"n": "GALP (Embra)", "c": "#f58231", "a": 2.316, "p": [[1791431160000, 2.316], [1791604369253, 2.316]]}, {"n": "REPSOL (R. Mc)", "c": "#f032e6", "a": 2.339, "p": [[1791431160000, 2.279], [1791515460000, 2.339], [1791604369253, 2.339]]}, {"n": "REPSOL (R. Videiro)", "c": "#555555", "a": 2.339, "p": [[1791431160000, 2.279], [1791515460000, 2.339], [1791604369253, 2.339]]}, {"n": "BP (Marinha Grande)", "c": "#4363d8", "a": 2.399, "p": [[1791431160000, 2.399], [1791604369253, 2.399]]}, {"n": "BP (Embra)", "c": "#3cb44b", "a": 2.399, "p": [[1791431160000, 2.399], [1791604369253, 2.399]]}, {"n": "PLENERGY", "c": "#808000", "a": 2.069, "p": [[1791431160000, 2.019], [1791431160000, 2.069], [1791604369253, 2.069]]}], "Gasolina 95 simples": [{"n": "TRANSOGÁS", "c": "#2e8b57", "a": 1.929, "p": [[1791431160000, 1.929], [1791604369253, 1.929]]}, {"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 2.174, "p": [[1791431160000, 2.114], [1791515460000, 2.174], [1791604369253, 2.174]]}, {"n": "PRIO (Marinha Grande)", "c": "#d4a000", "a": 2.169, "p": [[1791431160000, 2.169], [1791604369253, 2.169]]}, {"n": "ALVES BANDEIRA", "c": "#e6194b", "a": 2.139, "p": [[1791431160000, 2.139], [1791604369253, 2.139]]}, {"n": "INTERMARCHÉ", "c": "#008080", "a": 2.009, "p": [[1791431160000, 2.009], [1791604369253, 2.009]]}, {"n": "PRIO (Leiria)", "c": "#000075", "a": 2.119, "p": [[1791431160000, 2.119], [1791604369253, 2.119]]}, {"n": "PINGO DOCE", "c": "#800000", "a": 2.048, "p": [[1791431160000, 2.048], [1791604369253, 2.048]]}, {"n": "OZ Energia", "c": "#9a6324", "a": 2.069, "p": [[1791431160000, 2.069], [1791604369253, 2.069]]}, {"n": "GALP (Marinha Grande)", "c": "#911eb4", "a": 2.164, "p": [[1791431160000, 2.164], [1791604369253, 2.164]]}, {"n": "GALP (Embra)", "c": "#f58231", "a": 2.164, "p": [[1791431160000, 2.164], [1791604369253, 2.164]]}, {"n": "REPSOL (R. Mc)", "c": "#f032e6", "a": 2.174, "p": [[1791431160000, 2.114], [1791515460000, 2.174], [1791604369253, 2.174]]}, {"n": "REPSOL (R. Videiro)", "c": "#555555", "a": 2.174, "p": [[1791431160000, 2.114], [1791515460000, 2.174], [1791604369253, 2.174]]}, {"n": "BP (Marinha Grande)", "c": "#4363d8", "a": 2.179, "p": [[1791431160000, 2.179], [1791604369253, 2.179]]}, {"n": "BP (Embra)", "c": "#3cb44b", "a": 2.179, "p": [[1791431160000, 2.179], [1791604369253, 2.179]]}, {"n": "PLENERGY", "c": "#808000", "a": 1.939, "p": [[1791431160000, 1.939], [1791604369253, 1.939]]}], "Gasolina 95 especial / plus": [{"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 2.244, "p": [[1791431160000, 2.184], [1791515460000, 2.244], [1791604369253, 2.244]]}, {"n": "PRIO (Marinha Grande)", "c": "#d4a000", "a": 2.119, "p": [[1791431160000, 2.119], [1791604369253, 2.119]]}, {"n": "PRIO (Leiria)", "c": "#000075", "a": 2.044, "p": [[1791431160000, 2.044], [1791604369253, 2.044]]}, {"n": "GALP (Marinha Grande)", "c": "#911eb4", "a": 2.214, "p": [[1791431160000, 2.214], [1791604369253, 2.214]]}, {"n": "GALP (Embra)", "c": "#f58231", "a": 2.214, "p": [[1791431160000, 2.214], [1791604369253, 2.214]]}, {"n": "REPSOL (R. Mc)", "c": "#f032e6", "a": 2.244, "p": [[1791431160000, 2.184], [1791515460000, 2.244], [1791604369253, 2.244]]}, {"n": "REPSOL (R. Videiro)", "c": "#555555", "a": 2.244, "p": [[1791431160000, 2.184], [1791515460000, 2.244], [1791604369253, 2.244]]}, {"n": "PLENERGY", "c": "#808000", "a": 1.989, "p": [[1791431160000, 1.989], [1791604369253, 1.989]]}], "Gasolina 98": [{"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 2.374, "p": [[1791431160000, 2.314], [1791515460000, 2.374], [1791604369253, 2.374]]}, {"n": "ALVES BANDEIRA", "c": "#e6194b", "a": 2.309, "p": [[1791431160000, 2.309], [1791604369253, 2.309]]}, {"n": "INTERMARCHÉ", "c": "#008080", "a": 2.189, "p": [[1791431160000, 2.189], [1791604369253, 2.189]]}, {"n": "PINGO DOCE", "c": "#800000", "a": 2.409, "p": [[1791431160000, 2.409], [1791604369253, 2.409]]}, {"n": "OZ Energia", "c": "#9a6324", "a": 2.289, "p": [[1791431160000, 2.289], [1791604369253, 2.289]]}, {"n": "GALP (Marinha Grande)", "c": "#911eb4", "a": 2.394, "p": [[1791431160000, 2.394], [1791604369253, 2.394]]}, {"n": "REPSOL (R. Videiro)", "c": "#555555", "a": 2.374, "p": [[1791431160000, 2.314], [1791515460000, 2.374], [1791604369253, 2.374]]}, {"n": "BP (Marinha Grande)", "c": "#4363d8", "a": 2.409, "p": [[1791431160000, 2.409], [1791604369253, 2.409]]}, {"n": "BP (Embra)", "c": "#3cb44b", "a": 2.409, "p": [[1791431160000, 2.409], [1791604369253, 2.409]]}], "GPL": [{"n": "TRANSOGÁS", "c": "#2e8b57", "a": 0.93, "p": [[1791431160000, 0.93], [1791604369253, 0.93]]}, {"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 0.999, "p": [[1791431160000, 0.999], [1791604369253, 0.999]]}]}};
+const $ = id => document.getElementById(id);
+const pad = n => String(n).padStart(2, '0');
+const fd = (ms, h) => { const d = new Date(ms); return pad(d.getUTCDate()) + '/' + pad(d.getUTCMonth() + 1) + (h ? ' ' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) : ''); };
+const eur = v => v.toFixed(3).replace('.', ',') + ' €';
+let grupo = D.grupos['Gasóleo simples'] ? 'Gasóleo simples' : Object.keys(D.grupos)[0];
+const hidden = new Set();
+let geo = null;
+const valorEm = (s, t) => { let v = s.p[0][1]; for (const q of s.p) { if (q[0] <= t) v = q[1]; else break; } return v; };
+
+function render() {
+  const svg = $('svg'), box = $('box');
+  if (!grupo) { $('sub').textContent = 'Ainda não há dados.'; return; }
+  const todas = D.grupos[grupo].slice().sort((a, b) => a.a - b.a || a.n.localeCompare(b.n));
+  const vis = todas.filter(s => !hidden.has(s.n));
+  const W = Math.max(320, box.clientWidth), H = Math.max(300, Math.min(480, Math.round(W * 0.55)));
+  const m = {l: 58, r: 30, t: 12, b: 28};
+  const x0 = D.x0, x1 = Math.max(D.x1, D.x0 + 864e5), span = x1 - x0;
+  const base = vis.length ? vis : todas;
+  const vals = base.flatMap(s => s.p.map(q => q[1]));
+  let lo = Math.min(...vals), hi = Math.max(...vals);
+  const pd = Math.max(0.02, (hi - lo) * 0.12); lo -= pd; hi += pd;
+  const X = t => m.l + (t - x0) / span * (W - m.l - m.r);
+  const Y = v => H - m.b - (v - lo) / (hi - lo) * (H - m.t - m.b);
+  geo = {W, H, m, x0, span, vis};
+  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.setAttribute('height', H);
+  let o = '';
+  for (let k = 0; k < 5; k++) { const v = lo + (hi - lo) * k / 4, y = Y(v);
+    o += '<line x1="' + m.l + '" x2="' + (W - m.r) + '" y1="' + y + '" y2="' + y + '" class="g"/><text x="' + (m.l - 8) + '" y="' + (y + 4) + '" text-anchor="end" class="t">' + v.toFixed(3).replace('.', ',') + '</text>'; }
+  for (let k = 0; k < 5; k++) { const t = x0 + span * k / 4, x = X(t);
+    o += '<line x1="' + x + '" x2="' + x + '" y1="' + m.t + '" y2="' + (H - m.b) + '" class="g2"/><text x="' + x + '" y="' + (H - 8) + '" text-anchor="middle" class="t">' + fd(t, span < 2 * 864e5) + '</text>'; }
+  for (const s of vis) {
+    let d = ''; s.p.forEach((q, i) => { d += i ? ' H' + X(q[0]) + ' V' + Y(q[1]) : 'M' + X(q[0]) + ',' + Y(q[1]); });
+    o += '<path d="' + d + '" fill="none" stroke="' + s.c + '" stroke-width="2.2"/>';
+    s.p.slice(1, -1).forEach(q => { o += '<circle cx="' + X(q[0]) + '" cy="' + Y(q[1]) + '" r="3" fill="' + s.c + '"/>'; });
+    const e = s.p[s.p.length - 1]; o += '<circle cx="' + X(e[0]) + '" cy="' + Y(e[1]) + '" r="4.5" fill="' + s.c + '" stroke="var(--bg)" stroke-width="1.5"/>';
+  }
+  o += '<line id="cur" y1="' + m.t + '" y2="' + (H - m.b) + '" class="cur" style="display:none"/>';
+  svg.innerHTML = o;
+
+  const lg = $('legend'); lg.innerHTML = '';
+  todas.forEach(s => {
+    const b = document.createElement('button'); b.className = 'lg' + (hidden.has(s.n) ? ' off' : '');
+    b.innerHTML = '<i style="background:' + s.c + '"></i>' + s.n + '<span>' + eur(s.a) + '</span>';
+    b.onclick = () => { hidden.has(s.n) ? hidden.delete(s.n) : hidden.add(s.n); render(); };
+    lg.appendChild(b);
+  });
+  let mn = null, mx = null;
+  for (const s of vis) for (const q of s.p) {
+    if (!mn || q[1] < mn.v) mn = {v: q[1], n: s.n, t: q[0]};
+    if (!mx || q[1] > mx.v) mx = {v: q[1], n: s.n, t: q[0]};
+  }
+  $('chips').innerHTML = mn ? '<div>Mais baixo<b>' + eur(mn.v) + '</b><small>' + mn.n + ' · ' + fd(mn.t) + '</small></div><div>Mais alto<b>' + eur(mx.v) + '</b><small>' + mx.n + ' · ' + fd(mx.t) + '</small></div>' : '';
+}
+
+function onMove(ev) {
+  if (!geo || !geo.vis.length) return;
+  const svg = $('svg'), box = $('box'), tip = $('tip');
+  const r = svg.getBoundingClientRect(), px = (ev.clientX - r.left) * geo.W / r.width;
+  const m = geo.m, f = Math.min(1, Math.max(0, (px - m.l) / (geo.W - m.l - m.r)));
+  const t = geo.x0 + f * geo.span, x = m.l + f * (geo.W - m.l - m.r);
+  const cur = $('cur'); cur.setAttribute('x1', x); cur.setAttribute('x2', x); cur.style.display = '';
+  const rows = geo.vis.map(s => [s, valorEm(s, t)]).sort((a, b) => a[1] - b[1]);
+  tip.innerHTML = '<b>' + fd(t, true) + '</b>' + rows.map(q => '<div><i style="background:' + q[0].c + '"></i>' + q[0].n + '<span>' + eur(q[1]) + '</span></div>').join('');
+  tip.style.display = 'block';
+  const bx = box.getBoundingClientRect(); let left = ev.clientX - bx.left + 14;
+  if (left + tip.offsetWidth > bx.width) left = ev.clientX - bx.left - tip.offsetWidth - 14;
+  tip.style.left = Math.max(0, left) + 'px'; tip.style.top = Math.max(0, ev.clientY - bx.top - 10) + 'px';
+}
+
+$('sub').textContent = 'Atualizado em ' + D.atualizado;
+Object.keys(D.grupos).forEach(g => { const op = document.createElement('option'); op.value = op.textContent = g; if (g === grupo) op.selected = true; $('sel').appendChild(op); });
+$('sel').onchange = e => { grupo = e.target.value; render(); };
+$('todos').onclick = () => { hidden.clear(); render(); };
+$('nenhum').onclick = () => { (D.grupos[grupo] || []).forEach(s => hidden.add(s.n)); render(); };
+$('svg').addEventListener('pointermove', onMove);
+$('svg').addEventListener('pointerleave', () => { $('tip').style.display = 'none'; const c = $('cur'); if (c) c.style.display = 'none'; });
+window.addEventListener('resize', render);
+render();
+</script></body></html>
