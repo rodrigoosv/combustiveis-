@@ -65,6 +65,7 @@ NOMES_POSTOS = {
 # Plenergy: os precos vem da pagina deles (variavel datosPrecio), indexados por idalvic.
 PLENERGY_URL = "https://plenergy.pt/estacoes-de-servico/"
 PLENERGY_POSTOS = {"404": "Marinha Grande"}  # idalvic -> localidade
+PLENERGY_COORDS = {"404": (39.74173, -8.935447, "Avenida Dr. José Henriques Vareda, nº 32")}  # lat, lon, morada
 PLENERGY_CAMPOS = {
     "diesel": "Gasóleo simples",
     "goa_add": "Gasóleo plus",
@@ -587,7 +588,16 @@ def dados_pagina(estado, desde, agora):
     def ms(t):
         return int((t - datetime(1970, 1, 1)).total_seconds() * 1000)
 
-    grupos = {g: [{"n": n, "c": cores[n], "a": atual, "p": [[ms(t), p] for t, p in pts]}
+    info = {}
+    for pid, v in estado.items():
+        if pid != "_meta":
+            info[v.get("aviso") or v.get("nome")] = v
+
+    def extra(n):
+        v = info.get(n, {})
+        return {"lat": v.get("lat"), "lon": v.get("lon"), "m": v.get("morada")}
+
+    grupos = {g: [{"n": n, "c": cores[n], "a": atual, "p": [[ms(t), p] for t, p in pts], **extra(n)}
                   for n, pts, atual in res[g]] for g in ORDEM_GRUPOS if g in res}
     return {"atualizado": agora.strftime("%d/%m/%Y %H:%M"), "x0": ms(x0), "x1": ms(agora), "grupos": grupos}
 
@@ -596,81 +606,147 @@ PAGINA_HTML = r"""<!doctype html>
 <html lang="pt"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Preços dos combustíveis</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
 <style>
-:root{--bg:#fff;--fg:#1d1d1f;--mut:#6b6b70;--grid:#e6e6e8;--grid2:#f1f1f2;--card:#f4f4f6;--line:#d8d8dc}
-@media(prefers-color-scheme:dark){:root{--bg:#121316;--fg:#ececec;--mut:#9a9aa0;--grid:#2c2e33;--grid2:#202226;--card:#1c1e22;--line:#34363b}}
+:root{--bg:#fff;--fg:#1d1d1f;--mut:#6b6b70;--grid:#e6e6e8;--grid2:#f1f1f2;--card:#f4f4f6;--line:#d8d8dc;--up:#c0392b;--down:#1e8e3e}
+@media(prefers-color-scheme:dark){:root{--bg:#121316;--fg:#ececec;--mut:#9a9aa0;--grid:#2c2e33;--grid2:#202226;--card:#1c1e22;--line:#34363b;--up:#ff7b6b;--down:#4cd37b}}
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
 main{max-width:1100px;margin:0 auto;padding:20px 16px 40px}
 h1{margin:0 0 2px;font-size:22px}
+h2{margin:0 0 10px;font-size:16px}
 .sub{color:var(--mut);font-size:13px;margin-bottom:16px}
-.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
-select,button.act{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+select,input,button.act{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
+button.act{cursor:pointer}button.act.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+input[type=number]{width:84px}
+label.chk{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mut);cursor:pointer}
+section{border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:18px}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:13px;white-space:nowrap}
+th{font-weight:600;color:var(--mut);text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);font-size:12px}
+td{padding:7px 8px;border-bottom:1px solid var(--grid)}
+.n{text-align:right;font-variant-numeric:tabular-nums}th.n{text-align:right}
+td i,.lg i,#tip i{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block;margin-right:7px}
+.up{color:var(--up)}.down{color:var(--down)}.mut{color:var(--mut)}
+a{color:inherit}
 .chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
 .chips div{background:var(--card);border-radius:10px;padding:8px 12px;font-size:12px;color:var(--mut);min-width:190px}
 .chips b{display:block;font-size:18px;color:var(--fg);margin:2px 0}
-.chips small{font-size:12px}
 #box{position:relative}
 svg{display:block;width:100%;touch-action:pan-y}
 .g{stroke:var(--grid)}.g2{stroke:var(--grid2)}.t{fill:var(--mut);font-size:11px}
 .cur{stroke:var(--mut);stroke-dasharray:3 3}
-#tip{position:absolute;display:none;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12px;box-shadow:0 4px 14px rgba(0,0,0,.18);min-width:190px;z-index:2}
-#tip div{display:flex;align-items:center;gap:6px;margin-top:3px}
+#tip{position:absolute;display:none;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12px;box-shadow:0 4px 14px rgba(0,0,0,.18);min-width:200px;z-index:500}
+#tip div{display:flex;align-items:center;margin-top:3px}
 #tip span{margin-left:auto;font-variant-numeric:tabular-nums;padding-left:12px}
-#tip i,.lg i{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block}
+#tip .med{border-top:1px solid var(--line);margin-top:6px;padding-top:5px;color:var(--mut)}
 #legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.lg{display:flex;align-items:center;gap:7px;font:inherit;font-size:13px;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 11px;cursor:pointer}
-.lg span{color:var(--mut);font-variant-numeric:tabular-nums}
+.lg{display:flex;align-items:center;font:inherit;font-size:13px;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 11px;cursor:pointer}
+.lg span{color:var(--mut);font-variant-numeric:tabular-nums;margin-left:7px}
 .lg.off{opacity:.38}
-.nota{color:var(--mut);font-size:12px;margin-top:18px;line-height:1.5}
+#mapa{height:380px;border-radius:10px;overflow:hidden;background:var(--card)}
+.pin div{color:#fff;font-weight:700;font-size:11px;text-align:center;padding:2px 0;border-radius:11px;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4);width:58px}
+.escala{height:8px;border-radius:4px;background:linear-gradient(90deg,hsl(120,65%,38%),hsl(60,65%,38%),hsl(0,65%,38%));width:160px;display:inline-block;vertical-align:middle;margin:0 6px}
+.nota{color:var(--mut);font-size:12px;line-height:1.5;margin:10px 0 0}
+@media(max-width:640px){.h{display:none}td,th{padding:6px 4px;font-size:12px}td:nth-child(2){white-space:normal}#hoje td:first-child,#hoje th:first-child{display:none}}
 </style></head><body><main>
 <h1>Preços dos combustíveis</h1>
 <div class="sub" id="sub"></div>
-<div class="bar"><select id="sel"></select>
+<div class="bar"><select id="sel"></select></div>
+
+<section><h2>Hoje</h2>
+<div class="bar"><label class="chk">Depósito:&nbsp;<input type="number" id="litros" min="1" max="200" step="1">&nbsp;litros</label></div>
+<div class="tw"><table id="hoje"></table></div>
+<p class="nota">Variações face a 24 horas e a 7 dias atrás, a contar desde que o vigilante começou a registar (até lá aparece «—»). A poupança compara com o posto mais caro da lista.</p>
+</section>
+
+<section><h2>Evolução</h2>
+<div class="bar"><button class="act" data-p="7">7 dias</button><button class="act" data-p="30">30 dias</button><button class="act" data-p="tudo">Tudo</button>
+<label class="chk"><input type="checkbox" id="media" checked>Linha da média</label>
 <button class="act" id="todos">Mostrar todos</button><button class="act" id="nenhum">Ocultar todos</button></div>
 <div class="chips" id="chips"></div>
 <div id="box"><svg id="svg"></svg><div id="tip"></div></div>
 <div id="legend"></div>
-<p class="nota">Passa o rato (ou o dedo) sobre o gráfico para ver o preço de cada posto nesse momento. Clica num posto da legenda para o esconder ou mostrar.
-Os valores são os que o vigilante registou desde que começou; cada degrau é uma mudança de preço. Fonte: DGEG e Plenergy.</p>
+<p class="nota">Passa o rato (ou o dedo) sobre o gráfico para ver o preço de cada posto nesse momento. Clica num posto da legenda para o esconder. Cada degrau é uma mudança de preço.</p>
+</section>
+
+<section><h2>Mapa</h2>
+<div id="mapa"></div>
+<p class="nota">Barato<span class="escala"></span>caro (dentro do combustível escolhido). Toca num posto para ver os detalhes.</p>
+</section>
+<p class="nota">Fonte: DGEG e Plenergy. Mapa: © OpenStreetMap.</p>
 </main>
+<script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 const D = __DADOS__;
 const $ = id => document.getElementById(id);
 const pad = n => String(n).padStart(2, '0');
 const fd = (ms, h) => { const d = new Date(ms); return pad(d.getUTCDate()) + '/' + pad(d.getUTCMonth() + 1) + (h ? ' ' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) : ''); };
-const eur = v => v.toFixed(3).replace('.', ',') + ' €';
+const vc = v => v.toFixed(3).replace('.', ',');
+const eur = v => vc(v) + ' €';
+const eur2 = v => v.toFixed(2).replace('.', ',') + ' €';
+const DIA = 864e5, NOW = D.x1;
 let grupo = D.grupos['Gasóleo simples'] ? 'Gasóleo simples' : Object.keys(D.grupos)[0];
+let periodo = 'tudo', litros = 40, geo = null, map = null, camada = null;
 const hidden = new Set();
-let geo = null;
+try { litros = parseFloat(localStorage.getItem('litros')) || 40; } catch (e) {}
 const valorEm = (s, t) => { let v = s.p[0][1]; for (const q of s.p) { if (q[0] <= t) v = q[1]; else break; } return v; };
+const delta = (s, dias) => { const t = NOW - dias * DIA; return t < D.x0 ? null : s.a - valorEm(s, t); };
+const sorted = g => D.grupos[g].slice().sort((a, b) => a.a - b.a || a.n.localeCompare(b.n));
+const maps = s => 'https://www.google.com/maps/search/?api=1&query=' + s.lat + ',' + s.lon;
 
-function render() {
+function dl(d) {
+  if (d === null) return '<span class="mut">—</span>';
+  const c = Math.round(d * 1000) / 10;
+  if (c === 0) return '<span class="mut">=</span>';
+  return '<span class="' + (c > 0 ? 'up' : 'down') + '">' + (c > 0 ? '⬆️ +' : '⬇️ ') + c.toFixed(1).replace('.', ',') + ' cênt.</span>';
+}
+
+function renderHoje() {
+  const ss = sorted(grupo), maxA = Math.max(...ss.map(s => s.a));
+  let h = '<tr><th>#</th><th>Posto</th><th class="n">Preço</th><th class="n">24 h</th><th class="n h">7 dias</th><th class="n">Custo (' + litros + ' L)</th><th class="n">Poupas</th><th class="n h">Mín.</th><th class="n h">Máx.</th><th></th></tr>';
+  ss.forEach((s, i) => {
+    const vals = s.p.map(q => q[1]), poupa = litros * (maxA - s.a);
+    h += '<tr><td>' + (i === 0 ? '🥇' : i + 1) + '</td><td><i style="background:' + s.c + '"></i>' + s.n + '</td><td class="n"><b>' + eur(s.a) + '</b></td><td class="n">' + dl(delta(s, 1)) + '</td><td class="n h">' + dl(delta(s, 7)) + '</td><td class="n">' + eur2(litros * s.a) + '</td><td class="n">' + (poupa > 0.004 ? '<span class="down">' + eur2(poupa) + '</span>' : '<span class="mut">—</span>') + '</td><td class="n h">' + eur(Math.min(...vals)) + '</td><td class="n h">' + eur(Math.max(...vals)) + '</td><td>' + (s.lat != null ? '<a href="' + maps(s) + '" target="_blank" rel="noopener"><span class="h">Mapa </span>↗</a>' : '') + '</td></tr>';
+  });
+  $('hoje').innerHTML = h;
+}
+
+function renderGrafico() {
   const svg = $('svg'), box = $('box');
-  if (!grupo) { $('sub').textContent = 'Ainda não há dados.'; return; }
-  const todas = D.grupos[grupo].slice().sort((a, b) => a.a - b.a || a.n.localeCompare(b.n));
-  const vis = todas.filter(s => !hidden.has(s.n));
+  const todas = sorted(grupo), x0 = periodo === 'tudo' ? D.x0 : Math.max(D.x0, NOW - periodo * DIA);
+  const x1 = Math.max(NOW, x0 + DIA), span = x1 - x0;
+  const win = s => [[x0, valorEm(s, x0)]].concat(s.p.filter(q => q[0] > x0));
+  const vis = todas.filter(s => !hidden.has(s.n)).map(s => Object.assign({}, s, {w: win(s)}));
+  const base = vis.length ? vis : todas.map(s => Object.assign({}, s, {w: win(s)}));
   const W = Math.max(320, box.clientWidth), H = Math.max(300, Math.min(480, Math.round(W * 0.55)));
   const m = {l: 58, r: 30, t: 12, b: 28};
-  const x0 = D.x0, x1 = Math.max(D.x1, D.x0 + 864e5), span = x1 - x0;
-  const base = vis.length ? vis : todas;
-  const vals = base.flatMap(s => s.p.map(q => q[1]));
+  const vals = base.flatMap(s => s.w.map(q => q[1]));
   let lo = Math.min(...vals), hi = Math.max(...vals);
   const pd = Math.max(0.02, (hi - lo) * 0.12); lo -= pd; hi += pd;
   const X = t => m.l + (t - x0) / span * (W - m.l - m.r);
   const Y = v => H - m.b - (v - lo) / (hi - lo) * (H - m.t - m.b);
-  geo = {W, H, m, x0, span, vis};
+  const mediaEm = t => vis.reduce((a, s) => a + valorEm(s, t), 0) / vis.length;
+  geo = {W, H, m, x0, span, vis, mediaEm};
   svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.setAttribute('height', H);
   let o = '';
   for (let k = 0; k < 5; k++) { const v = lo + (hi - lo) * k / 4, y = Y(v);
-    o += '<line x1="' + m.l + '" x2="' + (W - m.r) + '" y1="' + y + '" y2="' + y + '" class="g"/><text x="' + (m.l - 8) + '" y="' + (y + 4) + '" text-anchor="end" class="t">' + v.toFixed(3).replace('.', ',') + '</text>'; }
+    o += '<line x1="' + m.l + '" x2="' + (W - m.r) + '" y1="' + y + '" y2="' + y + '" class="g"/><text x="' + (m.l - 8) + '" y="' + (y + 4) + '" text-anchor="end" class="t">' + vc(v) + '</text>'; }
   for (let k = 0; k < 5; k++) { const t = x0 + span * k / 4, x = X(t);
-    o += '<line x1="' + x + '" x2="' + x + '" y1="' + m.t + '" y2="' + (H - m.b) + '" class="g2"/><text x="' + x + '" y="' + (H - 8) + '" text-anchor="middle" class="t">' + fd(t, span < 2 * 864e5) + '</text>'; }
+    o += '<line x1="' + x + '" x2="' + x + '" y1="' + m.t + '" y2="' + (H - m.b) + '" class="g2"/><text x="' + x + '" y="' + (H - 8) + '" text-anchor="middle" class="t">' + fd(t, span < 2 * DIA) + '</text>'; }
   for (const s of vis) {
-    let d = ''; s.p.forEach((q, i) => { d += i ? ' H' + X(q[0]) + ' V' + Y(q[1]) : 'M' + X(q[0]) + ',' + Y(q[1]); });
+    let d = ''; s.w.forEach((q, i) => { d += i ? ' H' + X(q[0]) + ' V' + Y(q[1]) : 'M' + X(q[0]) + ',' + Y(q[1]); });
+    d += ' H' + X(x1);
     o += '<path d="' + d + '" fill="none" stroke="' + s.c + '" stroke-width="2.2"/>';
-    s.p.slice(1, -1).forEach(q => { o += '<circle cx="' + X(q[0]) + '" cy="' + Y(q[1]) + '" r="3" fill="' + s.c + '"/>'; });
-    const e = s.p[s.p.length - 1]; o += '<circle cx="' + X(e[0]) + '" cy="' + Y(e[1]) + '" r="4.5" fill="' + s.c + '" stroke="var(--bg)" stroke-width="1.5"/>';
+    s.w.slice(1).forEach(q => { o += '<circle cx="' + X(q[0]) + '" cy="' + Y(q[1]) + '" r="3" fill="' + s.c + '"/>'; });
+    o += '<circle cx="' + X(x1) + '" cy="' + Y(s.a) + '" r="4.5" fill="' + s.c + '" stroke="var(--bg)" stroke-width="1.5"/>';
+  }
+  if ($('media').checked && vis.length > 1) {
+    const ts = [...new Set([x0].concat(vis.flatMap(s => s.w.map(q => q[0]))))].sort((a, b) => a - b);
+    let d = ''; ts.forEach((t, i) => { const y = Y(mediaEm(t)); d += i ? ' H' + X(t) + ' V' + y : 'M' + X(t) + ',' + y; });
+    d += ' H' + X(x1);
+    o += '<path d="' + d + '" fill="none" stroke="var(--fg)" stroke-width="1.8" stroke-dasharray="6 4" opacity=".65"/>';
   }
   o += '<line id="cur" y1="' + m.t + '" y2="' + (H - m.b) + '" class="cur" style="display:none"/>';
   svg.innerHTML = o;
@@ -679,15 +755,16 @@ function render() {
   todas.forEach(s => {
     const b = document.createElement('button'); b.className = 'lg' + (hidden.has(s.n) ? ' off' : '');
     b.innerHTML = '<i style="background:' + s.c + '"></i>' + s.n + '<span>' + eur(s.a) + '</span>';
-    b.onclick = () => { hidden.has(s.n) ? hidden.delete(s.n) : hidden.add(s.n); render(); };
+    b.onclick = () => { hidden.has(s.n) ? hidden.delete(s.n) : hidden.add(s.n); renderGrafico(); };
     lg.appendChild(b);
   });
   let mn = null, mx = null;
-  for (const s of vis) for (const q of s.p) {
+  for (const s of vis) for (const q of s.w) {
     if (!mn || q[1] < mn.v) mn = {v: q[1], n: s.n, t: q[0]};
     if (!mx || q[1] > mx.v) mx = {v: q[1], n: s.n, t: q[0]};
   }
   $('chips').innerHTML = mn ? '<div>Mais baixo<b>' + eur(mn.v) + '</b><small>' + mn.n + ' · ' + fd(mn.t) + '</small></div><div>Mais alto<b>' + eur(mx.v) + '</b><small>' + mx.n + ' · ' + fd(mx.t) + '</small></div>' : '';
+  document.querySelectorAll('button[data-p]').forEach(b => b.classList.toggle('on', b.dataset.p === String(periodo)));
 }
 
 function onMove(ev) {
@@ -698,22 +775,52 @@ function onMove(ev) {
   const t = geo.x0 + f * geo.span, x = m.l + f * (geo.W - m.l - m.r);
   const cur = $('cur'); cur.setAttribute('x1', x); cur.setAttribute('x2', x); cur.style.display = '';
   const rows = geo.vis.map(s => [s, valorEm(s, t)]).sort((a, b) => a[1] - b[1]);
-  tip.innerHTML = '<b>' + fd(t, true) + '</b>' + rows.map(q => '<div><i style="background:' + q[0].c + '"></i>' + q[0].n + '<span>' + eur(q[1]) + '</span></div>').join('');
-  tip.style.display = 'block';
+  let h = '<b>' + fd(t, true) + '</b>' + rows.map(q => '<div><i style="background:' + q[0].c + '"></i>' + q[0].n + '<span>' + eur(q[1]) + '</span></div>').join('');
+  if ($('media').checked && geo.vis.length > 1) h += '<div class="med">Média<span>' + eur(geo.mediaEm(t)) + '</span></div>';
+  tip.innerHTML = h; tip.style.display = 'block';
   const bx = box.getBoundingClientRect(); let left = ev.clientX - bx.left + 14;
   if (left + tip.offsetWidth > bx.width) left = ev.clientX - bx.left - tip.offsetWidth - 14;
   tip.style.left = Math.max(0, left) + 'px'; tip.style.top = Math.max(0, ev.clientY - bx.top - 10) + 'px';
 }
 
+function renderMapa() {
+  const el = $('mapa');
+  if (typeof L === 'undefined') { el.innerHTML = '<p class="nota" style="padding:14px">Mapa indisponível (não foi possível carregar o Leaflet / OpenStreetMap).</p>'; return; }
+  const ss = D.grupos[grupo].filter(s => s.lat != null && s.lon != null);
+  if (!map) {
+    map = L.map('mapa');
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {maxZoom: 19, attribution: '© OpenStreetMap'}).addTo(map);
+    camada = L.layerGroup().addTo(map);
+  }
+  camada.clearLayers();
+  if (!ss.length) { map.setView([39.74, -8.93], 11); return; }
+  const lo = Math.min(...ss.map(s => s.a)), hi = Math.max(...ss.map(s => s.a)), pts = [];
+  ss.forEach(s => {
+    const f = hi > lo ? (s.a - lo) / (hi - lo) : 0, cor = 'hsl(' + Math.round(120 - 120 * f) + ',65%,38%)';
+    const icon = L.divIcon({className: 'pin', html: '<div style="background:' + cor + '">' + vc(s.a) + '</div>', iconSize: [58, 22], iconAnchor: [29, 11]});
+    const pop = '<b>' + s.n + '</b><br>' + eur(s.a) + (s.m ? '<br>' + s.m : '') + '<br><a href="' + maps(s) + '" target="_blank" rel="noopener">Abrir no Google Maps ↗</a>';
+    L.marker([s.lat, s.lon], {icon: icon}).bindPopup(pop).addTo(camada);
+    pts.push([s.lat, s.lon]);
+  });
+  map.fitBounds(pts, {padding: [30, 30], maxZoom: 14});
+  setTimeout(() => map.invalidateSize(), 0);
+}
+
+function renderTudo() { renderHoje(); renderGrafico(); renderMapa(); }
+
 $('sub').textContent = 'Atualizado em ' + D.atualizado;
 Object.keys(D.grupos).forEach(g => { const op = document.createElement('option'); op.value = op.textContent = g; if (g === grupo) op.selected = true; $('sel').appendChild(op); });
-$('sel').onchange = e => { grupo = e.target.value; render(); };
-$('todos').onclick = () => { hidden.clear(); render(); };
-$('nenhum').onclick = () => { (D.grupos[grupo] || []).forEach(s => hidden.add(s.n)); render(); };
+$('litros').value = litros;
+$('sel').onchange = e => { grupo = e.target.value; renderTudo(); };
+$('litros').oninput = e => { const v = parseFloat(e.target.value); if (v > 0) { litros = v; try { localStorage.setItem('litros', v); } catch (x) {} renderHoje(); } };
+document.querySelectorAll('button[data-p]').forEach(b => b.onclick = () => { periodo = b.dataset.p === 'tudo' ? 'tudo' : parseInt(b.dataset.p); renderGrafico(); });
+$('media').onchange = renderGrafico;
+$('todos').onclick = () => { hidden.clear(); renderGrafico(); };
+$('nenhum').onclick = () => { (D.grupos[grupo] || []).forEach(s => hidden.add(s.n)); renderGrafico(); };
 $('svg').addEventListener('pointermove', onMove);
 $('svg').addEventListener('pointerleave', () => { $('tip').style.display = 'none'; const c = $('cur'); if (c) c.style.display = 'none'; });
-window.addEventListener('resize', render);
-render();
+window.addEventListener('resize', renderGrafico);
+if (grupo) renderTudo(); else $('sub').textContent = 'Ainda não há dados.';
 </script></body></html>
 """
 
@@ -931,7 +1038,8 @@ def main():
         data = str(detalhe.get("DataAtualizacao", "")) if isinstance(detalhe, dict) else ""
         precos = {k: [v, data] for k, v in extrair_precos(detalhe).items()}
         repetida = contagem_marcas[str(p.get("Marca"))] > 1
-        novo_estado[pid] = {"nome": rotulo(p), "aviso": nome_posto(p, repetida), "precos": precos}
+        novo_estado[pid] = {"nome": rotulo(p), "aviso": nome_posto(p, repetida), "precos": precos,
+                            "lat": p.get("Latitude"), "lon": p.get("Longitude"), "morada": p.get("Morada")}
         time.sleep(0.5)  # nao sobrecarregar o servidor da DGEG
         comparar(p, pid, precos, repetida, rotulo(p), data)
 
@@ -956,7 +1064,9 @@ def main():
                 novo_estado[pid] = antigo_estado[pid]  # mantem o estado antigo
             continue
         precos = {k: [v, ""] for k, v in dados_pl[idalvic].items()}
-        novo_estado[pid] = {"nome": f"PLENERGY ({localidade})", "aviso": "PLENERGY", "precos": precos}
+        lat, lon, morada = PLENERGY_COORDS.get(idalvic, (None, None, None))
+        novo_estado[pid] = {"nome": f"PLENERGY ({localidade})", "aviso": "PLENERGY", "precos": precos,
+                            "lat": lat, "lon": lon, "morada": morada}
         comparar(p, pid, precos, False, f"PLENERGY ({localidade})")
 
     for chave, n in falhas_antigas.items():
