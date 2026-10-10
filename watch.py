@@ -9,7 +9,7 @@ Uso:
   py watch.py --plenergy    mostra os precos lidos do site da Plenergy
   py watch.py --resumo      envia (ou mostra) o resumo dos gasoleos mais baratos
   py watch.py --extremos    mostra preco atual, minimo e maximo historicos de cada posto (gasoleo; 'todos' para tudo)
-  py watch.py --grafico     (re)gera o grafico.svg a partir do estado.json e do historico.csv
+  py watch.py --grafico     (re)gera o grafico.svg e o index.html (interativo) a partir do estado.json e do historico.csv
   py watch.py --isp         mostra os artigos 'ATUALIZACAO ISP' do Contas Poupanca e a previsao do ultimo
   py watch.py               execucao normal: compara com estado.json e avisa se algo mudou
 
@@ -36,6 +36,7 @@ TOPICO = os.environ.get("NTFY_TOPIC", "").strip()
 ESTADO = Path(__file__).with_name("estado.json")
 HISTORICO = Path(__file__).with_name("historico.csv")
 GRAFICO = Path(__file__).with_name("grafico.svg")
+PAGINA = Path(__file__).with_name("index.html")  # grafico interativo (serve para GitHub Pages)
 HEADERS = {"User-Agent": "vigilante-combustiveis-pessoal/1.0"}
 
 # Que postos seguir: o municipio tem de ser exatamente este;
@@ -439,7 +440,7 @@ PALETA = ["#e6194b", "#3cb44b", "#4363d8", "#f58231", "#911eb4", "#008080", "#9a
           "#808000", "#000075", "#d4a000", "#46a0c8", "#f032e6", "#555555", "#2e8b57", "#b8860b"]
 
 
-def series_grafico(estado, desde, agora):
+def series_grafico(estado, desde, agora, agrupar=None):
     """{tipo: [(nome, [(datetime, preco), ...], preco_atual)]} a partir do historico.csv e do estado."""
     linhas = []
     if HISTORICO.exists():
@@ -456,13 +457,14 @@ def series_grafico(estado, desde, agora):
         por_posto.setdefault((l["posto"], l["combustivel"]), []).append((t, ant, novo))
         instantes.append(t)
     x0 = min(instantes)
-    res = {"simples": [], "especial": []}
+    agrupar = agrupar or tipo_gasoleo
+    res = {}
     for pid, v in estado.items():
         if pid == "_meta":
             continue
         nome = v.get("aviso") or v.get("nome")
         for comb, (preco, _) in v.get("precos", {}).items():
-            tipo, atual = tipo_gasoleo(comb), numero(preco)
+            tipo, atual = agrupar(comb), numero(preco)
             if not tipo or atual is None:
                 continue
             rows = sorted(por_posto.get((v.get("nome"), comb), []))
@@ -474,7 +476,7 @@ def series_grafico(estado, desde, agora):
             else:
                 pts.append((x0, atual))
             pts.append((agora, atual))
-            res[tipo].append((nome, pts, atual))
+            res.setdefault(tipo, []).append((nome, pts, atual))
     return res, x0
 
 
@@ -553,6 +555,169 @@ def desenhar_grafico(res, x0, x1, atualizado):
     return "\n".join(o)
 
 
+ORDEM_GRUPOS = ["Gasóleo simples", "Gasóleo especial / plus", "Gasolina 95 simples",
+                "Gasolina 95 especial / plus", "Gasolina 98", "GPL"]
+
+
+def grupo_combustivel(comb):
+    c = sem_acentos(comb)
+    if "gasoleo" in c:
+        if "simples" in c:
+            return "Gasóleo simples"
+        if "especial" in c or "plus" in c:
+            return "Gasóleo especial / plus"
+        return None  # colorido, etc.
+    if "gasolina" in c and "95" in c:
+        if "simples" in c:
+            return "Gasolina 95 simples"
+        if "especial" in c or "plus" in c:
+            return "Gasolina 95 especial / plus"
+    if "gasolina" in c and "98" in c:
+        return "Gasolina 98"
+    if "gpl" in c:
+        return "GPL"
+    return None
+
+
+def dados_pagina(estado, desde, agora):
+    res, x0 = series_grafico(estado, desde, agora, agrupar=grupo_combustivel)
+    nomes = sorted({n for lst in res.values() for n, _, _ in lst})
+    cores = {n: PALETA[i % len(PALETA)] for i, n in enumerate(nomes)}
+
+    def ms(t):
+        return int((t - datetime(1970, 1, 1)).total_seconds() * 1000)
+
+    grupos = {g: [{"n": n, "c": cores[n], "a": atual, "p": [[ms(t), p] for t, p in pts]}
+                  for n, pts, atual in res[g]] for g in ORDEM_GRUPOS if g in res}
+    return {"atualizado": agora.strftime("%d/%m/%Y %H:%M"), "x0": ms(x0), "x1": ms(agora), "grupos": grupos}
+
+
+PAGINA_HTML = r"""<!doctype html>
+<html lang="pt"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Preços dos combustíveis</title>
+<style>
+:root{--bg:#fff;--fg:#1d1d1f;--mut:#6b6b70;--grid:#e6e6e8;--grid2:#f1f1f2;--card:#f4f4f6;--line:#d8d8dc}
+@media(prefers-color-scheme:dark){:root{--bg:#121316;--fg:#ececec;--mut:#9a9aa0;--grid:#2c2e33;--grid2:#202226;--card:#1c1e22;--line:#34363b}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+main{max-width:1100px;margin:0 auto;padding:20px 16px 40px}
+h1{margin:0 0 2px;font-size:22px}
+.sub{color:var(--mut);font-size:13px;margin-bottom:16px}
+.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
+select,button.act{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.chips div{background:var(--card);border-radius:10px;padding:8px 12px;font-size:12px;color:var(--mut);min-width:190px}
+.chips b{display:block;font-size:18px;color:var(--fg);margin:2px 0}
+.chips small{font-size:12px}
+#box{position:relative}
+svg{display:block;width:100%;touch-action:pan-y}
+.g{stroke:var(--grid)}.g2{stroke:var(--grid2)}.t{fill:var(--mut);font-size:11px}
+.cur{stroke:var(--mut);stroke-dasharray:3 3}
+#tip{position:absolute;display:none;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12px;box-shadow:0 4px 14px rgba(0,0,0,.18);min-width:190px;z-index:2}
+#tip div{display:flex;align-items:center;gap:6px;margin-top:3px}
+#tip span{margin-left:auto;font-variant-numeric:tabular-nums;padding-left:12px}
+#tip i,.lg i{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block}
+#legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.lg{display:flex;align-items:center;gap:7px;font:inherit;font-size:13px;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 11px;cursor:pointer}
+.lg span{color:var(--mut);font-variant-numeric:tabular-nums}
+.lg.off{opacity:.38}
+.nota{color:var(--mut);font-size:12px;margin-top:18px;line-height:1.5}
+</style></head><body><main>
+<h1>Preços dos combustíveis</h1>
+<div class="sub" id="sub"></div>
+<div class="bar"><select id="sel"></select>
+<button class="act" id="todos">Mostrar todos</button><button class="act" id="nenhum">Ocultar todos</button></div>
+<div class="chips" id="chips"></div>
+<div id="box"><svg id="svg"></svg><div id="tip"></div></div>
+<div id="legend"></div>
+<p class="nota">Passa o rato (ou o dedo) sobre o gráfico para ver o preço de cada posto nesse momento. Clica num posto da legenda para o esconder ou mostrar.
+Os valores são os que o vigilante registou desde que começou; cada degrau é uma mudança de preço. Fonte: DGEG e Plenergy.</p>
+</main>
+<script>
+const D = __DADOS__;
+const $ = id => document.getElementById(id);
+const pad = n => String(n).padStart(2, '0');
+const fd = (ms, h) => { const d = new Date(ms); return pad(d.getUTCDate()) + '/' + pad(d.getUTCMonth() + 1) + (h ? ' ' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) : ''); };
+const eur = v => v.toFixed(3).replace('.', ',') + ' €';
+let grupo = D.grupos['Gasóleo simples'] ? 'Gasóleo simples' : Object.keys(D.grupos)[0];
+const hidden = new Set();
+let geo = null;
+const valorEm = (s, t) => { let v = s.p[0][1]; for (const q of s.p) { if (q[0] <= t) v = q[1]; else break; } return v; };
+
+function render() {
+  const svg = $('svg'), box = $('box');
+  if (!grupo) { $('sub').textContent = 'Ainda não há dados.'; return; }
+  const todas = D.grupos[grupo].slice().sort((a, b) => a.a - b.a || a.n.localeCompare(b.n));
+  const vis = todas.filter(s => !hidden.has(s.n));
+  const W = Math.max(320, box.clientWidth), H = Math.max(300, Math.min(480, Math.round(W * 0.55)));
+  const m = {l: 58, r: 30, t: 12, b: 28};
+  const x0 = D.x0, x1 = Math.max(D.x1, D.x0 + 864e5), span = x1 - x0;
+  const base = vis.length ? vis : todas;
+  const vals = base.flatMap(s => s.p.map(q => q[1]));
+  let lo = Math.min(...vals), hi = Math.max(...vals);
+  const pd = Math.max(0.02, (hi - lo) * 0.12); lo -= pd; hi += pd;
+  const X = t => m.l + (t - x0) / span * (W - m.l - m.r);
+  const Y = v => H - m.b - (v - lo) / (hi - lo) * (H - m.t - m.b);
+  geo = {W, H, m, x0, span, vis};
+  svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.setAttribute('height', H);
+  let o = '';
+  for (let k = 0; k < 5; k++) { const v = lo + (hi - lo) * k / 4, y = Y(v);
+    o += '<line x1="' + m.l + '" x2="' + (W - m.r) + '" y1="' + y + '" y2="' + y + '" class="g"/><text x="' + (m.l - 8) + '" y="' + (y + 4) + '" text-anchor="end" class="t">' + v.toFixed(3).replace('.', ',') + '</text>'; }
+  for (let k = 0; k < 5; k++) { const t = x0 + span * k / 4, x = X(t);
+    o += '<line x1="' + x + '" x2="' + x + '" y1="' + m.t + '" y2="' + (H - m.b) + '" class="g2"/><text x="' + x + '" y="' + (H - 8) + '" text-anchor="middle" class="t">' + fd(t, span < 2 * 864e5) + '</text>'; }
+  for (const s of vis) {
+    let d = ''; s.p.forEach((q, i) => { d += i ? ' H' + X(q[0]) + ' V' + Y(q[1]) : 'M' + X(q[0]) + ',' + Y(q[1]); });
+    o += '<path d="' + d + '" fill="none" stroke="' + s.c + '" stroke-width="2.2"/>';
+    s.p.slice(1, -1).forEach(q => { o += '<circle cx="' + X(q[0]) + '" cy="' + Y(q[1]) + '" r="3" fill="' + s.c + '"/>'; });
+    const e = s.p[s.p.length - 1]; o += '<circle cx="' + X(e[0]) + '" cy="' + Y(e[1]) + '" r="4.5" fill="' + s.c + '" stroke="var(--bg)" stroke-width="1.5"/>';
+  }
+  o += '<line id="cur" y1="' + m.t + '" y2="' + (H - m.b) + '" class="cur" style="display:none"/>';
+  svg.innerHTML = o;
+
+  const lg = $('legend'); lg.innerHTML = '';
+  todas.forEach(s => {
+    const b = document.createElement('button'); b.className = 'lg' + (hidden.has(s.n) ? ' off' : '');
+    b.innerHTML = '<i style="background:' + s.c + '"></i>' + s.n + '<span>' + eur(s.a) + '</span>';
+    b.onclick = () => { hidden.has(s.n) ? hidden.delete(s.n) : hidden.add(s.n); render(); };
+    lg.appendChild(b);
+  });
+  let mn = null, mx = null;
+  for (const s of vis) for (const q of s.p) {
+    if (!mn || q[1] < mn.v) mn = {v: q[1], n: s.n, t: q[0]};
+    if (!mx || q[1] > mx.v) mx = {v: q[1], n: s.n, t: q[0]};
+  }
+  $('chips').innerHTML = mn ? '<div>Mais baixo<b>' + eur(mn.v) + '</b><small>' + mn.n + ' · ' + fd(mn.t) + '</small></div><div>Mais alto<b>' + eur(mx.v) + '</b><small>' + mx.n + ' · ' + fd(mx.t) + '</small></div>' : '';
+}
+
+function onMove(ev) {
+  if (!geo || !geo.vis.length) return;
+  const svg = $('svg'), box = $('box'), tip = $('tip');
+  const r = svg.getBoundingClientRect(), px = (ev.clientX - r.left) * geo.W / r.width;
+  const m = geo.m, f = Math.min(1, Math.max(0, (px - m.l) / (geo.W - m.l - m.r)));
+  const t = geo.x0 + f * geo.span, x = m.l + f * (geo.W - m.l - m.r);
+  const cur = $('cur'); cur.setAttribute('x1', x); cur.setAttribute('x2', x); cur.style.display = '';
+  const rows = geo.vis.map(s => [s, valorEm(s, t)]).sort((a, b) => a[1] - b[1]);
+  tip.innerHTML = '<b>' + fd(t, true) + '</b>' + rows.map(q => '<div><i style="background:' + q[0].c + '"></i>' + q[0].n + '<span>' + eur(q[1]) + '</span></div>').join('');
+  tip.style.display = 'block';
+  const bx = box.getBoundingClientRect(); let left = ev.clientX - bx.left + 14;
+  if (left + tip.offsetWidth > bx.width) left = ev.clientX - bx.left - tip.offsetWidth - 14;
+  tip.style.left = Math.max(0, left) + 'px'; tip.style.top = Math.max(0, ev.clientY - bx.top - 10) + 'px';
+}
+
+$('sub').textContent = 'Atualizado em ' + D.atualizado;
+Object.keys(D.grupos).forEach(g => { const op = document.createElement('option'); op.value = op.textContent = g; if (g === grupo) op.selected = true; $('sel').appendChild(op); });
+$('sel').onchange = e => { grupo = e.target.value; render(); };
+$('todos').onclick = () => { hidden.clear(); render(); };
+$('nenhum').onclick = () => { (D.grupos[grupo] || []).forEach(s => hidden.add(s.n)); render(); };
+$('svg').addEventListener('pointermove', onMove);
+$('svg').addEventListener('pointerleave', () => { $('tip').style.display = 'none'; const c = $('cur'); if (c) c.style.display = 'none'; });
+window.addEventListener('resize', render);
+render();
+</script></body></html>
+"""
+
+
 def escrever_grafico(estado, hora, desde_txt):
     agora = hora.replace(tzinfo=None)
     try:
@@ -561,6 +726,8 @@ def escrever_grafico(estado, hora, desde_txt):
         desde = agora
     res, x0 = series_grafico(estado, desde, agora)
     GRAFICO.write_text(desenhar_grafico(res, x0, agora, agora.strftime("%d/%m/%Y %H:%M")), encoding="utf-8")
+    dados = json.dumps(dados_pagina(estado, desde, agora), ensure_ascii=False).replace("</", "<\\/")
+    PAGINA.write_text(PAGINA_HTML.replace("__DADOS__", dados), encoding="utf-8")
 
 
 def mostrar_extremos(estado, so_gasoleo=True):
@@ -637,7 +804,7 @@ def main():
         estado = json.loads(ESTADO.read_text(encoding="utf-8"))
         hora = hora_local()
         escrever_grafico(estado, hora, estado.get("_meta", {}).get("extremos_desde") or hora.strftime("%Y-%m-%d"))
-        print(f"Grafico guardado em {GRAFICO}")
+        print(f"Grafico guardado em {GRAFICO} e {PAGINA}")
         return
 
     if "--extremos" in args:
@@ -830,7 +997,7 @@ def main():
         texto_resumo = resumo(novo_estado)
         if texto_resumo:
             meta["ultimo_resumo"] = hoje
-    gerar_grafico = (not GRAFICO.exists()) or bool(historico) or meta_antiga.get("ultimo_grafico") != hoje
+    gerar_grafico = (not GRAFICO.exists()) or (not PAGINA.exists()) or bool(historico) or meta_antiga.get("ultimo_grafico") != hoje
     if gerar_grafico:
         meta["ultimo_grafico"] = hoje
     novo_estado["_meta"] = meta
