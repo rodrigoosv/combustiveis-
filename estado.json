@@ -19,7 +19,10 @@
     "1,929 €/litro",
     "09-10-2026 17:55"
    ]
-  }
+  },
+  "lat": 39.750379,
+  "lon": -8.904627,
+  "morada": "Zona Industrial da Embra"
  },
  "66583": {
   "nome": "REPSOL E.S. ALBERGARIA (Albergaria)",
@@ -49,7 +52,10 @@
     "2,374 €/litro",
     "09-10-2026 00:00"
    ]
-  }
+  },
+  "lat": 39.7454,
+  "lon": -8.89058,
+  "morada": "EN 242  Km 8,5 (Av Nª Srª Nazaré)"
  },
  "93762": {
   "nome": "PRIO Marinha Grande (Pedreanes)",
@@ -75,7 +81,10 @@
     "2,119 €/litro",
     "07-10-2026 08:55"
    ]
-  }
+  },
+  "lat": 39.765953,
+  "lon": -8.938041,
+  "morada": "Av. José Gregório, Posto de Combustíveis"
  },
  "70428": {
   "nome": "ALVES BANDEIRA Moita (Moita)",
@@ -97,7 +106,10 @@
     "2,309 €/litro",
     "05-10-2026 11:05"
    ]
-  }
+  },
+  "lat": 39.697165,
+  "lon": -8.953801,
+  "morada": "ESTRADA NACIONAL Nº242, km 18"
  },
  "67331": {
   "nome": "Intermarché da Marinha Grande (Marinha Grande)",
@@ -119,7 +131,10 @@
     "2,189 €/litro",
     "06-10-2026 18:05"
    ]
-  }
+  },
+  "lat": 39.75694,
+  "lon": -8.93315,
+  "morada": "Av. José Gregório\r\n"
  },
  "91178": {
   "nome": "PRIO Leiria Circular (Leiria)",
@@ -141,7 +156,10 @@
     "2,044 €/litro",
     "10-10-2026 00:30"
    ]
-  }
+  },
+  "lat": 39.73963,
+  "lon": -8.816806,
+  "morada": "R. Dr. João Soares, Fração APorto Moniz"
  },
  "78233": {
   "nome": "PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água)",
@@ -163,7 +181,10 @@
     "2,409 €/litro",
     "06-10-2026 00:00"
    ]
-  }
+  },
+  "lat": 39.76125,
+  "lon": -8.82138,
+  "morada": "Rua 25 de Abril"
  },
  "95309": {
   "nome": "OZ ENERGIA - MARINHA GRANDE (Amieirinha)",
@@ -185,7 +206,10 @@
     "2,289 €/litro",
     "06-10-2026 15:05"
    ]
-  }
+  },
+  "lat": 39.72187,
+  "lon": -8.926169,
+  "morada": "Estrada do Guilherme"
  },
  "65416": {
   "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",
@@ -211,7 +235,10 @@
     "2,394 €/litro",
     "05-10-2026 22:15"
    ]
-  }
+  },
+  "lat": 39.74892,
+  "lon": -8.92391,
+  "morada": "EN 242 (Av. Vítor Galo) Km 11,5"
  },
  "65415": {
   "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
@@ -233,7 +260,10 @@
     "2,214 €/litro",
     "05-10-2026 22:20"
    ]
-  }
+  },
+  "lat": 39.74782,
+  "lon": -8.91122,
+  "morada": "EN 242 Km 10,4"
  },
  "66596": {
   "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
@@ -255,7 +285,10 @@
     "2,244 €/litro",
     "09-10-2026 00:00"
    ]
-  }
+  },
+  "lat": 39.73495,
+  "lon": -8.93242,
+  "morada": "EN 242 Km 13,7"
  },
  "66582": {
   "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
@@ -281,7 +314,10 @@
     "2,374 €/litro",
     "09-10-2026 00:00"
    ]
-  }
+  },
+  "lat": 39.74714,
+  "lon": -8.93429,
+  "morada": "Praceta do Vidreiro nº 12"
  },
  "67868": {
   "nome": "BP Marinha Grande (Marinha Grande)",
@@ -303,7 +339,10 @@
     "2,409 €/litro",
     "10-10-2026 00:00"
    ]
-  }
+  },
+  "lat": 39.745975,
+  "lon": -8.934596,
+  "morada": "Av. Dr. José Henriques Vareda nº8"
  },
  "93075": {
   "nome": "BP Embra (Marinha Grande) (Embra)",
@@ -325,7 +364,10 @@
     "2,409 €/litro",
     "10-10-2026 00:00"
    ]
-  }
+  },
+  "lat": 39.74759,
+  "lon": -8.904907,
+  "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
  },
  "plenergy-404": {
   "nome": "PLENERGY (Marinha Grande)",
@@ -347,7 +389,10 @@
     "1,989 €/litro",
     ""
    ]
-  }
+  },
+  "lat": 39.74173,
+  "lon": -8.935447,
+  "morada": "Avenida Dr. José Henriques Vareda, nº 32"
  },
  "_meta": {
   "falhas": {},
@@ -1038,7 +1083,6 @@
      ]
     }
    }
-  },
-  "ultimo_grafico": "2026-10-10"
+  }
  }
 }
