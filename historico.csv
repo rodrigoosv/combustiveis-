@@ -50,3 +50,15 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-10-12 01:33,BP Marinha Grande (Marinha Grande),Gasolina especial 98,2.409,2.459,+5.0,subiu,2.409,2026-10-09 00:00,2.459,2026-10-12 00:00
 2026-10-12 01:33,BP Embra (Marinha Grande) (Embra),Gasolina simples 95,2.179,2.229,+5.0,subiu,2.179,2026-10-09 00:00,2.229,2026-10-12 00:00
 2026-10-12 01:33,BP Embra (Marinha Grande) (Embra),Gasolina especial 98,2.409,2.459,+5.0,subiu,2.409,2026-10-09 00:00,2.459,2026-10-12 00:00
+2026-10-12 18:57,ALVES BANDEIRA Moita (Moita),Gasóleo simples,2.224,2.227,+0.3,subiu,2.224,2026-10-05 11:05,2.227,2026-10-12 15:35
+2026-10-12 18:57,ALVES BANDEIRA Moita (Moita),Gasolina simples 95,2.139,2.187,+4.8,subiu,2.139,2026-10-05 11:05,2.187,2026-10-12 15:35
+2026-10-12 18:57,ALVES BANDEIRA Moita (Moita),Gasolina 98,2.309,2.357,+4.8,subiu,2.309,2026-10-05 11:05,2.357,2026-10-12 15:35
+2026-10-12 18:57,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasóleo simples,2.226,2.269,+4.3,subiu,2.226,2026-10-10 11:30,2.269,2026-10-12 18:00
+2026-10-12 18:57,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasóleo especial,2.276,2.319,+4.3,subiu,2.276,2026-10-10 11:30,2.319,2026-10-12 18:00
+2026-10-12 18:57,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasolina simples 95,2.107,2.195,+8.8,subiu,2.107,2026-10-10 11:30,2.195,2026-10-12 18:00
+2026-10-12 18:57,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasolina especial 95,2.157,2.245,+8.8,subiu,2.157,2026-10-10 11:30,2.245,2026-10-12 18:00
+2026-10-12 18:57,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasóleo simples,2.226,2.269,+4.3,subiu,2.226,2026-10-10 11:25,2.269,2026-10-12 18:00
+2026-10-12 18:57,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasóleo especial,2.276,2.319,+4.3,subiu,2.276,2026-10-10 11:25,2.319,2026-10-12 18:00
+2026-10-12 18:57,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasolina simples 95,2.107,2.195,+8.8,subiu,2.107,2026-10-10 11:25,2.195,2026-10-12 18:00
+2026-10-12 18:57,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasolina especial 95,2.157,2.245,+8.8,subiu,2.157,2026-10-10 11:25,2.245,2026-10-12 18:00
+2026-10-12 18:57,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasolina especial 98,2.337,2.425,+8.8,subiu,2.337,2026-10-10 11:25,2.425,2026-10-12 18:00
