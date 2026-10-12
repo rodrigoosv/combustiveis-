@@ -26,3 +26,27 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-10-10 14:44,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasóleo especial,2.316,2.276,-4.0,desceu,2.276,2026-10-10 11:30,2.316,2026-10-05 22:20
 2026-10-10 14:44,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasolina simples 95,2.164,2.107,-5.7,desceu,2.107,2026-10-10 11:30,2.164,2026-10-05 22:20
 2026-10-10 14:44,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasolina especial 95,2.214,2.157,-5.7,desceu,2.157,2026-10-10 11:30,2.214,2026-10-05 22:20
+2026-10-12 01:33,REPSOL E.S. ALBERGARIA (Albergaria),GPL Auto,0.999,1.029,+3.0,subiu,0.999,2026-10-09 00:00,1.029,2026-10-12 00:00
+2026-10-12 01:33,REPSOL E.S. ALBERGARIA (Albergaria),Gasolina simples 95,2.174,2.214,+4.0,subiu,2.174,2026-10-09 00:00,2.214,2026-10-12 00:00
+2026-10-12 01:33,REPSOL E.S. ALBERGARIA (Albergaria),Gasolina especial 95,2.244,2.284,+4.0,subiu,2.244,2026-10-09 00:00,2.284,2026-10-12 00:00
+2026-10-12 01:33,REPSOL E.S. ALBERGARIA (Albergaria),Gasolina especial 98,2.374,2.414,+4.0,subiu,2.374,2026-10-09 00:00,2.414,2026-10-12 00:00
+2026-10-12 01:33,PRIO Marinha Grande (Pedreanes),Gasóleo especial,2.209,2.189,-2.0,desceu,2.189,2026-10-12 00:00,2.209,2026-10-07 08:55
+2026-10-12 01:33,PRIO Marinha Grande (Pedreanes),Biodiesel B15,2.249,2.229,-2.0,desceu,2.229,2026-10-12 00:00,2.249,2026-10-07 08:55
+2026-10-12 01:33,PRIO Marinha Grande (Pedreanes),Gasóleo colorido,1.799,1.779,-2.0,desceu,1.779,2026-10-12 00:00,1.799,2026-10-07 08:55
+2026-10-12 01:33,PRIO Marinha Grande (Pedreanes),Gasolina simples 95,2.169,2.199,+3.0,subiu,2.169,2026-10-07 08:55,2.199,2026-10-12 00:00
+2026-10-12 01:33,PRIO Marinha Grande (Pedreanes),Gasolina especial 95,2.119,2.149,+3.0,subiu,2.119,2026-10-07 08:55,2.149,2026-10-12 00:00
+2026-10-12 01:33,PRIO Leiria Circular (Leiria),Gasolina simples 95,2.119,2.154,+3.5,subiu,2.119,2026-10-09 00:30,2.154,2026-10-12 00:30
+2026-10-12 01:33,PRIO Leiria Circular (Leiria),Gasolina especial 95,2.044,2.089,+4.5,subiu,2.044,2026-10-09 00:30,2.089,2026-10-12 00:30
+2026-10-12 01:33,OZ ENERGIA - MARINHA GRANDE (Amieirinha),Gasóleo simples,2.174,2.164,-1.0,desceu,2.164,2026-10-12 00:00,2.174,2026-10-06 15:05
+2026-10-12 01:33,OZ ENERGIA - MARINHA GRANDE (Amieirinha),Gasóleo especial,2.214,2.204,-1.0,desceu,2.204,2026-10-12 00:00,2.214,2026-10-06 15:05
+2026-10-12 01:33,OZ ENERGIA - MARINHA GRANDE (Amieirinha),Gasolina simples 95,2.069,2.104,+3.5,subiu,2.069,2026-10-06 15:05,2.104,2026-10-12 00:00
+2026-10-12 01:33,OZ ENERGIA - MARINHA GRANDE (Amieirinha),Gasolina 98,2.289,2.324,+3.5,subiu,2.289,2026-10-06 15:05,2.324,2026-10-12 00:00
+2026-10-12 01:33,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasolina simples 95,2.174,2.214,+4.0,subiu,2.174,2026-10-09 00:00,2.214,2026-10-12 00:00
+2026-10-12 01:33,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasolina especial 95,2.244,2.284,+4.0,subiu,2.244,2026-10-09 00:00,2.284,2026-10-12 00:00
+2026-10-12 01:33,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasolina simples 95,2.174,2.214,+4.0,subiu,2.174,2026-10-09 00:00,2.214,2026-10-12 00:00
+2026-10-12 01:33,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasolina especial 95,2.244,2.284,+4.0,subiu,2.244,2026-10-09 00:00,2.284,2026-10-12 00:00
+2026-10-12 01:33,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasolina especial 98,2.374,2.414,+4.0,subiu,2.374,2026-10-09 00:00,2.414,2026-10-12 00:00
+2026-10-12 01:33,BP Marinha Grande (Marinha Grande),Gasolina simples 95,2.179,2.229,+5.0,subiu,2.179,2026-10-09 00:00,2.229,2026-10-12 00:00
+2026-10-12 01:33,BP Marinha Grande (Marinha Grande),Gasolina especial 98,2.409,2.459,+5.0,subiu,2.409,2026-10-09 00:00,2.459,2026-10-12 00:00
+2026-10-12 01:33,BP Embra (Marinha Grande) (Embra),Gasolina simples 95,2.179,2.229,+5.0,subiu,2.179,2026-10-09 00:00,2.229,2026-10-12 00:00
+2026-10-12 01:33,BP Embra (Marinha Grande) (Embra),Gasolina especial 98,2.409,2.459,+5.0,subiu,2.409,2026-10-09 00:00,2.459,2026-10-12 00:00
