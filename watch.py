@@ -610,56 +610,46 @@ PAGINA_HTML = r"""<!doctype html>
 <meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
 <meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
 <meta name="apple-mobile-web-app-title" content="Combustíveis">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛽</text></svg>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
 <style>
-:root{--bg:#f2f2f7;--card:#fff;--fill:rgba(118,118,128,.12);--segon:#fff;--fg:#1c1c1e;--mut:#6e6e73;--line:rgba(60,60,67,.14);--grid:rgba(60,60,67,.10);--grid2:rgba(60,60,67,.05);--up:#d70015;--down:#248a3d;--ok:#34c759;--accent:#007aff;--onacc:#fff;--glass:rgba(242,242,247,.78);--shadow:0 1px 2px rgba(0,0,0,.04),0 6px 24px rgba(0,0,0,.05)}
+:root{--bg:#f2f2f7;--card:#fff;--fill:rgba(118,118,128,.12);--segon:#fff;--fg:#1c1c1e;--mut:#6e6e73;--line:rgba(60,60,67,.14);--grid:rgba(60,60,67,.10);--grid2:rgba(60,60,67,.05);--up:#d70015;--down:#248a3d;--ok:#34c759;--accent:#007aff;--glass:rgba(242,242,247,.8);--shadow:0 1px 2px rgba(0,0,0,.04),0 6px 24px rgba(0,0,0,.05)}
 @media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--card:#1c1c1e;--fill:rgba(118,118,128,.28);--segon:#636366;--fg:#f5f5f7;--mut:#98989f;--line:rgba(84,84,88,.55);--grid:rgba(84,84,88,.45);--grid2:rgba(84,84,88,.2);--up:#ff453a;--down:#30d158;--ok:#30d158;--accent:#0a84ff;--glass:rgba(0,0,0,.72);--shadow:none}}
 :root[data-theme="dark"]{--bg:#000;--card:#1c1c1e;--fill:rgba(118,118,128,.28);--segon:#636366;--fg:#f5f5f7;--mut:#98989f;--line:rgba(84,84,88,.55);--grid:rgba(84,84,88,.45);--grid2:rgba(84,84,88,.2);--up:#ff453a;--down:#30d158;--ok:#30d158;--accent:#0a84ff;--glass:rgba(0,0,0,.72);--shadow:none}
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
 html{background:var(--bg)}
 body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;line-height:1.35}
-main{max-width:760px;margin:0 auto;padding:max(20px,env(safe-area-inset-top)) 18px calc(40px + env(safe-area-inset-bottom))}
-header.top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin:6px 0 14px}
+main{max-width:680px;margin:0 auto;padding:max(22px,env(safe-area-inset-top)) 18px calc(96px + env(safe-area-inset-bottom))}
+header.top{margin:6px 2px 12px}
 h1{margin:0;font-size:34px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
-h2{margin:0;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--mut)}
+h2{margin:22px 6px 8px;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--mut)}
 .sub{color:var(--mut);font-size:14px;margin-top:4px}
 button,input{font:inherit;color:var(--fg)}
-.tema{border:0;background:var(--fill);width:36px;height:36px;border-radius:50%;font-size:16px;cursor:pointer;flex:none}
 .bar{position:sticky;top:0;z-index:20;margin:0 -18px 16px;padding:8px 18px;background:var(--glass);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px)}
 .seg{display:flex;gap:2px;background:var(--fill);padding:2px;border-radius:10px;overflow-x:auto;scrollbar-width:none}
 .seg::-webkit-scrollbar{display:none}
 .seg button{flex:1 0 auto;white-space:nowrap;border:0;background:transparent;padding:7px 14px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer}
 .seg button.on{background:var(--segon);font-weight:600;box-shadow:0 3px 8px rgba(0,0,0,.12),0 0 0 .5px rgba(0,0,0,.04)}
-.hero{background:var(--card);border-radius:26px;padding:24px 22px 20px;margin-bottom:26px;box-shadow:var(--shadow)}
+.hero{background:var(--card);border-radius:26px;padding:24px 22px 22px;margin-bottom:22px;box-shadow:var(--shadow)}
 .eyebrow{font-size:13px;font-weight:600;color:var(--mut)}
-.big{font-size:clamp(56px,15vw,88px);font-weight:700;letter-spacing:-.05em;line-height:1;margin:8px 0 6px}
+.big{font-size:clamp(58px,16vw,92px);font-weight:700;letter-spacing:-.05em;line-height:1;margin:8px 0 8px}
 .big small{font-size:.26em;font-weight:600;color:var(--mut);letter-spacing:0;margin-left:6px}
 .quem{font-size:17px;font-weight:600;display:flex;align-items:center;flex-wrap:wrap;gap:7px}
 .quem a{font-weight:500;color:var(--accent);text-decoration:none;font-size:15px}
-.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px;margin-top:22px}
-.stats div{background:var(--bg);border-radius:14px;padding:11px 13px}
-.stats div>span:first-child{display:block;font-size:12px;color:var(--mut);margin-bottom:3px}
-.stats b{font-size:16px;font-weight:600}
-.sec{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin:0 6px 8px}
-label.chk{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--mut)}
-input[type=number]{width:64px;text-align:center;font-size:15px;padding:6px 8px;border-radius:9px;border:0;background:var(--fill)}
-.list{background:var(--card);border-radius:20px;margin-bottom:28px;overflow:hidden;box-shadow:var(--shadow)}
+.hint{margin-top:10px;font-size:14px;color:var(--mut)}
+.list{background:var(--card);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
 details.row{border-top:.5px solid var(--line)}
 details.row:first-child{border-top:0}
-summary{list-style:none;display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer}
+summary{list-style:none;display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer}
 summary::-webkit-details-marker{display:none}
 summary:active{background:var(--fill)}
 .dot{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block}
 .info{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
-.nm{font-size:17px;font-weight:600;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.nm{font-size:17px;font-weight:600}
 .s2{font-size:13px;color:var(--mut)}
-.bd{font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;background:rgba(52,199,89,.16);color:var(--down)}
-.bd.tr{background:rgba(255,159,10,.18);color:#b25e00}.bd.up{background:rgba(255,59,48,.14);color:var(--up)}
-.sp{display:block;flex:none;width:72px;height:26px}
-.pr{font-size:21px;font-weight:600;letter-spacing:-.02em;text-align:right;min-width:74px}
+.pr{font-size:21px;font-weight:600;letter-spacing:-.02em;text-align:right}
 .pr small{font-size:12px;font-weight:500;color:var(--mut);margin-left:2px}
 .chev{color:var(--mut);font-size:20px;transition:transform .2s;flex:none;width:10px;text-align:center;opacity:.7}
 details[open] .chev{transform:rotate(90deg)}
@@ -667,7 +657,7 @@ details[open] .chev{transform:rotate(90deg)}
 .det div>span:first-child{display:block;font-size:12px;color:var(--mut);margin-bottom:1px}
 .det b{font-size:15px;font-weight:600}
 .det a{color:var(--accent);text-decoration:none;font-size:15px;font-weight:500;align-self:end}
-.blk{background:var(--card);border-radius:20px;padding:16px;margin-bottom:28px;box-shadow:var(--shadow)}
+.blk{background:var(--card);border-radius:20px;padding:16px;margin-bottom:18px;box-shadow:var(--shadow)}
 .tb{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:12px}
 .lnk{background:none;border:0;color:var(--accent);font-size:14px;cursor:pointer;padding:4px 2px}
 .sw{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--mut);cursor:pointer}
@@ -677,10 +667,10 @@ details[open] .chev{transform:rotate(90deg)}
 .sw input:checked+i{background:var(--ok)}.sw input:checked+i::after{transform:translateX(16px)}
 .up{color:var(--up)}.down{color:var(--down)}.mut{color:var(--mut)}
 .chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
-.chips div{background:var(--bg);border-radius:14px;padding:9px 13px;font-size:12px;color:var(--mut);min-width:170px;flex:1}
+.chips div{background:var(--bg);border-radius:14px;padding:9px 13px;font-size:12px;color:var(--mut);min-width:150px;flex:1}
 .chips b{display:block;font-size:19px;font-weight:600;color:var(--fg);margin:2px 0}
 #box{position:relative}
-svg{display:block;width:100%;touch-action:pan-y}
+#svg{display:block;width:100%;touch-action:pan-y}
 .g{stroke:var(--grid)}.g2{stroke:var(--grid2)}.t{fill:var(--mut);font-size:11px}
 .cur{stroke:var(--mut);stroke-dasharray:3 3}
 #tip{position:absolute;display:none;pointer-events:none;background:var(--card);border:.5px solid var(--line);border-radius:14px;padding:10px 12px;font-size:12.5px;box-shadow:0 10px 30px rgba(0,0,0,.2);min-width:210px;z-index:500}
@@ -692,46 +682,74 @@ svg{display:block;width:100%;touch-action:pan-y}
 .lg{display:flex;align-items:center;font-size:13px;background:var(--bg);border:0;border-radius:999px;padding:6px 12px;cursor:pointer}
 .lg span{color:var(--mut);margin-left:7px}
 .lg.off{opacity:.38}
-#mapa{height:360px;border-radius:14px;overflow:hidden;background:var(--bg)}
+#mapa{height:calc(100vh - 300px);min-height:340px;border-radius:14px;overflow:hidden;background:var(--bg)}
 .pin div{color:#fff;font-weight:700;font-size:11px;text-align:center;padding:2px 0;border-radius:11px;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4);width:58px}
 .escala{height:8px;border-radius:4px;background:linear-gradient(90deg,hsl(120,65%,38%),hsl(60,65%,38%),hsl(0,65%,38%));width:160px;display:inline-block;vertical-align:middle;margin:0 6px}
 .nota{color:var(--mut);font-size:12.5px;line-height:1.5;margin:10px 2px 0}
-footer{color:var(--mut);font-size:12px;text-align:center;line-height:1.7;margin-top:6px}
-footer a{color:inherit}
-@media(max-width:520px){.sp{display:none}.hero{padding:20px 18px 16px;border-radius:24px}main{padding-left:14px;padding-right:14px}.bar{margin-left:-14px;margin-right:-14px;padding-left:14px;padding-right:14px}}
+.grp{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.gr{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 16px;border-top:.5px solid var(--line);font-size:16px}
+.gr:first-child{border-top:0}
+.gr .v{color:var(--mut);font-size:15px;text-align:right}
+.gr a{color:var(--accent);text-decoration:none}
+.gr .seg{min-width:210px}
+input[type=number]{width:70px;text-align:center;font-size:16px;padding:6px 8px;border-radius:9px;border:0;background:var(--fill)}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;justify-content:center;background:var(--glass);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-top:.5px solid var(--line);padding:6px 10px calc(6px + env(safe-area-inset-bottom))}
+.tabs a{flex:1;max-width:130px;display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;color:var(--mut);font-size:10.5px;font-weight:500;padding:4px 0}
+.tabs a.on{color:var(--accent)}
+.tabs svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
-</style></head><body><main>
-<header class="top">
-  <div><h1>Combustíveis</h1><div class="sub">Marinha Grande e Leiria · atualizado em <span id="upd"></span></div></div>
-  <button class="tema" id="tema" title="Alternar tema (automático / claro / escuro)">🌓</button>
-</header>
-<div class="bar"><nav class="seg" id="pills"></nav></div>
-<section class="hero" id="hero"></section>
+@media(max-width:520px){main{padding-left:14px;padding-right:14px}.bar{margin-left:-14px;margin-right:-14px;padding-left:14px;padding-right:14px}.hero{padding:20px 18px 18px;border-radius:24px}.gr .seg{min-width:170px}}
+</style></head><body>
+<main>
+<header class="top"><h1 id="titulo">Hoje</h1><div class="sub" id="subt"></div></header>
+<div class="bar" id="barra"><nav class="seg" id="pills"></nav></div>
 
-<div class="sec"><h2>Postos</h2>
-  <label class="chk">Depósito <input type="number" id="litros" min="1" max="200" step="1"> litros</label></div>
-<div class="list" id="cards"></div>
-
-<div class="sec"><h2>Evolução</h2></div>
-<section class="blk">
-<div class="tb"><nav class="seg" style="min-width:230px"><button data-p="7">7 dias</button><button data-p="30">30 dias</button><button data-p="tudo">Tudo</button></nav>
-<label class="sw"><input type="checkbox" id="media" checked><i></i>Linha da média</label></div>
-<div class="chips" id="chips"></div>
-<div id="box"><svg id="svg"></svg><div id="tip"></div></div>
-<div id="legend"></div>
-<div class="tb" style="margin:8px 0 0;justify-content:flex-start;gap:14px"><button class="lnk" id="todos">Mostrar todos</button><button class="lnk" id="nenhum">Ocultar todos</button></div>
-<p class="nota">Passa o rato (ou o dedo) sobre o gráfico para ver o preço de cada posto; em cima da linha de um posto vês só os dados desse posto. Cada degrau é uma mudança de preço.</p>
+<section class="page" id="p-hoje">
+  <div class="hero" id="hero"></div>
+  <h2>Postos</h2>
+  <div class="list" id="cards"></div>
 </section>
 
-<div class="sec"><h2>Mapa</h2></div>
-<section class="blk">
-<div id="mapa"></div>
-<p class="nota">Barato<span class="escala"></span>caro (dentro do combustível escolhido). Toca num posto para ver os detalhes.</p>
+<section class="page" id="p-grafico" hidden>
+  <div class="blk">
+    <div class="tb"><nav class="seg" style="min-width:230px"><button data-p="7">7 dias</button><button data-p="30">30 dias</button><button data-p="tudo">Tudo</button></nav>
+    <label class="sw"><input type="checkbox" id="media" checked><i></i>Média</label></div>
+    <div class="chips" id="chips"></div>
+    <div id="box"><svg id="svg"></svg><div id="tip"></div></div>
+    <div id="legend"></div>
+    <div class="tb" style="margin:8px 0 0;justify-content:flex-start;gap:14px"><button class="lnk" id="todos">Mostrar todos</button><button class="lnk" id="nenhum">Ocultar todos</button></div>
+  </div>
+  <p class="nota">Passa o rato (ou o dedo) sobre o gráfico para ver o preço de cada posto; em cima da linha de um posto vês só os dados desse posto. Cada degrau é uma mudança de preço.</p>
 </section>
 
-<footer>Variações face a 24 horas e a 7 dias atrás, a contar desde que o vigilante começou a registar (até lá aparece «—»). A poupança compara com o posto mais caro da lista.<br>
-Fonte: DGEG e Plenergy · Mapa © OpenStreetMap · <a href="https://github.com/rodrigoosv/combustiveis-" target="_blank" rel="noopener">Código no GitHub</a></footer>
+<section class="page" id="p-mapa" hidden>
+  <div class="blk"><div id="mapa"></div>
+  <p class="nota">Barato<span class="escala"></span>caro (dentro do combustível escolhido). Toca num posto para ver os detalhes.</p></div>
+</section>
+
+<section class="page" id="p-ajustes" hidden>
+  <h2>Preferências</h2>
+  <div class="grp">
+    <div class="gr"><span>Depósito</span><span><input type="number" id="litros" min="1" max="200" step="1"> litros</span></div>
+    <div class="gr"><span>Tema</span><nav class="seg" id="temaSeg"><button data-t="auto">Automático</button><button data-t="claro">Claro</button><button data-t="escuro">Escuro</button></nav></div>
+  </div>
+  <h2>Sobre</h2>
+  <div class="grp">
+    <div class="gr"><span>Atualizado em</span><span class="v" id="upd"></span></div>
+    <div class="gr"><span>Fonte dos preços</span><span class="v">DGEG e Plenergy</span></div>
+    <div class="gr"><span>Mapa</span><span class="v">© OpenStreetMap</span></div>
+    <div class="gr"><span>Código</span><a href="https://github.com/rodrigoosv/combustiveis-" target="_blank" rel="noopener">GitHub ↗</a></div>
+  </div>
+  <p class="nota">As variações a 24 horas e a 7 dias contam desde que o vigilante começou a registar (até lá aparece «—»). A poupança compara com o posto mais caro da lista.</p>
+</section>
 </main>
+
+<nav class="tabs">
+  <a href="#/hoje" data-p="hoje"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg>Hoje</a>
+  <a href="#/grafico" data-p="grafico"><svg viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 15l4-5 3 3 5-7"/></svg>Gráfico</a>
+  <a href="#/mapa" data-p="mapa"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-10.5a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.4"/></svg>Mapa</a>
+  <a href="#/ajustes" data-p="ajustes"><svg viewBox="0 0 24 24"><path d="M4 7h10"/><path d="M18 7h2"/><circle cx="16" cy="7" r="2"/><path d="M4 17h2"/><path d="M10 17h10"/><circle cx="8" cy="17" r="2"/></svg>Ajustes</a>
+</nav>
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
 const D = __DADOS__;
@@ -760,33 +778,25 @@ function dl(d) {
 
 const ROT = {'Gasóleo simples': 'Gasóleo', 'Gasóleo especial / plus': 'Gasóleo plus', 'Gasolina 95 simples': 'Gasolina 95', 'Gasolina 95 especial / plus': 'Gasolina 95 plus', 'Gasolina 98': 'Gasolina 98', 'GPL': 'GPL'};
 const rotulo = g => ROT[g] || g;
-
-function spark(s) {
-  const w = 72, h = 26, p = s.p, t0 = p[0][0], t1 = Math.max(p[p.length - 1][0], t0 + 1);
-  const vs = p.map(q => q[1]), lo = Math.min(...vs), hi = Math.max(...vs);
-  const X = t => 2 + (t - t0) / (t1 - t0) * (w - 4);
-  const Y = v => hi > lo ? h - 3 - (v - lo) / (hi - lo) * (h - 6) : h / 2;
-  let d = ''; p.forEach((q, i) => { d += i ? ' H' + X(q[0]) + ' V' + Y(q[1]) : 'M' + X(q[0]) + ',' + Y(q[1]); });
-  return '<svg class="sp" viewBox="0 0 ' + w + ' ' + h + '"><path d="' + d + '" fill="none" stroke="' + s.c + '" stroke-width="1.8" stroke-linejoin="round"' + (hi > lo ? '' : ' stroke-dasharray="3 3" opacity=".55"') + '/></svg>';
-}
+try { const g = localStorage.getItem('grupo'); if (g && D.grupos[g]) grupo = g; } catch (e) {}
+const PAGS = ['hoje', 'grafico', 'mapa', 'ajustes'];
+const TIT = {hoje: 'Hoje', grafico: 'Gráfico', mapa: 'Mapa', ajustes: 'Ajustes'};
+const SUB = {hoje: () => 'Marinha Grande e Leiria', grafico: () => 'Evolução dos preços', mapa: () => 'Postos e preços', ajustes: () => 'Depósito, tema e informação'};
+let pagina = 'hoje';
 
 function renderPills() {
   $('pills').innerHTML = Object.keys(D.grupos).map(g => '<button class="' + (g === grupo ? 'on' : '') + '" data-g="' + g + '">' + rotulo(g) + '</button>').join('');
-  document.querySelectorAll('#pills button').forEach(b => b.onclick = () => { grupo = b.dataset.g; renderPills(); renderTudo(); });
+  document.querySelectorAll('#pills button').forEach(b => b.onclick = () => { grupo = b.dataset.g; try { localStorage.setItem('grupo', grupo); } catch (e) {} renderPills(); renderTudo(); });
 }
 
 function renderHero() {
   const el = $('hero'), ss = sorted(grupo);
   if (!ss.length) { el.innerHTML = '<p class="mut">Ainda não há dados para este combustível.</p>'; return; }
-  const b = ss[0], maxA = ss[ss.length - 1].a, media = ss.reduce((a, s) => a + s.a, 0) / ss.length, dif = maxA - b.a;
-  el.innerHTML = '<div class="eyebrow">Mais barato agora · ' + rotulo(grupo) + '</div>' +
+  const b = ss[0], dif = ss[ss.length - 1].a - b.a;
+  el.innerHTML = '<div class="eyebrow">Mais barato agora</div>' +
     '<div class="big">' + vc(b.a) + '<small>€/litro</small></div>' +
-    '<div class="quem"><span class="dot" style="background:' + b.c + '"></span>' + b.n + (b.lat != null ? ' <a href="' + maps(b) + '" target="_blank" rel="noopener">Ver no mapa ↗</a>' : '') + '</div>' +
-    '<div class="stats">' +
-    '<div><span>Face a ontem</span><b>' + dl(delta(b, 1)) + '</b></div>' +
-    '<div><span>Média dos postos</span><b>' + eur(media) + '</b></div>' +
-    '<div><span>Até ao mais caro</span><b>' + (dif > 0.0004 ? (dif * 100).toFixed(1).replace('.', ',') + ' cênt.' : '—') + '</b></div>' +
-    '<div><span>Poupas em ' + litros + ' L</span><b class="down">' + (dif > 0.0004 ? eur2(litros * dif) : '—') + '</b></div></div>';
+    '<div class="quem"><span class="dot" style="background:' + b.c + '"></span>' + b.n + (b.lat != null ? ' <a href="' + maps(b) + '" target="_blank" rel="noopener">Mapa ↗</a>' : '') + '</div>' +
+    (dif > 0.0004 ? '<div class="hint">Poupas até <b class="down">' + eur2(litros * dif) + '</b> num depósito de ' + litros + ' L, face ao posto mais caro.</div>' : '');
 }
 
 function resumoVar(s) {
@@ -799,18 +809,14 @@ function resumoVar(s) {
 function renderCards() {
   const el = $('cards'), ss = sorted(grupo);
   if (!ss.length) { el.innerHTML = ''; return; }
-  const maxA = ss[ss.length - 1].a, dias = (D.x1 - D.x0) / DIA;
+  const maxA = ss[ss.length - 1].a;
   const aberto = new Set([...el.querySelectorAll('details[open]')].map(d => d.dataset.n));
-  el.innerHTML = ss.map((s, i) => {
-    const vals = s.p.map(q => q[1]), mn = Math.min(...vals), mx = Math.max(...vals), poupa = litros * (maxA - s.a), mudou = s.p.length > 2;
-    let bd = '';
-    if (i === 0) bd += '<span class="bd">Mais barato</span>';
-    if (dias >= 7 && mudou && mx > mn && s.a <= mn + 1e-9) bd += '<span class="bd tr">🏆 mínimo</span>';
-    if (dias >= 7 && mudou && mx > mn && s.a >= mx - 1e-9) bd += '<span class="bd up">📈 máximo</span>';
+  el.innerHTML = ss.map(s => {
+    const vals = s.p.map(q => q[1]), mn = Math.min(...vals), mx = Math.max(...vals), poupa = litros * (maxA - s.a);
     return '<details class="row" data-n="' + s.n + '"' + (aberto.has(s.n) ? ' open' : '') + '><summary>' +
       '<span class="dot" style="background:' + s.c + '"></span>' +
-      '<span class="info"><span class="nm">' + s.n + bd + '</span><span class="s2">' + resumoVar(s) + '</span></span>' +
-      spark(s) + '<span class="pr">' + vc(s.a) + '<small>€</small></span><span class="chev">›</span></summary>' +
+      '<span class="info"><span class="nm">' + s.n + '</span><span class="s2">' + resumoVar(s) + '</span></span>' +
+      '<span class="pr">' + vc(s.a) + '<small>€</small></span><span class="chev">›</span></summary>' +
       '<div class="det">' +
       '<div><span>24 horas</span><b>' + dl(delta(s, 1)) + '</b></div>' +
       '<div><span>7 dias</span><b>' + dl(delta(s, 7)) + '</b></div>' +
@@ -942,16 +948,33 @@ function renderMapa() {
   setTimeout(() => map.invalidateSize(), 0);
 }
 
-function renderTudo() { renderHero(); renderCards(); renderGrafico(); renderMapa(); }
+function renderTudo() {
+  renderHero(); renderCards();
+  if (pagina === 'grafico') renderGrafico();
+  if (pagina === 'mapa') renderMapa();
+}
+
+function mostrar() {
+  const h = location.hash.replace(/^#\/?/, '') || 'hoje';
+  pagina = PAGS.includes(h) ? h : 'hoje';
+  PAGS.forEach(p => { $('p-' + p).hidden = p !== pagina; });
+  document.querySelectorAll('.tabs a').forEach(a => a.classList.toggle('on', a.dataset.p === pagina));
+  $('titulo').textContent = TIT[pagina]; $('subt').textContent = SUB[pagina]();
+  $('barra').hidden = pagina === 'ajustes';
+  document.title = TIT[pagina] + ' · Combustíveis';
+  window.scrollTo(0, 0);
+  if (pagina === 'grafico') renderGrafico();
+  if (pagina === 'mapa') renderMapa();
+}
 
 function aplicarTema(t) {
   if (t === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.dataset.theme = t === 'claro' ? 'light' : 'dark';
-  $('tema').textContent = t === 'claro' ? '☀️' : t === 'escuro' ? '🌙' : '🌓';
+  document.querySelectorAll('#temaSeg button').forEach(b => b.classList.toggle('on', b.dataset.t === t));
 }
 let tema = 'auto';
 try { tema = localStorage.getItem('tema') || 'auto'; } catch (e) {}
 aplicarTema(tema);
-$('tema').onclick = () => { tema = tema === 'auto' ? 'claro' : tema === 'claro' ? 'escuro' : 'auto'; try { localStorage.setItem('tema', tema); } catch (e) {} aplicarTema(tema); };
+document.querySelectorAll('#temaSeg button').forEach(b => b.onclick = () => { tema = b.dataset.t; try { localStorage.setItem('tema', tema); } catch (e) {} aplicarTema(tema); });
 
 $('upd').textContent = D.atualizado;
 $('litros').value = litros;
@@ -962,8 +985,10 @@ $('todos').onclick = () => { hidden.clear(); renderGrafico(); };
 $('nenhum').onclick = () => { (D.grupos[grupo] || []).forEach(s => hidden.add(s.n)); renderGrafico(); };
 $('svg').addEventListener('pointermove', onMove);
 $('svg').addEventListener('pointerleave', () => { $('tip').style.display = 'none'; const c = $('cur'); if (c) c.style.display = 'none'; linhasEstilo(-1); });
-window.addEventListener('resize', renderGrafico);
+window.addEventListener('resize', () => { if (pagina === 'grafico') renderGrafico(); });
+window.addEventListener('hashchange', mostrar);
 if (grupo) { renderPills(); renderTudo(); } else { $('hero').innerHTML = '<p class="mut">Ainda não há dados.</p>'; }
+mostrar();
 </script></body></html>
 """
 
