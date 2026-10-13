@@ -16,6 +16,7 @@ Uso:
 Variavel de ambiente necessaria para as notificacoes: NTFY_TOPIC (o teu topico no ntfy)
 """
 import csv
+import hashlib
 import html
 import json
 import os
@@ -604,78 +605,132 @@ def dados_pagina(estado, desde, agora):
 
 PAGINA_HTML = r"""<!doctype html>
 <html lang="pt"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Preços dos combustíveis</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Combustíveis · Marinha Grande e Leiria</title>
+<meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Combustíveis">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛽</text></svg>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
 <style>
-:root{--bg:#fff;--fg:#1d1d1f;--mut:#6b6b70;--grid:#e6e6e8;--grid2:#f1f1f2;--card:#f4f4f6;--line:#d8d8dc;--up:#c0392b;--down:#1e8e3e}
-@media(prefers-color-scheme:dark){:root{--bg:#121316;--fg:#ececec;--mut:#9a9aa0;--grid:#2c2e33;--grid2:#202226;--card:#1c1e22;--line:#34363b;--up:#ff7b6b;--down:#4cd37b}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
-main{max-width:1100px;margin:0 auto;padding:20px 16px 40px}
-h1{margin:0 0 2px;font-size:22px}
-h2{margin:0 0 10px;font-size:16px}
-.sub{color:var(--mut);font-size:13px;margin-bottom:16px}
-.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
-select,input,button.act{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
-button.act{cursor:pointer}button.act.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-input[type=number]{width:84px}
-label.chk{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mut);cursor:pointer}
-section{border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:18px}
-.tw{overflow-x:auto}
-table{border-collapse:collapse;width:100%;font-size:13px;white-space:nowrap}
-th{font-weight:600;color:var(--mut);text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);font-size:12px}
-td{padding:7px 8px;border-bottom:1px solid var(--grid)}
-.n{text-align:right;font-variant-numeric:tabular-nums}th.n{text-align:right}
-td i,.lg i,#tip i{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block;margin-right:7px}
+:root{--bg:#f2f2f7;--card:#fff;--fill:rgba(118,118,128,.12);--segon:#fff;--fg:#1c1c1e;--mut:#6e6e73;--line:rgba(60,60,67,.14);--grid:rgba(60,60,67,.10);--grid2:rgba(60,60,67,.05);--up:#d70015;--down:#248a3d;--ok:#34c759;--accent:#007aff;--onacc:#fff;--glass:rgba(242,242,247,.78);--shadow:0 1px 2px rgba(0,0,0,.04),0 6px 24px rgba(0,0,0,.05)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--card:#1c1c1e;--fill:rgba(118,118,128,.28);--segon:#636366;--fg:#f5f5f7;--mut:#98989f;--line:rgba(84,84,88,.55);--grid:rgba(84,84,88,.45);--grid2:rgba(84,84,88,.2);--up:#ff453a;--down:#30d158;--ok:#30d158;--accent:#0a84ff;--glass:rgba(0,0,0,.72);--shadow:none}}
+:root[data-theme="dark"]{--bg:#000;--card:#1c1c1e;--fill:rgba(118,118,128,.28);--segon:#636366;--fg:#f5f5f7;--mut:#98989f;--line:rgba(84,84,88,.55);--grid:rgba(84,84,88,.45);--grid2:rgba(84,84,88,.2);--up:#ff453a;--down:#30d158;--ok:#30d158;--accent:#0a84ff;--glass:rgba(0,0,0,.72);--shadow:none}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;line-height:1.35}
+main{max-width:760px;margin:0 auto;padding:max(20px,env(safe-area-inset-top)) 18px calc(40px + env(safe-area-inset-bottom))}
+header.top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin:6px 0 14px}
+h1{margin:0;font-size:34px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+h2{margin:0;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--mut)}
+.sub{color:var(--mut);font-size:14px;margin-top:4px}
+button,input{font:inherit;color:var(--fg)}
+.tema{border:0;background:var(--fill);width:36px;height:36px;border-radius:50%;font-size:16px;cursor:pointer;flex:none}
+.bar{position:sticky;top:0;z-index:20;margin:0 -18px 16px;padding:8px 18px;background:var(--glass);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px)}
+.seg{display:flex;gap:2px;background:var(--fill);padding:2px;border-radius:10px;overflow-x:auto;scrollbar-width:none}
+.seg::-webkit-scrollbar{display:none}
+.seg button{flex:1 0 auto;white-space:nowrap;border:0;background:transparent;padding:7px 14px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer}
+.seg button.on{background:var(--segon);font-weight:600;box-shadow:0 3px 8px rgba(0,0,0,.12),0 0 0 .5px rgba(0,0,0,.04)}
+.hero{background:var(--card);border-radius:26px;padding:24px 22px 20px;margin-bottom:26px;box-shadow:var(--shadow)}
+.eyebrow{font-size:13px;font-weight:600;color:var(--mut)}
+.big{font-size:clamp(56px,15vw,88px);font-weight:700;letter-spacing:-.05em;line-height:1;margin:8px 0 6px}
+.big small{font-size:.26em;font-weight:600;color:var(--mut);letter-spacing:0;margin-left:6px}
+.quem{font-size:17px;font-weight:600;display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+.quem a{font-weight:500;color:var(--accent);text-decoration:none;font-size:15px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:10px;margin-top:22px}
+.stats div{background:var(--bg);border-radius:14px;padding:11px 13px}
+.stats div>span:first-child{display:block;font-size:12px;color:var(--mut);margin-bottom:3px}
+.stats b{font-size:16px;font-weight:600}
+.sec{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;margin:0 6px 8px}
+label.chk{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--mut)}
+input[type=number]{width:64px;text-align:center;font-size:15px;padding:6px 8px;border-radius:9px;border:0;background:var(--fill)}
+.list{background:var(--card);border-radius:20px;margin-bottom:28px;overflow:hidden;box-shadow:var(--shadow)}
+details.row{border-top:.5px solid var(--line)}
+details.row:first-child{border-top:0}
+summary{list-style:none;display:flex;align-items:center;gap:12px;padding:13px 16px;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+summary:active{background:var(--fill)}
+.dot{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block}
+.info{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.nm{font-size:17px;font-weight:600;display:flex;align-items:center;gap:7px;flex-wrap:wrap}
+.s2{font-size:13px;color:var(--mut)}
+.bd{font-size:11px;font-weight:600;padding:2px 8px;border-radius:999px;background:rgba(52,199,89,.16);color:var(--down)}
+.bd.tr{background:rgba(255,159,10,.18);color:#b25e00}.bd.up{background:rgba(255,59,48,.14);color:var(--up)}
+.sp{display:block;flex:none;width:72px;height:26px}
+.pr{font-size:21px;font-weight:600;letter-spacing:-.02em;text-align:right;min-width:74px}
+.pr small{font-size:12px;font-weight:500;color:var(--mut);margin-left:2px}
+.chev{color:var(--mut);font-size:20px;transition:transform .2s;flex:none;width:10px;text-align:center;opacity:.7}
+details[open] .chev{transform:rotate(90deg)}
+.det{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px 14px;padding:2px 16px 16px 38px}
+.det div>span:first-child{display:block;font-size:12px;color:var(--mut);margin-bottom:1px}
+.det b{font-size:15px;font-weight:600}
+.det a{color:var(--accent);text-decoration:none;font-size:15px;font-weight:500;align-self:end}
+.blk{background:var(--card);border-radius:20px;padding:16px;margin-bottom:28px;box-shadow:var(--shadow)}
+.tb{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:12px}
+.lnk{background:none;border:0;color:var(--accent);font-size:14px;cursor:pointer;padding:4px 2px}
+.sw{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--mut);cursor:pointer}
+.sw input{position:absolute;opacity:0;pointer-events:none}
+.sw i{width:42px;height:26px;border-radius:13px;background:var(--fill);position:relative;transition:background .2s;flex:none}
+.sw i::after{content:"";position:absolute;left:2px;top:2px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25);transition:transform .2s}
+.sw input:checked+i{background:var(--ok)}.sw input:checked+i::after{transform:translateX(16px)}
 .up{color:var(--up)}.down{color:var(--down)}.mut{color:var(--mut)}
-a{color:inherit}
-.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
-.chips div{background:var(--card);border-radius:10px;padding:8px 12px;font-size:12px;color:var(--mut);min-width:190px}
-.chips b{display:block;font-size:18px;color:var(--fg);margin:2px 0}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.chips div{background:var(--bg);border-radius:14px;padding:9px 13px;font-size:12px;color:var(--mut);min-width:170px;flex:1}
+.chips b{display:block;font-size:19px;font-weight:600;color:var(--fg);margin:2px 0}
 #box{position:relative}
 svg{display:block;width:100%;touch-action:pan-y}
 .g{stroke:var(--grid)}.g2{stroke:var(--grid2)}.t{fill:var(--mut);font-size:11px}
 .cur{stroke:var(--mut);stroke-dasharray:3 3}
-#tip{position:absolute;display:none;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12px;box-shadow:0 4px 14px rgba(0,0,0,.18);min-width:200px;z-index:500}
+#tip{position:absolute;display:none;pointer-events:none;background:var(--card);border:.5px solid var(--line);border-radius:14px;padding:10px 12px;font-size:12.5px;box-shadow:0 10px 30px rgba(0,0,0,.2);min-width:210px;z-index:500}
 #tip div{display:flex;align-items:center;margin-top:3px}
-#tip span{margin-left:auto;font-variant-numeric:tabular-nums;padding-left:12px}
-#tip .med{border-top:1px solid var(--line);margin-top:6px;padding-top:5px;color:var(--mut)}
+#tip span{margin-left:auto;padding-left:12px}
+#tip i,.lg i{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block;margin-right:7px}
+#tip .med{border-top:.5px solid var(--line);margin-top:6px;padding-top:5px;color:var(--mut)}
 #legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.lg{display:flex;align-items:center;font:inherit;font-size:13px;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 11px;cursor:pointer}
-.lg span{color:var(--mut);font-variant-numeric:tabular-nums;margin-left:7px}
+.lg{display:flex;align-items:center;font-size:13px;background:var(--bg);border:0;border-radius:999px;padding:6px 12px;cursor:pointer}
+.lg span{color:var(--mut);margin-left:7px}
 .lg.off{opacity:.38}
-#mapa{height:380px;border-radius:10px;overflow:hidden;background:var(--card)}
+#mapa{height:360px;border-radius:14px;overflow:hidden;background:var(--bg)}
 .pin div{color:#fff;font-weight:700;font-size:11px;text-align:center;padding:2px 0;border-radius:11px;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4);width:58px}
 .escala{height:8px;border-radius:4px;background:linear-gradient(90deg,hsl(120,65%,38%),hsl(60,65%,38%),hsl(0,65%,38%));width:160px;display:inline-block;vertical-align:middle;margin:0 6px}
-.nota{color:var(--mut);font-size:12px;line-height:1.5;margin:10px 0 0}
-@media(max-width:640px){.h{display:none}td,th{padding:6px 4px;font-size:12px}td:nth-child(2){white-space:normal}#hoje td:first-child,#hoje th:first-child{display:none}}
+.nota{color:var(--mut);font-size:12.5px;line-height:1.5;margin:10px 2px 0}
+footer{color:var(--mut);font-size:12px;text-align:center;line-height:1.7;margin-top:6px}
+footer a{color:inherit}
+@media(max-width:520px){.sp{display:none}.hero{padding:20px 18px 16px;border-radius:24px}main{padding-left:14px;padding-right:14px}.bar{margin-left:-14px;margin-right:-14px;padding-left:14px;padding-right:14px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
 </style></head><body><main>
-<h1>Preços dos combustíveis</h1>
-<div class="sub" id="sub"></div>
-<div class="bar"><select id="sel"></select></div>
+<header class="top">
+  <div><h1>Combustíveis</h1><div class="sub">Marinha Grande e Leiria · atualizado em <span id="upd"></span></div></div>
+  <button class="tema" id="tema" title="Alternar tema (automático / claro / escuro)">🌓</button>
+</header>
+<div class="bar"><nav class="seg" id="pills"></nav></div>
+<section class="hero" id="hero"></section>
 
-<section><h2>Hoje</h2>
-<div class="bar"><label class="chk">Depósito:&nbsp;<input type="number" id="litros" min="1" max="200" step="1">&nbsp;litros</label></div>
-<div class="tw"><table id="hoje"></table></div>
-<p class="nota">Variações face a 24 horas e a 7 dias atrás, a contar desde que o vigilante começou a registar (até lá aparece «—»). A poupança compara com o posto mais caro da lista.</p>
-</section>
+<div class="sec"><h2>Postos</h2>
+  <label class="chk">Depósito <input type="number" id="litros" min="1" max="200" step="1"> litros</label></div>
+<div class="list" id="cards"></div>
 
-<section><h2>Evolução</h2>
-<div class="bar"><button class="act" data-p="7">7 dias</button><button class="act" data-p="30">30 dias</button><button class="act" data-p="tudo">Tudo</button>
-<label class="chk"><input type="checkbox" id="media" checked>Linha da média</label>
-<button class="act" id="todos">Mostrar todos</button><button class="act" id="nenhum">Ocultar todos</button></div>
+<div class="sec"><h2>Evolução</h2></div>
+<section class="blk">
+<div class="tb"><nav class="seg" style="min-width:230px"><button data-p="7">7 dias</button><button data-p="30">30 dias</button><button data-p="tudo">Tudo</button></nav>
+<label class="sw"><input type="checkbox" id="media" checked><i></i>Linha da média</label></div>
 <div class="chips" id="chips"></div>
 <div id="box"><svg id="svg"></svg><div id="tip"></div></div>
 <div id="legend"></div>
-<p class="nota">Passa o rato (ou o dedo) sobre o gráfico para ver o preço de cada posto nesse momento. Clica num posto da legenda para o esconder. Cada degrau é uma mudança de preço.</p>
+<div class="tb" style="margin:8px 0 0;justify-content:flex-start;gap:14px"><button class="lnk" id="todos">Mostrar todos</button><button class="lnk" id="nenhum">Ocultar todos</button></div>
+<p class="nota">Passa o rato (ou o dedo) sobre o gráfico para ver o preço de cada posto; em cima da linha de um posto vês só os dados desse posto. Cada degrau é uma mudança de preço.</p>
 </section>
 
-<section><h2>Mapa</h2>
+<div class="sec"><h2>Mapa</h2></div>
+<section class="blk">
 <div id="mapa"></div>
 <p class="nota">Barato<span class="escala"></span>caro (dentro do combustível escolhido). Toca num posto para ver os detalhes.</p>
 </section>
-<p class="nota">Fonte: DGEG e Plenergy. Mapa: © OpenStreetMap.</p>
+
+<footer>Variações face a 24 horas e a 7 dias atrás, a contar desde que o vigilante começou a registar (até lá aparece «—»). A poupança compara com o posto mais caro da lista.<br>
+Fonte: DGEG e Plenergy · Mapa © OpenStreetMap · <a href="https://github.com/rodrigoosv/combustiveis-" target="_blank" rel="noopener">Código no GitHub</a></footer>
 </main>
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
@@ -703,14 +758,69 @@ function dl(d) {
   return '<span class="' + (c > 0 ? 'up' : 'down') + '">' + (c > 0 ? '⬆️ +' : '⬇️ ') + c.toFixed(1).replace('.', ',') + ' cênt.</span>';
 }
 
-function renderHoje() {
-  const ss = sorted(grupo), maxA = Math.max(...ss.map(s => s.a));
-  let h = '<tr><th>#</th><th>Posto</th><th class="n">Preço</th><th class="n">24 h</th><th class="n h">7 dias</th><th class="n">Custo (' + litros + ' L)</th><th class="n">Poupas</th><th class="n h">Mín.</th><th class="n h">Máx.</th><th></th></tr>';
-  ss.forEach((s, i) => {
-    const vals = s.p.map(q => q[1]), poupa = litros * (maxA - s.a);
-    h += '<tr><td>' + (i === 0 ? '🥇' : i + 1) + '</td><td><i style="background:' + s.c + '"></i>' + s.n + '</td><td class="n"><b>' + eur(s.a) + '</b></td><td class="n">' + dl(delta(s, 1)) + '</td><td class="n h">' + dl(delta(s, 7)) + '</td><td class="n">' + eur2(litros * s.a) + '</td><td class="n">' + (poupa > 0.004 ? '<span class="down">' + eur2(poupa) + '</span>' : '<span class="mut">—</span>') + '</td><td class="n h">' + eur(Math.min(...vals)) + '</td><td class="n h">' + eur(Math.max(...vals)) + '</td><td>' + (s.lat != null ? '<a href="' + maps(s) + '" target="_blank" rel="noopener"><span class="h">Mapa </span>↗</a>' : '') + '</td></tr>';
-  });
-  $('hoje').innerHTML = h;
+const ROT = {'Gasóleo simples': 'Gasóleo', 'Gasóleo especial / plus': 'Gasóleo plus', 'Gasolina 95 simples': 'Gasolina 95', 'Gasolina 95 especial / plus': 'Gasolina 95 plus', 'Gasolina 98': 'Gasolina 98', 'GPL': 'GPL'};
+const rotulo = g => ROT[g] || g;
+
+function spark(s) {
+  const w = 72, h = 26, p = s.p, t0 = p[0][0], t1 = Math.max(p[p.length - 1][0], t0 + 1);
+  const vs = p.map(q => q[1]), lo = Math.min(...vs), hi = Math.max(...vs);
+  const X = t => 2 + (t - t0) / (t1 - t0) * (w - 4);
+  const Y = v => hi > lo ? h - 3 - (v - lo) / (hi - lo) * (h - 6) : h / 2;
+  let d = ''; p.forEach((q, i) => { d += i ? ' H' + X(q[0]) + ' V' + Y(q[1]) : 'M' + X(q[0]) + ',' + Y(q[1]); });
+  return '<svg class="sp" viewBox="0 0 ' + w + ' ' + h + '"><path d="' + d + '" fill="none" stroke="' + s.c + '" stroke-width="1.8" stroke-linejoin="round"' + (hi > lo ? '' : ' stroke-dasharray="3 3" opacity=".55"') + '/></svg>';
+}
+
+function renderPills() {
+  $('pills').innerHTML = Object.keys(D.grupos).map(g => '<button class="' + (g === grupo ? 'on' : '') + '" data-g="' + g + '">' + rotulo(g) + '</button>').join('');
+  document.querySelectorAll('#pills button').forEach(b => b.onclick = () => { grupo = b.dataset.g; renderPills(); renderTudo(); });
+}
+
+function renderHero() {
+  const el = $('hero'), ss = sorted(grupo);
+  if (!ss.length) { el.innerHTML = '<p class="mut">Ainda não há dados para este combustível.</p>'; return; }
+  const b = ss[0], maxA = ss[ss.length - 1].a, media = ss.reduce((a, s) => a + s.a, 0) / ss.length, dif = maxA - b.a;
+  el.innerHTML = '<div class="eyebrow">Mais barato agora · ' + rotulo(grupo) + '</div>' +
+    '<div class="big">' + vc(b.a) + '<small>€/litro</small></div>' +
+    '<div class="quem"><span class="dot" style="background:' + b.c + '"></span>' + b.n + (b.lat != null ? ' <a href="' + maps(b) + '" target="_blank" rel="noopener">Ver no mapa ↗</a>' : '') + '</div>' +
+    '<div class="stats">' +
+    '<div><span>Face a ontem</span><b>' + dl(delta(b, 1)) + '</b></div>' +
+    '<div><span>Média dos postos</span><b>' + eur(media) + '</b></div>' +
+    '<div><span>Até ao mais caro</span><b>' + (dif > 0.0004 ? (dif * 100).toFixed(1).replace('.', ',') + ' cênt.' : '—') + '</b></div>' +
+    '<div><span>Poupas em ' + litros + ' L</span><b class="down">' + (dif > 0.0004 ? eur2(litros * dif) : '—') + '</b></div></div>';
+}
+
+function resumoVar(s) {
+  const d1 = delta(s, 1), d7 = delta(s, 7);
+  if (d1 !== null && Math.round(d1 * 1000) !== 0) return dl(d1) + ' em 24 h';
+  if (d7 !== null && Math.round(d7 * 1000) !== 0) return dl(d7) + ' em 7 dias';
+  return 'Sem alterações recentes';
+}
+
+function renderCards() {
+  const el = $('cards'), ss = sorted(grupo);
+  if (!ss.length) { el.innerHTML = ''; return; }
+  const maxA = ss[ss.length - 1].a, dias = (D.x1 - D.x0) / DIA;
+  const aberto = new Set([...el.querySelectorAll('details[open]')].map(d => d.dataset.n));
+  el.innerHTML = ss.map((s, i) => {
+    const vals = s.p.map(q => q[1]), mn = Math.min(...vals), mx = Math.max(...vals), poupa = litros * (maxA - s.a), mudou = s.p.length > 2;
+    let bd = '';
+    if (i === 0) bd += '<span class="bd">Mais barato</span>';
+    if (dias >= 7 && mudou && mx > mn && s.a <= mn + 1e-9) bd += '<span class="bd tr">🏆 mínimo</span>';
+    if (dias >= 7 && mudou && mx > mn && s.a >= mx - 1e-9) bd += '<span class="bd up">📈 máximo</span>';
+    return '<details class="row" data-n="' + s.n + '"' + (aberto.has(s.n) ? ' open' : '') + '><summary>' +
+      '<span class="dot" style="background:' + s.c + '"></span>' +
+      '<span class="info"><span class="nm">' + s.n + bd + '</span><span class="s2">' + resumoVar(s) + '</span></span>' +
+      spark(s) + '<span class="pr">' + vc(s.a) + '<small>€</small></span><span class="chev">›</span></summary>' +
+      '<div class="det">' +
+      '<div><span>24 horas</span><b>' + dl(delta(s, 1)) + '</b></div>' +
+      '<div><span>7 dias</span><b>' + dl(delta(s, 7)) + '</b></div>' +
+      '<div><span>Mínimo</span><b>' + eur(mn) + '</b></div>' +
+      '<div><span>Máximo</span><b>' + eur(mx) + '</b></div>' +
+      '<div><span>Depósito de ' + litros + ' L</span><b>' + eur2(litros * s.a) + '</b></div>' +
+      '<div><span>Poupas face ao mais caro</span><b>' + (poupa > 0.004 ? '<span class="down">' + eur2(poupa) + '</span>' : '—') + '</b></div>' +
+      (s.lat != null ? '<a href="' + maps(s) + '" target="_blank" rel="noopener">Google Maps ↗</a>' : '') +
+      '</div></details>';
+  }).join('');
 }
 
 function renderGrafico() {
@@ -728,7 +838,7 @@ function renderGrafico() {
   const X = t => m.l + (t - x0) / span * (W - m.l - m.r);
   const Y = v => H - m.b - (v - lo) / (hi - lo) * (H - m.t - m.b);
   const mediaEm = t => vis.reduce((a, s) => a + valorEm(s, t), 0) / vis.length;
-  geo = {W, H, m, x0, span, vis, mediaEm};
+  geo = {W, H, m, x0, span, vis, mediaEm, Y};
   svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.setAttribute('height', H);
   let o = '';
   for (let k = 0; k < 5; k++) { const v = lo + (hi - lo) * k / 4, y = Y(v);
@@ -738,9 +848,9 @@ function renderGrafico() {
   for (const s of vis) {
     let d = ''; s.w.forEach((q, i) => { d += i ? ' H' + X(q[0]) + ' V' + Y(q[1]) : 'M' + X(q[0]) + ',' + Y(q[1]); });
     d += ' H' + X(x1);
-    o += '<path d="' + d + '" fill="none" stroke="' + s.c + '" stroke-width="2.2"/>';
+    o += '<path d="' + d + '" fill="none" stroke="' + s.c + '" stroke-width="2.2" stroke-linejoin="round" data-i="' + vis.indexOf(s) + '"/>';
     s.w.slice(1).forEach(q => { o += '<circle cx="' + X(q[0]) + '" cy="' + Y(q[1]) + '" r="3" fill="' + s.c + '"/>'; });
-    o += '<circle cx="' + X(x1) + '" cy="' + Y(s.a) + '" r="4.5" fill="' + s.c + '" stroke="var(--bg)" stroke-width="1.5"/>';
+    o += '<circle cx="' + X(x1) + '" cy="' + Y(s.a) + '" r="4.5" fill="' + s.c + '" stroke="var(--card)" stroke-width="1.5"/>';
   }
   if ($('media').checked && vis.length > 1) {
     const ts = [...new Set([x0].concat(vis.flatMap(s => s.w.map(q => q[0]))))].sort((a, b) => a - b);
@@ -767,16 +877,42 @@ function renderGrafico() {
   document.querySelectorAll('button[data-p]').forEach(b => b.classList.toggle('on', b.dataset.p === String(periodo)));
 }
 
+function linhasEstilo(foco) {
+  document.querySelectorAll('#svg path[data-i]').forEach(pth => {
+    const on = foco < 0 || +pth.dataset.i === foco;
+    pth.setAttribute('stroke-width', foco >= 0 && on ? 4 : 2.2);
+    pth.setAttribute('opacity', on ? 1 : 0.2);
+  });
+}
+
 function onMove(ev) {
   if (!geo || !geo.vis.length) return;
   const svg = $('svg'), box = $('box'), tip = $('tip');
-  const r = svg.getBoundingClientRect(), px = (ev.clientX - r.left) * geo.W / r.width;
+  const r = svg.getBoundingClientRect(), px = (ev.clientX - r.left) * geo.W / r.width, py = (ev.clientY - r.top) * geo.H / r.height;
   const m = geo.m, f = Math.min(1, Math.max(0, (px - m.l) / (geo.W - m.l - m.r)));
   const t = geo.x0 + f * geo.span, x = m.l + f * (geo.W - m.l - m.r);
   const cur = $('cur'); cur.setAttribute('x1', x); cur.setAttribute('x2', x); cur.style.display = '';
-  const rows = geo.vis.map(s => [s, valorEm(s, t)]).sort((a, b) => a[1] - b[1]);
-  let h = '<b>' + fd(t, true) + '</b>' + rows.map(q => '<div><i style="background:' + q[0].c + '"></i>' + q[0].n + '<span>' + eur(q[1]) + '</span></div>').join('');
-  if ($('media').checked && geo.vis.length > 1) h += '<div class="med">Média<span>' + eur(geo.mediaEm(t)) + '</span></div>';
+  // o rato esta em cima da linha de um posto?
+  let foco = -1, melhor = 12;
+  geo.vis.forEach((s, j) => { const dy = Math.abs(py - geo.Y(valorEm(s, t))); if (dy < melhor) { melhor = dy; foco = j; } });
+  linhasEstilo(foco);
+  let h;
+  if (foco >= 0) {
+    const s = geo.vis[foco];
+    let i0 = 0, i1 = 0;
+    s.p.forEach((q, i) => { if (q[1] < s.p[i0][1]) i0 = i; if (q[1] > s.p[i1][1]) i1 = i; });
+    const mud = s.p.length > 2 ? 'Última mudança<span>' + fd(s.p[s.p.length - 2][0], true) + '</span>' : 'Sem mudanças<span>desde o início</span>';
+    h = '<b><i style="background:' + s.c + '"></i>' + s.n + '</b>' +
+      '<div>' + fd(t, true) + '<span>' + eur(valorEm(s, t)) + '</span></div>' +
+      '<div class="med">Preço atual<span>' + eur(s.a) + '</span></div>' +
+      '<div>Mínimo<span>' + eur(s.p[i0][1]) + ' · ' + fd(s.p[i0][0]) + '</span></div>' +
+      '<div>Máximo<span>' + eur(s.p[i1][1]) + ' · ' + fd(s.p[i1][0]) + '</span></div>' +
+      '<div>' + mud + '</div>';
+  } else {
+    const rows = geo.vis.map(s => [s, valorEm(s, t)]).sort((a, b) => a[1] - b[1]);
+    h = '<b>' + fd(t, true) + '</b>' + rows.map(q => '<div><i style="background:' + q[0].c + '"></i>' + q[0].n + '<span>' + eur(q[1]) + '</span></div>').join('');
+    if ($('media').checked && geo.vis.length > 1) h += '<div class="med">Média<span>' + eur(geo.mediaEm(t)) + '</span></div>';
+  }
   tip.innerHTML = h; tip.style.display = 'block';
   const bx = box.getBoundingClientRect(); let left = ev.clientX - bx.left + 14;
   if (left + tip.offsetWidth > bx.width) left = ev.clientX - bx.left - tip.offsetWidth - 14;
@@ -806,21 +942,28 @@ function renderMapa() {
   setTimeout(() => map.invalidateSize(), 0);
 }
 
-function renderTudo() { renderHoje(); renderGrafico(); renderMapa(); }
+function renderTudo() { renderHero(); renderCards(); renderGrafico(); renderMapa(); }
 
-$('sub').textContent = 'Atualizado em ' + D.atualizado;
-Object.keys(D.grupos).forEach(g => { const op = document.createElement('option'); op.value = op.textContent = g; if (g === grupo) op.selected = true; $('sel').appendChild(op); });
+function aplicarTema(t) {
+  if (t === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.dataset.theme = t === 'claro' ? 'light' : 'dark';
+  $('tema').textContent = t === 'claro' ? '☀️' : t === 'escuro' ? '🌙' : '🌓';
+}
+let tema = 'auto';
+try { tema = localStorage.getItem('tema') || 'auto'; } catch (e) {}
+aplicarTema(tema);
+$('tema').onclick = () => { tema = tema === 'auto' ? 'claro' : tema === 'claro' ? 'escuro' : 'auto'; try { localStorage.setItem('tema', tema); } catch (e) {} aplicarTema(tema); };
+
+$('upd').textContent = D.atualizado;
 $('litros').value = litros;
-$('sel').onchange = e => { grupo = e.target.value; renderTudo(); };
-$('litros').oninput = e => { const v = parseFloat(e.target.value); if (v > 0) { litros = v; try { localStorage.setItem('litros', v); } catch (x) {} renderHoje(); } };
+$('litros').oninput = e => { const v = parseFloat(e.target.value); if (v > 0) { litros = v; try { localStorage.setItem('litros', v); } catch (x) {} renderHero(); renderCards(); } };
 document.querySelectorAll('button[data-p]').forEach(b => b.onclick = () => { periodo = b.dataset.p === 'tudo' ? 'tudo' : parseInt(b.dataset.p); renderGrafico(); });
 $('media').onchange = renderGrafico;
 $('todos').onclick = () => { hidden.clear(); renderGrafico(); };
 $('nenhum').onclick = () => { (D.grupos[grupo] || []).forEach(s => hidden.add(s.n)); renderGrafico(); };
 $('svg').addEventListener('pointermove', onMove);
-$('svg').addEventListener('pointerleave', () => { $('tip').style.display = 'none'; const c = $('cur'); if (c) c.style.display = 'none'; });
+$('svg').addEventListener('pointerleave', () => { $('tip').style.display = 'none'; const c = $('cur'); if (c) c.style.display = 'none'; linhasEstilo(-1); });
 window.addEventListener('resize', renderGrafico);
-if (grupo) renderTudo(); else $('sub').textContent = 'Ainda não há dados.';
+if (grupo) { renderPills(); renderTudo(); } else { $('hero').innerHTML = '<p class="mut">Ainda não há dados.</p>'; }
 </script></body></html>
 """
 
@@ -1107,7 +1250,11 @@ def main():
         texto_resumo = resumo(novo_estado)
         if texto_resumo:
             meta["ultimo_resumo"] = hoje
-    gerar_grafico = (not GRAFICO.exists()) or (not PAGINA.exists()) or bool(historico) or meta_antiga.get("ultimo_grafico") != hoje
+    versao_pagina = hashlib.md5(PAGINA_HTML.encode("utf-8")).hexdigest()[:8]
+    gerar_grafico = ((not GRAFICO.exists()) or (not PAGINA.exists()) or bool(historico)
+                     or meta_antiga.get("ultimo_grafico") != hoje
+                     or meta_antiga.get("pagina_versao") != versao_pagina)  # pagina mudou: regenerar
+    meta["pagina_versao"] = versao_pagina
     if gerar_grafico:
         meta["ultimo_grafico"] = hoje
     novo_estado["_meta"] = meta
