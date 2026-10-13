@@ -111,31 +111,6 @@
   "lon": -8.953862,
   "morada": "ESTRADA NACIONAL Nº242, km 18"
  },
- "78233": {
-  "nome": "PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água)",
-  "aviso": "PINGO DOCE",
-  "precos": {
-   "Gasóleo simples": [
-    "2,092 €/litro",
-    "06-10-2026 00:00"
-   ],
-   "Gasóleo especial": [
-    "2,399 €/litro",
-    "06-10-2026 00:00"
-   ],
-   "Gasolina simples 95": [
-    "2,048 €/litro",
-    "06-10-2026 00:00"
-   ],
-   "Gasolina especial 98": [
-    "2,409 €/litro",
-    "06-10-2026 00:00"
-   ]
-  },
-  "lat": 39.76125,
-  "lon": -8.82138,
-  "morada": "Rua 25 de Abril"
- },
  "67331": {
   "nome": "Intermarché da Marinha Grande (Marinha Grande)",
   "aviso": "INTERMARCHÉ",
@@ -167,24 +142,49 @@
   "precos": {
    "Gasóleo especial": [
     "2,144 €/litro",
-    "13-10-2026 00:25"
+    "13-10-2026 15:05"
    ],
    "Biodiesel B15": [
     "2,114 €/litro",
-    "13-10-2026 00:25"
+    "13-10-2026 15:05"
    ],
    "Gasolina simples 95": [
     "2,154 €/litro",
-    "13-10-2026 00:25"
+    "13-10-2026 15:05"
    ],
    "Gasolina especial 95": [
     "2,089 €/litro",
-    "13-10-2026 00:25"
+    "13-10-2026 15:05"
    ]
   },
   "lat": 39.73963,
   "lon": -8.816806,
   "morada": "R. Dr. João Soares, Fração APorto Moniz"
+ },
+ "78233": {
+  "nome": "PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água)",
+  "aviso": "PINGO DOCE",
+  "precos": {
+   "Gasóleo simples": [
+    "2,093 €/litro",
+    "13-10-2026 11:30"
+   ],
+   "Gasóleo especial": [
+    "2,399 €/litro",
+    "13-10-2026 11:30"
+   ],
+   "Gasolina simples 95": [
+    "2,096 €/litro",
+    "13-10-2026 11:30"
+   ],
+   "Gasolina especial 98": [
+    "2,459 €/litro",
+    "13-10-2026 11:30"
+   ]
+  },
+  "lat": 39.76125,
+  "lon": -8.82138,
+  "morada": "Rua 25 de Abril"
  },
  "95309": {
   "nome": "OZ ENERGIA - MARINHA GRANDE (Amieirinha)",
@@ -210,6 +210,31 @@
   "lat": 39.72187,
   "lon": -8.926169,
   "morada": "Estrada do Guilherme"
+ },
+ "65415": {
+  "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
+  "aviso": "GALP (Embra)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,269 €/litro",
+    "12-10-2026 18:00"
+   ],
+   "Gasóleo especial": [
+    "2,319 €/litro",
+    "12-10-2026 18:00"
+   ],
+   "Gasolina simples 95": [
+    "2,195 €/litro",
+    "12-10-2026 18:00"
+   ],
+   "Gasolina especial 95": [
+    "2,245 €/litro",
+    "12-10-2026 18:00"
+   ]
+  },
+  "lat": 39.74782,
+  "lon": -8.91122,
+  "morada": "EN 242 Km 10,4"
  },
  "65416": {
   "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",
@@ -239,31 +264,6 @@
   "lat": 39.74892,
   "lon": -8.92391,
   "morada": "EN 242 (Av. Vítor Galo) Km 11,5"
- },
- "65415": {
-  "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
-  "aviso": "GALP (Embra)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,269 €/litro",
-    "12-10-2026 18:00"
-   ],
-   "Gasóleo especial": [
-    "2,319 €/litro",
-    "12-10-2026 18:00"
-   ],
-   "Gasolina simples 95": [
-    "2,195 €/litro",
-    "12-10-2026 18:00"
-   ],
-   "Gasolina especial 95": [
-    "2,245 €/litro",
-    "12-10-2026 18:00"
-   ]
-  },
-  "lat": 39.74782,
-  "lon": -8.91122,
-  "morada": "EN 242 Km 10,4"
  },
  "66596": {
   "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
@@ -374,11 +374,11 @@
   "aviso": "PLENERGY",
   "precos": {
    "Gasóleo simples": [
-    "2,019 €/litro",
+    "2,089 €/litro",
     ""
    ],
    "Gasóleo plus": [
-    "2,069 €/litro",
+    "2,039 €/litro",
     ""
    ],
    "Gasolina 95 simples": [
@@ -693,8 +693,8 @@
       "2026-10-06 00:00"
      ],
      "max": [
-      2.092,
-      "2026-10-06 00:00"
+      2.093,
+      "2026-10-13 11:30"
      ]
     },
     "Gasóleo especial": {
@@ -713,8 +713,8 @@
       "2026-10-06 00:00"
      ],
      "max": [
-      2.048,
-      "2026-10-06 00:00"
+      2.096,
+      "2026-10-13 11:30"
      ]
     },
     "Gasolina especial 98": {
@@ -723,8 +723,8 @@
       "2026-10-06 00:00"
      ],
      "max": [
-      2.409,
-      "2026-10-06 00:00"
+      2.459,
+      "2026-10-13 11:30"
      ]
     }
    },
@@ -1049,14 +1049,14 @@
       "2026-10-09 04:22"
      ],
      "max": [
-      2.019,
-      "2026-10-09 04:22"
+      2.089,
+      "2026-10-13 17:01"
      ]
     },
     "Gasóleo plus": {
      "min": [
-      2.069,
-      "2026-10-09 04:22"
+      2.039,
+      "2026-10-13 17:01"
      ],
      "max": [
       2.069,
@@ -1084,6 +1084,7 @@
      ]
     }
    }
-  }
+  },
+  "ultimo_grafico": "2026-10-13"
  }
 }
