@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-10-14 07:10",
+ "atualizado": "2026-10-14 12:55",
  "grupos": {
   "Gasóleo simples": {
    "mais_barato": {
@@ -7,7 +7,7 @@
     "preco": 2.009,
     "preco_texto": "2,009"
    },
-   "media": 2.184,
+   "media": 2.183,
    "postos": [
     {
      "posto": "TRANSOGÁS",
@@ -15,12 +15,12 @@
      "preco_texto": "2,009"
     },
     {
-     "posto": "INTERMARCHÉ",
-     "preco": 2.089,
-     "preco_texto": "2,089"
+     "posto": "PLENERGY",
+     "preco": 2.069,
+     "preco_texto": "2,069"
     },
     {
-     "posto": "PLENERGY",
+     "posto": "INTERMARCHÉ",
      "preco": 2.089,
      "preco_texto": "2,089"
     },
@@ -79,15 +79,15 @@
   "Gasóleo especial / plus": {
    "mais_barato": {
     "posto": "PLENERGY",
-    "preco": 2.039,
-    "preco_texto": "2,039"
+    "preco": 2.019,
+    "preco_texto": "2,019"
    },
-   "media": 2.245,
+   "media": 2.244,
    "postos": [
     {
      "posto": "PLENERGY",
-     "preco": 2.039,
-     "preco_texto": "2,039"
+     "preco": 2.019,
+     "preco_texto": "2,019"
     },
     {
      "posto": "TRANSOGÁS",
@@ -158,21 +158,21 @@
   },
   "Gasolina 95 simples": {
    "mais_barato": {
-    "posto": "TRANSOGÁS",
-    "preco": 1.929,
-    "preco_texto": "1,929"
+    "posto": "PLENERGY",
+    "preco": 1.919,
+    "preco_texto": "1,919"
    },
-   "media": 2.134,
+   "media": 2.132,
    "postos": [
+    {
+     "posto": "PLENERGY",
+     "preco": 1.919,
+     "preco_texto": "1,919"
+    },
     {
      "posto": "TRANSOGÁS",
      "preco": 1.929,
      "preco_texto": "1,929"
-    },
-    {
-     "posto": "PLENERGY",
-     "preco": 1.939,
-     "preco_texto": "1,939"
     },
     {
      "posto": "INTERMARCHÉ",
@@ -244,15 +244,15 @@
   "Gasolina 95 especial / plus": {
    "mais_barato": {
     "posto": "PLENERGY",
-    "preco": 1.989,
-    "preco_texto": "1,989"
+    "preco": 1.969,
+    "preco_texto": "1,969"
    },
-   "media": 2.177,
+   "media": 2.175,
    "postos": [
     {
      "posto": "PLENERGY",
-     "preco": 1.989,
-     "preco_texto": "1,989"
+     "preco": 1.969,
+     "preco_texto": "1,969"
     },
     {
      "posto": "PRIO (Leiria)",

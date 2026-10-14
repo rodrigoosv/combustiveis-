@@ -94,3 +94,7 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-10-14 01:21,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasolina simples 95,2.224,2.164,-6.0,desceu,2.164,2026-10-14 00:00,2.224,2026-10-13 00:00
 2026-10-14 01:21,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasolina especial 95,2.294,2.234,-6.0,desceu,2.234,2026-10-14 00:00,2.294,2026-10-13 00:00
 2026-10-14 01:21,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasolina especial 98,2.424,2.364,-6.0,desceu,2.364,2026-10-14 00:00,2.424,2026-10-13 00:00
+2026-10-14 12:55,PLENERGY (Marinha Grande),Gasóleo simples,2.089,2.069,-2.0,desceu,2.019,2026-10-09 04:22,2.089,2026-10-13 17:01
+2026-10-14 12:55,PLENERGY (Marinha Grande),Gasóleo plus,2.039,2.019,-2.0,desceu,2.019,2026-10-14 12:55,2.069,2026-10-09 04:22
+2026-10-14 12:55,PLENERGY (Marinha Grande),Gasolina 95 simples,1.939,1.919,-2.0,desceu,1.919,2026-10-14 12:55,1.939,2026-10-09 04:22
+2026-10-14 12:55,PLENERGY (Marinha Grande),Gasolina 95 plus,1.989,1.969,-2.0,desceu,1.969,2026-10-14 12:55,1.989,2026-10-09 04:22
