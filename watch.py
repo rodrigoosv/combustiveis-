@@ -9,7 +9,7 @@ Uso:
   py watch.py --plenergy    mostra os precos lidos do site da Plenergy
   py watch.py --resumo      envia (ou mostra) o resumo dos gasoleos mais baratos
   py watch.py --extremos    mostra preco atual, minimo e maximo historicos de cada posto (gasoleo; 'todos' para tudo)
-  py watch.py --grafico     (re)gera o grafico.svg e o index.html (interativo) a partir do estado.json e do historico.csv
+  py watch.py --grafico     (re)gera o grafico.svg, o index.html (interativo) e o dados.json a partir do estado.json e do historico.csv
   py watch.py --isp         mostra os artigos 'ATUALIZACAO ISP' do Contas Poupanca e a previsao do ultimo
   py watch.py               execucao normal: compara com estado.json e avisa se algo mudou
 
@@ -37,6 +37,7 @@ TOPICO = os.environ.get("NTFY_TOPIC", "").strip()
 ESTADO = Path(__file__).with_name("estado.json")
 HISTORICO = Path(__file__).with_name("historico.csv")
 GRAFICO = Path(__file__).with_name("grafico.svg")
+DADOS_JSON = Path(__file__).with_name("dados.json")  # resumo pequeno para Atalhos/widget do iPhone
 PAGINA = Path(__file__).with_name("index.html")  # grafico interativo (serve para GitHub Pages)
 HEADERS = {"User-Agent": "vigilante-combustiveis-pessoal/1.0"}
 
@@ -581,6 +582,48 @@ def grupo_combustivel(comb):
     return None
 
 
+def _ms(t):
+    return int((t - datetime(1970, 1, 1)).total_seconds() * 1000)
+
+
+def linhas_historico(estado, limite=800):
+    """Ultimas mudancas de preco, para a pagina Historico: [ms, posto, grupo, combustivel, anterior, novo]."""
+    if not HISTORICO.exists():
+        return []
+    aviso = {v.get("nome"): (v.get("aviso") or v.get("nome")) for k, v in estado.items() if k != "_meta"}
+    saida = []
+    with HISTORICO.open(newline="", encoding="utf-8") as f:
+        for l in csv.DictReader(f):
+            try:
+                t = datetime.strptime(l["data_hora"], "%Y-%m-%d %H:%M")
+                novo = float(l["preco_novo"])
+                ant = float(l["preco_anterior"]) if l.get("preco_anterior") else None
+            except (ValueError, KeyError, TypeError):
+                continue
+            saida.append([_ms(t), aviso.get(l["posto"], l["posto"]), grupo_combustivel(l["combustivel"]) or "",
+                          l["combustivel"], ant, novo])
+    return saida[-limite:]
+
+
+def escrever_dados_json(estado, desde, agora):
+    """dados.json: preco mais barato de cada combustivel (para Atalhos e widgets)."""
+    res, _ = series_grafico(estado, desde, agora, agrupar=grupo_combustivel)
+    grupos = {}
+    for g in ORDEM_GRUPOS:
+        lst = res.get(g)
+        if not lst:
+            continue
+        ordenados = sorted(lst, key=lambda x: (x[2], x[0]))
+        melhor = ordenados[0]
+        grupos[g] = {
+            "mais_barato": {"posto": melhor[0], "preco": melhor[2], "preco_texto": f"{melhor[2]:.3f}".replace(".", ",")},
+            "media": round(sum(x[2] for x in lst) / len(lst), 3),
+            "postos": [{"posto": n, "preco": a, "preco_texto": f"{a:.3f}".replace(".", ",")} for n, _, a in ordenados],
+        }
+    DADOS_JSON.write_text(json.dumps({"atualizado": agora.strftime("%Y-%m-%d %H:%M"), "grupos": grupos},
+                                     ensure_ascii=False, indent=1), encoding="utf-8")
+
+
 def dados_pagina(estado, desde, agora):
     res, x0 = series_grafico(estado, desde, agora, agrupar=grupo_combustivel)
     nomes = sorted({n for lst in res.values() for n, _, _ in lst})
@@ -600,7 +643,9 @@ def dados_pagina(estado, desde, agora):
 
     grupos = {g: [{"n": n, "c": cores[n], "a": atual, "p": [[ms(t), p] for t, p in pts], **extra(n)}
                   for n, pts, atual in res[g]] for g in ORDEM_GRUPOS if g in res}
-    return {"atualizado": agora.strftime("%d/%m/%Y %H:%M"), "x0": ms(x0), "x1": ms(agora), "grupos": grupos}
+    todos = [{"n": n, "g": [g for g in ORDEM_GRUPOS if any(x[0] == n for x in res.get(g, []))]} for n in nomes]
+    return {"atualizado": agora.strftime("%d/%m/%Y %H:%M"), "x0": ms(x0), "x1": ms(agora), "grupos": grupos,
+            "hist": linhas_historico(estado), "todos": todos}
 
 
 PAGINA_HTML = r"""<!doctype html>
@@ -699,6 +744,27 @@ input[type=number]{width:70px;text-align:center;font-size:16px;padding:6px 8px;b
 .tabs svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 @media(prefers-reduced-motion:reduce){*{transition:none!important}}
 @media(max-width:520px){main{padding-left:14px;padding-right:14px}.bar{margin-left:-14px;margin-right:-14px;padding-left:14px;padding-right:14px}.hero{padding:20px 18px 18px;border-radius:24px}.gr .seg{min-width:170px}}
+
+.btn{border:0;background:var(--accent);color:#fff;padding:10px 16px;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer}
+.dv{padding:18px 18px 16px;margin-bottom:22px}
+.dv .big2{font-size:23px;font-weight:700;letter-spacing:-.02em;margin:4px 0 8px;display:flex;align-items:center;gap:8px}
+.dv p{margin:6px 0 0;color:var(--mut);font-size:14.5px;line-height:1.45}
+.dv p b{color:var(--fg)}.dv p b.down{color:var(--down)}.dv p.up{color:var(--up)}
+.dv .peq{font-size:12px}
+.sec2{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:22px 0 8px}
+.sec2 h2{margin:0 6px}
+.seg.mini{min-width:0}.seg.mini button{padding:5px 12px;font-size:13px}
+.star{border:0;background:none;font-size:21px;line-height:1;color:var(--mut);cursor:pointer;padding:4px 2px;flex:none}
+.star.on{color:#ff9f0a}
+select.sel{font:inherit;font-size:15px;padding:8px 10px;border-radius:10px;border:0;background:var(--fill);color:var(--fg);max-width:62%}
+.dia{padding:12px 16px 4px;font-size:12px;font-weight:600;color:var(--mut);text-transform:uppercase;letter-spacing:.03em}
+.hr{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:11px 16px;border-top:.5px solid var(--line)}
+.hr .l b{display:block;font-size:16px;font-weight:600}
+.hr .l span{font-size:13px;color:var(--mut)}
+.hr .r{font-size:15px;font-weight:600;text-align:right;white-space:nowrap}
+.vazio{padding:24px 16px;color:var(--mut);font-size:14px;text-align:center}
+.gr .v{margin-right:8px}
+.gr .ac{display:flex;align-items:center;gap:6px}
 </style></head><body>
 <main>
 <header class="top"><h1 id="titulo">Hoje</h1><div class="sub" id="subt"></div></header>
@@ -706,8 +772,11 @@ input[type=number]{width:70px;text-align:center;font-size:16px;padding:6px 8px;b
 
 <section class="page" id="p-hoje">
   <div class="hero" id="hero"></div>
-  <h2>Postos</h2>
+  <div id="desvio"></div>
+  <div class="sec2"><h2>Postos</h2><nav class="seg mini" id="filtroLista"><button data-f="todos" class="on">Todos</button><button data-f="favs">★ Favoritos</button></nav></div>
+  <nav class="seg" id="ordem" hidden style="margin-bottom:10px"><button data-o="preco" class="on">Preço</button><button data-o="total">Custo total</button><button data-o="perto">Mais perto</button></nav>
   <div class="list" id="cards"></div>
+  <p class="nota" id="semComb"></p>
 </section>
 
 <section class="page" id="p-grafico" hidden>
@@ -727,10 +796,22 @@ input[type=number]{width:70px;text-align:center;font-size:16px;padding:6px 8px;b
   <p class="nota">Barato<span class="escala"></span>caro (dentro do combustível escolhido). Toca num posto para ver os detalhes.</p></div>
 </section>
 
+<section class="page" id="p-historico" hidden>
+  <div class="tb"><select class="sel" id="hPosto"></select><button class="lnk" id="hCsv">Exportar CSV</button></div>
+  <div class="list" id="hLista"></div>
+  <p class="nota">Mudanças de preço registadas pelo vigilante, para o combustível escolhido no topo. O CSV inclui todos os combustíveis.</p>
+</section>
+
 <section class="page" id="p-ajustes" hidden>
-  <h2>Preferências</h2>
+  <h2>O teu carro</h2>
   <div class="grp">
     <div class="gr"><span>Depósito</span><span><input type="number" id="litros" min="1" max="200" step="1"> litros</span></div>
+    <div class="gr"><span>Consumo</span><span><input type="number" id="consumo" min="1" max="30" step="0.1"> L/100 km</span></div>
+    <div class="gr"><span>A minha localização</span><span class="ac"><span class="v" id="locEstado"></span><button class="lnk" id="locBtn2">Usar</button></span></div>
+  </div>
+  <p class="nota">A localização fica só neste dispositivo e serve apenas para calcular distâncias e ver se compensa o desvio.</p>
+  <h2>Aspeto</h2>
+  <div class="grp">
     <div class="gr"><span>Tema</span><nav class="seg" id="temaSeg"><button data-t="auto">Automático</button><button data-t="claro">Claro</button><button data-t="escuro">Escuro</button></nav></div>
   </div>
   <h2>Sobre</h2>
@@ -748,6 +829,7 @@ input[type=number]{width:70px;text-align:center;font-size:16px;padding:6px 8px;b
   <a href="#/hoje" data-p="hoje"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg>Hoje</a>
   <a href="#/grafico" data-p="grafico"><svg viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 15l4-5 3 3 5-7"/></svg>Gráfico</a>
   <a href="#/mapa" data-p="mapa"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-10.5a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.4"/></svg>Mapa</a>
+  <a href="#/historico" data-p="historico"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M12 7.5V12l3 2"/></svg>Histórico</a>
   <a href="#/ajustes" data-p="ajustes"><svg viewBox="0 0 24 24"><path d="M4 7h10"/><path d="M18 7h2"/><circle cx="16" cy="7" r="2"/><path d="M4 17h2"/><path d="M10 17h10"/><circle cx="8" cy="17" r="2"/></svg>Ajustes</a>
 </nav>
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -778,15 +860,28 @@ function dl(d) {
 
 const ROT = {'Gasóleo simples': 'Gasóleo', 'Gasóleo especial / plus': 'Gasóleo plus', 'Gasolina 95 simples': 'Gasolina 95', 'Gasolina 95 especial / plus': 'Gasolina 95 plus', 'Gasolina 98': 'Gasolina 98', 'GPL': 'GPL'};
 const rotulo = g => ROT[g] || g;
+const MES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro'];
+const PAGS = ['hoje', 'grafico', 'mapa', 'historico', 'ajustes'];
+const TIT = {hoje: 'Hoje', grafico: 'Gráfico', mapa: 'Mapa', historico: 'Histórico', ajustes: 'Ajustes'};
+const SUB = {hoje: () => 'Marinha Grande e Leiria', grafico: () => 'Evolução dos preços', mapa: () => 'Postos e preços', historico: () => 'Mudanças de preço', ajustes: () => 'O teu carro, aspeto e informação'};
+const FATOR = 1.3;
+let pagina = 'hoje', pos = null, consumo = 6.5, ordem = 'preco', soFavs = false, locErro = '', hPosto = '';
+let favs = new Set();
 try { const g = localStorage.getItem('grupo'); if (g && D.grupos[g]) grupo = g; } catch (e) {}
-const PAGS = ['hoje', 'grafico', 'mapa', 'ajustes'];
-const TIT = {hoje: 'Hoje', grafico: 'Gráfico', mapa: 'Mapa', ajustes: 'Ajustes'};
-const SUB = {hoje: () => 'Marinha Grande e Leiria', grafico: () => 'Evolução dos preços', mapa: () => 'Postos e preços', ajustes: () => 'Depósito, tema e informação'};
-let pagina = 'hoje';
+try { pos = JSON.parse(localStorage.getItem('pos') || 'null'); } catch (e) {}
+try { consumo = parseFloat(localStorage.getItem('consumo')) || 6.5; } catch (e) {}
+try { favs = new Set(JSON.parse(localStorage.getItem('favs') || '[]')); } catch (e) {}
+const guardar = (k, v) => { try { localStorage.setItem(k, typeof v === 'string' ? v : JSON.stringify(v)); } catch (e) {} };
+
+function hav(a, b, c, d) { const R = 6371, r = Math.PI / 180, x = Math.sin((c - a) * r / 2) ** 2 + Math.cos(a * r) * Math.cos(c * r) * Math.sin((d - b) * r / 2) ** 2; return 2 * R * Math.asin(Math.sqrt(x)); }
+const distKm = s => (pos && s.lat != null && s.lon != null) ? hav(pos.lat, pos.lon, s.lat, s.lon) * FATOR : null;
+const viagem = s => { const d = distKm(s); return d === null ? null : 2 * d * consumo / 100 * s.a; };
+const totalS = s => { const v = viagem(s); return v === null ? null : litros * s.a + v; };
+const km1 = d => d < 10 ? d.toFixed(1).replace('.', ',') + ' km' : Math.round(d) + ' km';
 
 function renderPills() {
   $('pills').innerHTML = Object.keys(D.grupos).map(g => '<button class="' + (g === grupo ? 'on' : '') + '" data-g="' + g + '">' + rotulo(g) + '</button>').join('');
-  document.querySelectorAll('#pills button').forEach(b => b.onclick = () => { grupo = b.dataset.g; try { localStorage.setItem('grupo', grupo); } catch (e) {} renderPills(); renderTudo(); });
+  document.querySelectorAll('#pills button').forEach(b => b.onclick = () => { grupo = b.dataset.g; guardar('grupo', grupo); renderPills(); renderTudo(); });
 }
 
 function renderHero() {
@@ -799,6 +894,43 @@ function renderHero() {
     (dif > 0.0004 ? '<div class="hint">Poupas até <b class="down">' + eur2(litros * dif) + '</b> num depósito de ' + litros + ' L, face ao posto mais caro.</div>' : '');
 }
 
+function renderDesvio() {
+  const el = $('desvio'), ss = sorted(grupo).filter(s => s.lat != null && s.lon != null);
+  if (!ss.length) { el.innerHTML = ''; return; }
+  if (!pos) {
+    el.innerHTML = '<div class="blk dv"><div class="eyebrow">Compensa o desvio?</div><div class="big2">Descobre o posto que mais compensa</div>' +
+      '<p>Tem em conta a distância e o consumo do teu carro. A localização fica só neste dispositivo.</p>' +
+      '<div style="margin-top:12px"><button class="btn" id="locBtn">Usar a minha localização</button></div>' + (locErro ? '<p class="up">' + locErro + '</p>' : '') + '</div>';
+    $('locBtn').onclick = pedirLocal; return;
+  }
+  const melhor = ss.slice().sort((a, b) => totalS(a) - totalS(b))[0];
+  const perto = ss.slice().sort((a, b) => distKm(a) - distKm(b))[0], barato = ss[0];
+  let h = '<div class="blk dv"><div class="eyebrow">Melhor opção para ti</div>' +
+    '<div class="big2"><span class="dot" style="background:' + melhor.c + '"></span>' + melhor.n + '</div>' +
+    '<p>' + km1(distKm(melhor)) + ' · depósito ' + eur2(litros * melhor.a) + ' + viagem ' + eur2(viagem(melhor)) + ' = <b>' + eur2(totalS(melhor)) + '</b></p>';
+  if (melhor !== perto) h += '<p>Face ao posto mais perto (' + perto.n + ', ' + km1(distKm(perto)) + ') poupas <b class="down">' + eur2(totalS(perto) - totalS(melhor)) + '</b>.</p>';
+  else h += '<p>É também o posto mais perto de ti.</p>';
+  if (barato !== melhor) h += '<p>O mais barato (' + barato.n + ', ' + eur(barato.a) + ') fica a ' + km1(distKm(barato)) + ': só a viagem custa ' + eur2(viagem(barato)) + ', e o desvio anula a vantagem.</p>';
+  h += '<p class="peq">Estimativa: distância em linha reta × 1,3, ida e volta, com ' + String(consumo).replace('.', ',') + ' L/100 km. <button class="lnk" id="locRem">Remover localização</button></p></div>';
+  el.innerHTML = h; $('locRem').onclick = removerLocal;
+}
+
+function pedirLocal() {
+  locErro = '';
+  if (!navigator.geolocation) { locErro = 'Este browser não permite obter a localização.'; renderDesvio(); return; }
+  navigator.geolocation.getCurrentPosition(
+    p => { pos = {lat: p.coords.latitude, lon: p.coords.longitude}; guardar('pos', pos); atualizarLoc(); renderTudo(); },
+    () => { locErro = 'Não consegui obter a localização. Confirma a permissão no browser.'; atualizarLoc(); renderDesvio(); },
+    {timeout: 10000, maximumAge: 600000});
+}
+function removerLocal() { pos = null; ordem = 'preco'; try { localStorage.removeItem('pos'); } catch (e) {} atualizarLoc(); renderTudo(); }
+function atualizarLoc() {
+  $('locEstado').textContent = pos ? 'Ativa' : 'Desligada';
+  $('locBtn2').textContent = pos ? 'Remover' : 'Usar';
+  $('ordem').hidden = !pos;
+  document.querySelectorAll('#ordem button').forEach(b => b.classList.toggle('on', b.dataset.o === ordem));
+}
+
 function resumoVar(s) {
   const d1 = delta(s, 1), d7 = delta(s, 7);
   if (d1 !== null && Math.round(d1 * 1000) !== 0) return dl(d1) + ' em 24 h';
@@ -807,15 +939,21 @@ function resumoVar(s) {
 }
 
 function renderCards() {
-  const el = $('cards'), ss = sorted(grupo);
+  const el = $('cards');
+  let ss = sorted(grupo);
   if (!ss.length) { el.innerHTML = ''; return; }
   const maxA = ss[ss.length - 1].a;
+  if (soFavs) ss = ss.filter(s => favs.has(s.n));
+  if (pos && ordem === 'total') ss = ss.slice().sort((a, b) => (totalS(a) ?? 1e9) - (totalS(b) ?? 1e9));
+  if (pos && ordem === 'perto') ss = ss.slice().sort((a, b) => (distKm(a) ?? 1e9) - (distKm(b) ?? 1e9));
+  if (!ss.length) { el.innerHTML = '<div class="vazio">' + (soFavs ? 'Ainda não tens favoritos. Toca na ☆ de um posto para o fixar aqui.' : 'Sem postos.') + '</div>'; return; }
   const aberto = new Set([...el.querySelectorAll('details[open]')].map(d => d.dataset.n));
   el.innerHTML = ss.map(s => {
-    const vals = s.p.map(q => q[1]), mn = Math.min(...vals), mx = Math.max(...vals), poupa = litros * (maxA - s.a);
+    const vals = s.p.map(q => q[1]), mn = Math.min(...vals), mx = Math.max(...vals), poupa = litros * (maxA - s.a), f = favs.has(s.n), d = distKm(s);
     return '<details class="row" data-n="' + s.n + '"' + (aberto.has(s.n) ? ' open' : '') + '><summary>' +
       '<span class="dot" style="background:' + s.c + '"></span>' +
-      '<span class="info"><span class="nm">' + s.n + '</span><span class="s2">' + resumoVar(s) + '</span></span>' +
+      '<span class="info"><span class="nm">' + s.n + '</span><span class="s2">' + resumoVar(s) + (d !== null ? ' · ' + km1(d) : '') + '</span></span>' +
+      '<button class="star' + (f ? ' on' : '') + '" data-n="' + s.n + '" aria-label="Favorito">' + (f ? '★' : '☆') + '</button>' +
       '<span class="pr">' + vc(s.a) + '<small>€</small></span><span class="chev">›</span></summary>' +
       '<div class="det">' +
       '<div><span>24 horas</span><b>' + dl(delta(s, 1)) + '</b></div>' +
@@ -824,9 +962,48 @@ function renderCards() {
       '<div><span>Máximo</span><b>' + eur(mx) + '</b></div>' +
       '<div><span>Depósito de ' + litros + ' L</span><b>' + eur2(litros * s.a) + '</b></div>' +
       '<div><span>Poupas face ao mais caro</span><b>' + (poupa > 0.004 ? '<span class="down">' + eur2(poupa) + '</span>' : '—') + '</b></div>' +
+      (d !== null ? '<div><span>Distância (estimada)</span><b>' + km1(d) + '</b></div><div><span>Viagem ida e volta</span><b>' + eur2(viagem(s)) + '</b></div><div><span>Total com viagem</span><b>' + eur2(totalS(s)) + '</b></div>' : '') +
       (s.lat != null ? '<a href="' + maps(s) + '" target="_blank" rel="noopener">Google Maps ↗</a>' : '') +
       '</div></details>';
   }).join('');
+}
+
+function renderSemComb() {
+  const el = $('semComb'), tem = new Set((D.grupos[grupo] || []).map(s => s.n));
+  const falta = (D.todos || []).filter(p => !tem.has(p.n));
+  el.innerHTML = falta.length ? 'Não vendem ' + rotulo(grupo) + ': ' + falta.map(p => '<b>' + p.n + '</b>' + (p.g.length ? ' (tem ' + p.g.map(rotulo).join(', ') + ')' : '')).join('; ') + '.' : '';
+}
+
+const hh = ms => { const d = new Date(ms); return pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()); };
+const diaTxt = ms => { const d = new Date(ms); return d.getUTCDate() + ' de ' + MES[d.getUTCMonth()] + ' de ' + d.getUTCFullYear(); };
+
+function renderHistorico() {
+  const rows = D.hist.filter(r => r[2] === grupo);
+  const postos = [...new Set(rows.map(r => r[1]))].sort((a, b) => a.localeCompare(b));
+  if (!postos.includes(hPosto)) hPosto = '';
+  $('hPosto').innerHTML = '<option value="">Todos os postos</option>' + postos.map(n => '<option' + (n === hPosto ? ' selected' : '') + '>' + n + '</option>').join('');
+  const vis = rows.filter(r => !hPosto || r[1] === hPosto).sort((a, b) => b[0] - a[0]).slice(0, 300);
+  if (!vis.length) { $('hLista').innerHTML = '<div class="vazio">Ainda sem mudanças de preço registadas para este combustível.</div>'; return; }
+  let h = '', dia = '';
+  vis.forEach(r => {
+    const d = diaTxt(r[0]); if (d !== dia) { dia = d; h += '<div class="dia">' + d + '</div>'; }
+    const ant = r[4], novo = r[5];
+    h += '<div class="hr"><div class="l"><b>' + r[1] + '</b><span>' + (ant === null ? eur(novo) : vc(ant) + ' → ' + eur(novo)) + ' · ' + hh(r[0]) + '</span></div><div class="r">' + (ant === null ? '<span class="mut">novo</span>' : dl(novo - ant)) + '</div></div>';
+  });
+  $('hLista').innerHTML = h;
+}
+
+function exportarCsv() {
+  const linhas = [['data_hora', 'posto', 'combustivel', 'preco_anterior', 'preco_novo', 'variacao_cent']];
+  D.hist.slice().sort((a, b) => a[0] - b[0]).forEach(r => {
+    const d = new Date(r[0]), ts = d.getUTCFullYear() + '-' + pad(d.getUTCMonth() + 1) + '-' + pad(d.getUTCDate()) + ' ' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes());
+    const v = r[4] === null ? '' : ((r[5] - r[4]) * 100).toFixed(1).replace('.', ',');
+    linhas.push([ts, r[1], r[3], r[4] === null ? '' : r[4].toFixed(3).replace('.', ','), r[5].toFixed(3).replace('.', ','), v]);
+  });
+  const csv = '\ufeff' + linhas.map(l => l.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(';')).join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv], {type: 'text/csv;charset=utf-8'})); a.download = 'historico-combustiveis.csv';
+  document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 1500);
 }
 
 function renderGrafico() {
@@ -949,9 +1126,10 @@ function renderMapa() {
 }
 
 function renderTudo() {
-  renderHero(); renderCards();
+  renderHero(); renderDesvio(); renderCards(); renderSemComb();
   if (pagina === 'grafico') renderGrafico();
   if (pagina === 'mapa') renderMapa();
+  if (pagina === 'historico') renderHistorico();
 }
 
 function mostrar() {
@@ -965,6 +1143,7 @@ function mostrar() {
   window.scrollTo(0, 0);
   if (pagina === 'grafico') renderGrafico();
   if (pagina === 'mapa') renderMapa();
+  if (pagina === 'historico') renderHistorico();
 }
 
 function aplicarTema(t) {
@@ -974,11 +1153,22 @@ function aplicarTema(t) {
 let tema = 'auto';
 try { tema = localStorage.getItem('tema') || 'auto'; } catch (e) {}
 aplicarTema(tema);
-document.querySelectorAll('#temaSeg button').forEach(b => b.onclick = () => { tema = b.dataset.t; try { localStorage.setItem('tema', tema); } catch (e) {} aplicarTema(tema); });
+document.querySelectorAll('#temaSeg button').forEach(b => b.onclick = () => { tema = b.dataset.t; guardar('tema', tema); aplicarTema(tema); });
 
 $('upd').textContent = D.atualizado;
-$('litros').value = litros;
-$('litros').oninput = e => { const v = parseFloat(e.target.value); if (v > 0) { litros = v; try { localStorage.setItem('litros', v); } catch (x) {} renderHero(); renderCards(); } };
+$('litros').value = litros; $('consumo').value = consumo;
+$('litros').oninput = e => { const v = parseFloat(e.target.value); if (v > 0) { litros = v; guardar('litros', String(v)); renderHero(); renderDesvio(); renderCards(); } };
+$('consumo').oninput = e => { const v = parseFloat(e.target.value); if (v > 0) { consumo = v; guardar('consumo', String(v)); renderDesvio(); renderCards(); } };
+$('locBtn2').onclick = () => pos ? removerLocal() : pedirLocal();
+document.querySelectorAll('#filtroLista button').forEach(b => b.onclick = () => { soFavs = b.dataset.f === 'favs'; document.querySelectorAll('#filtroLista button').forEach(x => x.classList.toggle('on', x === b)); renderCards(); });
+document.querySelectorAll('#ordem button').forEach(b => b.onclick = () => { ordem = b.dataset.o; atualizarLoc(); renderCards(); });
+$('cards').addEventListener('click', e => {
+  const st = e.target.closest('.star'); if (!st) return;
+  e.preventDefault(); const n = st.dataset.n;
+  favs.has(n) ? favs.delete(n) : favs.add(n); guardar('favs', [...favs]); renderCards();
+});
+$('hPosto').onchange = e => { hPosto = e.target.value; renderHistorico(); };
+$('hCsv').onclick = exportarCsv;
 document.querySelectorAll('button[data-p]').forEach(b => b.onclick = () => { periodo = b.dataset.p === 'tudo' ? 'tudo' : parseInt(b.dataset.p); renderGrafico(); });
 $('media').onchange = renderGrafico;
 $('todos').onclick = () => { hidden.clear(); renderGrafico(); };
@@ -987,6 +1177,7 @@ $('svg').addEventListener('pointermove', onMove);
 $('svg').addEventListener('pointerleave', () => { $('tip').style.display = 'none'; const c = $('cur'); if (c) c.style.display = 'none'; linhasEstilo(-1); });
 window.addEventListener('resize', () => { if (pagina === 'grafico') renderGrafico(); });
 window.addEventListener('hashchange', mostrar);
+atualizarLoc();
 if (grupo) { renderPills(); renderTudo(); } else { $('hero').innerHTML = '<p class="mut">Ainda não há dados.</p>'; }
 mostrar();
 </script></body></html>
@@ -1001,6 +1192,7 @@ def escrever_grafico(estado, hora, desde_txt):
         desde = agora
     res, x0 = series_grafico(estado, desde, agora)
     GRAFICO.write_text(desenhar_grafico(res, x0, agora, agora.strftime("%d/%m/%Y %H:%M")), encoding="utf-8")
+    escrever_dados_json(estado, desde, agora)
     dados = json.dumps(dados_pagina(estado, desde, agora), ensure_ascii=False).replace("</", "<\\/")
     PAGINA.write_text(PAGINA_HTML.replace("__DADOS__", dados), encoding="utf-8")
 
@@ -1079,7 +1271,7 @@ def main():
         estado = json.loads(ESTADO.read_text(encoding="utf-8"))
         hora = hora_local()
         escrever_grafico(estado, hora, estado.get("_meta", {}).get("extremos_desde") or hora.strftime("%Y-%m-%d"))
-        print(f"Grafico guardado em {GRAFICO} e {PAGINA}")
+        print(f"Grafico guardado em {GRAFICO}, {PAGINA} e {DADOS_JSON}")
         return
 
     if "--extremos" in args:
@@ -1276,7 +1468,7 @@ def main():
         if texto_resumo:
             meta["ultimo_resumo"] = hoje
     versao_pagina = hashlib.md5(PAGINA_HTML.encode("utf-8")).hexdigest()[:8]
-    gerar_grafico = ((not GRAFICO.exists()) or (not PAGINA.exists()) or bool(historico)
+    gerar_grafico = ((not GRAFICO.exists()) or (not PAGINA.exists()) or (not DADOS_JSON.exists()) or bool(historico)
                      or meta_antiga.get("ultimo_grafico") != hoje
                      or meta_antiga.get("pagina_versao") != versao_pagina)  # pagina mudou: regenerar
     meta["pagina_versao"] = versao_pagina
