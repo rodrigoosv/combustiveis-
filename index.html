@@ -1,81 +1,153 @@
 <!doctype html>
 <html lang="pt"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Preços dos combustíveis</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Combustíveis · Marinha Grande e Leiria</title>
+<meta name="theme-color" content="#f2f2f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Combustíveis">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⛽</text></svg>">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css">
 <style>
-:root{--bg:#fff;--fg:#1d1d1f;--mut:#6b6b70;--grid:#e6e6e8;--grid2:#f1f1f2;--card:#f4f4f6;--line:#d8d8dc;--up:#c0392b;--down:#1e8e3e}
-@media(prefers-color-scheme:dark){:root{--bg:#121316;--fg:#ececec;--mut:#9a9aa0;--grid:#2c2e33;--grid2:#202226;--card:#1c1e22;--line:#34363b;--up:#ff7b6b;--down:#4cd37b}}
-*{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
-main{max-width:1100px;margin:0 auto;padding:20px 16px 40px}
-h1{margin:0 0 2px;font-size:22px}
-h2{margin:0 0 10px;font-size:16px}
-.sub{color:var(--mut);font-size:13px;margin-bottom:16px}
-.bar{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
-select,input,button.act{font:inherit;font-size:14px;padding:7px 10px;border-radius:8px;border:1px solid var(--line);background:var(--card);color:var(--fg)}
-button.act{cursor:pointer}button.act.on{background:var(--fg);color:var(--bg);border-color:var(--fg)}
-input[type=number]{width:84px}
-label.chk{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--mut);cursor:pointer}
-section{border:1px solid var(--line);border-radius:14px;padding:14px;margin-bottom:18px}
-.tw{overflow-x:auto}
-table{border-collapse:collapse;width:100%;font-size:13px;white-space:nowrap}
-th{font-weight:600;color:var(--mut);text-align:left;padding:6px 8px;border-bottom:1px solid var(--line);font-size:12px}
-td{padding:7px 8px;border-bottom:1px solid var(--grid)}
-.n{text-align:right;font-variant-numeric:tabular-nums}th.n{text-align:right}
-td i,.lg i,#tip i{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block;margin-right:7px}
+:root{--bg:#f2f2f7;--card:#fff;--fill:rgba(118,118,128,.12);--segon:#fff;--fg:#1c1c1e;--mut:#6e6e73;--line:rgba(60,60,67,.14);--grid:rgba(60,60,67,.10);--grid2:rgba(60,60,67,.05);--up:#d70015;--down:#248a3d;--ok:#34c759;--accent:#007aff;--glass:rgba(242,242,247,.8);--shadow:0 1px 2px rgba(0,0,0,.04),0 6px 24px rgba(0,0,0,.05)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#000;--card:#1c1c1e;--fill:rgba(118,118,128,.28);--segon:#636366;--fg:#f5f5f7;--mut:#98989f;--line:rgba(84,84,88,.55);--grid:rgba(84,84,88,.45);--grid2:rgba(84,84,88,.2);--up:#ff453a;--down:#30d158;--ok:#30d158;--accent:#0a84ff;--glass:rgba(0,0,0,.72);--shadow:none}}
+:root[data-theme="dark"]{--bg:#000;--card:#1c1c1e;--fill:rgba(118,118,128,.28);--segon:#636366;--fg:#f5f5f7;--mut:#98989f;--line:rgba(84,84,88,.55);--grid:rgba(84,84,88,.45);--grid2:rgba(84,84,88,.2);--up:#ff453a;--down:#30d158;--ok:#30d158;--accent:#0a84ff;--glass:rgba(0,0,0,.72);--shadow:none}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+[hidden]{display:none!important}
+html{background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text","SF Pro Display","Segoe UI",Roboto,Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums;line-height:1.35}
+main{max-width:680px;margin:0 auto;padding:max(22px,env(safe-area-inset-top)) 18px calc(96px + env(safe-area-inset-bottom))}
+header.top{margin:6px 2px 12px}
+h1{margin:0;font-size:34px;font-weight:700;letter-spacing:-.03em;line-height:1.1}
+h2{margin:22px 6px 8px;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--mut)}
+.sub{color:var(--mut);font-size:14px;margin-top:4px}
+button,input{font:inherit;color:var(--fg)}
+.bar{position:sticky;top:0;z-index:20;margin:0 -18px 16px;padding:8px 18px;background:var(--glass);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px)}
+.seg{display:flex;gap:2px;background:var(--fill);padding:2px;border-radius:10px;overflow-x:auto;scrollbar-width:none}
+.seg::-webkit-scrollbar{display:none}
+.seg button{flex:1 0 auto;white-space:nowrap;border:0;background:transparent;padding:7px 14px;border-radius:8px;font-size:14px;font-weight:500;cursor:pointer}
+.seg button.on{background:var(--segon);font-weight:600;box-shadow:0 3px 8px rgba(0,0,0,.12),0 0 0 .5px rgba(0,0,0,.04)}
+.hero{background:var(--card);border-radius:26px;padding:24px 22px 22px;margin-bottom:22px;box-shadow:var(--shadow)}
+.eyebrow{font-size:13px;font-weight:600;color:var(--mut)}
+.big{font-size:clamp(58px,16vw,92px);font-weight:700;letter-spacing:-.05em;line-height:1;margin:8px 0 8px}
+.big small{font-size:.26em;font-weight:600;color:var(--mut);letter-spacing:0;margin-left:6px}
+.quem{font-size:17px;font-weight:600;display:flex;align-items:center;flex-wrap:wrap;gap:7px}
+.quem a{font-weight:500;color:var(--accent);text-decoration:none;font-size:15px}
+.hint{margin-top:10px;font-size:14px;color:var(--mut)}
+.list{background:var(--card);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
+details.row{border-top:.5px solid var(--line)}
+details.row:first-child{border-top:0}
+summary{list-style:none;display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer}
+summary::-webkit-details-marker{display:none}
+summary:active{background:var(--fill)}
+.dot{width:10px;height:10px;border-radius:50%;flex:none;display:inline-block}
+.info{flex:1;min-width:0;display:flex;flex-direction:column;gap:2px}
+.nm{font-size:17px;font-weight:600}
+.s2{font-size:13px;color:var(--mut)}
+.pr{font-size:21px;font-weight:600;letter-spacing:-.02em;text-align:right}
+.pr small{font-size:12px;font-weight:500;color:var(--mut);margin-left:2px}
+.chev{color:var(--mut);font-size:20px;transition:transform .2s;flex:none;width:10px;text-align:center;opacity:.7}
+details[open] .chev{transform:rotate(90deg)}
+.det{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px 14px;padding:2px 16px 16px 38px}
+.det div>span:first-child{display:block;font-size:12px;color:var(--mut);margin-bottom:1px}
+.det b{font-size:15px;font-weight:600}
+.det a{color:var(--accent);text-decoration:none;font-size:15px;font-weight:500;align-self:end}
+.blk{background:var(--card);border-radius:20px;padding:16px;margin-bottom:18px;box-shadow:var(--shadow)}
+.tb{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between;margin-bottom:12px}
+.lnk{background:none;border:0;color:var(--accent);font-size:14px;cursor:pointer;padding:4px 2px}
+.sw{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--mut);cursor:pointer}
+.sw input{position:absolute;opacity:0;pointer-events:none}
+.sw i{width:42px;height:26px;border-radius:13px;background:var(--fill);position:relative;transition:background .2s;flex:none}
+.sw i::after{content:"";position:absolute;left:2px;top:2px;width:22px;height:22px;border-radius:50%;background:#fff;box-shadow:0 2px 4px rgba(0,0,0,.25);transition:transform .2s}
+.sw input:checked+i{background:var(--ok)}.sw input:checked+i::after{transform:translateX(16px)}
 .up{color:var(--up)}.down{color:var(--down)}.mut{color:var(--mut)}
-a{color:inherit}
-.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:12px}
-.chips div{background:var(--card);border-radius:10px;padding:8px 12px;font-size:12px;color:var(--mut);min-width:190px}
-.chips b{display:block;font-size:18px;color:var(--fg);margin:2px 0}
+.chips{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:10px}
+.chips div{background:var(--bg);border-radius:14px;padding:9px 13px;font-size:12px;color:var(--mut);min-width:150px;flex:1}
+.chips b{display:block;font-size:19px;font-weight:600;color:var(--fg);margin:2px 0}
 #box{position:relative}
-svg{display:block;width:100%;touch-action:pan-y}
+#svg{display:block;width:100%;touch-action:pan-y}
 .g{stroke:var(--grid)}.g2{stroke:var(--grid2)}.t{fill:var(--mut);font-size:11px}
 .cur{stroke:var(--mut);stroke-dasharray:3 3}
-#tip{position:absolute;display:none;pointer-events:none;background:var(--card);border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-size:12px;box-shadow:0 4px 14px rgba(0,0,0,.18);min-width:200px;z-index:500}
+#tip{position:absolute;display:none;pointer-events:none;background:var(--card);border:.5px solid var(--line);border-radius:14px;padding:10px 12px;font-size:12.5px;box-shadow:0 10px 30px rgba(0,0,0,.2);min-width:210px;z-index:500}
 #tip div{display:flex;align-items:center;margin-top:3px}
-#tip span{margin-left:auto;font-variant-numeric:tabular-nums;padding-left:12px}
-#tip .med{border-top:1px solid var(--line);margin-top:6px;padding-top:5px;color:var(--mut)}
+#tip span{margin-left:auto;padding-left:12px}
+#tip i,.lg i{width:9px;height:9px;border-radius:50%;flex:none;display:inline-block;margin-right:7px}
+#tip .med{border-top:.5px solid var(--line);margin-top:6px;padding-top:5px;color:var(--mut)}
 #legend{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.lg{display:flex;align-items:center;font:inherit;font-size:13px;color:var(--fg);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 11px;cursor:pointer}
-.lg span{color:var(--mut);font-variant-numeric:tabular-nums;margin-left:7px}
+.lg{display:flex;align-items:center;font-size:13px;background:var(--bg);border:0;border-radius:999px;padding:6px 12px;cursor:pointer}
+.lg span{color:var(--mut);margin-left:7px}
 .lg.off{opacity:.38}
-#mapa{height:380px;border-radius:10px;overflow:hidden;background:var(--card)}
+#mapa{height:calc(100vh - 300px);min-height:340px;border-radius:14px;overflow:hidden;background:var(--bg)}
 .pin div{color:#fff;font-weight:700;font-size:11px;text-align:center;padding:2px 0;border-radius:11px;border:2px solid #fff;box-shadow:0 1px 4px rgba(0,0,0,.4);width:58px}
 .escala{height:8px;border-radius:4px;background:linear-gradient(90deg,hsl(120,65%,38%),hsl(60,65%,38%),hsl(0,65%,38%));width:160px;display:inline-block;vertical-align:middle;margin:0 6px}
-.nota{color:var(--mut);font-size:12px;line-height:1.5;margin:10px 0 0}
-@media(max-width:640px){.h{display:none}td,th{padding:6px 4px;font-size:12px}td:nth-child(2){white-space:normal}#hoje td:first-child,#hoje th:first-child{display:none}}
-</style></head><body><main>
-<h1>Preços dos combustíveis</h1>
-<div class="sub" id="sub"></div>
-<div class="bar"><select id="sel"></select></div>
+.nota{color:var(--mut);font-size:12.5px;line-height:1.5;margin:10px 2px 0}
+.grp{background:var(--card);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.gr{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:13px 16px;border-top:.5px solid var(--line);font-size:16px}
+.gr:first-child{border-top:0}
+.gr .v{color:var(--mut);font-size:15px;text-align:right}
+.gr a{color:var(--accent);text-decoration:none}
+.gr .seg{min-width:210px}
+input[type=number]{width:70px;text-align:center;font-size:16px;padding:6px 8px;border-radius:9px;border:0;background:var(--fill)}
+.tabs{position:fixed;left:0;right:0;bottom:0;z-index:30;display:flex;justify-content:center;background:var(--glass);-webkit-backdrop-filter:saturate(180%) blur(20px);backdrop-filter:saturate(180%) blur(20px);border-top:.5px solid var(--line);padding:6px 10px calc(6px + env(safe-area-inset-bottom))}
+.tabs a{flex:1;max-width:130px;display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;color:var(--mut);font-size:10.5px;font-weight:500;padding:4px 0}
+.tabs a.on{color:var(--accent)}
+.tabs svg{width:25px;height:25px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+@media(prefers-reduced-motion:reduce){*{transition:none!important}}
+@media(max-width:520px){main{padding-left:14px;padding-right:14px}.bar{margin-left:-14px;margin-right:-14px;padding-left:14px;padding-right:14px}.hero{padding:20px 18px 18px;border-radius:24px}.gr .seg{min-width:170px}}
+</style></head><body>
+<main>
+<header class="top"><h1 id="titulo">Hoje</h1><div class="sub" id="subt"></div></header>
+<div class="bar" id="barra"><nav class="seg" id="pills"></nav></div>
 
-<section><h2>Hoje</h2>
-<div class="bar"><label class="chk">Depósito:&nbsp;<input type="number" id="litros" min="1" max="200" step="1">&nbsp;litros</label></div>
-<div class="tw"><table id="hoje"></table></div>
-<p class="nota">Variações face a 24 horas e a 7 dias atrás, a contar desde que o vigilante começou a registar (até lá aparece «—»). A poupança compara com o posto mais caro da lista.</p>
+<section class="page" id="p-hoje">
+  <div class="hero" id="hero"></div>
+  <h2>Postos</h2>
+  <div class="list" id="cards"></div>
 </section>
 
-<section><h2>Evolução</h2>
-<div class="bar"><button class="act" data-p="7">7 dias</button><button class="act" data-p="30">30 dias</button><button class="act" data-p="tudo">Tudo</button>
-<label class="chk"><input type="checkbox" id="media" checked>Linha da média</label>
-<button class="act" id="todos">Mostrar todos</button><button class="act" id="nenhum">Ocultar todos</button></div>
-<div class="chips" id="chips"></div>
-<div id="box"><svg id="svg"></svg><div id="tip"></div></div>
-<div id="legend"></div>
-<p class="nota">Passa o rato (ou o dedo) sobre o gráfico para ver o preço de cada posto nesse momento. Clica num posto da legenda para o esconder. Cada degrau é uma mudança de preço.</p>
+<section class="page" id="p-grafico" hidden>
+  <div class="blk">
+    <div class="tb"><nav class="seg" style="min-width:230px"><button data-p="7">7 dias</button><button data-p="30">30 dias</button><button data-p="tudo">Tudo</button></nav>
+    <label class="sw"><input type="checkbox" id="media" checked><i></i>Média</label></div>
+    <div class="chips" id="chips"></div>
+    <div id="box"><svg id="svg"></svg><div id="tip"></div></div>
+    <div id="legend"></div>
+    <div class="tb" style="margin:8px 0 0;justify-content:flex-start;gap:14px"><button class="lnk" id="todos">Mostrar todos</button><button class="lnk" id="nenhum">Ocultar todos</button></div>
+  </div>
+  <p class="nota">Passa o rato (ou o dedo) sobre o gráfico para ver o preço de cada posto; em cima da linha de um posto vês só os dados desse posto. Cada degrau é uma mudança de preço.</p>
 </section>
 
-<section><h2>Mapa</h2>
-<div id="mapa"></div>
-<p class="nota">Barato<span class="escala"></span>caro (dentro do combustível escolhido). Toca num posto para ver os detalhes.</p>
+<section class="page" id="p-mapa" hidden>
+  <div class="blk"><div id="mapa"></div>
+  <p class="nota">Barato<span class="escala"></span>caro (dentro do combustível escolhido). Toca num posto para ver os detalhes.</p></div>
 </section>
-<p class="nota">Fonte: DGEG e Plenergy. Mapa: © OpenStreetMap.</p>
+
+<section class="page" id="p-ajustes" hidden>
+  <h2>Preferências</h2>
+  <div class="grp">
+    <div class="gr"><span>Depósito</span><span><input type="number" id="litros" min="1" max="200" step="1"> litros</span></div>
+    <div class="gr"><span>Tema</span><nav class="seg" id="temaSeg"><button data-t="auto">Automático</button><button data-t="claro">Claro</button><button data-t="escuro">Escuro</button></nav></div>
+  </div>
+  <h2>Sobre</h2>
+  <div class="grp">
+    <div class="gr"><span>Atualizado em</span><span class="v" id="upd"></span></div>
+    <div class="gr"><span>Fonte dos preços</span><span class="v">DGEG e Plenergy</span></div>
+    <div class="gr"><span>Mapa</span><span class="v">© OpenStreetMap</span></div>
+    <div class="gr"><span>Código</span><a href="https://github.com/rodrigoosv/combustiveis-" target="_blank" rel="noopener">GitHub ↗</a></div>
+  </div>
+  <p class="nota">As variações a 24 horas e a 7 dias contam desde que o vigilante começou a registar (até lá aparece «—»). A poupança compara com o posto mais caro da lista.</p>
+</section>
 </main>
+
+<nav class="tabs">
+  <a href="#/hoje" data-p="hoje"><svg viewBox="0 0 24 24"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9.5h13V10"/></svg>Hoje</a>
+  <a href="#/grafico" data-p="grafico"><svg viewBox="0 0 24 24"><path d="M4 19V5"/><path d="M4 19h16"/><path d="M7 15l4-5 3 3 5-7"/></svg>Gráfico</a>
+  <a href="#/mapa" data-p="mapa"><svg viewBox="0 0 24 24"><path d="M12 21s-6.5-5.6-6.5-10.5a6.5 6.5 0 0 1 13 0C18.5 15.4 12 21 12 21z"/><circle cx="12" cy="10.5" r="2.4"/></svg>Mapa</a>
+  <a href="#/ajustes" data-p="ajustes"><svg viewBox="0 0 24 24"><path d="M4 7h10"/><path d="M18 7h2"/><circle cx="16" cy="7" r="2"/><path d="M4 17h2"/><path d="M10 17h10"/><circle cx="8" cy="17" r="2"/></svg>Ajustes</a>
+</nav>
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"></script>
 <script>
-const D = {"atualizado": "13/10/2026 17:01", "x0": 1791431160000, "x1": 1791910873147, "grupos": {"Gasóleo simples": [{"n": "TRANSOGÁS", "c": "#2e8b57", "a": 2.009, "p": [[1791431160000, 2.109], [1791431160000, 2.009], [1791910873147, 2.009]], "lat": 39.750379, "lon": -8.904627, "m": "Zona Industrial da Embra"}, {"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 2.269, "p": [[1791431160000, 2.209], [1791515460000, 2.269], [1791910873147, 2.269]], "lat": 39.7454, "lon": -8.89058, "m": "EN 242  Km 8,5 (Av Nª Srª Nazaré)"}, {"n": "ALVES BANDEIRA", "c": "#e6194b", "a": 2.227, "p": [[1791431160000, 2.224], [1791831420000, 2.227], [1791910873147, 2.227]], "lat": 39.697193, "lon": -8.953862, "m": "ESTRADA NACIONAL Nº242, km 18"}, {"n": "INTERMARCHÉ", "c": "#008080", "a": 2.089, "p": [[1791431160000, 2.099], [1791855720000, 2.089], [1791910873147, 2.089]], "lat": 39.75694, "lon": -8.93315, "m": "Av. José Gregório\r\n"}, {"n": "PINGO DOCE", "c": "#800000", "a": 2.093, "p": [[1791431160000, 2.092], [1791910860000, 2.093], [1791910873147, 2.093]], "lat": 39.76125, "lon": -8.82138, "m": "Rua 25 de Abril"}, {"n": "OZ Energia", "c": "#9a6324", "a": 2.164, "p": [[1791431160000, 2.174], [1791768780000, 2.164], [1791910873147, 2.164]], "lat": 39.72187, "lon": -8.926169, "m": "Estrada do Guilherme"}, {"n": "GALP (Embra)", "c": "#f58231", "a": 2.269, "p": [[1791431160000, 2.266], [1791643440000, 2.226], [1791831420000, 2.269], [1791910873147, 2.269]], "lat": 39.74782, "lon": -8.91122, "m": "EN 242 Km 10,4"}, {"n": "GALP (Marinha Grande)", "c": "#911eb4", "a": 2.269, "p": [[1791431160000, 2.266], [1791643440000, 2.226], [1791831420000, 2.269], [1791910873147, 2.269]], "lat": 39.74892, "lon": -8.92391, "m": "EN 242 (Av. Vítor Galo) Km 11,5"}, {"n": "REPSOL (R. Mc)", "c": "#f032e6", "a": 2.269, "p": [[1791431160000, 2.209], [1791515460000, 2.269], [1791910873147, 2.269]], "lat": 39.73495, "lon": -8.93242, "m": "EN 242 Km 13,7"}, {"n": "REPSOL (R. Videiro)", "c": "#555555", "a": 2.269, "p": [[1791431160000, 2.209], [1791515460000, 2.269], [1791910873147, 2.269]], "lat": 39.74714, "lon": -8.93429, "m": "Praceta do Vidreiro nº 12"}, {"n": "BP (Embra)", "c": "#3cb44b", "a": 2.279, "p": [[1791431160000, 2.274], [1791855720000, 2.279], [1791910873147, 2.279]], "lat": 39.74759, "lon": -8.904907, "m": "E.N. 242, Km 9, Rua de Leiria, Embra"}, {"n": "BP (Marinha Grande)", "c": "#4363d8", "a": 2.279, "p": [[1791431160000, 2.274], [1791855720000, 2.279], [1791910873147, 2.279]], "lat": 39.745975, "lon": -8.934596, "m": "Av. Dr. José Henriques Vareda nº8"}, {"n": "PLENERGY", "c": "#808000", "a": 2.089, "p": [[1791431160000, 2.219], [1791431160000, 2.019], [1791910860000, 2.089], [1791910873147, 2.089]], "lat": 39.74173, "lon": -8.935447, "m": "Avenida Dr. José Henriques Vareda, nº 32"}], "Gasóleo especial / plus": [{"n": "TRANSOGÁS", "c": "#2e8b57", "a": 2.049, "p": [[1791431160000, 2.049], [1791910873147, 2.049]], "lat": 39.750379, "lon": -8.904627, "m": "Zona Industrial da Embra"}, {"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 2.339, "p": [[1791431160000, 2.279], [1791515460000, 2.339], [1791910873147, 2.339]], "lat": 39.7454, "lon": -8.89058, "m": "EN 242  Km 8,5 (Av Nª Srª Nazaré)"}, {"n": "PRIO (Marinha Grande)", "c": "#d4a000", "a": 2.189, "p": [[1791431160000, 2.219], [1791431160000, 2.209], [1791768780000, 2.189], [1791910873147, 2.189]], "lat": 39.765953, "lon": -8.938041, "m": "Av. José Gregório, Posto de Combustíveis"}, {"n": "INTERMARCHÉ", "c": "#008080", "a": 2.139, "p": [[1791431160000, 2.139], [1791910873147, 2.139]], "lat": 39.75694, "lon": -8.93315, "m": "Av. José Gregório\r\n"}, {"n": "PRIO (Leiria)", "c": "#000075", "a": 2.144, "p": [[1791431160000, 2.144], [1791910873147, 2.144]], "lat": 39.73963, "lon": -8.816806, "m": "R. Dr. João Soares, Fração APorto Moniz"}, {"n": "PINGO DOCE", "c": "#800000", "a": 2.399, "p": [[1791431160000, 2.399], [1791910873147, 2.399]], "lat": 39.76125, "lon": -8.82138, "m": "Rua 25 de Abril"}, {"n": "OZ Energia", "c": "#9a6324", "a": 2.204, "p": [[1791431160000, 2.214], [1791768780000, 2.204], [1791910873147, 2.204]], "lat": 39.72187, "lon": -8.926169, "m": "Estrada do Guilherme"}, {"n": "GALP (Embra)", "c": "#f58231", "a": 2.319, "p": [[1791431160000, 2.316], [1791643440000, 2.276], [1791831420000, 2.319], [1791910873147, 2.319]], "lat": 39.74782, "lon": -8.91122, "m": "EN 242 Km 10,4"}, {"n": "GALP (Marinha Grande)", "c": "#911eb4", "a": 2.319, "p": [[1791431160000, 2.316], [1791643440000, 2.276], [1791831420000, 2.319], [1791910873147, 2.319]], "lat": 39.74892, "lon": -8.92391, "m": "EN 242 (Av. Vítor Galo) Km 11,5"}, {"n": "REPSOL (R. Mc)", "c": "#f032e6", "a": 2.339, "p": [[1791431160000, 2.279], [1791515460000, 2.339], [1791910873147, 2.339]], "lat": 39.73495, "lon": -8.93242, "m": "EN 242 Km 13,7"}, {"n": "REPSOL (R. Videiro)", "c": "#555555", "a": 2.339, "p": [[1791431160000, 2.279], [1791515460000, 2.339], [1791910873147, 2.339]], "lat": 39.74714, "lon": -8.93429, "m": "Praceta do Vidreiro nº 12"}, {"n": "BP (Embra)", "c": "#3cb44b", "a": 2.399, "p": [[1791431160000, 2.399], [1791910873147, 2.399]], "lat": 39.74759, "lon": -8.904907, "m": "E.N. 242, Km 9, Rua de Leiria, Embra"}, {"n": "BP (Marinha Grande)", "c": "#4363d8", "a": 2.399, "p": [[1791431160000, 2.399], [1791910873147, 2.399]], "lat": 39.745975, "lon": -8.934596, "m": "Av. Dr. José Henriques Vareda nº8"}, {"n": "PLENERGY", "c": "#808000", "a": 2.039, "p": [[1791431160000, 2.019], [1791431160000, 2.069], [1791910860000, 2.039], [1791910873147, 2.039]], "lat": 39.74173, "lon": -8.935447, "m": "Avenida Dr. José Henriques Vareda, nº 32"}], "Gasolina 95 simples": [{"n": "TRANSOGÁS", "c": "#2e8b57", "a": 1.929, "p": [[1791431160000, 1.929], [1791910873147, 1.929]], "lat": 39.750379, "lon": -8.904627, "m": "Zona Industrial da Embra"}, {"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 2.224, "p": [[1791431160000, 2.114], [1791515460000, 2.174], [1791768780000, 2.214], [1791855720000, 2.224], [1791910873147, 2.224]], "lat": 39.7454, "lon": -8.89058, "m": "EN 242  Km 8,5 (Av Nª Srª Nazaré)"}, {"n": "PRIO (Marinha Grande)", "c": "#d4a000", "a": 2.199, "p": [[1791431160000, 2.169], [1791768780000, 2.199], [1791910873147, 2.199]], "lat": 39.765953, "lon": -8.938041, "m": "Av. José Gregório, Posto de Combustíveis"}, {"n": "ALVES BANDEIRA", "c": "#e6194b", "a": 2.187, "p": [[1791431160000, 2.139], [1791831420000, 2.187], [1791910873147, 2.187]], "lat": 39.697193, "lon": -8.953862, "m": "ESTRADA NACIONAL Nº242, km 18"}, {"n": "INTERMARCHÉ", "c": "#008080", "a": 2.059, "p": [[1791431160000, 2.009], [1791855720000, 2.059], [1791910873147, 2.059]], "lat": 39.75694, "lon": -8.93315, "m": "Av. José Gregório\r\n"}, {"n": "PRIO (Leiria)", "c": "#000075", "a": 2.154, "p": [[1791431160000, 2.119], [1791768780000, 2.154], [1791910873147, 2.154]], "lat": 39.73963, "lon": -8.816806, "m": "R. Dr. João Soares, Fração APorto Moniz"}, {"n": "PINGO DOCE", "c": "#800000", "a": 2.096, "p": [[1791431160000, 2.048], [1791910860000, 2.096], [1791910873147, 2.096]], "lat": 39.76125, "lon": -8.82138, "m": "Rua 25 de Abril"}, {"n": "OZ Energia", "c": "#9a6324", "a": 2.104, "p": [[1791431160000, 2.069], [1791768780000, 2.104], [1791910873147, 2.104]], "lat": 39.72187, "lon": -8.926169, "m": "Estrada do Guilherme"}, {"n": "GALP (Embra)", "c": "#f58231", "a": 2.195, "p": [[1791431160000, 2.164], [1791643440000, 2.107], [1791831420000, 2.195], [1791910873147, 2.195]], "lat": 39.74782, "lon": -8.91122, "m": "EN 242 Km 10,4"}, {"n": "GALP (Marinha Grande)", "c": "#911eb4", "a": 2.195, "p": [[1791431160000, 2.164], [1791643440000, 2.107], [1791831420000, 2.195], [1791910873147, 2.195]], "lat": 39.74892, "lon": -8.92391, "m": "EN 242 (Av. Vítor Galo) Km 11,5"}, {"n": "REPSOL (R. Mc)", "c": "#f032e6", "a": 2.224, "p": [[1791431160000, 2.114], [1791515460000, 2.174], [1791768780000, 2.214], [1791855720000, 2.224], [1791910873147, 2.224]], "lat": 39.73495, "lon": -8.93242, "m": "EN 242 Km 13,7"}, {"n": "REPSOL (R. Videiro)", "c": "#555555", "a": 2.224, "p": [[1791431160000, 2.114], [1791515460000, 2.174], [1791768780000, 2.214], [1791855720000, 2.224], [1791910873147, 2.224]], "lat": 39.74714, "lon": -8.93429, "m": "Praceta do Vidreiro nº 12"}, {"n": "BP (Embra)", "c": "#3cb44b", "a": 2.229, "p": [[1791431160000, 2.179], [1791768780000, 2.229], [1791910873147, 2.229]], "lat": 39.74759, "lon": -8.904907, "m": "E.N. 242, Km 9, Rua de Leiria, Embra"}, {"n": "BP (Marinha Grande)", "c": "#4363d8", "a": 2.229, "p": [[1791431160000, 2.179], [1791768780000, 2.229], [1791910873147, 2.229]], "lat": 39.745975, "lon": -8.934596, "m": "Av. Dr. José Henriques Vareda nº8"}, {"n": "PLENERGY", "c": "#808000", "a": 1.939, "p": [[1791431160000, 1.939], [1791910873147, 1.939]], "lat": 39.74173, "lon": -8.935447, "m": "Avenida Dr. José Henriques Vareda, nº 32"}], "Gasolina 95 especial / plus": [{"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 2.294, "p": [[1791431160000, 2.184], [1791515460000, 2.244], [1791768780000, 2.284], [1791855720000, 2.294], [1791910873147, 2.294]], "lat": 39.7454, "lon": -8.89058, "m": "EN 242  Km 8,5 (Av Nª Srª Nazaré)"}, {"n": "PRIO (Marinha Grande)", "c": "#d4a000", "a": 2.149, "p": [[1791431160000, 2.119], [1791768780000, 2.149], [1791910873147, 2.149]], "lat": 39.765953, "lon": -8.938041, "m": "Av. José Gregório, Posto de Combustíveis"}, {"n": "PRIO (Leiria)", "c": "#000075", "a": 2.089, "p": [[1791431160000, 2.044], [1791768780000, 2.089], [1791910873147, 2.089]], "lat": 39.73963, "lon": -8.816806, "m": "R. Dr. João Soares, Fração APorto Moniz"}, {"n": "GALP (Embra)", "c": "#f58231", "a": 2.245, "p": [[1791431160000, 2.214], [1791643440000, 2.157], [1791831420000, 2.245], [1791910873147, 2.245]], "lat": 39.74782, "lon": -8.91122, "m": "EN 242 Km 10,4"}, {"n": "GALP (Marinha Grande)", "c": "#911eb4", "a": 2.245, "p": [[1791431160000, 2.214], [1791643440000, 2.157], [1791831420000, 2.245], [1791910873147, 2.245]], "lat": 39.74892, "lon": -8.92391, "m": "EN 242 (Av. Vítor Galo) Km 11,5"}, {"n": "REPSOL (R. Mc)", "c": "#f032e6", "a": 2.294, "p": [[1791431160000, 2.184], [1791515460000, 2.244], [1791768780000, 2.284], [1791855720000, 2.294], [1791910873147, 2.294]], "lat": 39.73495, "lon": -8.93242, "m": "EN 242 Km 13,7"}, {"n": "REPSOL (R. Videiro)", "c": "#555555", "a": 2.294, "p": [[1791431160000, 2.184], [1791515460000, 2.244], [1791768780000, 2.284], [1791855720000, 2.294], [1791910873147, 2.294]], "lat": 39.74714, "lon": -8.93429, "m": "Praceta do Vidreiro nº 12"}, {"n": "PLENERGY", "c": "#808000", "a": 1.989, "p": [[1791431160000, 1.989], [1791910873147, 1.989]], "lat": 39.74173, "lon": -8.935447, "m": "Avenida Dr. José Henriques Vareda, nº 32"}], "Gasolina 98": [{"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 2.424, "p": [[1791431160000, 2.314], [1791515460000, 2.374], [1791768780000, 2.414], [1791855720000, 2.424], [1791910873147, 2.424]], "lat": 39.7454, "lon": -8.89058, "m": "EN 242  Km 8,5 (Av Nª Srª Nazaré)"}, {"n": "ALVES BANDEIRA", "c": "#e6194b", "a": 2.357, "p": [[1791431160000, 2.309], [1791831420000, 2.357], [1791910873147, 2.357]], "lat": 39.697193, "lon": -8.953862, "m": "ESTRADA NACIONAL Nº242, km 18"}, {"n": "INTERMARCHÉ", "c": "#008080", "a": 2.239, "p": [[1791431160000, 2.189], [1791855720000, 2.239], [1791910873147, 2.239]], "lat": 39.75694, "lon": -8.93315, "m": "Av. José Gregório\r\n"}, {"n": "PINGO DOCE", "c": "#800000", "a": 2.459, "p": [[1791431160000, 2.409], [1791910860000, 2.459], [1791910873147, 2.459]], "lat": 39.76125, "lon": -8.82138, "m": "Rua 25 de Abril"}, {"n": "OZ Energia", "c": "#9a6324", "a": 2.324, "p": [[1791431160000, 2.289], [1791768780000, 2.324], [1791910873147, 2.324]], "lat": 39.72187, "lon": -8.926169, "m": "Estrada do Guilherme"}, {"n": "GALP (Marinha Grande)", "c": "#911eb4", "a": 2.425, "p": [[1791431160000, 2.394], [1791643440000, 2.337], [1791831420000, 2.425], [1791910873147, 2.425]], "lat": 39.74892, "lon": -8.92391, "m": "EN 242 (Av. Vítor Galo) Km 11,5"}, {"n": "REPSOL (R. Videiro)", "c": "#555555", "a": 2.424, "p": [[1791431160000, 2.314], [1791515460000, 2.374], [1791768780000, 2.414], [1791855720000, 2.424], [1791910873147, 2.424]], "lat": 39.74714, "lon": -8.93429, "m": "Praceta do Vidreiro nº 12"}, {"n": "BP (Embra)", "c": "#3cb44b", "a": 2.459, "p": [[1791431160000, 2.409], [1791768780000, 2.459], [1791910873147, 2.459]], "lat": 39.74759, "lon": -8.904907, "m": "E.N. 242, Km 9, Rua de Leiria, Embra"}, {"n": "BP (Marinha Grande)", "c": "#4363d8", "a": 2.459, "p": [[1791431160000, 2.409], [1791768780000, 2.459], [1791910873147, 2.459]], "lat": 39.745975, "lon": -8.934596, "m": "Av. Dr. José Henriques Vareda nº8"}], "GPL": [{"n": "TRANSOGÁS", "c": "#2e8b57", "a": 0.93, "p": [[1791431160000, 0.93], [1791910873147, 0.93]], "lat": 39.750379, "lon": -8.904627, "m": "Zona Industrial da Embra"}, {"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 1.029, "p": [[1791431160000, 0.999], [1791768780000, 1.029], [1791910873147, 1.029]], "lat": 39.7454, "lon": -8.89058, "m": "EN 242  Km 8,5 (Av Nª Srª Nazaré)"}]}};
+const D = {"atualizado": "14/10/2026 01:21", "x0": 1791431160000, "x1": 1791940901881, "grupos": {"Gasóleo simples": [{"n": "TRANSOGÁS", "c": "#2e8b57", "a": 2.009, "p": [[1791431160000, 2.109], [1791431160000, 2.009], [1791940901881, 2.009]], "lat": 39.750379, "lon": -8.904627, "m": "Zona Industrial da Embra"}, {"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 2.209, "p": [[1791431160000, 2.209], [1791515460000, 2.269], [1791940860000, 2.209], [1791940901881, 2.209]], "lat": 39.7454, "lon": -8.89058, "m": "EN 242  Km 8,5 (Av Nª Srª Nazaré)"}, {"n": "ALVES BANDEIRA", "c": "#e6194b", "a": 2.227, "p": [[1791431160000, 2.224], [1791831420000, 2.227], [1791940901881, 2.227]], "lat": 39.697193, "lon": -8.953862, "m": "ESTRADA NACIONAL Nº242, km 18"}, {"n": "INTERMARCHÉ", "c": "#008080", "a": 2.089, "p": [[1791431160000, 2.099], [1791855720000, 2.089], [1791940901881, 2.089]], "lat": 39.75694, "lon": -8.93315, "m": "Av. José Gregório\r\n"}, {"n": "PINGO DOCE", "c": "#800000", "a": 2.093, "p": [[1791431160000, 2.092], [1791910860000, 2.093], [1791940901881, 2.093]], "lat": 39.76125, "lon": -8.82138, "m": "Rua 25 de Abril"}, {"n": "OZ Energia", "c": "#9a6324", "a": 2.164, "p": [[1791431160000, 2.174], [1791768780000, 2.164], [1791940901881, 2.164]], "lat": 39.72187, "lon": -8.926169, "m": "Estrada do Guilherme"}, {"n": "REPSOL (R. Mc)", "c": "#f032e6", "a": 2.209, "p": [[1791431160000, 2.209], [1791515460000, 2.269], [1791940860000, 2.209], [1791940901881, 2.209]], "lat": 39.73495, "lon": -8.93242, "m": "EN 242 Km 13,7"}, {"n": "REPSOL (R. Videiro)", "c": "#555555", "a": 2.209, "p": [[1791431160000, 2.209], [1791515460000, 2.269], [1791940860000, 2.209], [1791940901881, 2.209]], "lat": 39.74714, "lon": -8.93429, "m": "Praceta do Vidreiro nº 12"}, {"n": "GALP (Embra)", "c": "#f58231", "a": 2.269, "p": [[1791431160000, 2.266], [1791643440000, 2.226], [1791831420000, 2.269], [1791940901881, 2.269]], "lat": 39.74782, "lon": -8.91122, "m": "EN 242 Km 10,4"}, {"n": "GALP (Marinha Grande)", "c": "#911eb4", "a": 2.269, "p": [[1791431160000, 2.266], [1791643440000, 2.226], [1791831420000, 2.269], [1791940901881, 2.269]], "lat": 39.74892, "lon": -8.92391, "m": "EN 242 (Av. Vítor Galo) Km 11,5"}, {"n": "BP (Marinha Grande)", "c": "#4363d8", "a": 2.279, "p": [[1791431160000, 2.274], [1791855720000, 2.279], [1791940901881, 2.279]], "lat": 39.745975, "lon": -8.934596, "m": "Av. Dr. José Henriques Vareda nº8"}, {"n": "BP (Embra)", "c": "#3cb44b", "a": 2.279, "p": [[1791431160000, 2.274], [1791855720000, 2.279], [1791940901881, 2.279]], "lat": 39.74759, "lon": -8.904907, "m": "E.N. 242, Km 9, Rua de Leiria, Embra"}, {"n": "PLENERGY", "c": "#808000", "a": 2.089, "p": [[1791431160000, 2.219], [1791431160000, 2.019], [1791910860000, 2.089], [1791940901881, 2.089]], "lat": 39.74173, "lon": -8.935447, "m": "Avenida Dr. José Henriques Vareda, nº 32"}], "Gasóleo especial / plus": [{"n": "TRANSOGÁS", "c": "#2e8b57", "a": 2.049, "p": [[1791431160000, 2.049], [1791940901881, 2.049]], "lat": 39.750379, "lon": -8.904627, "m": "Zona Industrial da Embra"}, {"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 2.279, "p": [[1791431160000, 2.279], [1791515460000, 2.339], [1791940860000, 2.279], [1791940901881, 2.279]], "lat": 39.7454, "lon": -8.89058, "m": "EN 242  Km 8,5 (Av Nª Srª Nazaré)"}, {"n": "PRIO (Marinha Grande)", "c": "#d4a000", "a": 2.189, "p": [[1791431160000, 2.219], [1791431160000, 2.209], [1791768780000, 2.189], [1791940901881, 2.189]], "lat": 39.765953, "lon": -8.938041, "m": "Av. José Gregório, Posto de Combustíveis"}, {"n": "INTERMARCHÉ", "c": "#008080", "a": 2.139, "p": [[1791431160000, 2.139], [1791940901881, 2.139]], "lat": 39.75694, "lon": -8.93315, "m": "Av. José Gregório\r\n"}, {"n": "PRIO (Leiria)", "c": "#000075", "a": 2.144, "p": [[1791431160000, 2.144], [1791940901881, 2.144]], "lat": 39.73963, "lon": -8.816806, "m": "R. Dr. João Soares, Fração APorto Moniz"}, {"n": "PINGO DOCE", "c": "#800000", "a": 2.399, "p": [[1791431160000, 2.399], [1791940901881, 2.399]], "lat": 39.76125, "lon": -8.82138, "m": "Rua 25 de Abril"}, {"n": "OZ Energia", "c": "#9a6324", "a": 2.204, "p": [[1791431160000, 2.214], [1791768780000, 2.204], [1791940901881, 2.204]], "lat": 39.72187, "lon": -8.926169, "m": "Estrada do Guilherme"}, {"n": "REPSOL (R. Mc)", "c": "#f032e6", "a": 2.279, "p": [[1791431160000, 2.279], [1791515460000, 2.339], [1791940860000, 2.279], [1791940901881, 2.279]], "lat": 39.73495, "lon": -8.93242, "m": "EN 242 Km 13,7"}, {"n": "REPSOL (R. Videiro)", "c": "#555555", "a": 2.279, "p": [[1791431160000, 2.279], [1791515460000, 2.339], [1791940860000, 2.279], [1791940901881, 2.279]], "lat": 39.74714, "lon": -8.93429, "m": "Praceta do Vidreiro nº 12"}, {"n": "GALP (Embra)", "c": "#f58231", "a": 2.319, "p": [[1791431160000, 2.316], [1791643440000, 2.276], [1791831420000, 2.319], [1791940901881, 2.319]], "lat": 39.74782, "lon": -8.91122, "m": "EN 242 Km 10,4"}, {"n": "GALP (Marinha Grande)", "c": "#911eb4", "a": 2.319, "p": [[1791431160000, 2.316], [1791643440000, 2.276], [1791831420000, 2.319], [1791940901881, 2.319]], "lat": 39.74892, "lon": -8.92391, "m": "EN 242 (Av. Vítor Galo) Km 11,5"}, {"n": "BP (Marinha Grande)", "c": "#4363d8", "a": 2.399, "p": [[1791431160000, 2.399], [1791940901881, 2.399]], "lat": 39.745975, "lon": -8.934596, "m": "Av. Dr. José Henriques Vareda nº8"}, {"n": "BP (Embra)", "c": "#3cb44b", "a": 2.399, "p": [[1791431160000, 2.399], [1791940901881, 2.399]], "lat": 39.74759, "lon": -8.904907, "m": "E.N. 242, Km 9, Rua de Leiria, Embra"}, {"n": "PLENERGY", "c": "#808000", "a": 2.039, "p": [[1791431160000, 2.019], [1791431160000, 2.069], [1791910860000, 2.039], [1791940901881, 2.039]], "lat": 39.74173, "lon": -8.935447, "m": "Avenida Dr. José Henriques Vareda, nº 32"}], "Gasolina 95 simples": [{"n": "TRANSOGÁS", "c": "#2e8b57", "a": 1.929, "p": [[1791431160000, 1.929], [1791940901881, 1.929]], "lat": 39.750379, "lon": -8.904627, "m": "Zona Industrial da Embra"}, {"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 2.164, "p": [[1791431160000, 2.114], [1791515460000, 2.174], [1791768780000, 2.214], [1791855720000, 2.224], [1791940860000, 2.164], [1791940901881, 2.164]], "lat": 39.7454, "lon": -8.89058, "m": "EN 242  Km 8,5 (Av Nª Srª Nazaré)"}, {"n": "PRIO (Marinha Grande)", "c": "#d4a000", "a": 2.199, "p": [[1791431160000, 2.169], [1791768780000, 2.199], [1791940901881, 2.199]], "lat": 39.765953, "lon": -8.938041, "m": "Av. José Gregório, Posto de Combustíveis"}, {"n": "ALVES BANDEIRA", "c": "#e6194b", "a": 2.187, "p": [[1791431160000, 2.139], [1791831420000, 2.187], [1791940901881, 2.187]], "lat": 39.697193, "lon": -8.953862, "m": "ESTRADA NACIONAL Nº242, km 18"}, {"n": "INTERMARCHÉ", "c": "#008080", "a": 2.059, "p": [[1791431160000, 2.009], [1791855720000, 2.059], [1791940901881, 2.059]], "lat": 39.75694, "lon": -8.93315, "m": "Av. José Gregório\r\n"}, {"n": "PRIO (Leiria)", "c": "#000075", "a": 2.154, "p": [[1791431160000, 2.119], [1791768780000, 2.154], [1791940901881, 2.154]], "lat": 39.73963, "lon": -8.816806, "m": "R. Dr. João Soares, Fração APorto Moniz"}, {"n": "PINGO DOCE", "c": "#800000", "a": 2.096, "p": [[1791431160000, 2.048], [1791910860000, 2.096], [1791940901881, 2.096]], "lat": 39.76125, "lon": -8.82138, "m": "Rua 25 de Abril"}, {"n": "OZ Energia", "c": "#9a6324", "a": 2.104, "p": [[1791431160000, 2.069], [1791768780000, 2.104], [1791940901881, 2.104]], "lat": 39.72187, "lon": -8.926169, "m": "Estrada do Guilherme"}, {"n": "REPSOL (R. Mc)", "c": "#f032e6", "a": 2.164, "p": [[1791431160000, 2.114], [1791515460000, 2.174], [1791768780000, 2.214], [1791855720000, 2.224], [1791940860000, 2.164], [1791940901881, 2.164]], "lat": 39.73495, "lon": -8.93242, "m": "EN 242 Km 13,7"}, {"n": "REPSOL (R. Videiro)", "c": "#555555", "a": 2.164, "p": [[1791431160000, 2.114], [1791515460000, 2.174], [1791768780000, 2.214], [1791855720000, 2.224], [1791940860000, 2.164], [1791940901881, 2.164]], "lat": 39.74714, "lon": -8.93429, "m": "Praceta do Vidreiro nº 12"}, {"n": "GALP (Embra)", "c": "#f58231", "a": 2.195, "p": [[1791431160000, 2.164], [1791643440000, 2.107], [1791831420000, 2.195], [1791940901881, 2.195]], "lat": 39.74782, "lon": -8.91122, "m": "EN 242 Km 10,4"}, {"n": "GALP (Marinha Grande)", "c": "#911eb4", "a": 2.195, "p": [[1791431160000, 2.164], [1791643440000, 2.107], [1791831420000, 2.195], [1791940901881, 2.195]], "lat": 39.74892, "lon": -8.92391, "m": "EN 242 (Av. Vítor Galo) Km 11,5"}, {"n": "BP (Marinha Grande)", "c": "#4363d8", "a": 2.229, "p": [[1791431160000, 2.179], [1791768780000, 2.229], [1791940901881, 2.229]], "lat": 39.745975, "lon": -8.934596, "m": "Av. Dr. José Henriques Vareda nº8"}, {"n": "BP (Embra)", "c": "#3cb44b", "a": 2.229, "p": [[1791431160000, 2.179], [1791768780000, 2.229], [1791940901881, 2.229]], "lat": 39.74759, "lon": -8.904907, "m": "E.N. 242, Km 9, Rua de Leiria, Embra"}, {"n": "PLENERGY", "c": "#808000", "a": 1.939, "p": [[1791431160000, 1.939], [1791940901881, 1.939]], "lat": 39.74173, "lon": -8.935447, "m": "Avenida Dr. José Henriques Vareda, nº 32"}], "Gasolina 95 especial / plus": [{"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 2.234, "p": [[1791431160000, 2.184], [1791515460000, 2.244], [1791768780000, 2.284], [1791855720000, 2.294], [1791940860000, 2.234], [1791940901881, 2.234]], "lat": 39.7454, "lon": -8.89058, "m": "EN 242  Km 8,5 (Av Nª Srª Nazaré)"}, {"n": "PRIO (Marinha Grande)", "c": "#d4a000", "a": 2.149, "p": [[1791431160000, 2.119], [1791768780000, 2.149], [1791940901881, 2.149]], "lat": 39.765953, "lon": -8.938041, "m": "Av. José Gregório, Posto de Combustíveis"}, {"n": "PRIO (Leiria)", "c": "#000075", "a": 2.089, "p": [[1791431160000, 2.044], [1791768780000, 2.089], [1791940901881, 2.089]], "lat": 39.73963, "lon": -8.816806, "m": "R. Dr. João Soares, Fração APorto Moniz"}, {"n": "REPSOL (R. Mc)", "c": "#f032e6", "a": 2.234, "p": [[1791431160000, 2.184], [1791515460000, 2.244], [1791768780000, 2.284], [1791855720000, 2.294], [1791940860000, 2.234], [1791940901881, 2.234]], "lat": 39.73495, "lon": -8.93242, "m": "EN 242 Km 13,7"}, {"n": "REPSOL (R. Videiro)", "c": "#555555", "a": 2.234, "p": [[1791431160000, 2.184], [1791515460000, 2.244], [1791768780000, 2.284], [1791855720000, 2.294], [1791940860000, 2.234], [1791940901881, 2.234]], "lat": 39.74714, "lon": -8.93429, "m": "Praceta do Vidreiro nº 12"}, {"n": "GALP (Embra)", "c": "#f58231", "a": 2.245, "p": [[1791431160000, 2.214], [1791643440000, 2.157], [1791831420000, 2.245], [1791940901881, 2.245]], "lat": 39.74782, "lon": -8.91122, "m": "EN 242 Km 10,4"}, {"n": "GALP (Marinha Grande)", "c": "#911eb4", "a": 2.245, "p": [[1791431160000, 2.214], [1791643440000, 2.157], [1791831420000, 2.245], [1791940901881, 2.245]], "lat": 39.74892, "lon": -8.92391, "m": "EN 242 (Av. Vítor Galo) Km 11,5"}, {"n": "PLENERGY", "c": "#808000", "a": 1.989, "p": [[1791431160000, 1.989], [1791940901881, 1.989]], "lat": 39.74173, "lon": -8.935447, "m": "Avenida Dr. José Henriques Vareda, nº 32"}], "Gasolina 98": [{"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 2.364, "p": [[1791431160000, 2.314], [1791515460000, 2.374], [1791768780000, 2.414], [1791855720000, 2.424], [1791940860000, 2.364], [1791940901881, 2.364]], "lat": 39.7454, "lon": -8.89058, "m": "EN 242  Km 8,5 (Av Nª Srª Nazaré)"}, {"n": "ALVES BANDEIRA", "c": "#e6194b", "a": 2.357, "p": [[1791431160000, 2.309], [1791831420000, 2.357], [1791940901881, 2.357]], "lat": 39.697193, "lon": -8.953862, "m": "ESTRADA NACIONAL Nº242, km 18"}, {"n": "INTERMARCHÉ", "c": "#008080", "a": 2.239, "p": [[1791431160000, 2.189], [1791855720000, 2.239], [1791940901881, 2.239]], "lat": 39.75694, "lon": -8.93315, "m": "Av. José Gregório\r\n"}, {"n": "PINGO DOCE", "c": "#800000", "a": 2.459, "p": [[1791431160000, 2.409], [1791910860000, 2.459], [1791940901881, 2.459]], "lat": 39.76125, "lon": -8.82138, "m": "Rua 25 de Abril"}, {"n": "OZ Energia", "c": "#9a6324", "a": 2.324, "p": [[1791431160000, 2.289], [1791768780000, 2.324], [1791940901881, 2.324]], "lat": 39.72187, "lon": -8.926169, "m": "Estrada do Guilherme"}, {"n": "REPSOL (R. Videiro)", "c": "#555555", "a": 2.364, "p": [[1791431160000, 2.314], [1791515460000, 2.374], [1791768780000, 2.414], [1791855720000, 2.424], [1791940860000, 2.364], [1791940901881, 2.364]], "lat": 39.74714, "lon": -8.93429, "m": "Praceta do Vidreiro nº 12"}, {"n": "GALP (Marinha Grande)", "c": "#911eb4", "a": 2.425, "p": [[1791431160000, 2.394], [1791643440000, 2.337], [1791831420000, 2.425], [1791940901881, 2.425]], "lat": 39.74892, "lon": -8.92391, "m": "EN 242 (Av. Vítor Galo) Km 11,5"}, {"n": "BP (Marinha Grande)", "c": "#4363d8", "a": 2.459, "p": [[1791431160000, 2.409], [1791768780000, 2.459], [1791940901881, 2.459]], "lat": 39.745975, "lon": -8.934596, "m": "Av. Dr. José Henriques Vareda nº8"}, {"n": "BP (Embra)", "c": "#3cb44b", "a": 2.459, "p": [[1791431160000, 2.409], [1791768780000, 2.459], [1791940901881, 2.459]], "lat": 39.74759, "lon": -8.904907, "m": "E.N. 242, Km 9, Rua de Leiria, Embra"}], "GPL": [{"n": "TRANSOGÁS", "c": "#2e8b57", "a": 0.93, "p": [[1791431160000, 0.93], [1791940901881, 0.93]], "lat": 39.750379, "lon": -8.904627, "m": "Zona Industrial da Embra"}, {"n": "REPSOL (Albergaria)", "c": "#46a0c8", "a": 1.029, "p": [[1791431160000, 0.999], [1791768780000, 1.029], [1791940901881, 1.029]], "lat": 39.7454, "lon": -8.89058, "m": "EN 242  Km 8,5 (Av Nª Srª Nazaré)"}]}};
 const $ = id => document.getElementById(id);
 const pad = n => String(n).padStart(2, '0');
 const fd = (ms, h) => { const d = new Date(ms); return pad(d.getUTCDate()) + '/' + pad(d.getUTCMonth() + 1) + (h ? ' ' + pad(d.getUTCHours()) + ':' + pad(d.getUTCMinutes()) : ''); };
@@ -99,14 +171,57 @@ function dl(d) {
   return '<span class="' + (c > 0 ? 'up' : 'down') + '">' + (c > 0 ? '⬆️ +' : '⬇️ ') + c.toFixed(1).replace('.', ',') + ' cênt.</span>';
 }
 
-function renderHoje() {
-  const ss = sorted(grupo), maxA = Math.max(...ss.map(s => s.a));
-  let h = '<tr><th>#</th><th>Posto</th><th class="n">Preço</th><th class="n">24 h</th><th class="n h">7 dias</th><th class="n">Custo (' + litros + ' L)</th><th class="n">Poupas</th><th class="n h">Mín.</th><th class="n h">Máx.</th><th></th></tr>';
-  ss.forEach((s, i) => {
-    const vals = s.p.map(q => q[1]), poupa = litros * (maxA - s.a);
-    h += '<tr><td>' + (i === 0 ? '🥇' : i + 1) + '</td><td><i style="background:' + s.c + '"></i>' + s.n + '</td><td class="n"><b>' + eur(s.a) + '</b></td><td class="n">' + dl(delta(s, 1)) + '</td><td class="n h">' + dl(delta(s, 7)) + '</td><td class="n">' + eur2(litros * s.a) + '</td><td class="n">' + (poupa > 0.004 ? '<span class="down">' + eur2(poupa) + '</span>' : '<span class="mut">—</span>') + '</td><td class="n h">' + eur(Math.min(...vals)) + '</td><td class="n h">' + eur(Math.max(...vals)) + '</td><td>' + (s.lat != null ? '<a href="' + maps(s) + '" target="_blank" rel="noopener"><span class="h">Mapa </span>↗</a>' : '') + '</td></tr>';
-  });
-  $('hoje').innerHTML = h;
+const ROT = {'Gasóleo simples': 'Gasóleo', 'Gasóleo especial / plus': 'Gasóleo plus', 'Gasolina 95 simples': 'Gasolina 95', 'Gasolina 95 especial / plus': 'Gasolina 95 plus', 'Gasolina 98': 'Gasolina 98', 'GPL': 'GPL'};
+const rotulo = g => ROT[g] || g;
+try { const g = localStorage.getItem('grupo'); if (g && D.grupos[g]) grupo = g; } catch (e) {}
+const PAGS = ['hoje', 'grafico', 'mapa', 'ajustes'];
+const TIT = {hoje: 'Hoje', grafico: 'Gráfico', mapa: 'Mapa', ajustes: 'Ajustes'};
+const SUB = {hoje: () => 'Marinha Grande e Leiria', grafico: () => 'Evolução dos preços', mapa: () => 'Postos e preços', ajustes: () => 'Depósito, tema e informação'};
+let pagina = 'hoje';
+
+function renderPills() {
+  $('pills').innerHTML = Object.keys(D.grupos).map(g => '<button class="' + (g === grupo ? 'on' : '') + '" data-g="' + g + '">' + rotulo(g) + '</button>').join('');
+  document.querySelectorAll('#pills button').forEach(b => b.onclick = () => { grupo = b.dataset.g; try { localStorage.setItem('grupo', grupo); } catch (e) {} renderPills(); renderTudo(); });
+}
+
+function renderHero() {
+  const el = $('hero'), ss = sorted(grupo);
+  if (!ss.length) { el.innerHTML = '<p class="mut">Ainda não há dados para este combustível.</p>'; return; }
+  const b = ss[0], dif = ss[ss.length - 1].a - b.a;
+  el.innerHTML = '<div class="eyebrow">Mais barato agora</div>' +
+    '<div class="big">' + vc(b.a) + '<small>€/litro</small></div>' +
+    '<div class="quem"><span class="dot" style="background:' + b.c + '"></span>' + b.n + (b.lat != null ? ' <a href="' + maps(b) + '" target="_blank" rel="noopener">Mapa ↗</a>' : '') + '</div>' +
+    (dif > 0.0004 ? '<div class="hint">Poupas até <b class="down">' + eur2(litros * dif) + '</b> num depósito de ' + litros + ' L, face ao posto mais caro.</div>' : '');
+}
+
+function resumoVar(s) {
+  const d1 = delta(s, 1), d7 = delta(s, 7);
+  if (d1 !== null && Math.round(d1 * 1000) !== 0) return dl(d1) + ' em 24 h';
+  if (d7 !== null && Math.round(d7 * 1000) !== 0) return dl(d7) + ' em 7 dias';
+  return 'Sem alterações recentes';
+}
+
+function renderCards() {
+  const el = $('cards'), ss = sorted(grupo);
+  if (!ss.length) { el.innerHTML = ''; return; }
+  const maxA = ss[ss.length - 1].a;
+  const aberto = new Set([...el.querySelectorAll('details[open]')].map(d => d.dataset.n));
+  el.innerHTML = ss.map(s => {
+    const vals = s.p.map(q => q[1]), mn = Math.min(...vals), mx = Math.max(...vals), poupa = litros * (maxA - s.a);
+    return '<details class="row" data-n="' + s.n + '"' + (aberto.has(s.n) ? ' open' : '') + '><summary>' +
+      '<span class="dot" style="background:' + s.c + '"></span>' +
+      '<span class="info"><span class="nm">' + s.n + '</span><span class="s2">' + resumoVar(s) + '</span></span>' +
+      '<span class="pr">' + vc(s.a) + '<small>€</small></span><span class="chev">›</span></summary>' +
+      '<div class="det">' +
+      '<div><span>24 horas</span><b>' + dl(delta(s, 1)) + '</b></div>' +
+      '<div><span>7 dias</span><b>' + dl(delta(s, 7)) + '</b></div>' +
+      '<div><span>Mínimo</span><b>' + eur(mn) + '</b></div>' +
+      '<div><span>Máximo</span><b>' + eur(mx) + '</b></div>' +
+      '<div><span>Depósito de ' + litros + ' L</span><b>' + eur2(litros * s.a) + '</b></div>' +
+      '<div><span>Poupas face ao mais caro</span><b>' + (poupa > 0.004 ? '<span class="down">' + eur2(poupa) + '</span>' : '—') + '</b></div>' +
+      (s.lat != null ? '<a href="' + maps(s) + '" target="_blank" rel="noopener">Google Maps ↗</a>' : '') +
+      '</div></details>';
+  }).join('');
 }
 
 function renderGrafico() {
@@ -124,7 +239,7 @@ function renderGrafico() {
   const X = t => m.l + (t - x0) / span * (W - m.l - m.r);
   const Y = v => H - m.b - (v - lo) / (hi - lo) * (H - m.t - m.b);
   const mediaEm = t => vis.reduce((a, s) => a + valorEm(s, t), 0) / vis.length;
-  geo = {W, H, m, x0, span, vis, mediaEm};
+  geo = {W, H, m, x0, span, vis, mediaEm, Y};
   svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H); svg.setAttribute('height', H);
   let o = '';
   for (let k = 0; k < 5; k++) { const v = lo + (hi - lo) * k / 4, y = Y(v);
@@ -134,9 +249,9 @@ function renderGrafico() {
   for (const s of vis) {
     let d = ''; s.w.forEach((q, i) => { d += i ? ' H' + X(q[0]) + ' V' + Y(q[1]) : 'M' + X(q[0]) + ',' + Y(q[1]); });
     d += ' H' + X(x1);
-    o += '<path d="' + d + '" fill="none" stroke="' + s.c + '" stroke-width="2.2"/>';
+    o += '<path d="' + d + '" fill="none" stroke="' + s.c + '" stroke-width="2.2" stroke-linejoin="round" data-i="' + vis.indexOf(s) + '"/>';
     s.w.slice(1).forEach(q => { o += '<circle cx="' + X(q[0]) + '" cy="' + Y(q[1]) + '" r="3" fill="' + s.c + '"/>'; });
-    o += '<circle cx="' + X(x1) + '" cy="' + Y(s.a) + '" r="4.5" fill="' + s.c + '" stroke="var(--bg)" stroke-width="1.5"/>';
+    o += '<circle cx="' + X(x1) + '" cy="' + Y(s.a) + '" r="4.5" fill="' + s.c + '" stroke="var(--card)" stroke-width="1.5"/>';
   }
   if ($('media').checked && vis.length > 1) {
     const ts = [...new Set([x0].concat(vis.flatMap(s => s.w.map(q => q[0]))))].sort((a, b) => a - b);
@@ -163,16 +278,42 @@ function renderGrafico() {
   document.querySelectorAll('button[data-p]').forEach(b => b.classList.toggle('on', b.dataset.p === String(periodo)));
 }
 
+function linhasEstilo(foco) {
+  document.querySelectorAll('#svg path[data-i]').forEach(pth => {
+    const on = foco < 0 || +pth.dataset.i === foco;
+    pth.setAttribute('stroke-width', foco >= 0 && on ? 4 : 2.2);
+    pth.setAttribute('opacity', on ? 1 : 0.2);
+  });
+}
+
 function onMove(ev) {
   if (!geo || !geo.vis.length) return;
   const svg = $('svg'), box = $('box'), tip = $('tip');
-  const r = svg.getBoundingClientRect(), px = (ev.clientX - r.left) * geo.W / r.width;
+  const r = svg.getBoundingClientRect(), px = (ev.clientX - r.left) * geo.W / r.width, py = (ev.clientY - r.top) * geo.H / r.height;
   const m = geo.m, f = Math.min(1, Math.max(0, (px - m.l) / (geo.W - m.l - m.r)));
   const t = geo.x0 + f * geo.span, x = m.l + f * (geo.W - m.l - m.r);
   const cur = $('cur'); cur.setAttribute('x1', x); cur.setAttribute('x2', x); cur.style.display = '';
-  const rows = geo.vis.map(s => [s, valorEm(s, t)]).sort((a, b) => a[1] - b[1]);
-  let h = '<b>' + fd(t, true) + '</b>' + rows.map(q => '<div><i style="background:' + q[0].c + '"></i>' + q[0].n + '<span>' + eur(q[1]) + '</span></div>').join('');
-  if ($('media').checked && geo.vis.length > 1) h += '<div class="med">Média<span>' + eur(geo.mediaEm(t)) + '</span></div>';
+  // o rato esta em cima da linha de um posto?
+  let foco = -1, melhor = 12;
+  geo.vis.forEach((s, j) => { const dy = Math.abs(py - geo.Y(valorEm(s, t))); if (dy < melhor) { melhor = dy; foco = j; } });
+  linhasEstilo(foco);
+  let h;
+  if (foco >= 0) {
+    const s = geo.vis[foco];
+    let i0 = 0, i1 = 0;
+    s.p.forEach((q, i) => { if (q[1] < s.p[i0][1]) i0 = i; if (q[1] > s.p[i1][1]) i1 = i; });
+    const mud = s.p.length > 2 ? 'Última mudança<span>' + fd(s.p[s.p.length - 2][0], true) + '</span>' : 'Sem mudanças<span>desde o início</span>';
+    h = '<b><i style="background:' + s.c + '"></i>' + s.n + '</b>' +
+      '<div>' + fd(t, true) + '<span>' + eur(valorEm(s, t)) + '</span></div>' +
+      '<div class="med">Preço atual<span>' + eur(s.a) + '</span></div>' +
+      '<div>Mínimo<span>' + eur(s.p[i0][1]) + ' · ' + fd(s.p[i0][0]) + '</span></div>' +
+      '<div>Máximo<span>' + eur(s.p[i1][1]) + ' · ' + fd(s.p[i1][0]) + '</span></div>' +
+      '<div>' + mud + '</div>';
+  } else {
+    const rows = geo.vis.map(s => [s, valorEm(s, t)]).sort((a, b) => a[1] - b[1]);
+    h = '<b>' + fd(t, true) + '</b>' + rows.map(q => '<div><i style="background:' + q[0].c + '"></i>' + q[0].n + '<span>' + eur(q[1]) + '</span></div>').join('');
+    if ($('media').checked && geo.vis.length > 1) h += '<div class="med">Média<span>' + eur(geo.mediaEm(t)) + '</span></div>';
+  }
   tip.innerHTML = h; tip.style.display = 'block';
   const bx = box.getBoundingClientRect(); let left = ev.clientX - bx.left + 14;
   if (left + tip.offsetWidth > bx.width) left = ev.clientX - bx.left - tip.offsetWidth - 14;
@@ -202,19 +343,45 @@ function renderMapa() {
   setTimeout(() => map.invalidateSize(), 0);
 }
 
-function renderTudo() { renderHoje(); renderGrafico(); renderMapa(); }
+function renderTudo() {
+  renderHero(); renderCards();
+  if (pagina === 'grafico') renderGrafico();
+  if (pagina === 'mapa') renderMapa();
+}
 
-$('sub').textContent = 'Atualizado em ' + D.atualizado;
-Object.keys(D.grupos).forEach(g => { const op = document.createElement('option'); op.value = op.textContent = g; if (g === grupo) op.selected = true; $('sel').appendChild(op); });
+function mostrar() {
+  const h = location.hash.replace(/^#\/?/, '') || 'hoje';
+  pagina = PAGS.includes(h) ? h : 'hoje';
+  PAGS.forEach(p => { $('p-' + p).hidden = p !== pagina; });
+  document.querySelectorAll('.tabs a').forEach(a => a.classList.toggle('on', a.dataset.p === pagina));
+  $('titulo').textContent = TIT[pagina]; $('subt').textContent = SUB[pagina]();
+  $('barra').hidden = pagina === 'ajustes';
+  document.title = TIT[pagina] + ' · Combustíveis';
+  window.scrollTo(0, 0);
+  if (pagina === 'grafico') renderGrafico();
+  if (pagina === 'mapa') renderMapa();
+}
+
+function aplicarTema(t) {
+  if (t === 'auto') document.documentElement.removeAttribute('data-theme'); else document.documentElement.dataset.theme = t === 'claro' ? 'light' : 'dark';
+  document.querySelectorAll('#temaSeg button').forEach(b => b.classList.toggle('on', b.dataset.t === t));
+}
+let tema = 'auto';
+try { tema = localStorage.getItem('tema') || 'auto'; } catch (e) {}
+aplicarTema(tema);
+document.querySelectorAll('#temaSeg button').forEach(b => b.onclick = () => { tema = b.dataset.t; try { localStorage.setItem('tema', tema); } catch (e) {} aplicarTema(tema); });
+
+$('upd').textContent = D.atualizado;
 $('litros').value = litros;
-$('sel').onchange = e => { grupo = e.target.value; renderTudo(); };
-$('litros').oninput = e => { const v = parseFloat(e.target.value); if (v > 0) { litros = v; try { localStorage.setItem('litros', v); } catch (x) {} renderHoje(); } };
+$('litros').oninput = e => { const v = parseFloat(e.target.value); if (v > 0) { litros = v; try { localStorage.setItem('litros', v); } catch (x) {} renderHero(); renderCards(); } };
 document.querySelectorAll('button[data-p]').forEach(b => b.onclick = () => { periodo = b.dataset.p === 'tudo' ? 'tudo' : parseInt(b.dataset.p); renderGrafico(); });
 $('media').onchange = renderGrafico;
 $('todos').onclick = () => { hidden.clear(); renderGrafico(); };
 $('nenhum').onclick = () => { (D.grupos[grupo] || []).forEach(s => hidden.add(s.n)); renderGrafico(); };
 $('svg').addEventListener('pointermove', onMove);
-$('svg').addEventListener('pointerleave', () => { $('tip').style.display = 'none'; const c = $('cur'); if (c) c.style.display = 'none'; });
-window.addEventListener('resize', renderGrafico);
-if (grupo) renderTudo(); else $('sub').textContent = 'Ainda não há dados.';
+$('svg').addEventListener('pointerleave', () => { $('tip').style.display = 'none'; const c = $('cur'); if (c) c.style.display = 'none'; linhasEstilo(-1); });
+window.addEventListener('resize', () => { if (pagina === 'grafico') renderGrafico(); });
+window.addEventListener('hashchange', mostrar);
+if (grupo) { renderPills(); renderTudo(); } else { $('hero').innerHTML = '<p class="mut">Ainda não há dados.</p>'; }
+mostrar();
 </script></body></html>
