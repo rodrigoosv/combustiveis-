@@ -33,6 +33,7 @@ jobs:
           if [ -f historico.csv ]; then git add historico.csv; fi
           if [ -f grafico.svg ]; then git add grafico.svg; fi
           if [ -f index.html ]; then git add index.html; fi
+          if [ -f dados.json ]; then git add dados.json; fi
           git commit -m "Atualizar estado [skip ci]" || exit 0
           git pull --rebase
           git push
