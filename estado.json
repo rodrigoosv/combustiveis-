@@ -142,19 +142,19 @@
   "precos": {
    "Gasóleo especial": [
     "2,144 €/litro",
-    "16-10-2026 00:30"
+    "17-10-2026 00:25"
    ],
    "Biodiesel B15": [
     "2,114 €/litro",
-    "16-10-2026 00:30"
+    "17-10-2026 00:25"
    ],
    "Gasolina simples 95": [
     "2,154 €/litro",
-    "16-10-2026 00:30"
+    "17-10-2026 00:25"
    ],
    "Gasolina especial 95": [
     "2,089 €/litro",
-    "16-10-2026 00:30"
+    "17-10-2026 00:25"
    ]
   },
   "lat": 39.73963,
@@ -319,55 +319,55 @@
   "lon": -8.93429,
   "morada": "Praceta do Vidreiro nº 12"
  },
- "67868": {
-  "nome": "BP Marinha Grande (Marinha Grande)",
-  "aviso": "BP (Marinha Grande)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,279 €/litro",
-    "16-10-2026 00:00"
-   ],
-   "Gasóleo especial": [
-    "2,399 €/litro",
-    "16-10-2026 00:00"
-   ],
-   "Gasolina simples 95": [
-    "2,229 €/litro",
-    "16-10-2026 00:00"
-   ],
-   "Gasolina especial 98": [
-    "2,459 €/litro",
-    "16-10-2026 00:00"
-   ]
-  },
-  "lat": 39.745975,
-  "lon": -8.934596,
-  "morada": "Av. Dr. José Henriques Vareda nº8"
- },
  "93075": {
   "nome": "BP Embra (Marinha Grande) (Embra)",
   "aviso": "BP (Embra)",
   "precos": {
    "Gasóleo simples": [
     "2,279 €/litro",
-    "16-10-2026 00:00"
+    "17-10-2026 00:00"
    ],
    "Gasóleo especial": [
     "2,399 €/litro",
-    "16-10-2026 00:00"
+    "17-10-2026 00:00"
    ],
    "Gasolina simples 95": [
     "2,229 €/litro",
-    "16-10-2026 00:00"
+    "17-10-2026 00:00"
    ],
    "Gasolina especial 98": [
     "2,459 €/litro",
-    "16-10-2026 00:00"
+    "17-10-2026 00:00"
    ]
   },
   "lat": 39.74759,
   "lon": -8.904907,
   "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
+ },
+ "67868": {
+  "nome": "BP Marinha Grande (Marinha Grande)",
+  "aviso": "BP (Marinha Grande)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,279 €/litro",
+    "17-10-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,399 €/litro",
+    "17-10-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "2,229 €/litro",
+    "17-10-2026 00:00"
+   ],
+   "Gasolina especial 98": [
+    "2,459 €/litro",
+    "17-10-2026 00:00"
+   ]
+  },
+  "lat": 39.745975,
+  "lon": -8.934596,
+  "morada": "Av. Dr. José Henriques Vareda nº8"
  },
  "plenergy-404": {
   "nome": "PLENERGY (Marinha Grande)",
@@ -1087,6 +1087,6 @@
    }
   },
   "pagina_versao": "70f070d5",
-  "ultimo_grafico": "2026-10-16"
+  "ultimo_grafico": "2026-10-17"
  }
 }
