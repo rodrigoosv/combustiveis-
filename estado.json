@@ -265,31 +265,6 @@
   "lon": -8.91122,
   "morada": "EN 242 Km 10,4"
  },
- "66596": {
-  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
-  "aviso": "REPSOL (R. Mc)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,269 €/litro",
-    "16-10-2026 00:00"
-   ],
-   "Gasóleo especial": [
-    "2,339 €/litro",
-    "16-10-2026 00:00"
-   ],
-   "Gasolina simples 95": [
-    "2,224 €/litro",
-    "16-10-2026 00:00"
-   ],
-   "Gasolina especial 95": [
-    "2,284 €/litro",
-    "16-10-2026 00:00"
-   ]
-  },
-  "lat": 39.73495,
-  "lon": -8.93242,
-  "morada": "EN 242 Km 13,7"
- },
  "66582": {
   "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
   "aviso": "REPSOL (R. Videiro)",
@@ -318,6 +293,31 @@
   "lat": 39.74714,
   "lon": -8.93429,
   "morada": "Praceta do Vidreiro nº 12"
+ },
+ "66596": {
+  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
+  "aviso": "REPSOL (R. Mc)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,269 €/litro",
+    "16-10-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,339 €/litro",
+    "16-10-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "2,224 €/litro",
+    "16-10-2026 00:00"
+   ],
+   "Gasolina especial 95": [
+    "2,284 €/litro",
+    "16-10-2026 00:00"
+   ]
+  },
+  "lat": 39.73495,
+  "lon": -8.93242,
+  "morada": "EN 242 Km 13,7"
  },
  "67868": {
   "nome": "BP Marinha Grande (Marinha Grande)",
@@ -401,7 +401,8 @@
    "atualizacao isp | preco dos combustiveis na proxima semana (5 a 11 de outubro)",
    "preco dos combustiveis na proxima semana (12 a 18 de outubro)",
    "atualizacao isp | preco dos combustiveis na proxima semana (12 a 18 de outubro)",
-   "preco dos combustiveis na proxima semana (19 a 25 de outubro)"
+   "preco dos combustiveis na proxima semana (19 a 25 de outubro)",
+   "atualizacao isp | preco dos combustiveis na proxima semana (19 a 25 de outubro)"
   ],
   "extremos_desde": "2026-10-09",
   "extremos": {
@@ -1086,7 +1087,6 @@
     }
    }
   },
-  "pagina_versao": "70f070d5",
-  "ultimo_grafico": "2026-10-17"
+  "pagina_versao": "70f070d5"
  }
 }
