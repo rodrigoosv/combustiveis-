@@ -396,7 +396,7 @@
  },
  "_meta": {
   "falhas": {},
-  "ultimo_resumo": "2026-10-16",
+  "ultimo_resumo": "2026-10-17",
   "isp_vistos": [
    "atualizacao isp | preco dos combustiveis na proxima semana (5 a 11 de outubro)",
    "preco dos combustiveis na proxima semana (12 a 18 de outubro)",
@@ -1086,6 +1086,7 @@
     }
    }
   },
-  "pagina_versao": "70f070d5"
+  "pagina_versao": "70f070d5",
+  "ultimo_grafico": "2026-10-17"
  }
 }
