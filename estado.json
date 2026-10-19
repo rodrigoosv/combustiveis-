@@ -91,20 +91,20 @@
   "aviso": "ALVES BANDEIRA",
   "precos": {
    "Gasóleo simples": [
-    "2,227 €/litro",
-    "12-10-2026 15:35"
+    "2,257 €/litro",
+    "19-10-2026 13:50"
    ],
    "Gasóleo colorido": [
-    "1,859 €/litro",
-    "12-10-2026 15:35"
+    "1,894 €/litro",
+    "19-10-2026 13:50"
    ],
    "Gasolina simples 95": [
-    "2,187 €/litro",
-    "12-10-2026 15:35"
+    "2,161 €/litro",
+    "19-10-2026 13:50"
    ],
    "Gasolina 98": [
-    "2,357 €/litro",
-    "12-10-2026 15:35"
+    "2,331 €/litro",
+    "19-10-2026 13:50"
    ]
   },
   "lat": 39.697193,
@@ -141,20 +141,20 @@
   "aviso": "PRIO (Leiria)",
   "precos": {
    "Gasóleo especial": [
-    "2,144 €/litro",
-    "19-10-2026 00:30"
+    "2,179 €/litro",
+    "19-10-2026 14:40"
    ],
    "Biodiesel B15": [
-    "2,114 €/litro",
-    "19-10-2026 00:30"
+    "2,149 €/litro",
+    "19-10-2026 14:40"
    ],
    "Gasolina simples 95": [
-    "2,154 €/litro",
-    "19-10-2026 00:30"
+    "2,129 €/litro",
+    "19-10-2026 14:40"
    ],
    "Gasolina especial 95": [
-    "2,089 €/litro",
-    "19-10-2026 00:30"
+    "2,069 €/litro",
+    "19-10-2026 14:40"
    ]
   },
   "lat": 39.73963,
@@ -216,20 +216,20 @@
   "aviso": "GALP (Embra)",
   "precos": {
    "Gasóleo simples": [
-    "2,229 €/litro",
-    "18-10-2026 10:10"
+    "2,299 €/litro",
+    "19-10-2026 09:35"
    ],
    "Gasóleo especial": [
-    "2,279 €/litro",
-    "18-10-2026 10:10"
+    "2,349 €/litro",
+    "19-10-2026 09:35"
    ],
    "Gasolina simples 95": [
-    "2,155 €/litro",
-    "18-10-2026 10:10"
+    "2,169 €/litro",
+    "19-10-2026 09:35"
    ],
    "Gasolina especial 95": [
-    "2,205 €/litro",
-    "18-10-2026 10:10"
+    "2,219 €/litro",
+    "19-10-2026 09:35"
    ]
   },
   "lat": 39.74782,
@@ -241,54 +241,29 @@
   "aviso": "GALP (Marinha Grande)",
   "precos": {
    "Gasóleo simples": [
-    "2,229 €/litro",
-    "18-10-2026 10:10"
+    "2,299 €/litro",
+    "19-10-2026 09:35"
    ],
    "Gasóleo especial": [
-    "2,279 €/litro",
-    "18-10-2026 10:10"
+    "2,349 €/litro",
+    "19-10-2026 09:35"
    ],
    "Gasolina simples 95": [
-    "2,155 €/litro",
-    "18-10-2026 10:10"
+    "2,169 €/litro",
+    "19-10-2026 09:35"
    ],
    "Gasolina especial 95": [
-    "2,205 €/litro",
-    "18-10-2026 10:10"
+    "2,219 €/litro",
+    "19-10-2026 09:35"
    ],
    "Gasolina especial 98": [
-    "2,385 €/litro",
-    "18-10-2026 10:10"
+    "2,399 €/litro",
+    "19-10-2026 09:35"
    ]
   },
   "lat": 39.74892,
   "lon": -8.92391,
   "morada": "EN 242 (Av. Vítor Galo) Km 11,5"
- },
- "93075": {
-  "nome": "BP Embra (Marinha Grande) (Embra)",
-  "aviso": "BP (Embra)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,309 €/litro",
-    "19-10-2026 00:00"
-   ],
-   "Gasóleo especial": [
-    "2,429 €/litro",
-    "19-10-2026 00:00"
-   ],
-   "Gasolina simples 95": [
-    "2,204 €/litro",
-    "19-10-2026 00:00"
-   ],
-   "Gasolina especial 98": [
-    "2,434 €/litro",
-    "19-10-2026 00:00"
-   ]
-  },
-  "lat": 39.74759,
-  "lon": -8.904907,
-  "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
  },
  "67868": {
   "nome": "BP Marinha Grande (Marinha Grande)",
@@ -344,25 +319,50 @@
   "lon": -8.93429,
   "morada": "Praceta do Vidreiro nº 12"
  },
- "66596": {
-  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
-  "aviso": "REPSOL (R. Mc)",
+ "93075": {
+  "nome": "BP Embra (Marinha Grande) (Embra)",
+  "aviso": "BP (Embra)",
   "precos": {
    "Gasóleo simples": [
-    "2,304 €/litro",
+    "2,309 €/litro",
     "19-10-2026 00:00"
    ],
    "Gasóleo especial": [
-    "2,374 €/litro",
+    "2,429 €/litro",
     "19-10-2026 00:00"
    ],
    "Gasolina simples 95": [
     "2,204 €/litro",
     "19-10-2026 00:00"
    ],
+   "Gasolina especial 98": [
+    "2,434 €/litro",
+    "19-10-2026 00:00"
+   ]
+  },
+  "lat": 39.74759,
+  "lon": -8.904907,
+  "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
+ },
+ "66596": {
+  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
+  "aviso": "REPSOL (R. Mc)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,304 €/litro",
+    "19-10-2026 10:00"
+   ],
+   "Gasóleo especial": [
+    "2,374 €/litro",
+    "19-10-2026 10:00"
+   ],
+   "Gasolina simples 95": [
+    "2,204 €/litro",
+    "19-10-2026 10:00"
+   ],
    "Gasolina especial 95": [
     "2,274 €/litro",
-    "19-10-2026 00:00"
+    "19-10-2026 10:00"
    ]
   },
   "lat": 39.73495,
@@ -569,8 +569,8 @@
       "2026-10-05 11:05"
      ],
      "max": [
-      2.227,
-      "2026-10-12 15:35"
+      2.257,
+      "2026-10-19 13:50"
      ]
     },
     "Gasóleo colorido": {
@@ -579,8 +579,8 @@
       "2026-10-05 11:05"
      ],
      "max": [
-      1.859,
-      "2026-10-05 11:05"
+      1.894,
+      "2026-10-19 13:50"
      ]
     },
     "Gasolina simples 95": {
@@ -653,8 +653,8 @@
       "2026-10-09 00:30"
      ],
      "max": [
-      2.144,
-      "2026-10-09 00:30"
+      2.179,
+      "2026-10-19 14:40"
      ]
     },
     "Biodiesel B15": {
@@ -663,8 +663,8 @@
       "2026-10-09 00:30"
      ],
      "max": [
-      2.114,
-      "2026-10-09 00:30"
+      2.149,
+      "2026-10-19 14:40"
      ]
     },
     "Gasolina simples 95": {
@@ -779,8 +779,8 @@
       "2026-10-10 11:25"
      ],
      "max": [
-      2.269,
-      "2026-10-12 18:00"
+      2.299,
+      "2026-10-19 09:35"
      ]
     },
     "Gasóleo especial": {
@@ -789,8 +789,8 @@
       "2026-10-10 11:25"
      ],
      "max": [
-      2.319,
-      "2026-10-12 18:00"
+      2.349,
+      "2026-10-19 09:35"
      ]
     },
     "Gasolina simples 95": {
@@ -831,8 +831,8 @@
       "2026-10-10 11:30"
      ],
      "max": [
-      2.269,
-      "2026-10-12 18:00"
+      2.299,
+      "2026-10-19 09:35"
      ]
     },
     "Gasóleo especial": {
@@ -841,8 +841,8 @@
       "2026-10-10 11:30"
      ],
      "max": [
-      2.319,
-      "2026-10-12 18:00"
+      2.349,
+      "2026-10-19 09:35"
      ]
     },
     "Gasolina simples 95": {

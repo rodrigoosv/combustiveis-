@@ -156,3 +156,20 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-10-19 00:14,BP Embra (Marinha Grande) (Embra),Gasóleo especial,2.399,2.429,+3.0,subiu,2.399,2026-10-09 00:00,2.429,2026-10-19 00:00
 2026-10-19 00:14,BP Embra (Marinha Grande) (Embra),Gasolina simples 95,2.229,2.204,-2.5,desceu,2.179,2026-10-09 00:00,2.229,2026-10-12 00:00
 2026-10-19 00:14,BP Embra (Marinha Grande) (Embra),Gasolina especial 98,2.459,2.434,-2.5,desceu,2.409,2026-10-09 00:00,2.459,2026-10-12 00:00
+2026-10-19 16:37,ALVES BANDEIRA Moita (Moita),Gasóleo simples,2.227,2.257,+3.0,subiu,2.224,2026-10-05 11:05,2.257,2026-10-19 13:50
+2026-10-19 16:37,ALVES BANDEIRA Moita (Moita),Gasóleo colorido,1.859,1.894,+3.5,subiu,1.859,2026-10-05 11:05,1.894,2026-10-19 13:50
+2026-10-19 16:37,ALVES BANDEIRA Moita (Moita),Gasolina simples 95,2.187,2.161,-2.6,desceu,2.139,2026-10-05 11:05,2.187,2026-10-12 15:35
+2026-10-19 16:37,ALVES BANDEIRA Moita (Moita),Gasolina 98,2.357,2.331,-2.6,desceu,2.309,2026-10-05 11:05,2.357,2026-10-12 15:35
+2026-10-19 16:37,PRIO Leiria Circular (Leiria),Gasóleo especial,2.144,2.179,+3.5,subiu,2.144,2026-10-09 00:30,2.179,2026-10-19 14:40
+2026-10-19 16:37,PRIO Leiria Circular (Leiria),Biodiesel B15,2.114,2.149,+3.5,subiu,2.114,2026-10-09 00:30,2.149,2026-10-19 14:40
+2026-10-19 16:37,PRIO Leiria Circular (Leiria),Gasolina simples 95,2.154,2.129,-2.5,desceu,2.119,2026-10-09 00:30,2.154,2026-10-12 00:30
+2026-10-19 16:37,PRIO Leiria Circular (Leiria),Gasolina especial 95,2.089,2.069,-2.0,desceu,2.044,2026-10-09 00:30,2.089,2026-10-12 00:30
+2026-10-19 16:37,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasóleo simples,2.229,2.299,+7.0,subiu,2.226,2026-10-10 11:30,2.299,2026-10-19 09:35
+2026-10-19 16:37,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasóleo especial,2.279,2.349,+7.0,subiu,2.276,2026-10-10 11:30,2.349,2026-10-19 09:35
+2026-10-19 16:37,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasolina simples 95,2.155,2.169,+1.4,subiu,2.107,2026-10-10 11:30,2.195,2026-10-12 18:00
+2026-10-19 16:37,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasolina especial 95,2.205,2.219,+1.4,subiu,2.157,2026-10-10 11:30,2.245,2026-10-12 18:00
+2026-10-19 16:37,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasóleo simples,2.229,2.299,+7.0,subiu,2.226,2026-10-10 11:25,2.299,2026-10-19 09:35
+2026-10-19 16:37,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasóleo especial,2.279,2.349,+7.0,subiu,2.276,2026-10-10 11:25,2.349,2026-10-19 09:35
+2026-10-19 16:37,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasolina simples 95,2.155,2.169,+1.4,subiu,2.107,2026-10-10 11:25,2.195,2026-10-12 18:00
+2026-10-19 16:37,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasolina especial 95,2.205,2.219,+1.4,subiu,2.157,2026-10-10 11:25,2.245,2026-10-12 18:00
+2026-10-19 16:37,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasolina especial 98,2.385,2.399,+1.4,subiu,2.337,2026-10-10 11:25,2.425,2026-10-12 18:00
