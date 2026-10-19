@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-10-19 16:37",
+ "atualizado": "2026-10-19 22:04",
  "grupos": {
   "Gasóleo simples": {
    "mais_barato": {
@@ -7,7 +7,7 @@
     "preco": 2.009,
     "preco_texto": "2,009"
    },
-   "media": 2.217,
+   "media": 2.22,
    "postos": [
     {
      "posto": "TRANSOGÁS",
@@ -20,14 +20,14 @@
      "preco_texto": "2,049"
     },
     {
-     "posto": "INTERMARCHÉ",
-     "preco": 2.089,
-     "preco_texto": "2,089"
-    },
-    {
      "posto": "PINGO DOCE",
      "preco": 2.093,
      "preco_texto": "2,093"
+    },
+    {
+     "posto": "INTERMARCHÉ",
+     "preco": 2.129,
+     "preco_texto": "2,129"
     },
     {
      "posto": "OZ Energia",
@@ -82,7 +82,7 @@
     "preco": 1.999,
     "preco_texto": "1,999"
    },
-   "media": 2.279,
+   "media": 2.281,
    "postos": [
     {
      "posto": "PLENERGY",
@@ -96,8 +96,8 @@
     },
     {
      "posto": "INTERMARCHÉ",
-     "preco": 2.139,
-     "preco_texto": "2,139"
+     "preco": 2.169,
+     "preco_texto": "2,169"
     },
     {
      "posto": "PRIO (Leiria)",
@@ -162,7 +162,7 @@
     "preco": 1.899,
     "preco_texto": "1,899"
    },
-   "media": 2.126,
+   "media": 2.124,
    "postos": [
     {
      "posto": "PLENERGY",
@@ -176,8 +176,8 @@
     },
     {
      "posto": "INTERMARCHÉ",
-     "preco": 2.059,
-     "preco_texto": "2,059"
+     "preco": 2.029,
+     "preco_texto": "2,029"
     },
     {
      "posto": "OZ Energia",
@@ -294,15 +294,15 @@
   "Gasolina 98": {
    "mais_barato": {
     "posto": "INTERMARCHÉ",
-    "preco": 2.239,
-    "preco_texto": "2,239"
+    "preco": 2.209,
+    "preco_texto": "2,209"
    },
-   "media": 2.38,
+   "media": 2.376,
    "postos": [
     {
      "posto": "INTERMARCHÉ",
-     "preco": 2.239,
-     "preco_texto": "2,239"
+     "preco": 2.209,
+     "preco_texto": "2,209"
     },
     {
      "posto": "OZ Energia",
