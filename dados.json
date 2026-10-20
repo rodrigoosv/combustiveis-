@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-10-20 01:22",
+ "atualizado": "2026-10-20 12:40",
  "grupos": {
   "Gasóleo simples": {
    "mais_barato": {
@@ -7,7 +7,7 @@
     "preco": 2.009,
     "preco_texto": "2,009"
    },
-   "media": 2.222,
+   "media": 2.221,
    "postos": [
     {
      "posto": "TRANSOGÁS",
@@ -16,8 +16,8 @@
     },
     {
      "posto": "PLENERGY",
-     "preco": 2.049,
-     "preco_texto": "2,049"
+     "preco": 2.029,
+     "preco_texto": "2,029"
     },
     {
      "posto": "PINGO DOCE",
@@ -78,21 +78,21 @@
   },
   "Gasóleo especial / plus": {
    "mais_barato": {
-    "posto": "PLENERGY",
-    "preco": 1.999,
-    "preco_texto": "1,999"
+    "posto": "TRANSOGÁS",
+    "preco": 2.049,
+    "preco_texto": "2,049"
    },
-   "media": 2.283,
+   "media": 2.289,
    "postos": [
-    {
-     "posto": "PLENERGY",
-     "preco": 1.999,
-     "preco_texto": "1,999"
-    },
     {
      "posto": "TRANSOGÁS",
      "preco": 2.049,
      "preco_texto": "2,049"
+    },
+    {
+     "posto": "PLENERGY",
+     "preco": 2.079,
+     "preco_texto": "2,079"
     },
     {
      "posto": "INTERMARCHÉ",
