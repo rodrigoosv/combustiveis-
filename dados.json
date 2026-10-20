@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-10-19 22:04",
+ "atualizado": "2026-10-20 01:22",
  "grupos": {
   "Gasóleo simples": {
    "mais_barato": {
@@ -7,7 +7,7 @@
     "preco": 2.009,
     "preco_texto": "2,009"
    },
-   "media": 2.22,
+   "media": 2.222,
    "postos": [
     {
      "posto": "TRANSOGÁS",
@@ -21,8 +21,8 @@
     },
     {
      "posto": "PINGO DOCE",
-     "preco": 2.093,
-     "preco_texto": "2,093"
+     "preco": 2.119,
+     "preco_texto": "2,119"
     },
     {
      "posto": "INTERMARCHÉ",
@@ -82,7 +82,7 @@
     "preco": 1.999,
     "preco_texto": "1,999"
    },
-   "media": 2.281,
+   "media": 2.283,
    "postos": [
     {
      "posto": "PLENERGY",
@@ -140,17 +140,17 @@
      "preco_texto": "2,374"
     },
     {
-     "posto": "PINGO DOCE",
-     "preco": 2.399,
-     "preco_texto": "2,399"
-    },
-    {
      "posto": "BP (Embra)",
      "preco": 2.429,
      "preco_texto": "2,429"
     },
     {
      "posto": "BP (Marinha Grande)",
+     "preco": 2.429,
+     "preco_texto": "2,429"
+    },
+    {
+     "posto": "PINGO DOCE",
      "preco": 2.429,
      "preco_texto": "2,429"
     }
@@ -162,7 +162,7 @@
     "preco": 1.899,
     "preco_texto": "1,899"
    },
-   "media": 2.124,
+   "media": 2.123,
    "postos": [
     {
      "posto": "PLENERGY",
@@ -180,14 +180,14 @@
      "preco_texto": "2,029"
     },
     {
+     "posto": "PINGO DOCE",
+     "preco": 2.071,
+     "preco_texto": "2,071"
+    },
+    {
      "posto": "OZ Energia",
      "preco": 2.094,
      "preco_texto": "2,094"
-    },
-    {
-     "posto": "PINGO DOCE",
-     "preco": 2.096,
-     "preco_texto": "2,096"
     },
     {
      "posto": "PRIO (Leiria)",
@@ -297,7 +297,7 @@
     "preco": 2.209,
     "preco_texto": "2,209"
    },
-   "media": 2.376,
+   "media": 2.374,
    "postos": [
     {
      "posto": "INTERMARCHÉ",
@@ -341,8 +341,8 @@
     },
     {
      "posto": "PINGO DOCE",
-     "preco": 2.459,
-     "preco_texto": "2,459"
+     "preco": 2.434,
+     "preco_texto": "2,434"
     }
    ]
   },

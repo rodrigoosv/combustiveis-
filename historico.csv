@@ -177,3 +177,7 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-10-19 22:04,Intermarché da Marinha Grande (Marinha Grande),Gasóleo especial,2.139,2.169,+3.0,subiu,2.139,2026-10-06 18:05,2.169,2026-10-19 21:05
 2026-10-19 22:04,Intermarché da Marinha Grande (Marinha Grande),Gasolina simples 95,2.059,2.029,-3.0,desceu,2.009,2026-10-06 18:05,2.059,2026-10-12 21:05
 2026-10-19 22:04,Intermarché da Marinha Grande (Marinha Grande),Gasolina 98,2.239,2.209,-3.0,desceu,2.189,2026-10-06 18:05,2.239,2026-10-12 21:05
+2026-10-20 01:22,PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água),Gasóleo simples,2.093,2.119,+2.6,subiu,2.092,2026-10-06 00:00,2.119,2026-10-20 00:00
+2026-10-20 01:22,PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água),Gasóleo especial,2.399,2.429,+3.0,subiu,2.399,2026-10-06 00:00,2.429,2026-10-20 00:00
+2026-10-20 01:22,PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água),Gasolina simples 95,2.096,2.071,-2.5,desceu,2.048,2026-10-06 00:00,2.096,2026-10-13 11:30
+2026-10-20 01:22,PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água),Gasolina especial 98,2.459,2.434,-2.5,desceu,2.409,2026-10-06 00:00,2.459,2026-10-13 11:30
