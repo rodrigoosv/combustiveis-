@@ -265,31 +265,6 @@
   "lon": -8.93242,
   "morada": "EN 242 Km 13,7"
  },
- "65415": {
-  "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
-  "aviso": "GALP (Embra)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,299 €/litro",
-    "19-10-2026 09:35"
-   ],
-   "Gasóleo especial": [
-    "2,349 €/litro",
-    "19-10-2026 09:35"
-   ],
-   "Gasolina simples 95": [
-    "2,169 €/litro",
-    "19-10-2026 09:35"
-   ],
-   "Gasolina especial 95": [
-    "2,219 €/litro",
-    "19-10-2026 09:35"
-   ]
-  },
-  "lat": 39.74782,
-  "lon": -8.91122,
-  "morada": "EN 242 Km 10,4"
- },
  "65416": {
   "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",
   "aviso": "GALP (Marinha Grande)",
@@ -318,6 +293,31 @@
   "lat": 39.74892,
   "lon": -8.92391,
   "morada": "EN 242 (Av. Vítor Galo) Km 11,5"
+ },
+ "65415": {
+  "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
+  "aviso": "GALP (Embra)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,299 €/litro",
+    "19-10-2026 09:35"
+   ],
+   "Gasóleo especial": [
+    "2,349 €/litro",
+    "19-10-2026 09:35"
+   ],
+   "Gasolina simples 95": [
+    "2,169 €/litro",
+    "19-10-2026 09:35"
+   ],
+   "Gasolina especial 95": [
+    "2,219 €/litro",
+    "19-10-2026 09:35"
+   ]
+  },
+  "lat": 39.74782,
+  "lon": -8.91122,
+  "morada": "EN 242 Km 10,4"
  },
  "93075": {
   "nome": "BP Embra (Marinha Grande) (Embra)",
@@ -1087,7 +1087,6 @@
     }
    }
   },
-  "pagina_versao": "70f070d5",
-  "ultimo_grafico": "2026-10-21"
+  "pagina_versao": "70f070d5"
  }
 }
