@@ -211,31 +211,6 @@
   "lon": -8.926169,
   "morada": "Estrada do Guilherme"
  },
- "66596": {
-  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
-  "aviso": "REPSOL (R. Mc)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,244 €/litro",
-    "21-10-2026 00:00"
-   ],
-   "Gasóleo especial": [
-    "2,314 €/litro",
-    "21-10-2026 00:00"
-   ],
-   "Gasolina simples 95": [
-    "2,144 €/litro",
-    "21-10-2026 00:00"
-   ],
-   "Gasolina especial 95": [
-    "2,214 €/litro",
-    "21-10-2026 00:00"
-   ]
-  },
-  "lat": 39.73495,
-  "lon": -8.93242,
-  "morada": "EN 242 Km 13,7"
- },
  "66582": {
   "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
   "aviso": "REPSOL (R. Videiro)",
@@ -264,6 +239,31 @@
   "lat": 39.74714,
   "lon": -8.93429,
   "morada": "Praceta do Vidreiro nº 12"
+ },
+ "66596": {
+  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
+  "aviso": "REPSOL (R. Mc)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,244 €/litro",
+    "21-10-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,314 €/litro",
+    "21-10-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "2,144 €/litro",
+    "21-10-2026 00:00"
+   ],
+   "Gasolina especial 95": [
+    "2,214 €/litro",
+    "21-10-2026 00:00"
+   ]
+  },
+  "lat": 39.73495,
+  "lon": -8.93242,
+  "morada": "EN 242 Km 13,7"
  },
  "65415": {
   "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
@@ -374,19 +374,19 @@
   "aviso": "PLENERGY",
   "precos": {
    "Gasóleo simples": [
-    "2,029 €/litro",
+    "2,009 €/litro",
     ""
    ],
    "Gasóleo plus": [
-    "2,079 €/litro",
+    "2,059 €/litro",
     ""
    ],
    "Gasolina 95 simples": [
-    "1,899 €/litro",
+    "1,929 €/litro",
     ""
    ],
    "Gasolina 95 plus": [
-    "1,949 €/litro",
+    "1,979 €/litro",
     ""
    ]
   },
@@ -396,7 +396,7 @@
  },
  "_meta": {
   "falhas": {},
-  "ultimo_resumo": "2026-10-20",
+  "ultimo_resumo": "2026-10-21",
   "isp_vistos": [
    "atualizacao isp | preco dos combustiveis na proxima semana (5 a 11 de outubro)",
    "preco dos combustiveis na proxima semana (12 a 18 de outubro)",
@@ -1047,8 +1047,8 @@
    "plenergy-404": {
     "Gasóleo simples": {
      "min": [
-      2.019,
-      "2026-10-09 04:22"
+      2.009,
+      "2026-10-21 11:11"
      ],
      "max": [
       2.089,
@@ -1087,6 +1087,7 @@
     }
    }
   },
-  "pagina_versao": "70f070d5"
+  "pagina_versao": "70f070d5",
+  "ultimo_grafico": "2026-10-21"
  }
 }
