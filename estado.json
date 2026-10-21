@@ -319,55 +319,55 @@
   "lon": -8.91122,
   "morada": "EN 242 Km 10,4"
  },
- "93075": {
-  "nome": "BP Embra (Marinha Grande) (Embra)",
-  "aviso": "BP (Embra)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,309 €/litro",
-    "21-10-2026 00:00"
-   ],
-   "Gasóleo especial": [
-    "2,429 €/litro",
-    "21-10-2026 00:00"
-   ],
-   "Gasolina simples 95": [
-    "2,204 €/litro",
-    "21-10-2026 00:00"
-   ],
-   "Gasolina especial 98": [
-    "2,434 €/litro",
-    "21-10-2026 00:00"
-   ]
-  },
-  "lat": 39.74759,
-  "lon": -8.904907,
-  "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
- },
  "67868": {
   "nome": "BP Marinha Grande (Marinha Grande)",
   "aviso": "BP (Marinha Grande)",
   "precos": {
    "Gasóleo simples": [
     "2,309 €/litro",
-    "21-10-2026 00:00"
+    "22-10-2026 00:00"
    ],
    "Gasóleo especial": [
     "2,429 €/litro",
-    "21-10-2026 00:00"
+    "22-10-2026 00:00"
    ],
    "Gasolina simples 95": [
     "2,204 €/litro",
-    "21-10-2026 00:00"
+    "22-10-2026 00:00"
    ],
    "Gasolina especial 98": [
     "2,434 €/litro",
-    "21-10-2026 00:00"
+    "22-10-2026 00:00"
    ]
   },
   "lat": 39.745975,
   "lon": -8.934596,
   "morada": "Av. Dr. José Henriques Vareda nº8"
+ },
+ "93075": {
+  "nome": "BP Embra (Marinha Grande) (Embra)",
+  "aviso": "BP (Embra)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,309 €/litro",
+    "22-10-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,429 €/litro",
+    "22-10-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "2,204 €/litro",
+    "22-10-2026 00:00"
+   ],
+   "Gasolina especial 98": [
+    "2,434 €/litro",
+    "22-10-2026 00:00"
+   ]
+  },
+  "lat": 39.74759,
+  "lon": -8.904907,
+  "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
  },
  "plenergy-404": {
   "nome": "PLENERGY (Marinha Grande)",
@@ -1088,6 +1088,6 @@
    }
   },
   "pagina_versao": "70f070d5",
-  "ultimo_grafico": "2026-10-21"
+  "ultimo_grafico": "2026-10-22"
  }
 }
