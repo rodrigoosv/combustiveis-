@@ -201,3 +201,7 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-10-21 11:11,PLENERGY (Marinha Grande),Gasóleo plus,2.079,2.059,-2.0,desceu,1.999,2026-10-15 10:57,2.079,2026-10-20 12:40
 2026-10-21 11:11,PLENERGY (Marinha Grande),Gasolina 95 simples,1.899,1.929,+3.0,subiu,1.899,2026-10-15 10:57,1.939,2026-10-09 04:22
 2026-10-21 11:11,PLENERGY (Marinha Grande),Gasolina 95 plus,1.949,1.979,+3.0,subiu,1.949,2026-10-15 10:57,1.989,2026-10-09 04:22
+2026-10-22 16:19,PLENERGY (Marinha Grande),Gasóleo simples,2.009,1.989,-2.0,desceu,1.989,2026-10-22 16:19,2.089,2026-10-13 17:01
+2026-10-22 16:19,PLENERGY (Marinha Grande),Gasóleo plus,2.059,2.039,-2.0,desceu,1.999,2026-10-15 10:57,2.079,2026-10-20 12:40
+2026-10-22 16:19,PLENERGY (Marinha Grande),Gasolina 95 simples,1.929,1.949,+2.0,subiu,1.899,2026-10-15 10:57,1.949,2026-10-22 16:19
+2026-10-22 16:19,PLENERGY (Marinha Grande),Gasolina 95 plus,1.979,1.999,+2.0,subiu,1.949,2026-10-15 10:57,1.999,2026-10-22 16:19
