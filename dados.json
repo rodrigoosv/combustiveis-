@@ -1,18 +1,18 @@
 {
- "atualizado": "2026-10-23 00:24",
+ "atualizado": "2026-10-23 11:05",
  "grupos": {
   "Gasóleo simples": {
    "mais_barato": {
     "posto": "PLENERGY",
-    "preco": 1.989,
-    "preco_texto": "1,989"
+    "preco": 1.979,
+    "preco_texto": "1,979"
    },
-   "media": 2.218,
+   "media": 2.217,
    "postos": [
     {
      "posto": "PLENERGY",
-     "preco": 1.989,
-     "preco_texto": "1,989"
+     "preco": 1.979,
+     "preco_texto": "1,979"
     },
     {
      "posto": "TRANSOGÁS",
@@ -79,15 +79,15 @@
   "Gasóleo especial / plus": {
    "mais_barato": {
     "posto": "PLENERGY",
-    "preco": 2.039,
-    "preco_texto": "2,039"
+    "preco": 2.029,
+    "preco_texto": "2,029"
    },
-   "media": 2.286,
+   "media": 2.285,
    "postos": [
     {
      "posto": "PLENERGY",
-     "preco": 2.039,
-     "preco_texto": "2,039"
+     "preco": 2.029,
+     "preco_texto": "2,029"
     },
     {
      "posto": "TRANSOGÁS",
@@ -162,7 +162,7 @@
     "preco": 1.929,
     "preco_texto": "1,929"
    },
-   "media": 2.126,
+   "media": 2.125,
    "postos": [
     {
      "posto": "TRANSOGÁS",
@@ -171,8 +171,8 @@
     },
     {
      "posto": "PLENERGY",
-     "preco": 1.949,
-     "preco_texto": "1,949"
+     "preco": 1.939,
+     "preco_texto": "1,939"
     },
     {
      "posto": "INTERMARCHÉ",
@@ -244,15 +244,15 @@
   "Gasolina 95 especial / plus": {
    "mais_barato": {
     "posto": "PLENERGY",
-    "preco": 1.999,
-    "preco_texto": "1,999"
+    "preco": 1.989,
+    "preco_texto": "1,989"
    },
-   "media": 2.181,
+   "media": 2.18,
    "postos": [
     {
      "posto": "PLENERGY",
-     "preco": 1.999,
-     "preco_texto": "1,999"
+     "preco": 1.989,
+     "preco_texto": "1,989"
     },
     {
      "posto": "PRIO (Leiria)",
