@@ -1,7 +1,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 940 736" width="940" height="736" font-family="Segoe UI, Arial, sans-serif">
 <rect width="940" height="736" fill="#ffffff"/>
 <text x="64" y="30" font-size="20" font-weight="bold" fill="#222">Preço dos combustíveis</text>
-<text x="64" y="48" font-size="12" fill="#666">Atualizado em 26/10/2026 01:12</text>
+<text x="64" y="48" font-size="12" fill="#666">Atualizado em 26/10/2026 14:17</text>
 <text x="64" y="80" font-size="16" font-weight="bold" fill="#222">Gasóleo simples (€/litro)</text>
 <text x="64" y="98" font-size="12" fill="#666">Mais baixo: 1,979 € (PLENERGY, 23/10) · Mais alto: 2,324 € (BP (Embra), 26/10)</text>
 <line x1="64" y1="352.0" x2="680" y2="352.0" stroke="#e5e5e5"/>
@@ -25,122 +25,124 @@
 <line x1="680.0" y1="118" x2="680.0" y2="352" stroke="#f0f0f0"/>
 <text x="680.0" y="370" font-size="11" fill="#666" text-anchor="middle">26/10</text>
 <rect x="64" y="118" width="616" height="234" fill="none" stroke="#bbb"/>
-<path d="M64.0,198.1 H64.0 V307.5 H255.1 V269.2 H283.7 V280.1 H315.3 V291.1 H489.9 V302.0 H522.2 V312.9 H564.0 V323.9 H590.9 V329.4 H680.0 V329.4" fill="none" stroke="#e6194b" stroke-width="2"/>
-<circle cx="64.0" cy="307.5" r="3" fill="#e6194b"/>
-<circle cx="255.1" cy="269.2" r="3" fill="#e6194b"/>
-<circle cx="283.7" cy="280.1" r="3" fill="#e6194b"/>
-<circle cx="315.3" cy="291.1" r="3" fill="#e6194b"/>
-<circle cx="489.9" cy="302.0" r="3" fill="#e6194b"/>
-<circle cx="522.2" cy="312.9" r="3" fill="#e6194b"/>
-<circle cx="564.0" cy="323.9" r="3" fill="#e6194b"/>
-<circle cx="590.9" cy="329.4" r="3" fill="#e6194b"/>
-<circle cx="680.0" cy="329.4" r="4" fill="#e6194b" stroke="#fff"/>
+<path d="M64.0,258.2 H64.0 V312.9 H680.0 V312.9" fill="none" stroke="#e6194b" stroke-width="2"/>
+<circle cx="64.0" cy="312.9" r="3" fill="#e6194b"/>
+<circle cx="680.0" cy="312.9" r="4" fill="#e6194b" stroke="#fff"/>
 <line x1="696" y1="126" x2="716" y2="126" stroke="#e6194b" stroke-width="3"/>
-<text x="722" y="130" font-size="12" fill="#222">PLENERGY</text>
-<text x="932" y="130" font-size="12" fill="#222" text-anchor="end">1,979</text>
-<path d="M64.0,258.2 H64.0 V312.9 H680.0 V312.9" fill="none" stroke="#3cb44b" stroke-width="2"/>
-<circle cx="64.0" cy="312.9" r="3" fill="#3cb44b"/>
-<circle cx="680.0" cy="312.9" r="4" fill="#3cb44b" stroke="#fff"/>
+<text x="722" y="130" font-size="12" fill="#222">TRANSOGÁS</text>
+<text x="932" y="130" font-size="12" fill="#222" text-anchor="end">2,009</text>
+<path d="M64.0,198.1 H64.0 V307.5 H249.5 V269.2 H277.2 V280.1 H307.9 V291.1 H477.3 V302.0 H508.6 V312.9 H549.2 V323.9 H575.3 V329.4 H680.0 V307.5 H680.0 V307.5" fill="none" stroke="#3cb44b" stroke-width="2"/>
+<circle cx="64.0" cy="307.5" r="3" fill="#3cb44b"/>
+<circle cx="249.5" cy="269.2" r="3" fill="#3cb44b"/>
+<circle cx="277.2" cy="280.1" r="3" fill="#3cb44b"/>
+<circle cx="307.9" cy="291.1" r="3" fill="#3cb44b"/>
+<circle cx="477.3" cy="302.0" r="3" fill="#3cb44b"/>
+<circle cx="508.6" cy="312.9" r="3" fill="#3cb44b"/>
+<circle cx="549.2" cy="323.9" r="3" fill="#3cb44b"/>
+<circle cx="575.3" cy="329.4" r="3" fill="#3cb44b"/>
+<circle cx="680.0" cy="307.5" r="3" fill="#3cb44b"/>
+<circle cx="680.0" cy="307.5" r="4" fill="#3cb44b" stroke="#fff"/>
 <line x1="696" y1="145" x2="716" y2="145" stroke="#3cb44b" stroke-width="3"/>
-<text x="722" y="149" font-size="12" fill="#222">TRANSOGÁS</text>
-<text x="932" y="149" font-size="12" fill="#222" text-anchor="end">2,009</text>
-<path d="M64.0,267.5 H255.1 V267.0 H473.7 V252.8 H680.0 V252.8" fill="none" stroke="#4363d8" stroke-width="2"/>
-<circle cx="255.1" cy="267.0" r="3" fill="#4363d8"/>
-<circle cx="473.7" cy="252.8" r="3" fill="#4363d8"/>
+<text x="722" y="149" font-size="12" fill="#222">PLENERGY</text>
+<text x="932" y="149" font-size="12" fill="#222" text-anchor="end">2,019</text>
+<path d="M64.0,267.5 H249.5 V267.0 H461.6 V252.8 H680.0 V252.8" fill="none" stroke="#4363d8" stroke-width="2"/>
+<circle cx="249.5" cy="267.0" r="3" fill="#4363d8"/>
+<circle cx="461.6" cy="252.8" r="3" fill="#4363d8"/>
 <circle cx="680.0" cy="252.8" r="4" fill="#4363d8" stroke="#fff"/>
 <line x1="696" y1="164" x2="716" y2="164" stroke="#4363d8" stroke-width="3"/>
 <text x="722" y="168" font-size="12" fill="#222">PINGO DOCE</text>
 <text x="932" y="168" font-size="12" fill="#222" text-anchor="end">2,119</text>
-<path d="M64.0,263.7 H233.2 V269.2 H468.9 V247.3 H680.0 V247.3" fill="none" stroke="#f58231" stroke-width="2"/>
-<circle cx="233.2" cy="269.2" r="3" fill="#f58231"/>
-<circle cx="468.9" cy="247.3" r="3" fill="#f58231"/>
+<path d="M64.0,263.7 H228.2 V269.2 H457.0 V247.3 H680.0 V247.3" fill="none" stroke="#f58231" stroke-width="2"/>
+<circle cx="228.2" cy="269.2" r="3" fill="#f58231"/>
+<circle cx="457.0" cy="247.3" r="3" fill="#f58231"/>
 <circle cx="680.0" cy="247.3" r="4" fill="#f58231" stroke="#fff"/>
 <line x1="696" y1="183" x2="716" y2="183" stroke="#f58231" stroke-width="3"/>
 <text x="722" y="187" font-size="12" fill="#222">INTERMARCHÉ</text>
 <text x="932" y="187" font-size="12" fill="#222" text-anchor="end">2,129</text>
-<path d="M64.0,172.4 H148.6 V194.2 H223.5 V170.7 H420.3 V192.6 H461.1 V154.3 H638.8 V220.0 H680.0 V220.0" fill="none" stroke="#911eb4" stroke-width="2"/>
-<circle cx="148.6" cy="194.2" r="3" fill="#911eb4"/>
-<circle cx="223.5" cy="170.7" r="3" fill="#911eb4"/>
-<circle cx="420.3" cy="192.6" r="3" fill="#911eb4"/>
-<circle cx="461.1" cy="154.3" r="3" fill="#911eb4"/>
-<circle cx="638.8" cy="220.0" r="3" fill="#911eb4"/>
+<path d="M64.0,172.4 H146.1 V194.2 H218.8 V170.7 H409.7 V192.6 H449.4 V154.3 H621.8 V220.0 H680.0 V220.0" fill="none" stroke="#911eb4" stroke-width="2"/>
+<circle cx="146.1" cy="194.2" r="3" fill="#911eb4"/>
+<circle cx="218.8" cy="170.7" r="3" fill="#911eb4"/>
+<circle cx="409.7" cy="192.6" r="3" fill="#911eb4"/>
+<circle cx="449.4" cy="154.3" r="3" fill="#911eb4"/>
+<circle cx="621.8" cy="220.0" r="3" fill="#911eb4"/>
 <circle cx="680.0" cy="220.0" r="4" fill="#911eb4" stroke="#fff"/>
 <line x1="696" y1="202" x2="716" y2="202" stroke="#911eb4" stroke-width="3"/>
 <text x="722" y="206" font-size="12" fill="#222">GALP (Marinha Grande)</text>
 <text x="932" y="206" font-size="12" fill="#222" text-anchor="end">2,179</text>
-<path d="M64.0,222.7 H198.5 V228.2 H437.6 V209.0 H680.0 V206.3 H680.0 V206.3" fill="none" stroke="#008080" stroke-width="2"/>
-<circle cx="198.5" cy="228.2" r="3" fill="#008080"/>
-<circle cx="437.6" cy="209.0" r="3" fill="#008080"/>
-<circle cx="680.0" cy="206.3" r="3" fill="#008080"/>
+<path d="M64.0,222.7 H194.5 V228.2 H426.6 V209.0 H661.8 V206.3 H680.0 V206.3" fill="none" stroke="#008080" stroke-width="2"/>
+<circle cx="194.5" cy="228.2" r="3" fill="#008080"/>
+<circle cx="426.6" cy="209.0" r="3" fill="#008080"/>
+<circle cx="661.8" cy="206.3" r="3" fill="#008080"/>
 <circle cx="680.0" cy="206.3" r="4" fill="#008080" stroke="#fff"/>
 <line x1="696" y1="221" x2="716" y2="221" stroke="#008080" stroke-width="3"/>
 <text x="722" y="225" font-size="12" fill="#222">OZ Energia</text>
 <text x="932" y="225" font-size="12" fill="#222" text-anchor="end">2,204</text>
-<path d="M64.0,195.3 H223.5 V193.7 H461.1 V177.3 H680.0 V177.3" fill="none" stroke="#9a6324" stroke-width="2"/>
-<circle cx="223.5" cy="193.7" r="3" fill="#9a6324"/>
-<circle cx="461.1" cy="177.3" r="3" fill="#9a6324"/>
-<circle cx="680.0" cy="177.3" r="4" fill="#9a6324" stroke="#fff"/>
+<path d="M64.0,172.4 H146.1 V194.2 H218.8 V170.7 H409.7 V192.6 H449.4 V154.3 H621.8 V176.2 H680.0 V176.2" fill="none" stroke="#9a6324" stroke-width="2"/>
+<circle cx="146.1" cy="194.2" r="3" fill="#9a6324"/>
+<circle cx="218.8" cy="170.7" r="3" fill="#9a6324"/>
+<circle cx="409.7" cy="192.6" r="3" fill="#9a6324"/>
+<circle cx="449.4" cy="154.3" r="3" fill="#9a6324"/>
+<circle cx="621.8" cy="176.2" r="3" fill="#9a6324"/>
+<circle cx="680.0" cy="176.2" r="4" fill="#9a6324" stroke="#fff"/>
 <line x1="696" y1="240" x2="716" y2="240" stroke="#9a6324" stroke-width="3"/>
-<text x="722" y="244" font-size="12" fill="#222">ALVES BANDEIRA</text>
-<text x="932" y="244" font-size="12" fill="#222" text-anchor="end">2,257</text>
-<path d="M64.0,172.4 H148.6 V194.2 H223.5 V170.7 H420.3 V192.6 H461.1 V154.3 H638.8 V176.2 H680.0 V176.2" fill="none" stroke="#800000" stroke-width="2"/>
-<circle cx="148.6" cy="194.2" r="3" fill="#800000"/>
-<circle cx="223.5" cy="170.7" r="3" fill="#800000"/>
-<circle cx="420.3" cy="192.6" r="3" fill="#800000"/>
-<circle cx="461.1" cy="154.3" r="3" fill="#800000"/>
-<circle cx="638.8" cy="176.2" r="3" fill="#800000"/>
-<circle cx="680.0" cy="176.2" r="4" fill="#800000" stroke="#fff"/>
+<text x="722" y="244" font-size="12" fill="#222">GALP (Embra)</text>
+<text x="932" y="244" font-size="12" fill="#222" text-anchor="end">2,259</text>
+<path d="M64.0,195.3 H218.8 V193.7 H449.4 V177.3 H680.0 V169.1 H680.0 V169.1" fill="none" stroke="#800000" stroke-width="2"/>
+<circle cx="218.8" cy="193.7" r="3" fill="#800000"/>
+<circle cx="449.4" cy="177.3" r="3" fill="#800000"/>
+<circle cx="680.0" cy="169.1" r="3" fill="#800000"/>
+<circle cx="680.0" cy="169.1" r="4" fill="#800000" stroke="#fff"/>
 <line x1="696" y1="259" x2="716" y2="259" stroke="#800000" stroke-width="3"/>
-<text x="722" y="263" font-size="12" fill="#222">GALP (Embra)</text>
-<text x="932" y="263" font-size="12" fill="#222" text-anchor="end">2,259</text>
-<path d="M64.0,203.5 H97.6 V170.7 H267.1 V203.5 H337.4 V170.7 H437.6 V151.6 H507.4 V184.4 H575.6 V151.6 H680.0 V143.4 H680.0 V143.4" fill="none" stroke="#808000" stroke-width="2"/>
-<circle cx="97.6" cy="170.7" r="3" fill="#808000"/>
-<circle cx="267.1" cy="203.5" r="3" fill="#808000"/>
-<circle cx="337.4" cy="170.7" r="3" fill="#808000"/>
-<circle cx="437.6" cy="151.6" r="3" fill="#808000"/>
-<circle cx="507.4" cy="184.4" r="3" fill="#808000"/>
-<circle cx="575.6" cy="151.6" r="3" fill="#808000"/>
-<circle cx="680.0" cy="143.4" r="3" fill="#808000"/>
+<text x="722" y="263" font-size="12" fill="#222">ALVES BANDEIRA</text>
+<text x="932" y="263" font-size="12" fill="#222" text-anchor="end">2,272</text>
+<path d="M64.0,203.5 H96.6 V170.7 H261.1 V203.5 H329.3 V170.7 H426.6 V151.6 H494.3 V184.4 H560.4 V151.6 H661.8 V143.4 H680.0 V143.4" fill="none" stroke="#808000" stroke-width="2"/>
+<circle cx="96.6" cy="170.7" r="3" fill="#808000"/>
+<circle cx="261.1" cy="203.5" r="3" fill="#808000"/>
+<circle cx="329.3" cy="170.7" r="3" fill="#808000"/>
+<circle cx="426.6" cy="151.6" r="3" fill="#808000"/>
+<circle cx="494.3" cy="184.4" r="3" fill="#808000"/>
+<circle cx="560.4" cy="151.6" r="3" fill="#808000"/>
+<circle cx="661.8" cy="143.4" r="3" fill="#808000"/>
 <circle cx="680.0" cy="143.4" r="4" fill="#808000" stroke="#fff"/>
 <line x1="696" y1="278" x2="716" y2="278" stroke="#808000" stroke-width="3"/>
 <text x="722" y="282" font-size="12" fill="#222">REPSOL (Albergaria)</text>
 <text x="932" y="282" font-size="12" fill="#222" text-anchor="end">2,319</text>
-<path d="M64.0,203.5 H97.6 V170.7 H267.1 V203.5 H337.4 V170.7 H437.6 V151.6 H507.4 V184.4 H575.6 V151.6 H680.0 V143.4 H680.0 V143.4" fill="none" stroke="#000075" stroke-width="2"/>
-<circle cx="97.6" cy="170.7" r="3" fill="#000075"/>
-<circle cx="267.1" cy="203.5" r="3" fill="#000075"/>
-<circle cx="337.4" cy="170.7" r="3" fill="#000075"/>
-<circle cx="437.6" cy="151.6" r="3" fill="#000075"/>
-<circle cx="507.4" cy="184.4" r="3" fill="#000075"/>
-<circle cx="575.6" cy="151.6" r="3" fill="#000075"/>
-<circle cx="680.0" cy="143.4" r="3" fill="#000075"/>
+<path d="M64.0,203.5 H96.6 V170.7 H261.1 V203.5 H329.3 V170.7 H426.6 V151.6 H494.3 V184.4 H560.4 V151.6 H661.8 V143.4 H680.0 V143.4" fill="none" stroke="#000075" stroke-width="2"/>
+<circle cx="96.6" cy="170.7" r="3" fill="#000075"/>
+<circle cx="261.1" cy="203.5" r="3" fill="#000075"/>
+<circle cx="329.3" cy="170.7" r="3" fill="#000075"/>
+<circle cx="426.6" cy="151.6" r="3" fill="#000075"/>
+<circle cx="494.3" cy="184.4" r="3" fill="#000075"/>
+<circle cx="560.4" cy="151.6" r="3" fill="#000075"/>
+<circle cx="661.8" cy="143.4" r="3" fill="#000075"/>
 <circle cx="680.0" cy="143.4" r="4" fill="#000075" stroke="#fff"/>
 <line x1="696" y1="297" x2="716" y2="297" stroke="#000075" stroke-width="3"/>
 <text x="722" y="301" font-size="12" fill="#222">REPSOL (R. Mc)</text>
 <text x="932" y="301" font-size="12" fill="#222" text-anchor="end">2,319</text>
-<path d="M64.0,203.5 H97.6 V170.7 H267.1 V203.5 H337.4 V170.7 H437.6 V151.6 H507.4 V195.3 H575.6 V151.6 H680.0 V143.4 H680.0 V143.4" fill="none" stroke="#d4a000" stroke-width="2"/>
-<circle cx="97.6" cy="170.7" r="3" fill="#d4a000"/>
-<circle cx="267.1" cy="203.5" r="3" fill="#d4a000"/>
-<circle cx="337.4" cy="170.7" r="3" fill="#d4a000"/>
-<circle cx="437.6" cy="151.6" r="3" fill="#d4a000"/>
-<circle cx="507.4" cy="195.3" r="3" fill="#d4a000"/>
-<circle cx="575.6" cy="151.6" r="3" fill="#d4a000"/>
-<circle cx="680.0" cy="143.4" r="3" fill="#d4a000"/>
+<path d="M64.0,203.5 H96.6 V170.7 H261.1 V203.5 H329.3 V170.7 H426.6 V151.6 H494.3 V195.3 H560.4 V151.6 H661.8 V143.4 H680.0 V143.4" fill="none" stroke="#d4a000" stroke-width="2"/>
+<circle cx="96.6" cy="170.7" r="3" fill="#d4a000"/>
+<circle cx="261.1" cy="203.5" r="3" fill="#d4a000"/>
+<circle cx="329.3" cy="170.7" r="3" fill="#d4a000"/>
+<circle cx="426.6" cy="151.6" r="3" fill="#d4a000"/>
+<circle cx="494.3" cy="195.3" r="3" fill="#d4a000"/>
+<circle cx="560.4" cy="151.6" r="3" fill="#d4a000"/>
+<circle cx="661.8" cy="143.4" r="3" fill="#d4a000"/>
 <circle cx="680.0" cy="143.4" r="4" fill="#d4a000" stroke="#fff"/>
 <line x1="696" y1="316" x2="716" y2="316" stroke="#d4a000" stroke-width="3"/>
 <text x="722" y="320" font-size="12" fill="#222">REPSOL (R. Videiro)</text>
 <text x="932" y="320" font-size="12" fill="#222" text-anchor="end">2,319</text>
-<path d="M64.0,168.0 H233.2 V165.3 H437.6 V148.8 H680.0 V140.6 H680.0 V140.6" fill="none" stroke="#46a0c8" stroke-width="2"/>
-<circle cx="233.2" cy="165.3" r="3" fill="#46a0c8"/>
-<circle cx="437.6" cy="148.8" r="3" fill="#46a0c8"/>
-<circle cx="680.0" cy="140.6" r="3" fill="#46a0c8"/>
+<path d="M64.0,168.0 H228.2 V165.3 H426.6 V148.8 H661.8 V140.6 H680.0 V140.6" fill="none" stroke="#46a0c8" stroke-width="2"/>
+<circle cx="228.2" cy="165.3" r="3" fill="#46a0c8"/>
+<circle cx="426.6" cy="148.8" r="3" fill="#46a0c8"/>
+<circle cx="661.8" cy="140.6" r="3" fill="#46a0c8"/>
 <circle cx="680.0" cy="140.6" r="4" fill="#46a0c8" stroke="#fff"/>
 <line x1="696" y1="335" x2="716" y2="335" stroke="#46a0c8" stroke-width="3"/>
 <text x="722" y="339" font-size="12" fill="#222">BP (Embra)</text>
 <text x="932" y="339" font-size="12" fill="#222" text-anchor="end">2,324</text>
-<path d="M64.0,168.0 H233.2 V165.3 H437.6 V148.8 H680.0 V140.6 H680.0 V140.6" fill="none" stroke="#f032e6" stroke-width="2"/>
-<circle cx="233.2" cy="165.3" r="3" fill="#f032e6"/>
-<circle cx="437.6" cy="148.8" r="3" fill="#f032e6"/>
-<circle cx="680.0" cy="140.6" r="3" fill="#f032e6"/>
+<path d="M64.0,168.0 H228.2 V165.3 H426.6 V148.8 H661.8 V140.6 H680.0 V140.6" fill="none" stroke="#f032e6" stroke-width="2"/>
+<circle cx="228.2" cy="165.3" r="3" fill="#f032e6"/>
+<circle cx="426.6" cy="148.8" r="3" fill="#f032e6"/>
+<circle cx="661.8" cy="140.6" r="3" fill="#f032e6"/>
 <circle cx="680.0" cy="140.6" r="4" fill="#f032e6" stroke="#fff"/>
 <line x1="696" y1="354" x2="716" y2="354" stroke="#f032e6" stroke-width="3"/>
 <text x="722" y="358" font-size="12" fill="#222">BP (Marinha Grande)</text>
@@ -168,126 +170,127 @@
 <line x1="680.0" y1="458" x2="680.0" y2="692" stroke="#f0f0f0"/>
 <text x="680.0" y="710" font-size="11" fill="#666" text-anchor="middle">26/10</text>
 <rect x="64" y="458" width="616" height="234" fill="none" stroke="#bbb"/>
-<path d="M64.0,660.9 H64.0 V639.7 H255.1 V652.4 H283.7 V660.9 H315.3 V669.4 H489.9 V635.4 H522.2 V643.9 H564.0 V652.4 H590.9 V656.6 H680.0 V656.6" fill="none" stroke="#e6194b" stroke-width="2"/>
-<circle cx="64.0" cy="639.7" r="3" fill="#e6194b"/>
-<circle cx="255.1" cy="652.4" r="3" fill="#e6194b"/>
-<circle cx="283.7" cy="660.9" r="3" fill="#e6194b"/>
-<circle cx="315.3" cy="669.4" r="3" fill="#e6194b"/>
-<circle cx="489.9" cy="635.4" r="3" fill="#e6194b"/>
-<circle cx="522.2" cy="643.9" r="3" fill="#e6194b"/>
-<circle cx="564.0" cy="652.4" r="3" fill="#e6194b"/>
-<circle cx="590.9" cy="656.6" r="3" fill="#e6194b"/>
-<circle cx="680.0" cy="656.6" r="4" fill="#e6194b" stroke="#fff"/>
+<path d="M64.0,648.2 H680.0 V648.2" fill="none" stroke="#e6194b" stroke-width="2"/>
+<circle cx="680.0" cy="648.2" r="4" fill="#e6194b" stroke="#fff"/>
 <line x1="696" y1="466" x2="716" y2="466" stroke="#e6194b" stroke-width="3"/>
-<text x="722" y="470" font-size="12" fill="#222">PLENERGY</text>
-<text x="932" y="470" font-size="12" fill="#222" text-anchor="end">2,029</text>
-<path d="M64.0,648.2 H680.0 V648.2" fill="none" stroke="#3cb44b" stroke-width="2"/>
-<circle cx="680.0" cy="648.2" r="4" fill="#3cb44b" stroke="#fff"/>
+<text x="722" y="470" font-size="12" fill="#222">TRANSOGÁS</text>
+<text x="932" y="470" font-size="12" fill="#222" text-anchor="end">2,049</text>
+<path d="M64.0,660.9 H64.0 V639.7 H249.5 V652.4 H277.2 V660.9 H307.9 V669.4 H477.3 V635.4 H508.6 V643.9 H549.2 V652.4 H575.3 V656.6 H680.0 V639.7 H680.0 V639.7" fill="none" stroke="#3cb44b" stroke-width="2"/>
+<circle cx="64.0" cy="639.7" r="3" fill="#3cb44b"/>
+<circle cx="249.5" cy="652.4" r="3" fill="#3cb44b"/>
+<circle cx="277.2" cy="660.9" r="3" fill="#3cb44b"/>
+<circle cx="307.9" cy="669.4" r="3" fill="#3cb44b"/>
+<circle cx="477.3" cy="635.4" r="3" fill="#3cb44b"/>
+<circle cx="508.6" cy="643.9" r="3" fill="#3cb44b"/>
+<circle cx="549.2" cy="652.4" r="3" fill="#3cb44b"/>
+<circle cx="575.3" cy="656.6" r="3" fill="#3cb44b"/>
+<circle cx="680.0" cy="639.7" r="3" fill="#3cb44b"/>
+<circle cx="680.0" cy="639.7" r="4" fill="#3cb44b" stroke="#fff"/>
 <line x1="696" y1="485" x2="716" y2="485" stroke="#3cb44b" stroke-width="3"/>
-<text x="722" y="489" font-size="12" fill="#222">TRANSOGÁS</text>
-<text x="932" y="489" font-size="12" fill="#222" text-anchor="end">2,049</text>
-<path d="M64.0,610.0 H468.9 V597.3 H680.0 V597.3" fill="none" stroke="#4363d8" stroke-width="2"/>
-<circle cx="468.9" cy="597.3" r="3" fill="#4363d8"/>
+<text x="722" y="489" font-size="12" fill="#222">PLENERGY</text>
+<text x="932" y="489" font-size="12" fill="#222" text-anchor="end">2,069</text>
+<path d="M64.0,610.0 H457.0 V597.3 H680.0 V597.3" fill="none" stroke="#4363d8" stroke-width="2"/>
+<circle cx="457.0" cy="597.3" r="3" fill="#4363d8"/>
 <circle cx="680.0" cy="597.3" r="4" fill="#4363d8" stroke="#fff"/>
 <line x1="696" y1="504" x2="716" y2="504" stroke="#4363d8" stroke-width="3"/>
 <text x="722" y="508" font-size="12" fill="#222">INTERMARCHÉ</text>
 <text x="932" y="508" font-size="12" fill="#222" text-anchor="end">2,169</text>
-<path d="M64.0,607.9 H461.1 V593.0 H680.0 V586.7 H680.0 V586.7" fill="none" stroke="#f58231" stroke-width="2"/>
-<circle cx="461.1" cy="593.0" r="3" fill="#f58231"/>
-<circle cx="680.0" cy="586.7" r="3" fill="#f58231"/>
+<path d="M64.0,607.9 H449.4 V593.0 H661.8 V586.7 H680.0 V586.7" fill="none" stroke="#f58231" stroke-width="2"/>
+<circle cx="449.4" cy="593.0" r="3" fill="#f58231"/>
+<circle cx="661.8" cy="586.7" r="3" fill="#f58231"/>
 <circle cx="680.0" cy="586.7" r="4" fill="#f58231" stroke="#fff"/>
 <line x1="696" y1="523" x2="716" y2="523" stroke="#f58231" stroke-width="3"/>
 <text x="722" y="527" font-size="12" fill="#222">PRIO (Leiria)</text>
 <text x="932" y="527" font-size="12" fill="#222" text-anchor="end">2,194</text>
-<path d="M64.0,576.1 H64.0 V580.3 H198.5 V588.8 H437.6 V576.1 H680.0 V567.6 H680.0 V567.6" fill="none" stroke="#911eb4" stroke-width="2"/>
+<path d="M64.0,576.1 H64.0 V580.3 H194.5 V588.8 H426.6 V576.1 H661.8 V567.6 H680.0 V567.6" fill="none" stroke="#911eb4" stroke-width="2"/>
 <circle cx="64.0" cy="580.3" r="3" fill="#911eb4"/>
-<circle cx="198.5" cy="588.8" r="3" fill="#911eb4"/>
-<circle cx="437.6" cy="576.1" r="3" fill="#911eb4"/>
-<circle cx="680.0" cy="567.6" r="3" fill="#911eb4"/>
+<circle cx="194.5" cy="588.8" r="3" fill="#911eb4"/>
+<circle cx="426.6" cy="576.1" r="3" fill="#911eb4"/>
+<circle cx="661.8" cy="567.6" r="3" fill="#911eb4"/>
 <circle cx="680.0" cy="567.6" r="4" fill="#911eb4" stroke="#fff"/>
 <line x1="696" y1="542" x2="716" y2="542" stroke="#911eb4" stroke-width="3"/>
 <text x="722" y="546" font-size="12" fill="#222">PRIO (Marinha Grande)</text>
 <text x="932" y="546" font-size="12" fill="#222" text-anchor="end">2,239</text>
-<path d="M64.0,578.2 H198.5 V582.4 H437.6 V567.6 H680.0 V565.5 H680.0 V565.5" fill="none" stroke="#008080" stroke-width="2"/>
-<circle cx="198.5" cy="582.4" r="3" fill="#008080"/>
-<circle cx="437.6" cy="567.6" r="3" fill="#008080"/>
-<circle cx="680.0" cy="565.5" r="3" fill="#008080"/>
+<path d="M64.0,578.2 H194.5 V582.4 H426.6 V567.6 H661.8 V565.5 H680.0 V565.5" fill="none" stroke="#008080" stroke-width="2"/>
+<circle cx="194.5" cy="582.4" r="3" fill="#008080"/>
+<circle cx="426.6" cy="567.6" r="3" fill="#008080"/>
+<circle cx="661.8" cy="565.5" r="3" fill="#008080"/>
 <circle cx="680.0" cy="565.5" r="4" fill="#008080" stroke="#fff"/>
 <line x1="696" y1="561" x2="716" y2="561" stroke="#008080" stroke-width="3"/>
 <text x="722" y="565" font-size="12" fill="#222">OZ Energia</text>
 <text x="932" y="565" font-size="12" fill="#222" text-anchor="end">2,244</text>
-<path d="M64.0,534.9 H148.6 V551.9 H223.5 V533.7 H420.3 V550.6 H461.1 V520.9 H638.8 V537.9 H680.0 V537.9" fill="none" stroke="#9a6324" stroke-width="2"/>
-<circle cx="148.6" cy="551.9" r="3" fill="#9a6324"/>
-<circle cx="223.5" cy="533.7" r="3" fill="#9a6324"/>
-<circle cx="420.3" cy="550.6" r="3" fill="#9a6324"/>
-<circle cx="461.1" cy="520.9" r="3" fill="#9a6324"/>
-<circle cx="638.8" cy="537.9" r="3" fill="#9a6324"/>
+<path d="M64.0,534.9 H146.1 V551.9 H218.8 V533.7 H409.7 V550.6 H449.4 V520.9 H621.8 V537.9 H680.0 V537.9" fill="none" stroke="#9a6324" stroke-width="2"/>
+<circle cx="146.1" cy="551.9" r="3" fill="#9a6324"/>
+<circle cx="218.8" cy="533.7" r="3" fill="#9a6324"/>
+<circle cx="409.7" cy="550.6" r="3" fill="#9a6324"/>
+<circle cx="449.4" cy="520.9" r="3" fill="#9a6324"/>
+<circle cx="621.8" cy="537.9" r="3" fill="#9a6324"/>
 <circle cx="680.0" cy="537.9" r="4" fill="#9a6324" stroke="#fff"/>
 <line x1="696" y1="580" x2="716" y2="580" stroke="#9a6324" stroke-width="3"/>
 <text x="722" y="584" font-size="12" fill="#222">GALP (Embra)</text>
 <text x="932" y="584" font-size="12" fill="#222" text-anchor="end">2,309</text>
-<path d="M64.0,534.9 H148.6 V551.9 H223.5 V533.7 H420.3 V550.6 H461.1 V520.9 H638.8 V537.9 H680.0 V537.9" fill="none" stroke="#800000" stroke-width="2"/>
-<circle cx="148.6" cy="551.9" r="3" fill="#800000"/>
-<circle cx="223.5" cy="533.7" r="3" fill="#800000"/>
-<circle cx="420.3" cy="550.6" r="3" fill="#800000"/>
-<circle cx="461.1" cy="520.9" r="3" fill="#800000"/>
-<circle cx="638.8" cy="537.9" r="3" fill="#800000"/>
+<path d="M64.0,534.9 H146.1 V551.9 H218.8 V533.7 H409.7 V550.6 H449.4 V520.9 H621.8 V537.9 H680.0 V537.9" fill="none" stroke="#800000" stroke-width="2"/>
+<circle cx="146.1" cy="551.9" r="3" fill="#800000"/>
+<circle cx="218.8" cy="533.7" r="3" fill="#800000"/>
+<circle cx="409.7" cy="550.6" r="3" fill="#800000"/>
+<circle cx="449.4" cy="520.9" r="3" fill="#800000"/>
+<circle cx="621.8" cy="537.9" r="3" fill="#800000"/>
 <circle cx="680.0" cy="537.9" r="4" fill="#800000" stroke="#fff"/>
 <line x1="696" y1="599" x2="716" y2="599" stroke="#800000" stroke-width="3"/>
 <text x="722" y="603" font-size="12" fill="#222">GALP (Marinha Grande)</text>
 <text x="932" y="603" font-size="12" fill="#222" text-anchor="end">2,309</text>
-<path d="M64.0,550.6 H97.6 V525.2 H267.1 V550.6 H337.4 V525.2 H437.6 V510.3 H507.4 V535.8 H575.6 V510.3 H680.0 V504.0 H680.0 V504.0" fill="none" stroke="#808000" stroke-width="2"/>
-<circle cx="97.6" cy="525.2" r="3" fill="#808000"/>
-<circle cx="267.1" cy="550.6" r="3" fill="#808000"/>
-<circle cx="337.4" cy="525.2" r="3" fill="#808000"/>
-<circle cx="437.6" cy="510.3" r="3" fill="#808000"/>
-<circle cx="507.4" cy="535.8" r="3" fill="#808000"/>
-<circle cx="575.6" cy="510.3" r="3" fill="#808000"/>
-<circle cx="680.0" cy="504.0" r="3" fill="#808000"/>
+<path d="M64.0,550.6 H96.6 V525.2 H261.1 V550.6 H329.3 V525.2 H426.6 V510.3 H494.3 V535.8 H560.4 V510.3 H661.8 V504.0 H680.0 V504.0" fill="none" stroke="#808000" stroke-width="2"/>
+<circle cx="96.6" cy="525.2" r="3" fill="#808000"/>
+<circle cx="261.1" cy="550.6" r="3" fill="#808000"/>
+<circle cx="329.3" cy="525.2" r="3" fill="#808000"/>
+<circle cx="426.6" cy="510.3" r="3" fill="#808000"/>
+<circle cx="494.3" cy="535.8" r="3" fill="#808000"/>
+<circle cx="560.4" cy="510.3" r="3" fill="#808000"/>
+<circle cx="661.8" cy="504.0" r="3" fill="#808000"/>
 <circle cx="680.0" cy="504.0" r="4" fill="#808000" stroke="#fff"/>
 <line x1="696" y1="618" x2="716" y2="618" stroke="#808000" stroke-width="3"/>
 <text x="722" y="622" font-size="12" fill="#222">REPSOL (Albergaria)</text>
 <text x="932" y="622" font-size="12" fill="#222" text-anchor="end">2,389</text>
-<path d="M64.0,550.6 H97.6 V525.2 H267.1 V550.6 H337.4 V525.2 H437.6 V510.3 H507.4 V535.8 H575.6 V510.3 H680.0 V504.0 H680.0 V504.0" fill="none" stroke="#000075" stroke-width="2"/>
-<circle cx="97.6" cy="525.2" r="3" fill="#000075"/>
-<circle cx="267.1" cy="550.6" r="3" fill="#000075"/>
-<circle cx="337.4" cy="525.2" r="3" fill="#000075"/>
-<circle cx="437.6" cy="510.3" r="3" fill="#000075"/>
-<circle cx="507.4" cy="535.8" r="3" fill="#000075"/>
-<circle cx="575.6" cy="510.3" r="3" fill="#000075"/>
-<circle cx="680.0" cy="504.0" r="3" fill="#000075"/>
+<path d="M64.0,550.6 H96.6 V525.2 H261.1 V550.6 H329.3 V525.2 H426.6 V510.3 H494.3 V535.8 H560.4 V510.3 H661.8 V504.0 H680.0 V504.0" fill="none" stroke="#000075" stroke-width="2"/>
+<circle cx="96.6" cy="525.2" r="3" fill="#000075"/>
+<circle cx="261.1" cy="550.6" r="3" fill="#000075"/>
+<circle cx="329.3" cy="525.2" r="3" fill="#000075"/>
+<circle cx="426.6" cy="510.3" r="3" fill="#000075"/>
+<circle cx="494.3" cy="535.8" r="3" fill="#000075"/>
+<circle cx="560.4" cy="510.3" r="3" fill="#000075"/>
+<circle cx="661.8" cy="504.0" r="3" fill="#000075"/>
 <circle cx="680.0" cy="504.0" r="4" fill="#000075" stroke="#fff"/>
 <line x1="696" y1="637" x2="716" y2="637" stroke="#000075" stroke-width="3"/>
 <text x="722" y="641" font-size="12" fill="#222">REPSOL (R. Mc)</text>
 <text x="932" y="641" font-size="12" fill="#222" text-anchor="end">2,389</text>
-<path d="M64.0,550.6 H97.6 V525.2 H267.1 V550.6 H337.4 V525.2 H437.6 V510.3 H507.4 V535.8 H575.6 V510.3 H680.0 V504.0 H680.0 V504.0" fill="none" stroke="#d4a000" stroke-width="2"/>
-<circle cx="97.6" cy="525.2" r="3" fill="#d4a000"/>
-<circle cx="267.1" cy="550.6" r="3" fill="#d4a000"/>
-<circle cx="337.4" cy="525.2" r="3" fill="#d4a000"/>
-<circle cx="437.6" cy="510.3" r="3" fill="#d4a000"/>
-<circle cx="507.4" cy="535.8" r="3" fill="#d4a000"/>
-<circle cx="575.6" cy="510.3" r="3" fill="#d4a000"/>
-<circle cx="680.0" cy="504.0" r="3" fill="#d4a000"/>
+<path d="M64.0,550.6 H96.6 V525.2 H261.1 V550.6 H329.3 V525.2 H426.6 V510.3 H494.3 V535.8 H560.4 V510.3 H661.8 V504.0 H680.0 V504.0" fill="none" stroke="#d4a000" stroke-width="2"/>
+<circle cx="96.6" cy="525.2" r="3" fill="#d4a000"/>
+<circle cx="261.1" cy="550.6" r="3" fill="#d4a000"/>
+<circle cx="329.3" cy="525.2" r="3" fill="#d4a000"/>
+<circle cx="426.6" cy="510.3" r="3" fill="#d4a000"/>
+<circle cx="494.3" cy="535.8" r="3" fill="#d4a000"/>
+<circle cx="560.4" cy="510.3" r="3" fill="#d4a000"/>
+<circle cx="661.8" cy="504.0" r="3" fill="#d4a000"/>
 <circle cx="680.0" cy="504.0" r="4" fill="#d4a000" stroke="#fff"/>
 <line x1="696" y1="656" x2="716" y2="656" stroke="#d4a000" stroke-width="3"/>
 <text x="722" y="660" font-size="12" fill="#222">REPSOL (R. Videiro)</text>
 <text x="932" y="660" font-size="12" fill="#222" text-anchor="end">2,389</text>
-<path d="M64.0,499.7 H473.7 V487.0 H680.0 V487.0" fill="none" stroke="#46a0c8" stroke-width="2"/>
-<circle cx="473.7" cy="487.0" r="3" fill="#46a0c8"/>
+<path d="M64.0,499.7 H461.6 V487.0 H680.0 V487.0" fill="none" stroke="#46a0c8" stroke-width="2"/>
+<circle cx="461.6" cy="487.0" r="3" fill="#46a0c8"/>
 <circle cx="680.0" cy="487.0" r="4" fill="#46a0c8" stroke="#fff"/>
 <line x1="696" y1="675" x2="716" y2="675" stroke="#46a0c8" stroke-width="3"/>
 <text x="722" y="679" font-size="12" fill="#222">PINGO DOCE</text>
 <text x="932" y="679" font-size="12" fill="#222" text-anchor="end">2,429</text>
-<path d="M64.0,499.7 H437.6 V487.0 H680.0 V480.6 H680.0 V480.6" fill="none" stroke="#f032e6" stroke-width="2"/>
-<circle cx="437.6" cy="487.0" r="3" fill="#f032e6"/>
-<circle cx="680.0" cy="480.6" r="3" fill="#f032e6"/>
+<path d="M64.0,499.7 H426.6 V487.0 H661.8 V480.6 H680.0 V480.6" fill="none" stroke="#f032e6" stroke-width="2"/>
+<circle cx="426.6" cy="487.0" r="3" fill="#f032e6"/>
+<circle cx="661.8" cy="480.6" r="3" fill="#f032e6"/>
 <circle cx="680.0" cy="480.6" r="4" fill="#f032e6" stroke="#fff"/>
 <line x1="696" y1="694" x2="716" y2="694" stroke="#f032e6" stroke-width="3"/>
 <text x="722" y="698" font-size="12" fill="#222">BP (Embra)</text>
 <text x="932" y="698" font-size="12" fill="#222" text-anchor="end">2,444</text>
-<path d="M64.0,499.7 H437.6 V487.0 H680.0 V480.6 H680.0 V480.6" fill="none" stroke="#555555" stroke-width="2"/>
-<circle cx="437.6" cy="487.0" r="3" fill="#555555"/>
-<circle cx="680.0" cy="480.6" r="3" fill="#555555"/>
+<path d="M64.0,499.7 H426.6 V487.0 H661.8 V480.6 H680.0 V480.6" fill="none" stroke="#555555" stroke-width="2"/>
+<circle cx="426.6" cy="487.0" r="3" fill="#555555"/>
+<circle cx="661.8" cy="480.6" r="3" fill="#555555"/>
 <circle cx="680.0" cy="480.6" r="4" fill="#555555" stroke="#fff"/>
 <line x1="696" y1="713" x2="716" y2="713" stroke="#555555" stroke-width="3"/>
 <text x="722" y="717" font-size="12" fill="#222">BP (Marinha Grande)</text>

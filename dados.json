@@ -1,23 +1,23 @@
 {
- "atualizado": "2026-10-26 01:12",
+ "atualizado": "2026-10-26 14:17",
  "grupos": {
   "Gasóleo simples": {
    "mais_barato": {
-    "posto": "PLENERGY",
-    "preco": 1.979,
-    "preco_texto": "1,979"
+    "posto": "TRANSOGÁS",
+    "preco": 2.009,
+    "preco_texto": "2,009"
    },
-   "media": 2.211,
+   "media": 2.215,
    "postos": [
-    {
-     "posto": "PLENERGY",
-     "preco": 1.979,
-     "preco_texto": "1,979"
-    },
     {
      "posto": "TRANSOGÁS",
      "preco": 2.009,
      "preco_texto": "2,009"
+    },
+    {
+     "posto": "PLENERGY",
+     "preco": 2.019,
+     "preco_texto": "2,019"
     },
     {
      "posto": "PINGO DOCE",
@@ -40,14 +40,14 @@
      "preco_texto": "2,204"
     },
     {
-     "posto": "ALVES BANDEIRA",
-     "preco": 2.257,
-     "preco_texto": "2,257"
-    },
-    {
      "posto": "GALP (Embra)",
      "preco": 2.259,
      "preco_texto": "2,259"
+    },
+    {
+     "posto": "ALVES BANDEIRA",
+     "preco": 2.272,
+     "preco_texto": "2,272"
     },
     {
      "posto": "REPSOL (Albergaria)",
@@ -78,21 +78,21 @@
   },
   "Gasóleo especial / plus": {
    "mais_barato": {
-    "posto": "PLENERGY",
-    "preco": 2.029,
-    "preco_texto": "2,029"
+    "posto": "TRANSOGÁS",
+    "preco": 2.049,
+    "preco_texto": "2,049"
    },
-   "media": 2.288,
+   "media": 2.29,
    "postos": [
-    {
-     "posto": "PLENERGY",
-     "preco": 2.029,
-     "preco_texto": "2,029"
-    },
     {
      "posto": "TRANSOGÁS",
      "preco": 2.049,
      "preco_texto": "2,049"
+    },
+    {
+     "posto": "PLENERGY",
+     "preco": 2.069,
+     "preco_texto": "2,069"
     },
     {
      "posto": "INTERMARCHÉ",
@@ -162,7 +162,7 @@
     "preco": 1.929,
     "preco_texto": "1,929"
    },
-   "media": 2.086,
+   "media": 2.081,
    "postos": [
     {
      "posto": "TRANSOGÁS",
@@ -193,6 +193,11 @@
      "posto": "PINGO DOCE",
      "preco": 2.071,
      "preco_texto": "2,071"
+    },
+    {
+     "posto": "ALVES BANDEIRA",
+     "preco": 2.094,
+     "preco_texto": "2,094"
     },
     {
      "posto": "PRIO (Marinha Grande)",
@@ -233,11 +238,6 @@
      "posto": "REPSOL (R. Videiro)",
      "preco": 2.139,
      "preco_texto": "2,139"
-    },
-    {
-     "posto": "ALVES BANDEIRA",
-     "preco": 2.161,
-     "preco_texto": "2,161"
     }
    ]
   },
@@ -297,7 +297,7 @@
     "preco": 2.209,
     "preco_texto": "2,209"
    },
-   "media": 2.337,
+   "media": 2.33,
    "postos": [
     {
      "posto": "INTERMARCHÉ",
@@ -311,8 +311,8 @@
     },
     {
      "posto": "ALVES BANDEIRA",
-     "preco": 2.331,
-     "preco_texto": "2,331"
+     "preco": 2.264,
+     "preco_texto": "2,264"
     },
     {
      "posto": "GALP (Marinha Grande)",
