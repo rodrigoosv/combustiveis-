@@ -302,3 +302,5 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-10-28 09:41,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasóleo especial,2.389,2.329,-6.0,desceu,2.279,2026-10-14 00:00,2.389,2026-10-26 00:00
 2026-10-28 09:41,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasolina simples 95,2.139,2.079,-6.0,desceu,2.079,2026-10-28 09:30,2.224,2026-10-13 00:00
 2026-10-28 09:41,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasolina especial 95,2.209,2.149,-6.0,desceu,2.149,2026-10-28 09:30,2.294,2026-10-13 00:00
+2026-10-28 16:39,PLENERGY (Marinha Grande),Gasolina 95 simples,1.939,1.929,-1.0,desceu,1.899,2026-10-15 10:57,1.949,2026-10-22 16:19
+2026-10-28 16:39,PLENERGY (Marinha Grande),Gasolina 95 plus,1.989,1.979,-1.0,desceu,1.949,2026-10-15 10:57,1.999,2026-10-22 16:19
