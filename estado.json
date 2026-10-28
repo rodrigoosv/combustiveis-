@@ -240,6 +240,31 @@
   "lon": -8.93429,
   "morada": "Praceta do Vidreiro nº 12"
  },
+ "66596": {
+  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
+  "aviso": "REPSOL (R. Mc)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,259 €/litro",
+    "28-10-2026 09:30"
+   ],
+   "Gasóleo especial": [
+    "2,329 €/litro",
+    "28-10-2026 09:30"
+   ],
+   "Gasolina simples 95": [
+    "2,079 €/litro",
+    "28-10-2026 09:30"
+   ],
+   "Gasolina especial 95": [
+    "2,149 €/litro",
+    "28-10-2026 09:30"
+   ]
+  },
+  "lat": 39.73495,
+  "lon": -8.93242,
+  "morada": "EN 242 Km 13,7"
+ },
  "65415": {
   "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
   "aviso": "GALP (Embra)",
@@ -293,31 +318,6 @@
   "lat": 39.74892,
   "lon": -8.92391,
   "morada": "EN 242 (Av. Vítor Galo) Km 11,5"
- },
- "66596": {
-  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
-  "aviso": "REPSOL (R. Mc)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,319 €/litro",
-    "26-10-2026 09:30"
-   ],
-   "Gasóleo especial": [
-    "2,389 €/litro",
-    "26-10-2026 09:30"
-   ],
-   "Gasolina simples 95": [
-    "2,139 €/litro",
-    "26-10-2026 09:30"
-   ],
-   "Gasolina especial 95": [
-    "2,209 €/litro",
-    "26-10-2026 09:30"
-   ]
-  },
-  "lat": 39.73495,
-  "lon": -8.93242,
-  "morada": "EN 242 Km 13,7"
  },
  "67868": {
   "nome": "BP Marinha Grande (Marinha Grande)",
@@ -396,7 +396,7 @@
  },
  "_meta": {
   "falhas": {},
-  "ultimo_resumo": "2026-10-27",
+  "ultimo_resumo": "2026-10-28",
   "isp_vistos": [
    "atualizacao isp | preco dos combustiveis na proxima semana (5 a 11 de outubro)",
    "preco dos combustiveis na proxima semana (12 a 18 de outubro)",
@@ -891,8 +891,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      2.139,
-      "2026-10-26 00:00"
+      2.079,
+      "2026-10-28 09:30"
      ],
      "max": [
       2.224,
@@ -901,8 +901,8 @@
     },
     "Gasolina especial 95": {
      "min": [
-      2.209,
-      "2026-10-26 00:00"
+      2.149,
+      "2026-10-28 09:30"
      ],
      "max": [
       2.294,
