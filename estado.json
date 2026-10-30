@@ -396,9 +396,9 @@
  },
  "_meta": {
   "falhas": {
-   "DGEG (lista de postos)": 2
+   "DGEG (lista de postos)": 3
   },
-  "ultimo_resumo": "2026-10-29",
+  "ultimo_resumo": "2026-10-30",
   "isp_vistos": [
    "atualizacao isp | preco dos combustiveis na proxima semana (5 a 11 de outubro)",
    "preco dos combustiveis na proxima semana (12 a 18 de outubro)",
@@ -406,7 +406,8 @@
    "preco dos combustiveis na proxima semana (19 a 25 de outubro)",
    "atualizacao isp | preco dos combustiveis na proxima semana (19 a 25 de outubro)",
    "preco dos combustiveis na proxima semana (26 de outubro a 1 de novembro)",
-   "atualizacao isp | preco dos combustiveis na proxima semana (26 de outubro a 1 de novembro)"
+   "atualizacao isp | preco dos combustiveis na proxima semana (26 de outubro a 1 de novembro)",
+   "preco dos combustiveis na proxima semana (2 a 8 de novembro)"
   ],
   "extremos_desde": "2026-10-09",
   "extremos": {
@@ -1091,6 +1092,7 @@
     }
    }
   },
-  "pagina_versao": "70f070d5"
+  "pagina_versao": "70f070d5",
+  "ultimo_grafico": "2026-10-30"
  }
 }
