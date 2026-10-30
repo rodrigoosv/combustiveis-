@@ -395,7 +395,9 @@
   "morada": "Avenida Dr. José Henriques Vareda, nº 32"
  },
  "_meta": {
-  "falhas": {},
+  "falhas": {
+   "DGEG (lista de postos)": 1
+  },
   "ultimo_resumo": "2026-10-29",
   "isp_vistos": [
    "atualizacao isp | preco dos combustiveis na proxima semana (5 a 11 de outubro)",
@@ -1089,6 +1091,7 @@
     }
    }
   },
-  "pagina_versao": "70f070d5"
+  "pagina_versao": "70f070d5",
+  "ultimo_grafico": "2026-10-30"
  }
 }
