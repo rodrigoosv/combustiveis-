@@ -396,7 +396,7 @@
  },
  "_meta": {
   "falhas": {
-   "DGEG (lista de postos)": 5
+   "DGEG (lista de postos)": 6
   },
   "ultimo_resumo": "2026-10-30",
   "isp_vistos": [
@@ -1093,6 +1093,6 @@
    }
   },
   "pagina_versao": "70f070d5",
-  "ultimo_grafico": "2026-10-30"
+  "ultimo_grafico": "2026-10-31"
  }
 }
