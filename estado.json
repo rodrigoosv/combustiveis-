@@ -5,19 +5,19 @@
   "precos": {
    "GPL Auto": [
     "0,930 €/litro",
-    "23-10-2026 15:35"
+    "30-10-2026 15:50"
    ],
    "Gasóleo simples": [
     "2,009 €/litro",
-    "23-10-2026 15:35"
+    "30-10-2026 15:50"
    ],
    "Gasóleo especial": [
     "2,049 €/litro",
-    "23-10-2026 15:35"
+    "30-10-2026 15:50"
    ],
    "Gasolina simples 95": [
     "1,929 €/litro",
-    "23-10-2026 15:35"
+    "30-10-2026 15:50"
    ]
   },
   "lat": 39.750379,
@@ -30,27 +30,27 @@
   "precos": {
    "GPL Auto": [
     "1,029 €/litro",
-    "28-10-2026 00:00"
+    "30-10-2026 00:00"
    ],
    "Gasóleo simples": [
     "2,259 €/litro",
-    "28-10-2026 00:00"
+    "30-10-2026 00:00"
    ],
    "Gasóleo especial": [
-    "2,329 €/litro",
-    "28-10-2026 00:00"
+    "2,389 €/litro",
+    "30-10-2026 00:00"
    ],
    "Gasolina simples 95": [
     "2,079 €/litro",
-    "28-10-2026 00:00"
+    "30-10-2026 00:00"
    ],
    "Gasolina especial 95": [
     "2,149 €/litro",
-    "28-10-2026 00:00"
+    "30-10-2026 00:00"
    ],
    "Gasolina especial 98": [
     "2,299 €/litro",
-    "28-10-2026 00:00"
+    "30-10-2026 00:00"
    ]
   },
   "lat": 39.7454,
@@ -136,31 +136,6 @@
   "lon": -8.93315,
   "morada": "Av. José Gregório\r\n"
  },
- "91178": {
-  "nome": "PRIO Leiria Circular (Leiria)",
-  "aviso": "PRIO (Leiria)",
-  "precos": {
-   "Gasóleo especial": [
-    "2,194 €/litro",
-    "28-10-2026 00:40"
-   ],
-   "Biodiesel B15": [
-    "2,164 €/litro",
-    "28-10-2026 00:40"
-   ],
-   "Gasolina simples 95": [
-    "2,069 €/litro",
-    "28-10-2026 00:40"
-   ],
-   "Gasolina especial 95": [
-    "2,004 €/litro",
-    "28-10-2026 00:40"
-   ]
-  },
-  "lat": 39.73963,
-  "lon": -8.816806,
-  "morada": "R. Dr. João Soares, Fração APorto Moniz"
- },
  "95309": {
   "nome": "OZ ENERGIA - MARINHA GRANDE (Amieirinha)",
   "aviso": "OZ Energia",
@@ -186,84 +161,84 @@
   "lon": -8.926169,
   "morada": "Estrada do Guilherme"
  },
+ "91178": {
+  "nome": "PRIO Leiria Circular (Leiria)",
+  "aviso": "PRIO (Leiria)",
+  "precos": {
+   "Gasóleo especial": [
+    "2,194 €/litro",
+    "31-10-2026 00:30"
+   ],
+   "Biodiesel B15": [
+    "2,164 €/litro",
+    "31-10-2026 00:30"
+   ],
+   "Gasolina simples 95": [
+    "2,069 €/litro",
+    "31-10-2026 00:30"
+   ],
+   "Gasolina especial 95": [
+    "2,004 €/litro",
+    "31-10-2026 00:30"
+   ]
+  },
+  "lat": 39.73963,
+  "lon": -8.816806,
+  "morada": "R. Dr. João Soares, Fração APorto Moniz"
+ },
  "78233": {
   "nome": "PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água)",
   "aviso": "PINGO DOCE",
   "precos": {
    "Gasóleo simples": [
-    "2,119 €/litro",
-    "27-10-2026 18:15"
+    "2,132 €/litro",
+    "30-10-2026 11:30"
    ],
    "Gasóleo especial": [
-    "2,429 €/litro",
-    "27-10-2026 18:15"
+    "2,444 €/litro",
+    "30-10-2026 11:30"
    ],
    "Gasolina simples 95": [
-    "2,071 €/litro",
-    "27-10-2026 18:15"
+    "2,005 €/litro",
+    "30-10-2026 11:30"
    ],
    "Gasolina especial 98": [
-    "2,434 €/litro",
-    "27-10-2026 18:15"
+    "2,369 €/litro",
+    "30-10-2026 11:30"
    ]
   },
   "lat": 39.76125,
   "lon": -8.82138,
   "morada": "Rua 25 de Abril"
  },
- "66582": {
-  "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
-  "aviso": "REPSOL (R. Videiro)",
+ "95352": {
+  "nome": "INPAR ENERGY PA GARCIA (Garcia)",
+  "aviso": "INPAR ENERGY",
   "precos": {
+   "GPL Auto": [
+    "0,000 €/litro",
+    "30-10-2026 15:25"
+   ],
    "Gasóleo simples": [
-    "2,259 €/litro",
-    "28-10-2026 00:00"
+    "2,169 €/litro",
+    "30-10-2026 15:25"
    ],
    "Gasóleo especial": [
-    "2,329 €/litro",
-    "28-10-2026 00:00"
+    "2,189 €/litro",
+    "30-10-2026 15:25"
    ],
    "Gasolina simples 95": [
-    "2,079 €/litro",
-    "28-10-2026 00:00"
+    "2,024 €/litro",
+    "30-10-2026 15:25"
    ],
-   "Gasolina especial 95": [
-    "2,149 €/litro",
-    "28-10-2026 00:00"
-   ],
-   "Gasolina especial 98": [
-    "2,299 €/litro",
-    "28-10-2026 00:00"
+   "Gasolina 98": [
+    "2,124 €/litro",
+    "30-10-2026 15:25"
    ]
   },
-  "lat": 39.74714,
-  "lon": -8.93429,
-  "morada": "Praceta do Vidreiro nº 12"
- },
- "66596": {
-  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
-  "aviso": "REPSOL (R. Mc)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,259 €/litro",
-    "28-10-2026 09:30"
-   ],
-   "Gasóleo especial": [
-    "2,329 €/litro",
-    "28-10-2026 09:30"
-   ],
-   "Gasolina simples 95": [
-    "2,079 €/litro",
-    "28-10-2026 09:30"
-   ],
-   "Gasolina especial 95": [
-    "2,149 €/litro",
-    "28-10-2026 09:30"
-   ]
-  },
-  "lat": 39.73495,
-  "lon": -8.93242,
-  "morada": "EN 242 Km 13,7"
+  "lat": 39.79048,
+  "lon": -8.92521,
+  "morada": "Rua Central, 204"
  },
  "65415": {
   "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
@@ -319,30 +294,59 @@
   "lon": -8.92391,
   "morada": "EN 242 (Av. Vítor Galo) Km 11,5"
  },
- "67868": {
-  "nome": "BP Marinha Grande (Marinha Grande)",
-  "aviso": "BP (Marinha Grande)",
+ "66596": {
+  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
+  "aviso": "REPSOL (R. Mc)",
   "precos": {
    "Gasóleo simples": [
-    "2,324 €/litro",
-    "29-10-2026 00:00"
+    "2,319 €/litro",
+    "30-10-2026 00:00"
    ],
    "Gasóleo especial": [
-    "2,444 €/litro",
-    "29-10-2026 00:00"
+    "2,389 €/litro",
+    "30-10-2026 00:00"
    ],
    "Gasolina simples 95": [
     "2,139 €/litro",
-    "29-10-2026 00:00"
+    "30-10-2026 00:00"
    ],
-   "Gasolina especial 98": [
-    "2,369 €/litro",
-    "29-10-2026 00:00"
+   "Gasolina especial 95": [
+    "2,209 €/litro",
+    "30-10-2026 00:00"
    ]
   },
-  "lat": 39.745975,
-  "lon": -8.934596,
-  "morada": "Av. Dr. José Henriques Vareda nº8"
+  "lat": 39.73495,
+  "lon": -8.93242,
+  "morada": "EN 242 Km 13,7"
+ },
+ "66582": {
+  "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
+  "aviso": "REPSOL (R. Videiro)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,319 €/litro",
+    "30-10-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,389 €/litro",
+    "30-10-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "2,139 €/litro",
+    "30-10-2026 00:00"
+   ],
+   "Gasolina especial 95": [
+    "2,209 €/litro",
+    "30-10-2026 00:00"
+   ],
+   "Gasolina especial 98": [
+    "2,359 €/litro",
+    "30-10-2026 00:00"
+   ]
+  },
+  "lat": 39.74714,
+  "lon": -8.93429,
+  "morada": "Praceta do Vidreiro nº 12"
  },
  "93075": {
   "nome": "BP Embra (Marinha Grande) (Embra)",
@@ -350,24 +354,49 @@
   "precos": {
    "Gasóleo simples": [
     "2,324 €/litro",
-    "29-10-2026 00:00"
+    "31-10-2026 00:00"
    ],
    "Gasóleo especial": [
     "2,444 €/litro",
-    "29-10-2026 00:00"
+    "31-10-2026 00:00"
    ],
    "Gasolina simples 95": [
     "2,139 €/litro",
-    "29-10-2026 00:00"
+    "31-10-2026 00:00"
    ],
    "Gasolina especial 98": [
     "2,369 €/litro",
-    "29-10-2026 00:00"
+    "31-10-2026 00:00"
    ]
   },
   "lat": 39.74759,
   "lon": -8.904907,
   "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
+ },
+ "67868": {
+  "nome": "BP Marinha Grande (Marinha Grande)",
+  "aviso": "BP (Marinha Grande)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,324 €/litro",
+    "31-10-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,444 €/litro",
+    "31-10-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "2,139 €/litro",
+    "31-10-2026 00:00"
+   ],
+   "Gasolina especial 98": [
+    "2,369 €/litro",
+    "31-10-2026 00:00"
+   ]
+  },
+  "lat": 39.745975,
+  "lon": -8.934596,
+  "morada": "Av. Dr. José Henriques Vareda nº8"
  },
  "plenergy-404": {
   "nome": "PLENERGY (Marinha Grande)",
@@ -395,10 +424,8 @@
   "morada": "Avenida Dr. José Henriques Vareda, nº 32"
  },
  "_meta": {
-  "falhas": {
-   "DGEG (lista de postos)": 6
-  },
-  "ultimo_resumo": "2026-10-30",
+  "falhas": {},
+  "ultimo_resumo": "2026-10-31",
   "isp_vistos": [
    "atualizacao isp | preco dos combustiveis na proxima semana (5 a 11 de outubro)",
    "preco dos combustiveis na proxima semana (12 a 18 de outubro)",
@@ -407,7 +434,8 @@
    "atualizacao isp | preco dos combustiveis na proxima semana (19 a 25 de outubro)",
    "preco dos combustiveis na proxima semana (26 de outubro a 1 de novembro)",
    "atualizacao isp | preco dos combustiveis na proxima semana (26 de outubro a 1 de novembro)",
-   "preco dos combustiveis na proxima semana (2 a 8 de novembro)"
+   "preco dos combustiveis na proxima semana (2 a 8 de novembro)",
+   "atualizacao isp | preco dos combustiveis na proxima semana (2 a 8 de novembro)"
   ],
   "extremos_desde": "2026-10-09",
   "extremos": {
@@ -700,8 +728,8 @@
       "2026-10-06 00:00"
      ],
      "max": [
-      2.119,
-      "2026-10-20 00:00"
+      2.132,
+      "2026-10-30 11:30"
      ]
     },
     "Gasóleo especial": {
@@ -710,14 +738,14 @@
       "2026-10-06 00:00"
      ],
      "max": [
-      2.429,
-      "2026-10-20 00:00"
+      2.444,
+      "2026-10-30 11:30"
      ]
     },
     "Gasolina simples 95": {
      "min": [
-      2.048,
-      "2026-10-06 00:00"
+      2.005,
+      "2026-10-30 11:30"
      ],
      "max": [
       2.096,
@@ -726,8 +754,8 @@
     },
     "Gasolina especial 98": {
      "min": [
-      2.409,
-      "2026-10-06 00:00"
+      2.369,
+      "2026-10-30 11:30"
      ],
      "max": [
       2.459,
@@ -1088,6 +1116,58 @@
      "max": [
       1.999,
       "2026-10-22 16:19"
+     ]
+    }
+   },
+   "95352": {
+    "GPL Auto": {
+     "min": [
+      0.0,
+      "2026-10-30 15:25"
+     ],
+     "max": [
+      0.0,
+      "2026-10-30 15:25"
+     ]
+    },
+    "Gasóleo simples": {
+     "min": [
+      2.169,
+      "2026-10-30 15:25"
+     ],
+     "max": [
+      2.169,
+      "2026-10-30 15:25"
+     ]
+    },
+    "Gasóleo especial": {
+     "min": [
+      2.189,
+      "2026-10-30 15:25"
+     ],
+     "max": [
+      2.189,
+      "2026-10-30 15:25"
+     ]
+    },
+    "Gasolina simples 95": {
+     "min": [
+      2.024,
+      "2026-10-30 15:25"
+     ],
+     "max": [
+      2.024,
+      "2026-10-30 15:25"
+     ]
+    },
+    "Gasolina 98": {
+     "min": [
+      2.124,
+      "2026-10-30 15:25"
+     ],
+     "max": [
+      2.124,
+      "2026-10-30 15:25"
      ]
     }
    }
