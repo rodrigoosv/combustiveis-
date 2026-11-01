@@ -191,20 +191,20 @@
   "aviso": "PINGO DOCE",
   "precos": {
    "Gasóleo simples": [
-    "2,132 €/litro",
-    "30-10-2026 11:30"
+    "2,137 €/litro",
+    "01-11-2026 00:00"
    ],
    "Gasóleo especial": [
     "2,444 €/litro",
-    "30-10-2026 11:30"
+    "01-11-2026 00:00"
    ],
    "Gasolina simples 95": [
     "2,005 €/litro",
-    "30-10-2026 11:30"
+    "01-11-2026 00:00"
    ],
    "Gasolina especial 98": [
     "2,369 €/litro",
-    "30-10-2026 11:30"
+    "01-11-2026 00:00"
    ]
   },
   "lat": 39.76125,
@@ -240,84 +240,59 @@
   "lon": -8.92521,
   "morada": "Rua Central, 204"
  },
- "65415": {
-  "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
-  "aviso": "GALP (Embra)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,314 €/litro",
-    "26-10-2026 23:20"
-   ],
-   "Gasóleo especial": [
-    "2,364 €/litro",
-    "26-10-2026 23:20"
-   ],
-   "Gasolina simples 95": [
-    "2,102 €/litro",
-    "26-10-2026 23:20"
-   ],
-   "Gasolina especial 95": [
-    "2,152 €/litro",
-    "26-10-2026 23:20"
-   ]
-  },
-  "lat": 39.74782,
-  "lon": -8.91122,
-  "morada": "EN 242 Km 10,4"
- },
  "65416": {
   "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",
   "aviso": "GALP (Marinha Grande)",
   "precos": {
    "Gasóleo simples": [
-    "2,314 €/litro",
-    "26-10-2026 23:20"
+    "2,274 €/litro",
+    "31-10-2026 23:45"
    ],
    "Gasóleo especial": [
-    "2,364 €/litro",
-    "26-10-2026 23:20"
+    "2,324 €/litro",
+    "31-10-2026 23:45"
    ],
    "Gasolina simples 95": [
-    "2,102 €/litro",
-    "26-10-2026 23:20"
+    "2,062 €/litro",
+    "31-10-2026 23:45"
    ],
    "Gasolina especial 95": [
-    "2,152 €/litro",
-    "26-10-2026 23:20"
+    "2,112 €/litro",
+    "31-10-2026 23:45"
    ],
    "Gasolina especial 98": [
-    "2,332 €/litro",
-    "26-10-2026 23:20"
+    "2,292 €/litro",
+    "31-10-2026 23:45"
    ]
   },
   "lat": 39.74892,
   "lon": -8.92391,
   "morada": "EN 242 (Av. Vítor Galo) Km 11,5"
  },
- "66596": {
-  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
-  "aviso": "REPSOL (R. Mc)",
+ "65415": {
+  "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
+  "aviso": "GALP (Embra)",
   "precos": {
    "Gasóleo simples": [
-    "2,319 €/litro",
-    "30-10-2026 00:00"
+    "2,274 €/litro",
+    "31-10-2026 23:50"
    ],
    "Gasóleo especial": [
-    "2,389 €/litro",
-    "30-10-2026 00:00"
+    "2,324 €/litro",
+    "31-10-2026 23:50"
    ],
    "Gasolina simples 95": [
-    "2,139 €/litro",
-    "30-10-2026 00:00"
+    "2,062 €/litro",
+    "31-10-2026 23:50"
    ],
    "Gasolina especial 95": [
-    "2,209 €/litro",
-    "30-10-2026 00:00"
+    "2,112 €/litro",
+    "31-10-2026 23:50"
    ]
   },
-  "lat": 39.73495,
-  "lon": -8.93242,
-  "morada": "EN 242 Km 13,7"
+  "lat": 39.74782,
+  "lon": -8.91122,
+  "morada": "EN 242 Km 10,4"
  },
  "66582": {
   "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
@@ -348,30 +323,30 @@
   "lon": -8.93429,
   "morada": "Praceta do Vidreiro nº 12"
  },
- "93075": {
-  "nome": "BP Embra (Marinha Grande) (Embra)",
-  "aviso": "BP (Embra)",
+ "66596": {
+  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
+  "aviso": "REPSOL (R. Mc)",
   "precos": {
    "Gasóleo simples": [
-    "2,324 €/litro",
-    "31-10-2026 00:00"
+    "2,319 €/litro",
+    "30-10-2026 00:00"
    ],
    "Gasóleo especial": [
-    "2,444 €/litro",
-    "31-10-2026 00:00"
+    "2,389 €/litro",
+    "30-10-2026 00:00"
    ],
    "Gasolina simples 95": [
     "2,139 €/litro",
-    "31-10-2026 00:00"
+    "30-10-2026 00:00"
    ],
-   "Gasolina especial 98": [
-    "2,369 €/litro",
-    "31-10-2026 00:00"
+   "Gasolina especial 95": [
+    "2,209 €/litro",
+    "30-10-2026 00:00"
    ]
   },
-  "lat": 39.74759,
-  "lon": -8.904907,
-  "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
+  "lat": 39.73495,
+  "lon": -8.93242,
+  "morada": "EN 242 Km 13,7"
  },
  "67868": {
   "nome": "BP Marinha Grande (Marinha Grande)",
@@ -379,24 +354,49 @@
   "precos": {
    "Gasóleo simples": [
     "2,324 €/litro",
-    "31-10-2026 00:00"
+    "01-11-2026 00:00"
    ],
    "Gasóleo especial": [
     "2,444 €/litro",
-    "31-10-2026 00:00"
+    "01-11-2026 00:00"
    ],
    "Gasolina simples 95": [
     "2,139 €/litro",
-    "31-10-2026 00:00"
+    "01-11-2026 00:00"
    ],
    "Gasolina especial 98": [
     "2,369 €/litro",
-    "31-10-2026 00:00"
+    "01-11-2026 00:00"
    ]
   },
   "lat": 39.745975,
   "lon": -8.934596,
   "morada": "Av. Dr. José Henriques Vareda nº8"
+ },
+ "93075": {
+  "nome": "BP Embra (Marinha Grande) (Embra)",
+  "aviso": "BP (Embra)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,324 €/litro",
+    "01-11-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,444 €/litro",
+    "01-11-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "2,139 €/litro",
+    "01-11-2026 00:00"
+   ],
+   "Gasolina especial 98": [
+    "2,369 €/litro",
+    "01-11-2026 00:00"
+   ]
+  },
+  "lat": 39.74759,
+  "lon": -8.904907,
+  "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
  },
  "plenergy-404": {
   "nome": "PLENERGY (Marinha Grande)",
@@ -728,8 +728,8 @@
       "2026-10-06 00:00"
      ],
      "max": [
-      2.132,
-      "2026-10-30 11:30"
+      2.137,
+      "2026-11-01 00:00"
      ]
     },
     "Gasóleo especial": {
@@ -828,8 +828,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      2.102,
-      "2026-10-26 23:20"
+      2.062,
+      "2026-10-31 23:45"
      ],
      "max": [
       2.195,
@@ -838,8 +838,8 @@
     },
     "Gasolina especial 95": {
      "min": [
-      2.152,
-      "2026-10-26 23:20"
+      2.112,
+      "2026-10-31 23:45"
      ],
      "max": [
       2.245,
@@ -848,8 +848,8 @@
     },
     "Gasolina especial 98": {
      "min": [
-      2.332,
-      "2026-10-26 23:20"
+      2.292,
+      "2026-10-31 23:45"
      ],
      "max": [
       2.425,
@@ -880,8 +880,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      2.102,
-      "2026-10-26 23:20"
+      2.062,
+      "2026-10-31 23:50"
      ],
      "max": [
       2.195,
@@ -890,8 +890,8 @@
     },
     "Gasolina especial 95": {
      "min": [
-      2.152,
-      "2026-10-26 23:20"
+      2.112,
+      "2026-10-31 23:50"
      ],
      "max": [
       2.245,
@@ -1173,6 +1173,6 @@
    }
   },
   "pagina_versao": "70f070d5",
-  "ultimo_grafico": "2026-10-31"
+  "ultimo_grafico": "2026-11-01"
  }
 }
