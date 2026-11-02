@@ -91,20 +91,20 @@
   "aviso": "ALVES BANDEIRA",
   "precos": {
    "Gasóleo simples": [
-    "2,272 €/litro",
-    "26-10-2026 12:05"
+    "2,287 €/litro",
+    "02-11-2026 10:50"
    ],
    "Gasóleo colorido": [
-    "1,909 €/litro",
-    "26-10-2026 12:05"
+    "1,929 €/litro",
+    "02-11-2026 10:50"
    ],
    "Gasolina simples 95": [
-    "2,094 €/litro",
-    "26-10-2026 12:05"
+    "2,059 €/litro",
+    "02-11-2026 10:50"
    ],
    "Gasolina 98": [
-    "2,264 €/litro",
-    "26-10-2026 12:05"
+    "2,229 €/litro",
+    "02-11-2026 10:50"
    ]
   },
   "lat": 39.697193,
@@ -136,55 +136,55 @@
   "lon": -8.93315,
   "morada": "Av. José Gregório\r\n"
  },
+ "91178": {
+  "nome": "PRIO Leiria Circular (Leiria)",
+  "aviso": "PRIO (Leiria)",
+  "precos": {
+   "Gasóleo especial": [
+    "2,209 €/litro",
+    "02-11-2026 10:25"
+   ],
+   "Biodiesel B15": [
+    "2,179 €/litro",
+    "02-11-2026 10:25"
+   ],
+   "Gasolina simples 95": [
+    "2,039 €/litro",
+    "02-11-2026 10:25"
+   ],
+   "Gasolina especial 95": [
+    "1,974 €/litro",
+    "02-11-2026 10:25"
+   ]
+  },
+  "lat": 39.73963,
+  "lon": -8.816806,
+  "morada": "R. Dr. João Soares, Fração APorto Moniz"
+ },
  "95309": {
   "nome": "OZ ENERGIA - MARINHA GRANDE (Amieirinha)",
   "aviso": "OZ Energia",
   "precos": {
    "Gasóleo simples": [
     "2,199 €/litro",
-    "02-11-2026 00:00"
+    "02-11-2026 12:30"
    ],
    "Gasóleo especial": [
     "2,239 €/litro",
-    "02-11-2026 00:00"
+    "02-11-2026 12:30"
    ],
    "Gasolina simples 95": [
     "1,974 €/litro",
-    "02-11-2026 00:00"
+    "02-11-2026 12:30"
    ],
    "Gasolina 98": [
     "2,214 €/litro",
-    "02-11-2026 00:00"
+    "02-11-2026 12:30"
    ]
   },
   "lat": 39.72187,
   "lon": -8.926169,
   "morada": "Estrada do Guilherme"
- },
- "91178": {
-  "nome": "PRIO Leiria Circular (Leiria)",
-  "aviso": "PRIO (Leiria)",
-  "precos": {
-   "Gasóleo especial": [
-    "2,194 €/litro",
-    "02-11-2026 00:30"
-   ],
-   "Biodiesel B15": [
-    "2,164 €/litro",
-    "02-11-2026 00:30"
-   ],
-   "Gasolina simples 95": [
-    "2,069 €/litro",
-    "02-11-2026 00:30"
-   ],
-   "Gasolina especial 95": [
-    "2,004 €/litro",
-    "02-11-2026 00:30"
-   ]
-  },
-  "lat": 39.73963,
-  "lon": -8.816806,
-  "morada": "R. Dr. João Soares, Fração APorto Moniz"
  },
  "78233": {
   "nome": "PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água)",
@@ -378,20 +378,20 @@
   "aviso": "REPSOL (R. Mc)",
   "precos": {
    "Gasóleo simples": [
-    "2,319 €/litro",
-    "30-10-2026 00:00"
+    "2,339 €/litro",
+    "02-11-2026 09:30"
    ],
    "Gasóleo especial": [
-    "2,389 €/litro",
-    "30-10-2026 00:00"
+    "2,409 €/litro",
+    "02-11-2026 09:30"
    ],
    "Gasolina simples 95": [
-    "2,139 €/litro",
-    "30-10-2026 00:00"
+    "2,114 €/litro",
+    "02-11-2026 09:30"
    ],
    "Gasolina especial 95": [
-    "2,209 €/litro",
-    "30-10-2026 00:00"
+    "2,184 €/litro",
+    "02-11-2026 09:30"
    ]
   },
   "lat": 39.73495,
@@ -425,7 +425,7 @@
  },
  "_meta": {
   "falhas": {},
-  "ultimo_resumo": "2026-11-01",
+  "ultimo_resumo": "2026-11-02",
   "isp_vistos": [
    "atualizacao isp | preco dos combustiveis na proxima semana (5 a 11 de outubro)",
    "preco dos combustiveis na proxima semana (12 a 18 de outubro)",
@@ -602,8 +602,8 @@
       "2026-10-05 11:05"
      ],
      "max": [
-      2.272,
-      "2026-10-26 12:05"
+      2.287,
+      "2026-11-02 10:50"
      ]
     },
     "Gasóleo colorido": {
@@ -612,14 +612,14 @@
       "2026-10-05 11:05"
      ],
      "max": [
-      1.909,
-      "2026-10-26 12:05"
+      1.929,
+      "2026-11-02 10:50"
      ]
     },
     "Gasolina simples 95": {
      "min": [
-      2.094,
-      "2026-10-26 12:05"
+      2.059,
+      "2026-11-02 10:50"
      ],
      "max": [
       2.187,
@@ -628,8 +628,8 @@
     },
     "Gasolina 98": {
      "min": [
-      2.264,
-      "2026-10-26 12:05"
+      2.229,
+      "2026-11-02 10:50"
      ],
      "max": [
       2.357,
@@ -686,8 +686,8 @@
       "2026-10-09 00:30"
      ],
      "max": [
-      2.194,
-      "2026-10-26 00:30"
+      2.209,
+      "2026-11-02 10:25"
      ]
     },
     "Biodiesel B15": {
@@ -696,14 +696,14 @@
       "2026-10-09 00:30"
      ],
      "max": [
-      2.164,
-      "2026-10-26 00:30"
+      2.179,
+      "2026-11-02 10:25"
      ]
     },
     "Gasolina simples 95": {
      "min": [
-      2.069,
-      "2026-10-26 00:30"
+      2.039,
+      "2026-11-02 10:25"
      ],
      "max": [
       2.154,
@@ -712,8 +712,8 @@
     },
     "Gasolina especial 95": {
      "min": [
-      2.004,
-      "2026-10-26 00:30"
+      1.974,
+      "2026-11-02 10:25"
      ],
      "max": [
       2.089,
@@ -906,8 +906,8 @@
       "2026-10-14 00:00"
      ],
      "max": [
-      2.319,
-      "2026-10-26 00:00"
+      2.339,
+      "2026-11-02 09:30"
      ]
     },
     "Gasóleo especial": {
@@ -916,8 +916,8 @@
       "2026-10-14 00:00"
      ],
      "max": [
-      2.389,
-      "2026-10-26 00:00"
+      2.409,
+      "2026-11-02 09:30"
      ]
     },
     "Gasolina simples 95": {
