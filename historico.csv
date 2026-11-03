@@ -399,3 +399,7 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-11-03 06:50,BP Marinha Grande (Marinha Grande),Gasolina especial 98,2.339,2.334,-0.5,desceu,2.334,2026-11-03 00:00,2.459,2026-10-12 00:00
 2026-11-03 06:50,BP Embra (Marinha Grande) (Embra),Gasolina simples 95,2.109,2.104,-0.5,desceu,2.104,2026-11-03 00:00,2.229,2026-10-12 00:00
 2026-11-03 06:50,BP Embra (Marinha Grande) (Embra),Gasolina especial 98,2.339,2.334,-0.5,desceu,2.334,2026-11-03 00:00,2.459,2026-10-12 00:00
+2026-11-03 15:10,PLENERGY (Marinha Grande),Gasóleo simples,2.039,2.059,+2.0,subiu,1.979,2026-10-23 11:05,2.089,2026-10-13 17:01
+2026-11-03 15:10,PLENERGY (Marinha Grande),Gasóleo plus,2.089,2.109,+2.0,subiu,1.999,2026-10-15 10:57,2.109,2026-11-03 15:10
+2026-11-03 15:10,PLENERGY (Marinha Grande),Gasolina 95 simples,1.919,1.899,-2.0,desceu,1.899,2026-10-15 10:57,1.949,2026-10-22 16:19
+2026-11-03 15:10,PLENERGY (Marinha Grande),Gasolina 95 plus,1.969,1.949,-2.0,desceu,1.949,2026-10-15 10:57,1.999,2026-10-22 16:19
