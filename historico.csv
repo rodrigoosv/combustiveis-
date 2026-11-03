@@ -391,3 +391,11 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-11-02 23:32,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasóleo especial,2.324,2.379,+5.5,subiu,2.276,2026-10-10 11:30,2.379,2026-11-02 20:05
 2026-11-02 23:32,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasolina simples 95,2.062,2.067,+0.5,subiu,2.062,2026-10-31 23:50,2.195,2026-10-12 18:00
 2026-11-02 23:32,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasolina especial 95,2.112,2.117,+0.5,subiu,2.112,2026-10-31 23:50,2.245,2026-10-12 18:00
+2026-11-03 06:50,PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água),Gasóleo simples,2.137,2.146,+0.9,subiu,2.092,2026-10-06 00:00,2.146,2026-11-03 00:00
+2026-11-03 06:50,PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água),Gasóleo especial,2.444,2.459,+1.5,subiu,2.399,2026-10-06 00:00,2.459,2026-11-03 00:00
+2026-11-03 06:50,PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água),Gasolina simples 95,2.005,1.973,-3.2,desceu,1.973,2026-11-03 00:00,2.096,2026-10-13 11:30
+2026-11-03 06:50,PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água),Gasolina especial 98,2.369,2.339,-3.0,desceu,2.339,2026-11-03 00:00,2.459,2026-10-13 11:30
+2026-11-03 06:50,BP Marinha Grande (Marinha Grande),Gasolina simples 95,2.109,2.104,-0.5,desceu,2.104,2026-11-03 00:00,2.229,2026-10-12 00:00
+2026-11-03 06:50,BP Marinha Grande (Marinha Grande),Gasolina especial 98,2.339,2.334,-0.5,desceu,2.334,2026-11-03 00:00,2.459,2026-10-12 00:00
+2026-11-03 06:50,BP Embra (Marinha Grande) (Embra),Gasolina simples 95,2.109,2.104,-0.5,desceu,2.104,2026-11-03 00:00,2.229,2026-10-12 00:00
+2026-11-03 06:50,BP Embra (Marinha Grande) (Embra),Gasolina especial 98,2.339,2.334,-0.5,desceu,2.334,2026-11-03 00:00,2.459,2026-10-12 00:00
