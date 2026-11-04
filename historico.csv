@@ -403,3 +403,12 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-11-03 15:10,PLENERGY (Marinha Grande),Gasóleo plus,2.089,2.109,+2.0,subiu,1.999,2026-10-15 10:57,2.109,2026-11-03 15:10
 2026-11-03 15:10,PLENERGY (Marinha Grande),Gasolina 95 simples,1.919,1.899,-2.0,desceu,1.899,2026-10-15 10:57,1.949,2026-10-22 16:19
 2026-11-03 15:10,PLENERGY (Marinha Grande),Gasolina 95 plus,1.969,1.949,-2.0,desceu,1.949,2026-10-15 10:57,1.999,2026-10-22 16:19
+2026-11-04 01:24,REPSOL E.S. ALBERGARIA (Albergaria),Gasóleo simples,2.339,2.279,-6.0,desceu,2.209,2026-10-14 00:00,2.339,2026-11-02 23:00
+2026-11-04 01:24,REPSOL E.S. ALBERGARIA (Albergaria),Gasóleo especial,2.409,2.349,-6.0,desceu,2.279,2026-10-14 00:00,2.409,2026-11-02 23:00
+2026-11-04 01:24,REPSOL E.S. ALBERGARIA (Albergaria),Gasolina simples 95,2.114,2.054,-6.0,desceu,2.054,2026-11-04 00:00,2.224,2026-10-13 00:00
+2026-11-04 01:24,REPSOL E.S. ALBERGARIA (Albergaria),Gasolina especial 95,2.184,2.124,-6.0,desceu,2.124,2026-11-04 00:00,2.294,2026-10-13 00:00
+2026-11-04 01:24,REPSOL E.S. ALBERGARIA (Albergaria),Gasolina especial 98,2.334,2.274,-6.0,desceu,2.274,2026-11-04 00:00,2.424,2026-10-13 00:00
+2026-11-04 01:24,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasóleo simples,2.339,2.279,-6.0,desceu,2.209,2026-10-14 00:00,2.339,2026-11-02 09:30
+2026-11-04 01:24,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasóleo especial,2.409,2.349,-6.0,desceu,2.279,2026-10-14 00:00,2.409,2026-11-02 09:30
+2026-11-04 01:24,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasolina simples 95,2.114,2.054,-6.0,desceu,2.054,2026-11-04 00:00,2.224,2026-10-13 00:00
+2026-11-04 01:24,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasolina especial 95,2.184,2.124,-6.0,desceu,2.124,2026-11-04 00:00,2.294,2026-10-13 00:00
