@@ -411,11 +411,11 @@
     ""
    ],
    "Gasolina 95 simples": [
-    "1,879 €/litro",
+    "1,859 €/litro",
     ""
    ],
    "Gasolina 95 plus": [
-    "1,929 €/litro",
+    "1,909 €/litro",
     ""
    ]
   },
@@ -425,7 +425,7 @@
  },
  "_meta": {
   "falhas": {},
-  "ultimo_resumo": "2026-11-04",
+  "ultimo_resumo": "2026-11-05",
   "isp_vistos": [
    "atualizacao isp | preco dos combustiveis na proxima semana (5 a 11 de outubro)",
    "preco dos combustiveis na proxima semana (12 a 18 de outubro)",
@@ -1100,8 +1100,8 @@
     },
     "Gasolina 95 simples": {
      "min": [
-      1.879,
-      "2026-11-04 17:21"
+      1.859,
+      "2026-11-05 15:28"
      ],
      "max": [
       1.949,
@@ -1110,8 +1110,8 @@
     },
     "Gasolina 95 plus": {
      "min": [
-      1.929,
-      "2026-11-04 17:21"
+      1.909,
+      "2026-11-05 15:28"
      ],
      "max": [
       1.999,
