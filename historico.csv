@@ -426,3 +426,4 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-11-04 17:21,PLENERGY (Marinha Grande),Gasolina 95 plus,1.949,1.929,-2.0,desceu,1.929,2026-11-04 17:21,1.999,2026-10-22 16:19
 2026-11-05 15:28,PLENERGY (Marinha Grande),Gasolina 95 simples,1.879,1.859,-2.0,desceu,1.859,2026-11-05 15:28,1.949,2026-10-22 16:19
 2026-11-05 15:28,PLENERGY (Marinha Grande),Gasolina 95 plus,1.929,1.909,-2.0,desceu,1.909,2026-11-05 15:28,1.999,2026-10-22 16:19
+2026-11-05 21:59,REPSOL E.S. ALBERGARIA (Albergaria),GPL Auto,1.029,1.129,+10.0,subiu,0.999,2026-10-09 00:00,1.129,2026-11-05 19:00
