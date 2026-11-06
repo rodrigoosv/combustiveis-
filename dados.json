@@ -1,18 +1,18 @@
 {
- "atualizado": "2026-11-06 02:28",
+ "atualizado": "2026-11-06 17:58",
  "grupos": {
   "Gasóleo simples": {
    "mais_barato": {
     "posto": "TRANSOGÁS",
-    "preco": 1.959,
-    "preco_texto": "1,959"
+    "preco": 1.929,
+    "preco_texto": "1,929"
    },
-   "media": 2.238,
+   "media": 2.236,
    "postos": [
     {
      "posto": "TRANSOGÁS",
-     "preco": 1.959,
-     "preco_texto": "1,959"
+     "preco": 1.929,
+     "preco_texto": "1,929"
     },
     {
      "posto": "PLENERGY",
@@ -84,15 +84,15 @@
   "Gasóleo especial / plus": {
    "mais_barato": {
     "posto": "TRANSOGÁS",
-    "preco": 1.999,
-    "preco_texto": "1,999"
+    "preco": 1.969,
+    "preco_texto": "1,969"
    },
-   "media": 2.304,
+   "media": 2.302,
    "postos": [
     {
      "posto": "TRANSOGÁS",
-     "preco": 1.999,
-     "preco_texto": "1,999"
+     "preco": 1.969,
+     "preco_texto": "1,969"
     },
     {
      "posto": "PLENERGY",
@@ -168,21 +168,21 @@
   },
   "Gasolina 95 simples": {
    "mais_barato": {
-    "posto": "PLENERGY",
-    "preco": 1.859,
-    "preco_texto": "1,859"
+    "posto": "TRANSOGÁS",
+    "preco": 1.849,
+    "preco_texto": "1,849"
    },
-   "media": 2.029,
+   "media": 2.027,
    "postos": [
+    {
+     "posto": "TRANSOGÁS",
+     "preco": 1.849,
+     "preco_texto": "1,849"
+    },
     {
      "posto": "PLENERGY",
      "preco": 1.859,
      "preco_texto": "1,859"
-    },
-    {
-     "posto": "TRANSOGÁS",
-     "preco": 1.879,
-     "preco_texto": "1,879"
     },
     {
      "posto": "INTERMARCHÉ",
