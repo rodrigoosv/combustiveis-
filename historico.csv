@@ -445,3 +445,12 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-11-06 17:58,Transforpel Combustíveis Marinha Grande (Marinha Grande),Gasóleo especial,1.999,1.969,-3.0,desceu,1.969,2026-11-06 17:20,2.049,2026-10-02 16:30
 2026-11-06 17:58,Transforpel Combustíveis Marinha Grande (Marinha Grande),Gasolina simples 95,1.879,1.849,-3.0,desceu,1.849,2026-11-06 17:20,1.929,2026-10-02 16:30
 2026-11-06 23:11,INPAR ENERGY PA GARCIA (Garcia),GPL Auto,0.959,0.999,+4.0,subiu,0.000,2026-10-30 15:25,0.999,2026-11-06 18:00
+2026-11-07 16:29,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasóleo simples,2.329,2.289,-4.0,desceu,2.179,2026-10-24 18:50,2.329,2026-11-02 20:05
+2026-11-07 16:29,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasóleo especial,2.379,2.339,-4.0,desceu,2.276,2026-10-10 11:25,2.379,2026-11-02 20:05
+2026-11-07 16:29,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasolina simples 95,2.067,2.027,-4.0,desceu,2.027,2026-11-07 15:55,2.195,2026-10-12 18:00
+2026-11-07 16:29,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasolina especial 95,2.117,2.077,-4.0,desceu,2.077,2026-11-07 15:55,2.245,2026-10-12 18:00
+2026-11-07 16:29,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasolina especial 98,2.297,2.257,-4.0,desceu,2.257,2026-11-07 15:55,2.425,2026-10-12 18:00
+2026-11-07 16:29,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasóleo simples,2.329,2.289,-4.0,desceu,2.226,2026-10-10 11:30,2.329,2026-11-02 20:05
+2026-11-07 16:29,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasóleo especial,2.379,2.339,-4.0,desceu,2.276,2026-10-10 11:30,2.379,2026-11-02 20:05
+2026-11-07 16:29,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasolina simples 95,2.067,2.027,-4.0,desceu,2.027,2026-11-07 16:00,2.195,2026-10-12 18:00
+2026-11-07 16:29,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasolina especial 95,2.117,2.077,-4.0,desceu,2.077,2026-11-07 16:00,2.245,2026-10-12 18:00
