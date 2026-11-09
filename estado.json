@@ -30,23 +30,23 @@
   "precos": {
    "GPL Auto": [
     "0,999 €/litro",
-    "06-11-2026 18:00"
+    "09-11-2026 11:35"
    ],
    "Gasóleo simples": [
-    "2,169 €/litro",
-    "06-11-2026 18:00"
+    "2,089 €/litro",
+    "09-11-2026 11:35"
    ],
    "Gasóleo especial": [
-    "2,189 €/litro",
-    "06-11-2026 18:00"
+    "2,109 €/litro",
+    "09-11-2026 11:35"
    ],
    "Gasolina simples 95": [
-    "1,994 €/litro",
-    "06-11-2026 18:00"
+    "1,909 €/litro",
+    "09-11-2026 11:35"
    ],
    "Gasolina 98": [
-    "2,094 €/litro",
-    "06-11-2026 18:00"
+    "2,009 €/litro",
+    "09-11-2026 11:35"
    ]
   },
   "lat": 39.79048,
@@ -115,6 +115,31 @@
   "lon": -8.938041,
   "morada": "Av. José Gregório, Posto de Combustíveis"
  },
+ "70428": {
+  "nome": "ALVES BANDEIRA Moita (Moita)",
+  "aviso": "ALVES BANDEIRA",
+  "precos": {
+   "Gasóleo simples": [
+    "2,201 €/litro",
+    "09-11-2026 11:00"
+   ],
+   "Gasóleo colorido": [
+    "1,829 €/litro",
+    "09-11-2026 11:00"
+   ],
+   "Gasolina simples 95": [
+    "1,972 €/litro",
+    "09-11-2026 11:00"
+   ],
+   "Gasolina 98": [
+    "2,142 €/litro",
+    "09-11-2026 11:00"
+   ]
+  },
+  "lat": 39.697193,
+  "lon": -8.953862,
+  "morada": "ESTRADA NACIONAL Nº242, km 18"
+ },
  "95309": {
   "nome": "OZ ENERGIA - MARINHA GRANDE (Amieirinha)",
   "aviso": "OZ Energia",
@@ -164,31 +189,6 @@
   "lat": 39.73963,
   "lon": -8.816806,
   "morada": "R. Dr. João Soares, Fração APorto Moniz"
- },
- "70428": {
-  "nome": "ALVES BANDEIRA Moita (Moita)",
-  "aviso": "ALVES BANDEIRA",
-  "precos": {
-   "Gasóleo simples": [
-    "2,287 €/litro",
-    "02-11-2026 10:50"
-   ],
-   "Gasóleo colorido": [
-    "1,929 €/litro",
-    "02-11-2026 10:50"
-   ],
-   "Gasolina simples 95": [
-    "2,059 €/litro",
-    "02-11-2026 10:50"
-   ],
-   "Gasolina 98": [
-    "2,229 €/litro",
-    "02-11-2026 10:50"
-   ]
-  },
-  "lat": 39.697193,
-  "lon": -8.953862,
-  "morada": "ESTRADA NACIONAL Nº242, km 18"
  },
  "67331": {
   "nome": "Intermarché da Marinha Grande (Marinha Grande)",
@@ -240,6 +240,60 @@
   "lon": -8.82138,
   "morada": "Rua 25 de Abril"
  },
+ "65416": {
+  "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",
+  "aviso": "GALP (Marinha Grande)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,243 €/litro",
+    "09-11-2026 13:40"
+   ],
+   "Gasóleo especial": [
+    "2,293 €/litro",
+    "09-11-2026 13:40"
+   ],
+   "Gasolina simples 95": [
+    "1,980 €/litro",
+    "09-11-2026 13:40"
+   ],
+   "Gasolina especial 95": [
+    "2,030 €/litro",
+    "09-11-2026 13:40"
+   ],
+   "Gasolina especial 98": [
+    "2,210 €/litro",
+    "09-11-2026 13:40"
+   ]
+  },
+  "lat": 39.74892,
+  "lon": -8.92391,
+  "morada": "EN 242 (Av. Vítor Galo) Km 11,5"
+ },
+ "65415": {
+  "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
+  "aviso": "GALP (Embra)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,243 €/litro",
+    "09-11-2026 13:45"
+   ],
+   "Gasóleo especial": [
+    "2,293 €/litro",
+    "09-11-2026 13:45"
+   ],
+   "Gasolina simples 95": [
+    "1,980 €/litro",
+    "09-11-2026 13:45"
+   ],
+   "Gasolina especial 95": [
+    "2,030 €/litro",
+    "09-11-2026 13:45"
+   ]
+  },
+  "lat": 39.74782,
+  "lon": -8.91122,
+  "morada": "EN 242 Km 10,4"
+ },
  "67868": {
   "nome": "BP Marinha Grande (Marinha Grande)",
   "aviso": "BP (Marinha Grande)",
@@ -290,60 +344,6 @@
   "lon": -8.904907,
   "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
  },
- "65416": {
-  "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",
-  "aviso": "GALP (Marinha Grande)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,289 €/litro",
-    "07-11-2026 15:55"
-   ],
-   "Gasóleo especial": [
-    "2,339 €/litro",
-    "07-11-2026 15:55"
-   ],
-   "Gasolina simples 95": [
-    "2,027 €/litro",
-    "07-11-2026 15:55"
-   ],
-   "Gasolina especial 95": [
-    "2,077 €/litro",
-    "07-11-2026 15:55"
-   ],
-   "Gasolina especial 98": [
-    "2,257 €/litro",
-    "07-11-2026 15:55"
-   ]
-  },
-  "lat": 39.74892,
-  "lon": -8.92391,
-  "morada": "EN 242 (Av. Vítor Galo) Km 11,5"
- },
- "65415": {
-  "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
-  "aviso": "GALP (Embra)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,289 €/litro",
-    "07-11-2026 16:00"
-   ],
-   "Gasóleo especial": [
-    "2,339 €/litro",
-    "07-11-2026 16:00"
-   ],
-   "Gasolina simples 95": [
-    "2,027 €/litro",
-    "07-11-2026 16:00"
-   ],
-   "Gasolina especial 95": [
-    "2,077 €/litro",
-    "07-11-2026 16:00"
-   ]
-  },
-  "lat": 39.74782,
-  "lon": -8.91122,
-  "morada": "EN 242 Km 10,4"
- },
  "66582": {
   "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
   "aviso": "REPSOL (R. Videiro)",
@@ -378,20 +378,20 @@
   "aviso": "REPSOL (R. Mc)",
   "precos": {
    "Gasóleo simples": [
-    "2,339 €/litro",
-    "06-11-2026 00:00"
+    "2,259 €/litro",
+    "09-11-2026 09:30"
    ],
    "Gasóleo especial": [
-    "2,409 €/litro",
-    "06-11-2026 00:00"
+    "2,329 €/litro",
+    "09-11-2026 09:30"
    ],
    "Gasolina simples 95": [
-    "2,114 €/litro",
-    "06-11-2026 00:00"
+    "2,029 €/litro",
+    "09-11-2026 09:30"
    ],
    "Gasolina especial 95": [
-    "2,184 €/litro",
-    "06-11-2026 00:00"
+    "2,099 €/litro",
+    "09-11-2026 09:30"
    ]
   },
   "lat": 39.73495,
@@ -425,7 +425,7 @@
  },
  "_meta": {
   "falhas": {},
-  "ultimo_resumo": "2026-11-08",
+  "ultimo_resumo": "2026-11-09",
   "isp_vistos": [
    "atualizacao isp | preco dos combustiveis na proxima semana (5 a 11 de outubro)",
    "preco dos combustiveis na proxima semana (12 a 18 de outubro)",
@@ -600,8 +600,8 @@
    "70428": {
     "Gasóleo simples": {
      "min": [
-      2.224,
-      "2026-10-05 11:05"
+      2.201,
+      "2026-11-09 11:00"
      ],
      "max": [
       2.287,
@@ -610,8 +610,8 @@
     },
     "Gasóleo colorido": {
      "min": [
-      1.859,
-      "2026-10-05 11:05"
+      1.829,
+      "2026-11-09 11:00"
      ],
      "max": [
       1.929,
@@ -620,8 +620,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      2.059,
-      "2026-11-02 10:50"
+      1.972,
+      "2026-11-09 11:00"
      ],
      "max": [
       2.187,
@@ -630,8 +630,8 @@
     },
     "Gasolina 98": {
      "min": [
-      2.229,
-      "2026-11-02 10:50"
+      2.142,
+      "2026-11-09 11:00"
      ],
      "max": [
       2.357,
@@ -830,8 +830,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      2.027,
-      "2026-11-07 15:55"
+      1.98,
+      "2026-11-09 13:40"
      ],
      "max": [
       2.195,
@@ -840,8 +840,8 @@
     },
     "Gasolina especial 95": {
      "min": [
-      2.077,
-      "2026-11-07 15:55"
+      2.03,
+      "2026-11-09 13:40"
      ],
      "max": [
       2.245,
@@ -850,8 +850,8 @@
     },
     "Gasolina especial 98": {
      "min": [
-      2.257,
-      "2026-11-07 15:55"
+      2.21,
+      "2026-11-09 13:40"
      ],
      "max": [
       2.425,
@@ -882,8 +882,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      2.027,
-      "2026-11-07 16:00"
+      1.98,
+      "2026-11-09 13:45"
      ],
      "max": [
       2.195,
@@ -892,8 +892,8 @@
     },
     "Gasolina especial 95": {
      "min": [
-      2.077,
-      "2026-11-07 16:00"
+      2.03,
+      "2026-11-09 13:45"
      ],
      "max": [
       2.245,
@@ -924,8 +924,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      2.054,
-      "2026-11-04 00:00"
+      2.029,
+      "2026-11-09 09:30"
      ],
      "max": [
       2.224,
@@ -934,8 +934,8 @@
     },
     "Gasolina especial 95": {
      "min": [
-      2.124,
-      "2026-11-04 00:00"
+      2.099,
+      "2026-11-09 09:30"
      ],
      "max": [
       2.294,
@@ -1134,8 +1134,8 @@
     },
     "Gasóleo simples": {
      "min": [
-      2.169,
-      "2026-10-30 15:25"
+      2.089,
+      "2026-11-09 11:35"
      ],
      "max": [
       2.169,
@@ -1144,8 +1144,8 @@
     },
     "Gasóleo especial": {
      "min": [
-      2.189,
-      "2026-10-30 15:25"
+      2.109,
+      "2026-11-09 11:35"
      ],
      "max": [
       2.189,
@@ -1154,8 +1154,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      1.994,
-      "2026-11-02 16:10"
+      1.909,
+      "2026-11-09 11:35"
      ],
      "max": [
       2.024,
@@ -1164,8 +1164,8 @@
     },
     "Gasolina 98": {
      "min": [
-      2.094,
-      "2026-11-04 09:35"
+      2.009,
+      "2026-11-09 11:35"
      ],
      "max": [
       2.184,
