@@ -59,27 +59,27 @@
   "precos": {
    "GPL Auto": [
     "1,129 €/litro",
-    "09-11-2026 00:00"
+    "11-11-2026 00:00"
    ],
    "Gasóleo simples": [
-    "2,259 €/litro",
-    "09-11-2026 00:00"
+    "2,199 €/litro",
+    "11-11-2026 00:00"
    ],
    "Gasóleo especial": [
-    "2,329 €/litro",
-    "09-11-2026 00:00"
+    "2,269 €/litro",
+    "11-11-2026 00:00"
    ],
    "Gasolina simples 95": [
-    "2,029 €/litro",
-    "09-11-2026 00:00"
+    "1,969 €/litro",
+    "11-11-2026 00:00"
    ],
    "Gasolina especial 95": [
-    "2,099 €/litro",
-    "09-11-2026 00:00"
+    "2,039 €/litro",
+    "11-11-2026 00:00"
    ],
    "Gasolina especial 98": [
-    "2,249 €/litro",
-    "09-11-2026 00:00"
+    "2,189 €/litro",
+    "11-11-2026 00:00"
    ]
   },
   "lat": 39.7454,
@@ -221,24 +221,78 @@
   "precos": {
    "Gasóleo especial": [
     "2,129 €/litro",
-    "10-11-2026 00:30"
+    "11-11-2026 00:30"
    ],
    "Biodiesel B15": [
     "2,099 €/litro",
-    "10-11-2026 00:30"
+    "11-11-2026 00:30"
    ],
    "Gasolina simples 95": [
     "1,954 €/litro",
-    "10-11-2026 00:30"
+    "11-11-2026 00:30"
    ],
    "Gasolina especial 95": [
     "1,889 €/litro",
-    "10-11-2026 00:30"
+    "11-11-2026 00:30"
    ]
   },
   "lat": 39.73963,
   "lon": -8.816806,
   "morada": "R. Dr. João Soares, Fração APorto Moniz"
+ },
+ "66582": {
+  "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
+  "aviso": "REPSOL (R. Videiro)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,199 €/litro",
+    "11-11-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,269 €/litro",
+    "11-11-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "1,969 €/litro",
+    "11-11-2026 00:00"
+   ],
+   "Gasolina especial 95": [
+    "2,039 €/litro",
+    "11-11-2026 00:00"
+   ],
+   "Gasolina especial 98": [
+    "2,189 €/litro",
+    "11-11-2026 00:00"
+   ]
+  },
+  "lat": 39.74714,
+  "lon": -8.93429,
+  "morada": "Praceta do Vidreiro nº 12"
+ },
+ "66596": {
+  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
+  "aviso": "REPSOL (R. Mc)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,199 €/litro",
+    "11-11-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,269 €/litro",
+    "11-11-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "1,969 €/litro",
+    "11-11-2026 00:00"
+   ],
+   "Gasolina especial 95": [
+    "2,039 €/litro",
+    "11-11-2026 00:00"
+   ]
+  },
+  "lat": 39.73495,
+  "lon": -8.93242,
+  "morada": "EN 242 Km 13,7"
  },
  "65416": {
   "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",
@@ -294,109 +348,55 @@
   "lon": -8.91122,
   "morada": "EN 242 Km 10,4"
  },
- "93075": {
-  "nome": "BP Embra (Marinha Grande) (Embra)",
-  "aviso": "BP (Embra)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,249 €/litro",
-    "10-11-2026 00:00"
-   ],
-   "Gasóleo especial": [
-    "2,379 €/litro",
-    "10-11-2026 00:00"
-   ],
-   "Gasolina simples 95": [
-    "2,009 €/litro",
-    "10-11-2026 00:00"
-   ],
-   "Gasolina especial 98": [
-    "2,239 €/litro",
-    "10-11-2026 00:00"
-   ]
-  },
-  "lat": 39.74759,
-  "lon": -8.904907,
-  "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
- },
  "67868": {
   "nome": "BP Marinha Grande (Marinha Grande)",
   "aviso": "BP (Marinha Grande)",
   "precos": {
    "Gasóleo simples": [
     "2,249 €/litro",
-    "10-11-2026 00:00"
+    "11-11-2026 00:00"
    ],
    "Gasóleo especial": [
     "2,379 €/litro",
-    "10-11-2026 00:00"
+    "11-11-2026 00:00"
    ],
    "Gasolina simples 95": [
     "2,009 €/litro",
-    "10-11-2026 00:00"
+    "11-11-2026 00:00"
    ],
    "Gasolina especial 98": [
     "2,239 €/litro",
-    "10-11-2026 00:00"
+    "11-11-2026 00:00"
    ]
   },
   "lat": 39.745975,
   "lon": -8.934596,
   "morada": "Av. Dr. José Henriques Vareda nº8"
  },
- "66582": {
-  "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
-  "aviso": "REPSOL (R. Videiro)",
+ "93075": {
+  "nome": "BP Embra (Marinha Grande) (Embra)",
+  "aviso": "BP (Embra)",
   "precos": {
    "Gasóleo simples": [
-    "2,259 €/litro",
-    "09-11-2026 00:00"
+    "2,249 €/litro",
+    "11-11-2026 00:00"
    ],
    "Gasóleo especial": [
-    "2,329 €/litro",
-    "09-11-2026 00:00"
+    "2,379 €/litro",
+    "11-11-2026 00:00"
    ],
    "Gasolina simples 95": [
-    "2,029 €/litro",
-    "09-11-2026 00:00"
-   ],
-   "Gasolina especial 95": [
-    "2,099 €/litro",
-    "09-11-2026 00:00"
+    "2,009 €/litro",
+    "11-11-2026 00:00"
    ],
    "Gasolina especial 98": [
-    "2,249 €/litro",
-    "09-11-2026 00:00"
+    "2,239 €/litro",
+    "11-11-2026 00:00"
    ]
   },
-  "lat": 39.74714,
-  "lon": -8.93429,
-  "morada": "Praceta do Vidreiro nº 12"
- },
- "66596": {
-  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
-  "aviso": "REPSOL (R. Mc)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,259 €/litro",
-    "09-11-2026 09:30"
-   ],
-   "Gasóleo especial": [
-    "2,329 €/litro",
-    "09-11-2026 09:30"
-   ],
-   "Gasolina simples 95": [
-    "2,029 €/litro",
-    "09-11-2026 09:30"
-   ],
-   "Gasolina especial 95": [
-    "2,099 €/litro",
-    "09-11-2026 09:30"
-   ]
-  },
-  "lat": 39.73495,
-  "lon": -8.93242,
-  "morada": "EN 242 Km 13,7"
+  "lat": 39.74759,
+  "lon": -8.904907,
+  "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
  },
  "plenergy-404": {
   "nome": "PLENERGY (Marinha Grande)",
@@ -496,8 +496,8 @@
     },
     "Gasóleo simples": {
      "min": [
-      2.209,
-      "2026-10-14 00:00"
+      2.199,
+      "2026-11-11 00:00"
      ],
      "max": [
       2.339,
@@ -506,8 +506,8 @@
     },
     "Gasóleo especial": {
      "min": [
-      2.279,
-      "2026-10-14 00:00"
+      2.269,
+      "2026-11-11 00:00"
      ],
      "max": [
       2.409,
@@ -516,8 +516,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      2.029,
-      "2026-11-09 00:00"
+      1.969,
+      "2026-11-11 00:00"
      ],
      "max": [
       2.224,
@@ -526,8 +526,8 @@
     },
     "Gasolina especial 95": {
      "min": [
-      2.099,
-      "2026-11-09 00:00"
+      2.039,
+      "2026-11-11 00:00"
      ],
      "max": [
       2.294,
@@ -536,8 +536,8 @@
     },
     "Gasolina especial 98": {
      "min": [
-      2.249,
-      "2026-11-09 00:00"
+      2.189,
+      "2026-11-11 00:00"
      ],
      "max": [
       2.424,
@@ -904,8 +904,8 @@
    "66596": {
     "Gasóleo simples": {
      "min": [
-      2.209,
-      "2026-10-14 00:00"
+      2.199,
+      "2026-11-11 00:00"
      ],
      "max": [
       2.339,
@@ -914,8 +914,8 @@
     },
     "Gasóleo especial": {
      "min": [
-      2.279,
-      "2026-10-14 00:00"
+      2.269,
+      "2026-11-11 00:00"
      ],
      "max": [
       2.409,
@@ -924,8 +924,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      2.029,
-      "2026-11-09 09:30"
+      1.969,
+      "2026-11-11 00:00"
      ],
      "max": [
       2.224,
@@ -934,8 +934,8 @@
     },
     "Gasolina especial 95": {
      "min": [
-      2.099,
-      "2026-11-09 09:30"
+      2.039,
+      "2026-11-11 00:00"
      ],
      "max": [
       2.294,
@@ -946,8 +946,8 @@
    "66582": {
     "Gasóleo simples": {
      "min": [
-      2.209,
-      "2026-10-14 00:00"
+      2.199,
+      "2026-11-11 00:00"
      ],
      "max": [
       2.339,
@@ -956,8 +956,8 @@
     },
     "Gasóleo especial": {
      "min": [
-      2.279,
-      "2026-10-14 00:00"
+      2.269,
+      "2026-11-11 00:00"
      ],
      "max": [
       2.409,
@@ -966,8 +966,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      2.029,
-      "2026-11-09 00:00"
+      1.969,
+      "2026-11-11 00:00"
      ],
      "max": [
       2.224,
@@ -976,8 +976,8 @@
     },
     "Gasolina especial 95": {
      "min": [
-      2.099,
-      "2026-11-09 00:00"
+      2.039,
+      "2026-11-11 00:00"
      ],
      "max": [
       2.294,
@@ -986,8 +986,8 @@
     },
     "Gasolina especial 98": {
      "min": [
-      2.249,
-      "2026-11-09 00:00"
+      2.189,
+      "2026-11-11 00:00"
      ],
      "max": [
       2.424,
@@ -1174,6 +1174,7 @@
     }
    }
   },
-  "pagina_versao": "70f070d5"
+  "pagina_versao": "70f070d5",
+  "ultimo_grafico": "2026-11-11"
  }
 }
