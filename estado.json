@@ -300,23 +300,23 @@
   "precos": {
    "Gasóleo simples": [
     "2,243 €/litro",
-    "09-11-2026 13:40"
+    "11-11-2026 10:45"
    ],
    "Gasóleo especial": [
     "2,293 €/litro",
-    "09-11-2026 13:40"
+    "11-11-2026 10:45"
    ],
    "Gasolina simples 95": [
-    "1,980 €/litro",
-    "09-11-2026 13:40"
+    "1,997 €/litro",
+    "11-11-2026 10:45"
    ],
    "Gasolina especial 95": [
-    "2,030 €/litro",
-    "09-11-2026 13:40"
+    "2,047 €/litro",
+    "11-11-2026 10:45"
    ],
    "Gasolina especial 98": [
-    "2,210 €/litro",
-    "09-11-2026 13:40"
+    "2,227 €/litro",
+    "11-11-2026 10:45"
    ]
   },
   "lat": 39.74892,
@@ -329,19 +329,19 @@
   "precos": {
    "Gasóleo simples": [
     "2,243 €/litro",
-    "09-11-2026 13:45"
+    "11-11-2026 10:50"
    ],
    "Gasóleo especial": [
     "2,293 €/litro",
-    "09-11-2026 13:45"
+    "11-11-2026 10:50"
    ],
    "Gasolina simples 95": [
-    "1,980 €/litro",
-    "09-11-2026 13:45"
+    "1,997 €/litro",
+    "11-11-2026 10:50"
    ],
    "Gasolina especial 95": [
-    "2,030 €/litro",
-    "09-11-2026 13:45"
+    "2,047 €/litro",
+    "11-11-2026 10:50"
    ]
   },
   "lat": 39.74782,
@@ -403,19 +403,19 @@
   "aviso": "PLENERGY",
   "precos": {
    "Gasóleo simples": [
-    "2,059 €/litro",
+    "2,029 €/litro",
     ""
    ],
    "Gasóleo plus": [
-    "2,109 €/litro",
+    "2,079 €/litro",
     ""
    ],
    "Gasolina 95 simples": [
-    "1,859 €/litro",
+    "1,809 €/litro",
     ""
    ],
    "Gasolina 95 plus": [
-    "1,909 €/litro",
+    "1,859 €/litro",
     ""
    ]
   },
@@ -425,7 +425,7 @@
  },
  "_meta": {
   "falhas": {},
-  "ultimo_resumo": "2026-11-10",
+  "ultimo_resumo": "2026-11-11",
   "isp_vistos": [
    "atualizacao isp | preco dos combustiveis na proxima semana (5 a 11 de outubro)",
    "preco dos combustiveis na proxima semana (12 a 18 de outubro)",
@@ -1102,8 +1102,8 @@
     },
     "Gasolina 95 simples": {
      "min": [
-      1.859,
-      "2026-11-05 15:28"
+      1.809,
+      "2026-11-11 14:13"
      ],
      "max": [
       1.949,
@@ -1112,8 +1112,8 @@
     },
     "Gasolina 95 plus": {
      "min": [
-      1.909,
-      "2026-11-05 15:28"
+      1.859,
+      "2026-11-11 14:13"
      ],
      "max": [
       1.999,
