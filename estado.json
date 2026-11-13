@@ -5,19 +5,19 @@
   "precos": {
    "GPL Auto": [
     "0,930 €/litro",
-    "06-11-2026 17:20"
+    "13-11-2026 16:55"
    ],
    "Gasóleo simples": [
     "1,929 €/litro",
-    "06-11-2026 17:20"
+    "13-11-2026 16:55"
    ],
    "Gasóleo especial": [
     "1,969 €/litro",
-    "06-11-2026 17:20"
+    "13-11-2026 16:55"
    ],
    "Gasolina simples 95": [
     "1,849 €/litro",
-    "06-11-2026 17:20"
+    "13-11-2026 16:55"
    ]
   },
   "lat": 39.750379,
@@ -344,6 +344,31 @@
   "lon": -8.934596,
   "morada": "Av. Dr. José Henriques Vareda nº8"
  },
+ "66596": {
+  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
+  "aviso": "REPSOL (R. Mc)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,259 €/litro",
+    "13-11-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,329 €/litro",
+    "13-11-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "2,029 €/litro",
+    "13-11-2026 00:00"
+   ],
+   "Gasolina especial 95": [
+    "2,099 €/litro",
+    "13-11-2026 00:00"
+   ]
+  },
+  "lat": 39.73495,
+  "lon": -8.93242,
+  "morada": "EN 242 Km 13,7"
+ },
  "66582": {
   "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
   "aviso": "REPSOL (R. Videiro)",
@@ -372,31 +397,6 @@
   "lat": 39.74714,
   "lon": -8.93429,
   "morada": "Praceta do Vidreiro nº 12"
- },
- "66596": {
-  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
-  "aviso": "REPSOL (R. Mc)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,259 €/litro",
-    "13-11-2026 00:00"
-   ],
-   "Gasóleo especial": [
-    "2,329 €/litro",
-    "13-11-2026 00:00"
-   ],
-   "Gasolina simples 95": [
-    "2,029 €/litro",
-    "13-11-2026 00:00"
-   ],
-   "Gasolina especial 95": [
-    "2,099 €/litro",
-    "13-11-2026 00:00"
-   ]
-  },
-  "lat": 39.73495,
-  "lon": -8.93242,
-  "morada": "EN 242 Km 13,7"
  },
  "plenergy-404": {
   "nome": "PLENERGY (Marinha Grande)",
@@ -438,7 +438,8 @@
    "atualizacao isp | preco dos combustiveis na proxima semana (2 a 8 de novembro)",
    "preco dos combustiveis na proxima semana (9 a 15 de novembro)",
    "atualizacao isp | preco dos combustiveis na proxima semana (9 a 15 de novembro)",
-   "preco dos combustiveis na proxima semana (16 a 22 de novembro)"
+   "preco dos combustiveis na proxima semana (16 a 22 de novembro)",
+   "atualizacao | preco dos combustiveis na proxima semana (16 a 22 de novembro)"
   ],
   "extremos_desde": "2026-10-09",
   "extremos": {
@@ -1175,7 +1176,6 @@
     }
    }
   },
-  "pagina_versao": "70f070d5",
-  "ultimo_grafico": "2026-11-13"
+  "pagina_versao": "70f070d5"
  }
 }
