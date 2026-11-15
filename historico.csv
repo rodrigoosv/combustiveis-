@@ -572,3 +572,7 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-11-14 11:29,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasolina simples 95,1.997,1.957,-4.0,desceu,1.957,2026-11-14 10:35,2.195,2026-10-12 18:00
 2026-11-14 11:29,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasolina especial 95,2.047,2.007,-4.0,desceu,2.007,2026-11-14 10:35,2.245,2026-10-12 18:00
 2026-11-14 11:29,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasolina especial 98,2.227,2.187,-4.0,desceu,2.187,2026-11-14 10:35,2.425,2026-10-12 18:00
+2026-11-15 02:41,PRIO Leiria Circular (Leiria),Gasóleo especial,2.129,2.084,-4.5,desceu,2.084,2026-11-15 00:30,2.209,2026-11-02 10:25
+2026-11-15 02:41,PRIO Leiria Circular (Leiria),Biodiesel B15,2.099,2.054,-4.5,desceu,2.054,2026-11-15 00:30,2.179,2026-11-02 10:25
+2026-11-15 02:41,PRIO Leiria Circular (Leiria),Gasolina simples 95,1.954,1.929,-2.5,desceu,1.929,2026-11-15 00:30,2.154,2026-10-12 00:30
+2026-11-15 02:41,PRIO Leiria Circular (Leiria),Gasolina especial 95,1.889,1.864,-2.5,desceu,1.864,2026-11-15 00:30,2.089,2026-10-12 00:30

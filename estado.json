@@ -165,6 +165,31 @@
   "lon": -8.93315,
   "morada": "Av. José Gregório\r\n"
  },
+ "91178": {
+  "nome": "PRIO Leiria Circular (Leiria)",
+  "aviso": "PRIO (Leiria)",
+  "precos": {
+   "Gasóleo especial": [
+    "2,084 €/litro",
+    "15-11-2026 00:30"
+   ],
+   "Biodiesel B15": [
+    "2,054 €/litro",
+    "15-11-2026 00:30"
+   ],
+   "Gasolina simples 95": [
+    "1,929 €/litro",
+    "15-11-2026 00:30"
+   ],
+   "Gasolina especial 95": [
+    "1,864 €/litro",
+    "15-11-2026 00:30"
+   ]
+  },
+  "lat": 39.73963,
+  "lon": -8.816806,
+  "morada": "R. Dr. João Soares, Fração APorto Moniz"
+ },
  "78233": {
   "nome": "PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água)",
   "aviso": "PINGO DOCE",
@@ -214,31 +239,6 @@
   "lat": 39.72187,
   "lon": -8.926169,
   "morada": "Estrada do Guilherme"
- },
- "91178": {
-  "nome": "PRIO Leiria Circular (Leiria)",
-  "aviso": "PRIO (Leiria)",
-  "precos": {
-   "Gasóleo especial": [
-    "2,129 €/litro",
-    "14-11-2026 00:30"
-   ],
-   "Biodiesel B15": [
-    "2,099 €/litro",
-    "14-11-2026 00:30"
-   ],
-   "Gasolina simples 95": [
-    "1,954 €/litro",
-    "14-11-2026 00:30"
-   ],
-   "Gasolina especial 95": [
-    "1,889 €/litro",
-    "14-11-2026 00:30"
-   ]
-  },
-  "lat": 39.73963,
-  "lon": -8.816806,
-  "morada": "R. Dr. João Soares, Fração APorto Moniz"
  },
  "65415": {
   "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
@@ -294,55 +294,55 @@
   "lon": -8.92391,
   "morada": "EN 242 (Av. Vítor Galo) Km 11,5"
  },
- "93075": {
-  "nome": "BP Embra (Marinha Grande) (Embra)",
-  "aviso": "BP (Embra)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,249 €/litro",
-    "14-11-2026 00:00"
-   ],
-   "Gasóleo especial": [
-    "2,379 €/litro",
-    "14-11-2026 00:00"
-   ],
-   "Gasolina simples 95": [
-    "2,009 €/litro",
-    "14-11-2026 00:00"
-   ],
-   "Gasolina especial 98": [
-    "2,239 €/litro",
-    "14-11-2026 00:00"
-   ]
-  },
-  "lat": 39.74759,
-  "lon": -8.904907,
-  "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
- },
  "67868": {
   "nome": "BP Marinha Grande (Marinha Grande)",
   "aviso": "BP (Marinha Grande)",
   "precos": {
    "Gasóleo simples": [
     "2,249 €/litro",
-    "14-11-2026 00:00"
+    "15-11-2026 00:00"
    ],
    "Gasóleo especial": [
     "2,379 €/litro",
-    "14-11-2026 00:00"
+    "15-11-2026 00:00"
    ],
    "Gasolina simples 95": [
     "2,009 €/litro",
-    "14-11-2026 00:00"
+    "15-11-2026 00:00"
    ],
    "Gasolina especial 98": [
     "2,239 €/litro",
-    "14-11-2026 00:00"
+    "15-11-2026 00:00"
    ]
   },
   "lat": 39.745975,
   "lon": -8.934596,
   "morada": "Av. Dr. José Henriques Vareda nº8"
+ },
+ "93075": {
+  "nome": "BP Embra (Marinha Grande) (Embra)",
+  "aviso": "BP (Embra)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,249 €/litro",
+    "15-11-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,379 €/litro",
+    "15-11-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "2,009 €/litro",
+    "15-11-2026 00:00"
+   ],
+   "Gasolina especial 98": [
+    "2,239 €/litro",
+    "15-11-2026 00:00"
+   ]
+  },
+  "lat": 39.74759,
+  "lon": -8.904907,
+  "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
  },
  "66596": {
   "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
@@ -687,8 +687,8 @@
    "91178": {
     "Gasóleo especial": {
      "min": [
-      2.129,
-      "2026-11-09 00:25"
+      2.084,
+      "2026-11-15 00:30"
      ],
      "max": [
       2.209,
@@ -697,8 +697,8 @@
     },
     "Biodiesel B15": {
      "min": [
-      2.099,
-      "2026-11-09 00:25"
+      2.054,
+      "2026-11-15 00:30"
      ],
      "max": [
       2.179,
@@ -707,8 +707,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      1.954,
-      "2026-11-09 00:25"
+      1.929,
+      "2026-11-15 00:30"
      ],
      "max": [
       2.154,
@@ -717,8 +717,8 @@
     },
     "Gasolina especial 95": {
      "min": [
-      1.889,
-      "2026-11-09 00:25"
+      1.864,
+      "2026-11-15 00:30"
      ],
      "max": [
       2.089,
@@ -1178,6 +1178,6 @@
    }
   },
   "pagina_versao": "70f070d5",
-  "ultimo_grafico": "2026-11-14"
+  "ultimo_grafico": "2026-11-15"
  }
 }

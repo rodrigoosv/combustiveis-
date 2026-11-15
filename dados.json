@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-14 22:26",
+ "atualizado": "2026-11-15 02:41",
  "grupos": {
   "Gasóleo simples": {
    "mais_barato": {
@@ -87,7 +87,7 @@
     "preco": 1.969,
     "preco_texto": "1,969"
    },
-   "media": 2.221,
+   "media": 2.218,
    "postos": [
     {
      "posto": "TRANSOGÁS",
@@ -100,6 +100,11 @@
      "preco_texto": "2,049"
     },
     {
+     "posto": "PRIO (Leiria)",
+     "preco": 2.084,
+     "preco_texto": "2,084"
+    },
+    {
      "posto": "INPAR ENERGY",
      "preco": 2.109,
      "preco_texto": "2,109"
@@ -108,11 +113,6 @@
      "posto": "INTERMARCHÉ",
      "preco": 2.109,
      "preco_texto": "2,109"
-    },
-    {
-     "posto": "PRIO (Leiria)",
-     "preco": 2.129,
-     "preco_texto": "2,129"
     },
     {
      "posto": "OZ Energia",
@@ -172,7 +172,7 @@
     "preco": 1.779,
     "preco_texto": "1,779"
    },
-   "media": 1.942,
+   "media": 1.94,
    "postos": [
     {
      "posto": "PLENERGY",
@@ -206,8 +206,8 @@
     },
     {
      "posto": "PRIO (Leiria)",
-     "preco": 1.954,
-     "preco_texto": "1,954"
+     "preco": 1.929,
+     "preco_texto": "1,929"
     },
     {
      "posto": "GALP (Embra)",
@@ -262,7 +262,7 @@
     "preco": 1.829,
     "preco_texto": "1,829"
    },
-   "media": 1.996,
+   "media": 1.993,
    "postos": [
     {
      "posto": "PLENERGY",
@@ -271,8 +271,8 @@
     },
     {
      "posto": "PRIO (Leiria)",
-     "preco": 1.889,
-     "preco_texto": "1,889"
+     "preco": 1.864,
+     "preco_texto": "1,864"
     },
     {
      "posto": "PRIO (Marinha Grande)",
