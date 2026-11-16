@@ -606,3 +606,25 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-11-16 11:23,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasóleo especial,2.329,2.269,-6.0,desceu,2.269,2026-11-11 00:00,2.409,2026-11-02 09:30
 2026-11-16 11:23,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasolina simples 95,2.029,1.999,-3.0,desceu,1.969,2026-11-11 00:00,2.224,2026-10-13 00:00
 2026-11-16 11:23,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasolina especial 95,2.099,2.079,-2.0,desceu,2.039,2026-11-11 00:00,2.294,2026-10-13 00:00
+2026-11-16 22:05,INPAR ENERGY PA GARCIA (Garcia),Gasóleo simples,2.089,2.069,-2.0,desceu,2.069,2026-11-16 13:50,2.169,2026-10-30 15:25
+2026-11-16 22:05,INPAR ENERGY PA GARCIA (Garcia),Gasóleo especial,2.109,2.089,-2.0,desceu,2.089,2026-11-16 13:50,2.189,2026-10-30 15:25
+2026-11-16 22:05,INPAR ENERGY PA GARCIA (Garcia),Gasolina simples 95,1.909,1.899,-1.0,desceu,1.899,2026-11-16 13:50,2.024,2026-10-30 15:25
+2026-11-16 22:05,INPAR ENERGY PA GARCIA (Garcia),Gasolina 98,2.009,1.999,-1.0,desceu,1.999,2026-11-16 13:50,2.184,2026-11-02 16:10
+2026-11-16 22:05,REPSOL E.S. ALBERGARIA (Albergaria),Gasóleo simples,2.259,2.199,-6.0,desceu,2.199,2026-11-11 00:00,2.339,2026-11-02 23:00
+2026-11-16 22:05,REPSOL E.S. ALBERGARIA (Albergaria),Gasóleo especial,2.329,2.269,-6.0,desceu,2.269,2026-11-11 00:00,2.409,2026-11-02 23:00
+2026-11-16 22:05,REPSOL E.S. ALBERGARIA (Albergaria),Gasolina simples 95,2.029,2.009,-2.0,desceu,1.969,2026-11-11 00:00,2.224,2026-10-13 00:00
+2026-11-16 22:05,REPSOL E.S. ALBERGARIA (Albergaria),Gasolina especial 95,2.099,2.079,-2.0,desceu,2.039,2026-11-11 00:00,2.294,2026-10-13 00:00
+2026-11-16 22:05,REPSOL E.S. ALBERGARIA (Albergaria),Gasolina especial 98,2.249,2.229,-2.0,desceu,2.189,2026-11-11 00:00,2.424,2026-10-13 00:00
+2026-11-16 22:05,Intermarché da Marinha Grande (Marinha Grande),Gasóleo simples,2.069,2.029,-4.0,desceu,2.029,2026-11-16 15:15,2.159,2026-11-02 21:05
+2026-11-16 22:05,Intermarché da Marinha Grande (Marinha Grande),Gasóleo especial,2.109,2.069,-4.0,desceu,2.069,2026-11-16 15:15,2.209,2026-11-02 21:05
+2026-11-16 22:05,Intermarché da Marinha Grande (Marinha Grande),Gasolina simples 95,1.839,1.819,-2.0,desceu,1.819,2026-11-16 15:15,2.059,2026-10-12 21:05
+2026-11-16 22:05,Intermarché da Marinha Grande (Marinha Grande),Gasolina 98,2.019,1.999,-2.0,desceu,1.999,2026-11-16 15:15,2.239,2026-10-12 21:05
+2026-11-16 22:05,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasóleo simples,2.202,2.199,-0.3,desceu,2.199,2026-11-16 18:45,2.329,2026-11-02 20:05
+2026-11-16 22:05,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasóleo especial,2.253,2.249,-0.4,desceu,2.249,2026-11-16 18:45,2.379,2026-11-02 20:05
+2026-11-16 22:05,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasolina simples 95,1.957,1.977,+2.0,subiu,1.957,2026-11-14 10:35,2.195,2026-10-12 18:00
+2026-11-16 22:05,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasolina especial 95,2.007,2.027,+2.0,subiu,2.007,2026-11-14 10:35,2.245,2026-10-12 18:00
+2026-11-16 22:05,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasóleo simples,2.203,2.199,-0.4,desceu,2.179,2026-10-24 18:50,2.329,2026-11-02 20:05
+2026-11-16 22:05,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasóleo especial,2.253,2.249,-0.4,desceu,2.249,2026-11-16 18:45,2.379,2026-11-02 20:05
+2026-11-16 22:05,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasolina simples 95,1.957,1.977,+2.0,subiu,1.957,2026-11-14 10:35,2.195,2026-10-12 18:00
+2026-11-16 22:05,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasolina especial 95,2.007,2.027,+2.0,subiu,2.007,2026-11-14 10:35,2.245,2026-10-12 18:00
+2026-11-16 22:05,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasolina especial 98,2.187,2.207,+2.0,subiu,2.187,2026-11-14 10:35,2.425,2026-10-12 18:00
