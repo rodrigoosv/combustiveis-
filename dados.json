@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-15 17:43",
+ "atualizado": "2026-11-16 02:44",
  "grupos": {
   "Gasóleo simples": {
    "mais_barato": {
@@ -7,7 +7,7 @@
     "preco": 1.929,
     "preco_texto": "1,929"
    },
-   "media": 2.154,
+   "media": 2.132,
    "postos": [
     {
      "posto": "TRANSOGÁS",
@@ -30,14 +30,29 @@
      "preco_texto": "2,074"
     },
     {
+     "posto": "REPSOL (R. Videiro)",
+     "preco": 2.079,
+     "preco_texto": "2,079"
+    },
+    {
      "posto": "INPAR ENERGY",
      "preco": 2.089,
      "preco_texto": "2,089"
     },
     {
      "posto": "OZ Energia",
-     "preco": 2.114,
-     "preco_texto": "2,114"
+     "preco": 2.089,
+     "preco_texto": "2,089"
+    },
+    {
+     "posto": "BP (Embra)",
+     "preco": 2.199,
+     "preco_texto": "2,199"
+    },
+    {
+     "posto": "BP (Marinha Grande)",
+     "preco": 2.199,
+     "preco_texto": "2,199"
     },
     {
      "posto": "ALVES BANDEIRA",
@@ -55,27 +70,12 @@
      "preco_texto": "2,203"
     },
     {
-     "posto": "BP (Embra)",
-     "preco": 2.249,
-     "preco_texto": "2,249"
-    },
-    {
-     "posto": "BP (Marinha Grande)",
-     "preco": 2.249,
-     "preco_texto": "2,249"
-    },
-    {
      "posto": "REPSOL (Albergaria)",
      "preco": 2.259,
      "preco_texto": "2,259"
     },
     {
      "posto": "REPSOL (R. Mc)",
-     "preco": 2.259,
-     "preco_texto": "2,259"
-    },
-    {
-     "posto": "REPSOL (R. Videiro)",
      "preco": 2.259,
      "preco_texto": "2,259"
     }
@@ -87,7 +87,7 @@
     "preco": 1.969,
     "preco_texto": "1,969"
    },
-   "media": 2.218,
+   "media": 2.204,
    "postos": [
     {
      "posto": "TRANSOGÁS",
@@ -116,13 +116,13 @@
     },
     {
      "posto": "OZ Energia",
-     "preco": 2.154,
-     "preco_texto": "2,154"
+     "preco": 2.129,
+     "preco_texto": "2,129"
     },
     {
      "posto": "PRIO (Marinha Grande)",
-     "preco": 2.169,
-     "preco_texto": "2,169"
+     "preco": 2.129,
+     "preco_texto": "2,129"
     },
     {
      "posto": "GALP (Embra)",
@@ -135,6 +135,11 @@
      "preco_texto": "2,253"
     },
     {
+     "posto": "REPSOL (R. Videiro)",
+     "preco": 2.26,
+     "preco_texto": "2,260"
+    },
+    {
      "posto": "REPSOL (Albergaria)",
      "preco": 2.329,
      "preco_texto": "2,329"
@@ -145,24 +150,19 @@
      "preco_texto": "2,329"
     },
     {
-     "posto": "REPSOL (R. Videiro)",
-     "preco": 2.329,
-     "preco_texto": "2,329"
+     "posto": "BP (Embra)",
+     "preco": 2.339,
+     "preco_texto": "2,339"
+    },
+    {
+     "posto": "BP (Marinha Grande)",
+     "preco": 2.339,
+     "preco_texto": "2,339"
     },
     {
      "posto": "PINGO DOCE",
      "preco": 2.374,
      "preco_texto": "2,374"
-    },
-    {
-     "posto": "BP (Embra)",
-     "preco": 2.379,
-     "preco_texto": "2,379"
-    },
-    {
-     "posto": "BP (Marinha Grande)",
-     "preco": 2.379,
-     "preco_texto": "2,379"
     }
    ]
   },
@@ -172,7 +172,7 @@
     "preco": 1.779,
     "preco_texto": "1,779"
    },
-   "media": 1.94,
+   "media": 1.938,
    "postos": [
     {
      "posto": "PLENERGY",
@@ -195,11 +195,6 @@
      "preco_texto": "1,878"
     },
     {
-     "posto": "OZ Energia",
-     "preco": 1.879,
-     "preco_texto": "1,879"
-    },
-    {
      "posto": "INPAR ENERGY",
      "preco": 1.909,
      "preco_texto": "1,909"
@@ -220,24 +215,34 @@
      "preco_texto": "1,957"
     },
     {
+     "posto": "OZ Energia",
+     "preco": 1.959,
+     "preco_texto": "1,959"
+    },
+    {
+     "posto": "PRIO (Marinha Grande)",
+     "preco": 1.969,
+     "preco_texto": "1,969"
+    },
+    {
      "posto": "ALVES BANDEIRA",
      "preco": 1.972,
      "preco_texto": "1,972"
     },
     {
-     "posto": "PRIO (Marinha Grande)",
-     "preco": 1.989,
-     "preco_texto": "1,989"
-    },
-    {
      "posto": "BP (Embra)",
-     "preco": 2.009,
-     "preco_texto": "2,009"
+     "preco": 1.979,
+     "preco_texto": "1,979"
     },
     {
      "posto": "BP (Marinha Grande)",
-     "preco": 2.009,
-     "preco_texto": "2,009"
+     "preco": 1.979,
+     "preco_texto": "1,979"
+    },
+    {
+     "posto": "REPSOL (R. Videiro)",
+     "preco": 1.999,
+     "preco_texto": "1,999"
     },
     {
      "posto": "REPSOL (Albergaria)",
@@ -246,11 +251,6 @@
     },
     {
      "posto": "REPSOL (R. Mc)",
-     "preco": 2.029,
-     "preco_texto": "2,029"
-    },
-    {
-     "posto": "REPSOL (R. Videiro)",
      "preco": 2.029,
      "preco_texto": "2,029"
     }
@@ -262,7 +262,7 @@
     "preco": 1.829,
     "preco_texto": "1,829"
    },
-   "media": 1.993,
+   "media": 1.988,
    "postos": [
     {
      "posto": "PLENERGY",
@@ -276,8 +276,8 @@
     },
     {
      "posto": "PRIO (Marinha Grande)",
-     "preco": 1.939,
-     "preco_texto": "1,939"
+     "preco": 1.919,
+     "preco_texto": "1,919"
     },
     {
      "posto": "GALP (Embra)",
@@ -290,17 +290,17 @@
      "preco_texto": "2,007"
     },
     {
+     "posto": "REPSOL (R. Videiro)",
+     "preco": 2.079,
+     "preco_texto": "2,079"
+    },
+    {
      "posto": "REPSOL (Albergaria)",
      "preco": 2.099,
      "preco_texto": "2,099"
     },
     {
      "posto": "REPSOL (R. Mc)",
-     "preco": 2.099,
-     "preco_texto": "2,099"
-    },
-    {
-     "posto": "REPSOL (R. Videiro)",
      "preco": 2.099,
      "preco_texto": "2,099"
     }
@@ -312,7 +312,7 @@
     "preco": 2.009,
     "preco_texto": "2,009"
    },
-   "media": 2.168,
+   "media": 2.166,
    "postos": [
     {
      "posto": "INPAR ENERGY",
@@ -325,11 +325,6 @@
      "preco_texto": "2,019"
     },
     {
-     "posto": "OZ Energia",
-     "preco": 2.119,
-     "preco_texto": "2,119"
-    },
-    {
      "posto": "ALVES BANDEIRA",
      "preco": 2.142,
      "preco_texto": "2,142"
@@ -340,27 +335,32 @@
      "preco_texto": "2,187"
     },
     {
+     "posto": "BP (Embra)",
+     "preco": 2.199,
+     "preco_texto": "2,199"
+    },
+    {
+     "posto": "BP (Marinha Grande)",
+     "preco": 2.199,
+     "preco_texto": "2,199"
+    },
+    {
+     "posto": "OZ Energia",
+     "preco": 2.199,
+     "preco_texto": "2,199"
+    },
+    {
      "posto": "PINGO DOCE",
      "preco": 2.229,
      "preco_texto": "2,229"
     },
     {
-     "posto": "BP (Embra)",
-     "preco": 2.239,
-     "preco_texto": "2,239"
-    },
-    {
-     "posto": "BP (Marinha Grande)",
-     "preco": 2.239,
-     "preco_texto": "2,239"
+     "posto": "REPSOL (R. Videiro)",
+     "preco": 2.229,
+     "preco_texto": "2,229"
     },
     {
      "posto": "REPSOL (Albergaria)",
-     "preco": 2.249,
-     "preco_texto": "2,249"
-    },
-    {
-     "posto": "REPSOL (R. Videiro)",
      "preco": 2.249,
      "preco_texto": "2,249"
     }
