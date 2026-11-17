@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-17 04:29",
+ "atualizado": "2026-11-17 14:27",
  "grupos": {
   "Gasóleo simples": {
    "mais_barato": {
@@ -55,11 +55,6 @@
      "preco_texto": "2,199"
     },
     {
-     "posto": "REPSOL (R. Mc)",
-     "preco": 2.199,
-     "preco_texto": "2,199"
-    },
-    {
      "posto": "BP (Embra)",
      "preco": 2.204,
      "preco_texto": "2,204"
@@ -71,6 +66,11 @@
     },
     {
      "posto": "REPSOL (Albergaria)",
+     "preco": 2.209,
+     "preco_texto": "2,209"
+    },
+    {
+     "posto": "REPSOL (R. Mc)",
      "preco": 2.209,
      "preco_texto": "2,209"
     },
@@ -87,7 +87,7 @@
     "preco": 1.969,
     "preco_texto": "1,969"
    },
-   "media": 2.191,
+   "media": 2.192,
    "postos": [
     {
      "posto": "TRANSOGÁS",
@@ -135,12 +135,12 @@
      "preco_texto": "2,249"
     },
     {
-     "posto": "REPSOL (R. Mc)",
-     "preco": 2.269,
-     "preco_texto": "2,269"
+     "posto": "REPSOL (Albergaria)",
+     "preco": 2.279,
+     "preco_texto": "2,279"
     },
     {
-     "posto": "REPSOL (Albergaria)",
+     "posto": "REPSOL (R. Mc)",
      "preco": 2.279,
      "preco_texto": "2,279"
     },
