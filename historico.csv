@@ -657,3 +657,11 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-11-18 14:01,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasolina simples 95,1.999,1.949,-5.0,desceu,1.949,2026-11-18 13:25,2.224,2026-10-13 00:00
 2026-11-18 14:01,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasolina especial 95,2.079,2.019,-6.0,desceu,2.019,2026-11-18 13:25,2.294,2026-10-13 00:00
 2026-11-18 14:01,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasolina especial 98,2.229,2.169,-6.0,desceu,2.169,2026-11-18 13:25,2.424,2026-10-13 00:00
+2026-11-18 21:58,OZ ENERGIA - MARINHA GRANDE (Amieirinha),Gasóleo simples,2.089,2.054,-3.5,desceu,2.054,2026-11-18 15:00,2.204,2026-10-26 00:00
+2026-11-18 21:58,OZ ENERGIA - MARINHA GRANDE (Amieirinha),Gasóleo especial,2.129,2.094,-3.5,desceu,2.094,2026-11-18 15:00,2.244,2026-10-26 00:00
+2026-11-18 21:58,OZ ENERGIA - MARINHA GRANDE (Amieirinha),Gasolina simples 95,1.959,1.854,-10.5,desceu,1.854,2026-11-18 15:00,2.104,2026-10-12 00:00
+2026-11-18 21:58,OZ ENERGIA - MARINHA GRANDE (Amieirinha),Gasolina 98,2.199,2.094,-10.5,desceu,2.094,2026-11-18 15:00,2.324,2026-10-12 00:00
+2026-11-18 21:58,PLENERGY (Marinha Grande),Gasóleo simples,1.999,1.979,-2.0,desceu,1.979,2026-10-23 11:05,2.089,2026-10-13 17:01
+2026-11-18 21:58,PLENERGY (Marinha Grande),Gasóleo plus,2.049,2.029,-2.0,desceu,1.999,2026-10-15 10:57,2.109,2026-11-03 15:10
+2026-11-18 21:58,PLENERGY (Marinha Grande),Gasolina 95 simples,1.779,1.759,-2.0,desceu,1.759,2026-11-18 21:58,1.949,2026-10-22 16:19
+2026-11-18 21:58,PLENERGY (Marinha Grande),Gasolina 95 plus,1.829,1.809,-2.0,desceu,1.809,2026-11-18 21:58,1.999,2026-10-22 16:19

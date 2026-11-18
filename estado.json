@@ -165,6 +165,31 @@
   "lon": -8.93315,
   "morada": "Av. José Gregório\r\n"
  },
+ "95309": {
+  "nome": "OZ ENERGIA - MARINHA GRANDE (Amieirinha)",
+  "aviso": "OZ Energia",
+  "precos": {
+   "Gasóleo simples": [
+    "2,054 €/litro",
+    "18-11-2026 15:00"
+   ],
+   "Gasóleo especial": [
+    "2,094 €/litro",
+    "18-11-2026 15:00"
+   ],
+   "Gasolina simples 95": [
+    "1,854 €/litro",
+    "18-11-2026 15:00"
+   ],
+   "Gasolina 98": [
+    "2,094 €/litro",
+    "18-11-2026 15:00"
+   ]
+  },
+  "lat": 39.72187,
+  "lon": -8.926169,
+  "morada": "Estrada do Guilherme"
+ },
  "78233": {
   "nome": "PINGO DOCE PD LEIRIA MARRAZES (Marrazes - Rego de Água)",
   "aviso": "PINGO DOCE",
@@ -268,31 +293,6 @@
   "lat": 39.74714,
   "lon": -8.93429,
   "morada": "Praceta do Vidreiro nº 12"
- },
- "95309": {
-  "nome": "OZ ENERGIA - MARINHA GRANDE (Amieirinha)",
-  "aviso": "OZ Energia",
-  "precos": {
-   "Gasóleo simples": [
-    "2,089 €/litro",
-    "16-11-2026 00:00"
-   ],
-   "Gasóleo especial": [
-    "2,129 €/litro",
-    "16-11-2026 00:00"
-   ],
-   "Gasolina simples 95": [
-    "1,959 €/litro",
-    "16-11-2026 00:00"
-   ],
-   "Gasolina 98": [
-    "2,199 €/litro",
-    "16-11-2026 00:00"
-   ]
-  },
-  "lat": 39.72187,
-  "lon": -8.926169,
-  "morada": "Estrada do Guilherme"
  },
  "65415": {
   "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
@@ -403,19 +403,19 @@
   "aviso": "PLENERGY",
   "precos": {
    "Gasóleo simples": [
-    "1,999 €/litro",
+    "1,979 €/litro",
     ""
    ],
    "Gasóleo plus": [
-    "2,049 €/litro",
+    "2,029 €/litro",
     ""
    ],
    "Gasolina 95 simples": [
-    "1,779 €/litro",
+    "1,759 €/litro",
     ""
    ],
    "Gasolina 95 plus": [
-    "1,829 €/litro",
+    "1,809 €/litro",
     ""
    ]
   },
@@ -424,9 +424,7 @@
   "morada": "Avenida Dr. José Henriques Vareda, nº 32"
  },
  "_meta": {
-  "falhas": {
-   "Contas Poupança (site)": 1
-  },
+  "falhas": {},
   "ultimo_resumo": "2026-11-18",
   "isp_vistos": [
    "atualizacao isp | preco dos combustiveis na proxima semana (5 a 11 de outubro)",
@@ -773,8 +771,8 @@
    "95309": {
     "Gasóleo simples": {
      "min": [
-      2.089,
-      "2026-11-16 00:00"
+      2.054,
+      "2026-11-18 15:00"
      ],
      "max": [
       2.204,
@@ -783,8 +781,8 @@
     },
     "Gasóleo especial": {
      "min": [
-      2.129,
-      "2026-11-16 00:00"
+      2.094,
+      "2026-11-18 15:00"
      ],
      "max": [
       2.244,
@@ -793,8 +791,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      1.879,
-      "2026-11-09 00:00"
+      1.854,
+      "2026-11-18 15:00"
      ],
      "max": [
       2.104,
@@ -803,8 +801,8 @@
     },
     "Gasolina 98": {
      "min": [
-      2.119,
-      "2026-11-09 00:00"
+      2.094,
+      "2026-11-18 15:00"
      ],
      "max": [
       2.324,
@@ -1107,8 +1105,8 @@
     },
     "Gasolina 95 simples": {
      "min": [
-      1.779,
-      "2026-11-12 11:16"
+      1.759,
+      "2026-11-18 21:58"
      ],
      "max": [
       1.949,
@@ -1117,8 +1115,8 @@
     },
     "Gasolina 95 plus": {
      "min": [
-      1.829,
-      "2026-11-12 11:16"
+      1.809,
+      "2026-11-18 21:58"
      ],
      "max": [
       1.999,
