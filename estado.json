@@ -403,19 +403,19 @@
   "aviso": "PLENERGY",
   "precos": {
    "Gasóleo simples": [
-    "1,979 €/litro",
+    "1,959 €/litro",
     ""
    ],
    "Gasóleo plus": [
-    "2,029 €/litro",
+    "2,009 €/litro",
     ""
    ],
    "Gasolina 95 simples": [
-    "1,759 €/litro",
+    "1,739 €/litro",
     ""
    ],
    "Gasolina 95 plus": [
-    "1,809 €/litro",
+    "1,789 €/litro",
     ""
    ]
   },
@@ -425,7 +425,7 @@
  },
  "_meta": {
   "falhas": {},
-  "ultimo_resumo": "2026-11-18",
+  "ultimo_resumo": "2026-11-19",
   "isp_vistos": [
    "atualizacao isp | preco dos combustiveis na proxima semana (5 a 11 de outubro)",
    "preco dos combustiveis na proxima semana (12 a 18 de outubro)",
@@ -1085,8 +1085,8 @@
    "plenergy-404": {
     "Gasóleo simples": {
      "min": [
-      1.979,
-      "2026-10-23 11:05"
+      1.959,
+      "2026-11-19 13:12"
      ],
      "max": [
       2.089,
@@ -1105,8 +1105,8 @@
     },
     "Gasolina 95 simples": {
      "min": [
-      1.759,
-      "2026-11-18 21:58"
+      1.739,
+      "2026-11-19 13:12"
      ],
      "max": [
       1.949,
@@ -1115,8 +1115,8 @@
     },
     "Gasolina 95 plus": {
      "min": [
-      1.809,
-      "2026-11-18 21:58"
+      1.789,
+      "2026-11-19 13:12"
      ],
      "max": [
       1.999,
