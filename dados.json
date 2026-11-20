@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-19 13:12",
+ "atualizado": "2026-11-20 03:18",
  "grupos": {
   "Gasóleo simples": {
    "mais_barato": {
@@ -7,7 +7,7 @@
     "preco": 1.929,
     "preco_texto": "1,929"
    },
-   "media": 2.106,
+   "media": 2.115,
    "postos": [
     {
      "posto": "TRANSOGÁS",
@@ -45,16 +45,6 @@
      "preco_texto": "2,149"
     },
     {
-     "posto": "REPSOL (R. Mc)",
-     "preco": 2.149,
-     "preco_texto": "2,149"
-    },
-    {
-     "posto": "REPSOL (R. Videiro)",
-     "preco": 2.149,
-     "preco_texto": "2,149"
-    },
-    {
      "posto": "ALVES BANDEIRA",
      "preco": 2.157,
      "preco_texto": "2,157"
@@ -78,6 +68,16 @@
      "posto": "BP (Marinha Grande)",
      "preco": 2.204,
      "preco_texto": "2,204"
+    },
+    {
+     "posto": "REPSOL (R. Mc)",
+     "preco": 2.209,
+     "preco_texto": "2,209"
+    },
+    {
+     "posto": "REPSOL (R. Videiro)",
+     "preco": 2.209,
+     "preco_texto": "2,209"
     }
    ]
   },
@@ -87,7 +87,7 @@
     "preco": 1.969,
     "preco_texto": "1,969"
    },
-   "media": 2.175,
+   "media": 2.183,
    "postos": [
     {
      "posto": "TRANSOGÁS",
@@ -130,16 +130,6 @@
      "preco_texto": "2,219"
     },
     {
-     "posto": "REPSOL (R. Mc)",
-     "preco": 2.219,
-     "preco_texto": "2,219"
-    },
-    {
-     "posto": "REPSOL (R. Videiro)",
-     "preco": 2.219,
-     "preco_texto": "2,219"
-    },
-    {
      "posto": "GALP (Embra)",
      "preco": 2.249,
      "preco_texto": "2,249"
@@ -148,6 +138,16 @@
      "posto": "GALP (Marinha Grande)",
      "preco": 2.249,
      "preco_texto": "2,249"
+    },
+    {
+     "posto": "REPSOL (R. Mc)",
+     "preco": 2.279,
+     "preco_texto": "2,279"
+    },
+    {
+     "posto": "REPSOL (R. Videiro)",
+     "preco": 2.279,
+     "preco_texto": "2,279"
     },
     {
      "posto": "PINGO DOCE",
@@ -172,7 +172,7 @@
     "preco": 1.739,
     "preco_texto": "1,739"
    },
-   "media": 1.914,
+   "media": 1.92,
    "postos": [
     {
      "posto": "PLENERGY",
@@ -215,16 +215,6 @@
      "preco_texto": "1,949"
     },
     {
-     "posto": "REPSOL (R. Mc)",
-     "preco": 1.949,
-     "preco_texto": "1,949"
-    },
-    {
-     "posto": "REPSOL (R. Videiro)",
-     "preco": 1.949,
-     "preco_texto": "1,949"
-    },
-    {
      "posto": "ALVES BANDEIRA",
      "preco": 1.952,
      "preco_texto": "1,952"
@@ -253,6 +243,16 @@
      "posto": "BP (Marinha Grande)",
      "preco": 1.979,
      "preco_texto": "1,979"
+    },
+    {
+     "posto": "REPSOL (R. Mc)",
+     "preco": 1.999,
+     "preco_texto": "1,999"
+    },
+    {
+     "posto": "REPSOL (R. Videiro)",
+     "preco": 1.999,
+     "preco_texto": "1,999"
     }
    ]
   },
@@ -262,7 +262,7 @@
     "preco": 1.789,
     "preco_texto": "1,789"
    },
-   "media": 1.96,
+   "media": 1.975,
    "postos": [
     {
      "posto": "PLENERGY",
@@ -285,16 +285,6 @@
      "preco_texto": "2,019"
     },
     {
-     "posto": "REPSOL (R. Mc)",
-     "preco": 2.019,
-     "preco_texto": "2,019"
-    },
-    {
-     "posto": "REPSOL (R. Videiro)",
-     "preco": 2.019,
-     "preco_texto": "2,019"
-    },
-    {
      "posto": "GALP (Embra)",
      "preco": 2.027,
      "preco_texto": "2,027"
@@ -303,6 +293,16 @@
      "posto": "GALP (Marinha Grande)",
      "preco": 2.027,
      "preco_texto": "2,027"
+    },
+    {
+     "posto": "REPSOL (R. Mc)",
+     "preco": 2.079,
+     "preco_texto": "2,079"
+    },
+    {
+     "posto": "REPSOL (R. Videiro)",
+     "preco": 2.079,
+     "preco_texto": "2,079"
     }
    ]
   },
@@ -312,7 +312,7 @@
     "preco": 1.999,
     "preco_texto": "1,999"
    },
-   "media": 2.136,
+   "media": 2.142,
    "postos": [
     {
      "posto": "INPAR ENERGY",
@@ -340,11 +340,6 @@
      "preco_texto": "2,169"
     },
     {
-     "posto": "REPSOL (R. Videiro)",
-     "preco": 2.169,
-     "preco_texto": "2,169"
-    },
-    {
      "posto": "BP (Embra)",
      "preco": 2.199,
      "preco_texto": "2,199"
@@ -363,6 +358,11 @@
      "posto": "GALP (Marinha Grande)",
      "preco": 2.207,
      "preco_texto": "2,207"
+    },
+    {
+     "posto": "REPSOL (R. Videiro)",
+     "preco": 2.229,
+     "preco_texto": "2,229"
     }
    ]
   },
