@@ -240,59 +240,59 @@
   "lon": -8.816806,
   "morada": "R. Dr. João Soares, Fração APorto Moniz"
  },
- "65415": {
-  "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
-  "aviso": "GALP (Embra)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,199 €/litro",
-    "16-11-2026 18:45"
-   ],
-   "Gasóleo especial": [
-    "2,249 €/litro",
-    "16-11-2026 18:45"
-   ],
-   "Gasolina simples 95": [
-    "1,977 €/litro",
-    "16-11-2026 18:45"
-   ],
-   "Gasolina especial 95": [
-    "2,027 €/litro",
-    "16-11-2026 18:45"
-   ]
-  },
-  "lat": 39.74782,
-  "lon": -8.91122,
-  "morada": "EN 242 Km 10,4"
- },
  "65416": {
   "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",
   "aviso": "GALP (Marinha Grande)",
   "precos": {
    "Gasóleo simples": [
-    "2,199 €/litro",
-    "16-11-2026 18:45"
+    "2,159 €/litro",
+    "21-11-2026 18:45"
    ],
    "Gasóleo especial": [
-    "2,249 €/litro",
-    "16-11-2026 18:45"
+    "2,209 €/litro",
+    "21-11-2026 18:45"
    ],
    "Gasolina simples 95": [
-    "1,977 €/litro",
-    "16-11-2026 18:45"
+    "1,947 €/litro",
+    "21-11-2026 18:45"
    ],
    "Gasolina especial 95": [
-    "2,027 €/litro",
-    "16-11-2026 18:45"
+    "1,997 €/litro",
+    "21-11-2026 18:45"
    ],
    "Gasolina especial 98": [
-    "2,207 €/litro",
-    "16-11-2026 18:45"
+    "2,177 €/litro",
+    "21-11-2026 18:45"
    ]
   },
   "lat": 39.74892,
   "lon": -8.92391,
   "morada": "EN 242 (Av. Vítor Galo) Km 11,5"
+ },
+ "65415": {
+  "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
+  "aviso": "GALP (Embra)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,159 €/litro",
+    "21-11-2026 18:50"
+   ],
+   "Gasóleo especial": [
+    "2,209 €/litro",
+    "21-11-2026 18:50"
+   ],
+   "Gasolina simples 95": [
+    "1,947 €/litro",
+    "21-11-2026 18:50"
+   ],
+   "Gasolina especial 95": [
+    "1,997 €/litro",
+    "21-11-2026 18:50"
+   ]
+  },
+  "lat": 39.74782,
+  "lon": -8.91122,
+  "morada": "EN 242 Km 10,4"
  },
  "93075": {
   "nome": "BP Embra (Marinha Grande) (Embra)",
@@ -425,7 +425,7 @@
  },
  "_meta": {
   "falhas": {
-   "Plenergy (site)": 3
+   "Plenergy (site)": 4
   },
   "ultimo_resumo": "2026-11-21",
   "isp_vistos": [
@@ -817,8 +817,8 @@
    "65416": {
     "Gasóleo simples": {
      "min": [
-      2.179,
-      "2026-10-24 18:50"
+      2.159,
+      "2026-11-21 18:45"
      ],
      "max": [
       2.329,
@@ -827,8 +827,8 @@
     },
     "Gasóleo especial": {
      "min": [
-      2.249,
-      "2026-11-16 18:45"
+      2.209,
+      "2026-11-21 18:45"
      ],
      "max": [
       2.379,
@@ -837,8 +837,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      1.957,
-      "2026-11-14 10:35"
+      1.947,
+      "2026-11-21 18:45"
      ],
      "max": [
       2.195,
@@ -847,8 +847,8 @@
     },
     "Gasolina especial 95": {
      "min": [
-      2.007,
-      "2026-11-14 10:35"
+      1.997,
+      "2026-11-21 18:45"
      ],
      "max": [
       2.245,
@@ -857,8 +857,8 @@
     },
     "Gasolina especial 98": {
      "min": [
-      2.187,
-      "2026-11-14 10:35"
+      2.177,
+      "2026-11-21 18:45"
      ],
      "max": [
       2.425,
@@ -869,8 +869,8 @@
    "65415": {
     "Gasóleo simples": {
      "min": [
-      2.199,
-      "2026-11-16 18:45"
+      2.159,
+      "2026-11-21 18:50"
      ],
      "max": [
       2.329,
@@ -879,8 +879,8 @@
     },
     "Gasóleo especial": {
      "min": [
-      2.249,
-      "2026-11-16 18:45"
+      2.209,
+      "2026-11-21 18:50"
      ],
      "max": [
       2.379,
@@ -889,8 +889,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      1.957,
-      "2026-11-14 10:35"
+      1.947,
+      "2026-11-21 18:50"
      ],
      "max": [
       2.195,
@@ -899,8 +899,8 @@
     },
     "Gasolina especial 95": {
      "min": [
-      2.007,
-      "2026-11-14 10:35"
+      1.997,
+      "2026-11-21 18:50"
      ],
      "max": [
       2.245,
