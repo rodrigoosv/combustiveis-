@@ -425,7 +425,7 @@
  },
  "_meta": {
   "falhas": {
-   "Plenergy (site)": 2
+   "Plenergy (site)": 3
   },
   "ultimo_resumo": "2026-11-21",
   "isp_vistos": [
@@ -1181,6 +1181,7 @@
     }
    }
   },
-  "pagina_versao": "70f070d5"
+  "pagina_versao": "70f070d5",
+  "ultimo_grafico": "2026-11-21"
  }
 }
