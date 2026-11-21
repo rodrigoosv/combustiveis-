@@ -240,6 +240,31 @@
   "lon": -8.816806,
   "morada": "R. Dr. João Soares, Fração APorto Moniz"
  },
+ "65415": {
+  "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
+  "aviso": "GALP (Embra)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,199 €/litro",
+    "16-11-2026 18:45"
+   ],
+   "Gasóleo especial": [
+    "2,249 €/litro",
+    "16-11-2026 18:45"
+   ],
+   "Gasolina simples 95": [
+    "1,977 €/litro",
+    "16-11-2026 18:45"
+   ],
+   "Gasolina especial 95": [
+    "2,027 €/litro",
+    "16-11-2026 18:45"
+   ]
+  },
+  "lat": 39.74782,
+  "lon": -8.91122,
+  "morada": "EN 242 Km 10,4"
+ },
  "65416": {
   "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",
   "aviso": "GALP (Marinha Grande)",
@@ -269,30 +294,30 @@
   "lon": -8.92391,
   "morada": "EN 242 (Av. Vítor Galo) Km 11,5"
  },
- "65415": {
-  "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",
-  "aviso": "GALP (Embra)",
+ "67868": {
+  "nome": "BP Marinha Grande (Marinha Grande)",
+  "aviso": "BP (Marinha Grande)",
   "precos": {
    "Gasóleo simples": [
-    "2,199 €/litro",
-    "16-11-2026 18:45"
+    "2,204 €/litro",
+    "21-11-2026 00:00"
    ],
    "Gasóleo especial": [
-    "2,249 €/litro",
-    "16-11-2026 18:45"
+    "2,344 €/litro",
+    "21-11-2026 00:00"
    ],
    "Gasolina simples 95": [
-    "1,977 €/litro",
-    "16-11-2026 18:45"
+    "1,979 €/litro",
+    "21-11-2026 00:00"
    ],
-   "Gasolina especial 95": [
-    "2,027 €/litro",
-    "16-11-2026 18:45"
+   "Gasolina especial 98": [
+    "2,199 €/litro",
+    "21-11-2026 00:00"
    ]
   },
-  "lat": 39.74782,
-  "lon": -8.91122,
-  "morada": "EN 242 Km 10,4"
+  "lat": 39.745975,
+  "lon": -8.934596,
+  "morada": "Av. Dr. José Henriques Vareda nº8"
  },
  "93075": {
   "nome": "BP Embra (Marinha Grande) (Embra)",
@@ -300,49 +325,24 @@
   "precos": {
    "Gasóleo simples": [
     "2,204 €/litro",
-    "20-11-2026 00:00"
+    "21-11-2026 00:00"
    ],
    "Gasóleo especial": [
     "2,344 €/litro",
-    "20-11-2026 00:00"
+    "21-11-2026 00:00"
    ],
    "Gasolina simples 95": [
     "1,979 €/litro",
-    "20-11-2026 00:00"
+    "21-11-2026 00:00"
    ],
    "Gasolina especial 98": [
     "2,199 €/litro",
-    "20-11-2026 00:00"
+    "21-11-2026 00:00"
    ]
   },
   "lat": 39.74759,
   "lon": -8.904907,
   "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
- },
- "67868": {
-  "nome": "BP Marinha Grande (Marinha Grande)",
-  "aviso": "BP (Marinha Grande)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,204 €/litro",
-    "20-11-2026 00:00"
-   ],
-   "Gasóleo especial": [
-    "2,344 €/litro",
-    "20-11-2026 00:00"
-   ],
-   "Gasolina simples 95": [
-    "1,979 €/litro",
-    "20-11-2026 00:00"
-   ],
-   "Gasolina especial 98": [
-    "2,199 €/litro",
-    "20-11-2026 00:00"
-   ]
-  },
-  "lat": 39.745975,
-  "lon": -8.934596,
-  "morada": "Av. Dr. José Henriques Vareda nº8"
  },
  "66596": {
   "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
@@ -424,7 +424,9 @@
   "morada": "Avenida Dr. José Henriques Vareda, nº 32"
  },
  "_meta": {
-  "falhas": {},
+  "falhas": {
+   "Plenergy (site)": 1
+  },
   "ultimo_resumo": "2026-11-20",
   "isp_vistos": [
    "atualizacao isp | preco dos combustiveis na proxima semana (5 a 11 de outubro)",
@@ -1179,6 +1181,6 @@
    }
   },
   "pagina_versao": "70f070d5",
-  "ultimo_grafico": "2026-11-20"
+  "ultimo_grafico": "2026-11-21"
  }
 }
