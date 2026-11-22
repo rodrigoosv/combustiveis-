@@ -344,6 +344,31 @@
   "lon": -8.934596,
   "morada": "Av. Dr. José Henriques Vareda nº8"
  },
+ "66596": {
+  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
+  "aviso": "REPSOL (R. Mc)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,209 €/litro",
+    "20-11-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,279 €/litro",
+    "20-11-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "1,999 €/litro",
+    "20-11-2026 00:00"
+   ],
+   "Gasolina especial 95": [
+    "2,079 €/litro",
+    "20-11-2026 00:00"
+   ]
+  },
+  "lat": 39.73495,
+  "lon": -8.93242,
+  "morada": "EN 242 Km 13,7"
+ },
  "66582": {
   "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
   "aviso": "REPSOL (R. Videiro)",
@@ -373,31 +398,6 @@
   "lon": -8.93429,
   "morada": "Praceta do Vidreiro nº 12"
  },
- "66596": {
-  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
-  "aviso": "REPSOL (R. Mc)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,209 €/litro",
-    "20-11-2026 00:00"
-   ],
-   "Gasóleo especial": [
-    "2,279 €/litro",
-    "20-11-2026 00:00"
-   ],
-   "Gasolina simples 95": [
-    "1,999 €/litro",
-    "20-11-2026 00:00"
-   ],
-   "Gasolina especial 95": [
-    "2,079 €/litro",
-    "20-11-2026 00:00"
-   ]
-  },
-  "lat": 39.73495,
-  "lon": -8.93242,
-  "morada": "EN 242 Km 13,7"
- },
  "plenergy-404": {
   "nome": "PLENERGY (Marinha Grande)",
   "aviso": "PLENERGY",
@@ -425,9 +425,9 @@
  },
  "_meta": {
   "falhas": {
-   "Plenergy (site)": 5
+   "Plenergy (site)": 6
   },
-  "ultimo_resumo": "2026-11-21",
+  "ultimo_resumo": "2026-11-22",
   "isp_vistos": [
    "atualizacao isp | preco dos combustiveis na proxima semana (5 a 11 de outubro)",
    "preco dos combustiveis na proxima semana (12 a 18 de outubro)",
@@ -1181,7 +1181,6 @@
     }
    }
   },
-  "pagina_versao": "70f070d5",
-  "ultimo_grafico": "2026-11-22"
+  "pagina_versao": "70f070d5"
  }
 }
