@@ -59,27 +59,27 @@
   "precos": {
    "GPL Auto": [
     "1,129 €/litro",
-    "18-11-2026 00:00"
+    "22-11-2026 19:00"
    ],
    "Gasóleo simples": [
-    "2,149 €/litro",
-    "18-11-2026 00:00"
+    "2,209 €/litro",
+    "22-11-2026 19:00"
    ],
    "Gasóleo especial": [
-    "2,219 €/litro",
-    "18-11-2026 00:00"
+    "2,279 €/litro",
+    "22-11-2026 19:00"
    ],
    "Gasolina simples 95": [
-    "1,949 €/litro",
-    "18-11-2026 00:00"
+    "2,009 €/litro",
+    "22-11-2026 19:00"
    ],
    "Gasolina especial 95": [
-    "2,019 €/litro",
-    "18-11-2026 00:00"
+    "2,079 €/litro",
+    "22-11-2026 19:00"
    ],
    "Gasolina especial 98": [
-    "2,169 €/litro",
-    "18-11-2026 00:00"
+    "2,229 €/litro",
+    "22-11-2026 19:00"
    ]
   },
   "lat": 39.7454,
@@ -425,7 +425,7 @@
  },
  "_meta": {
   "falhas": {
-   "Plenergy (site)": 6
+   "Plenergy (site)": 7
   },
   "ultimo_resumo": "2026-11-22",
   "isp_vistos": [
@@ -1181,6 +1181,7 @@
     }
    }
   },
-  "pagina_versao": "70f070d5"
+  "pagina_versao": "70f070d5",
+  "ultimo_grafico": "2026-11-22"
  }
 }
