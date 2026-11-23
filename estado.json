@@ -59,27 +59,27 @@
   "precos": {
    "GPL Auto": [
     "1,129 €/litro",
-    "22-11-2026 19:00"
+    "23-11-2026 00:00"
    ],
    "Gasóleo simples": [
-    "2,209 €/litro",
-    "22-11-2026 19:00"
+    "2,174 €/litro",
+    "23-11-2026 00:00"
    ],
    "Gasóleo especial": [
-    "2,279 €/litro",
-    "22-11-2026 19:00"
+    "2,244 €/litro",
+    "23-11-2026 00:00"
    ],
    "Gasolina simples 95": [
-    "2,009 €/litro",
-    "22-11-2026 19:00"
+    "1,974 €/litro",
+    "23-11-2026 00:00"
    ],
    "Gasolina especial 95": [
-    "2,079 €/litro",
-    "22-11-2026 19:00"
+    "2,044 €/litro",
+    "23-11-2026 00:00"
    ],
    "Gasolina especial 98": [
-    "2,229 €/litro",
-    "22-11-2026 19:00"
+    "2,194 €/litro",
+    "23-11-2026 00:00"
    ]
   },
   "lat": 39.7454,
@@ -91,24 +91,24 @@
   "aviso": "PRIO (Marinha Grande)",
   "precos": {
    "Gasóleo especial": [
-    "2,129 €/litro",
-    "16-11-2026 13:00"
+    "2,079 €/litro",
+    "23-11-2026 00:00"
    ],
    "Biodiesel B15": [
-    "2,169 €/litro",
-    "16-11-2026 13:00"
+    "2,119 €/litro",
+    "23-11-2026 00:00"
    ],
    "Gasóleo colorido": [
-    "1,699 €/litro",
-    "16-11-2026 13:00"
+    "1,659 €/litro",
+    "23-11-2026 00:00"
    ],
    "Gasolina simples 95": [
-    "1,969 €/litro",
-    "16-11-2026 13:00"
+    "1,939 €/litro",
+    "23-11-2026 00:00"
    ],
    "Gasolina especial 95": [
-    "1,919 €/litro",
-    "16-11-2026 13:00"
+    "1,889 €/litro",
+    "23-11-2026 00:00"
    ]
   },
   "lat": 39.765953,
@@ -165,6 +165,31 @@
   "lon": -8.93315,
   "morada": "Av. José Gregório\r\n"
  },
+ "91178": {
+  "nome": "PRIO Leiria Circular (Leiria)",
+  "aviso": "PRIO (Leiria)",
+  "precos": {
+   "Gasóleo especial": [
+    "2,039 €/litro",
+    "23-11-2026 00:25"
+   ],
+   "Biodiesel B15": [
+    "2,009 €/litro",
+    "23-11-2026 00:25"
+   ],
+   "Gasolina simples 95": [
+    "1,899 €/litro",
+    "23-11-2026 00:25"
+   ],
+   "Gasolina especial 95": [
+    "1,834 €/litro",
+    "23-11-2026 00:25"
+   ]
+  },
+  "lat": 39.73963,
+  "lon": -8.816806,
+  "morada": "R. Dr. João Soares, Fração APorto Moniz"
+ },
  "95309": {
   "nome": "OZ ENERGIA - MARINHA GRANDE (Amieirinha)",
   "aviso": "OZ Energia",
@@ -214,31 +239,6 @@
   "lat": 39.76125,
   "lon": -8.82138,
   "morada": "Rua 25 de Abril"
- },
- "91178": {
-  "nome": "PRIO Leiria Circular (Leiria)",
-  "aviso": "PRIO (Leiria)",
-  "precos": {
-   "Gasóleo especial": [
-    "2,084 €/litro",
-    "22-11-2026 00:25"
-   ],
-   "Biodiesel B15": [
-    "2,054 €/litro",
-    "22-11-2026 00:25"
-   ],
-   "Gasolina simples 95": [
-    "1,929 €/litro",
-    "22-11-2026 00:25"
-   ],
-   "Gasolina especial 95": [
-    "1,864 €/litro",
-    "22-11-2026 00:25"
-   ]
-  },
-  "lat": 39.73963,
-  "lon": -8.816806,
-  "morada": "R. Dr. João Soares, Fração APorto Moniz"
  },
  "65416": {
   "nome": "GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",
@@ -294,55 +294,84 @@
   "lon": -8.91122,
   "morada": "EN 242 Km 10,4"
  },
+ "67868": {
+  "nome": "BP Marinha Grande (Marinha Grande)",
+  "aviso": "BP (Marinha Grande)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,159 €/litro",
+    "23-11-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,299 €/litro",
+    "23-11-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "1,949 €/litro",
+    "23-11-2026 00:00"
+   ],
+   "Gasolina especial 98": [
+    "2,169 €/litro",
+    "23-11-2026 00:00"
+   ]
+  },
+  "lat": 39.745975,
+  "lon": -8.934596,
+  "morada": "Av. Dr. José Henriques Vareda nº8"
+ },
  "93075": {
   "nome": "BP Embra (Marinha Grande) (Embra)",
   "aviso": "BP (Embra)",
   "precos": {
    "Gasóleo simples": [
-    "2,204 €/litro",
-    "22-11-2026 00:00"
+    "2,159 €/litro",
+    "23-11-2026 00:00"
    ],
    "Gasóleo especial": [
-    "2,344 €/litro",
-    "22-11-2026 00:00"
+    "2,299 €/litro",
+    "23-11-2026 00:00"
    ],
    "Gasolina simples 95": [
-    "1,979 €/litro",
-    "22-11-2026 00:00"
+    "1,949 €/litro",
+    "23-11-2026 00:00"
    ],
    "Gasolina especial 98": [
-    "2,199 €/litro",
-    "22-11-2026 00:00"
+    "2,169 €/litro",
+    "23-11-2026 00:00"
    ]
   },
   "lat": 39.74759,
   "lon": -8.904907,
   "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
  },
- "67868": {
-  "nome": "BP Marinha Grande (Marinha Grande)",
-  "aviso": "BP (Marinha Grande)",
+ "66582": {
+  "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
+  "aviso": "REPSOL (R. Videiro)",
   "precos": {
    "Gasóleo simples": [
-    "2,204 €/litro",
-    "22-11-2026 00:00"
+    "2,174 €/litro",
+    "23-11-2026 00:00"
    ],
    "Gasóleo especial": [
-    "2,344 €/litro",
-    "22-11-2026 00:00"
+    "2,244 €/litro",
+    "23-11-2026 00:00"
    ],
    "Gasolina simples 95": [
-    "1,979 €/litro",
-    "22-11-2026 00:00"
+    "1,974 €/litro",
+    "23-11-2026 00:00"
+   ],
+   "Gasolina especial 95": [
+    "2,044 €/litro",
+    "23-11-2026 00:00"
    ],
    "Gasolina especial 98": [
-    "2,199 €/litro",
-    "22-11-2026 00:00"
+    "2,194 €/litro",
+    "23-11-2026 00:00"
    ]
   },
-  "lat": 39.745975,
-  "lon": -8.934596,
-  "morada": "Av. Dr. José Henriques Vareda nº8"
+  "lat": 39.74714,
+  "lon": -8.93429,
+  "morada": "Praceta do Vidreiro nº 12"
  },
  "66596": {
   "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
@@ -368,35 +397,6 @@
   "lat": 39.73495,
   "lon": -8.93242,
   "morada": "EN 242 Km 13,7"
- },
- "66582": {
-  "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
-  "aviso": "REPSOL (R. Videiro)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,209 €/litro",
-    "20-11-2026 00:00"
-   ],
-   "Gasóleo especial": [
-    "2,279 €/litro",
-    "20-11-2026 00:00"
-   ],
-   "Gasolina simples 95": [
-    "1,999 €/litro",
-    "20-11-2026 00:00"
-   ],
-   "Gasolina especial 95": [
-    "2,079 €/litro",
-    "20-11-2026 00:00"
-   ],
-   "Gasolina especial 98": [
-    "2,229 €/litro",
-    "20-11-2026 00:00"
-   ]
-  },
-  "lat": 39.74714,
-  "lon": -8.93429,
-  "morada": "Praceta do Vidreiro nº 12"
  },
  "plenergy-404": {
   "nome": "PLENERGY (Marinha Grande)",
@@ -425,7 +425,7 @@
  },
  "_meta": {
   "falhas": {
-   "Plenergy (site)": 7
+   "Plenergy (site)": 8
   },
   "ultimo_resumo": "2026-11-22",
   "isp_vistos": [
@@ -555,8 +555,8 @@
    "93762": {
     "Gasóleo especial": {
      "min": [
-      2.129,
-      "2026-11-16 00:00"
+      2.079,
+      "2026-11-23 00:00"
      ],
      "max": [
       2.249,
@@ -565,8 +565,8 @@
     },
     "Biodiesel B15": {
      "min": [
-      2.169,
-      "2026-11-16 00:00"
+      2.119,
+      "2026-11-23 00:00"
      ],
      "max": [
       2.289,
@@ -575,8 +575,8 @@
     },
     "Gasóleo colorido": {
      "min": [
-      1.699,
-      "2026-11-16 00:00"
+      1.659,
+      "2026-11-23 00:00"
      ],
      "max": [
       1.829,
@@ -585,8 +585,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      1.969,
-      "2026-11-16 00:00"
+      1.939,
+      "2026-11-23 00:00"
      ],
      "max": [
       2.199,
@@ -595,8 +595,8 @@
     },
     "Gasolina especial 95": {
      "min": [
-      1.919,
-      "2026-11-16 00:00"
+      1.889,
+      "2026-11-23 00:00"
      ],
      "max": [
       2.149,
@@ -691,8 +691,8 @@
    "91178": {
     "Gasóleo especial": {
      "min": [
-      2.084,
-      "2026-11-15 00:30"
+      2.039,
+      "2026-11-23 00:25"
      ],
      "max": [
       2.209,
@@ -701,8 +701,8 @@
     },
     "Biodiesel B15": {
      "min": [
-      2.054,
-      "2026-11-15 00:30"
+      2.009,
+      "2026-11-23 00:25"
      ],
      "max": [
       2.179,
@@ -711,8 +711,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      1.929,
-      "2026-11-15 00:30"
+      1.899,
+      "2026-11-23 00:25"
      ],
      "max": [
       2.154,
@@ -721,8 +721,8 @@
     },
     "Gasolina especial 95": {
      "min": [
-      1.864,
-      "2026-11-15 00:30"
+      1.834,
+      "2026-11-23 00:25"
      ],
      "max": [
       2.089,
@@ -1005,8 +1005,8 @@
    "67868": {
     "Gasóleo simples": {
      "min": [
-      2.199,
-      "2026-11-16 00:00"
+      2.159,
+      "2026-11-23 00:00"
      ],
      "max": [
       2.339,
@@ -1015,8 +1015,8 @@
     },
     "Gasóleo especial": {
      "min": [
-      2.339,
-      "2026-11-16 00:00"
+      2.299,
+      "2026-11-23 00:00"
      ],
      "max": [
       2.459,
@@ -1025,8 +1025,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      1.979,
-      "2026-11-16 00:00"
+      1.949,
+      "2026-11-23 00:00"
      ],
      "max": [
       2.229,
@@ -1035,8 +1035,8 @@
     },
     "Gasolina especial 98": {
      "min": [
-      2.199,
-      "2026-11-16 00:00"
+      2.169,
+      "2026-11-23 00:00"
      ],
      "max": [
       2.459,
@@ -1047,8 +1047,8 @@
    "93075": {
     "Gasóleo simples": {
      "min": [
-      2.199,
-      "2026-11-16 00:00"
+      2.159,
+      "2026-11-23 00:00"
      ],
      "max": [
       2.339,
@@ -1057,8 +1057,8 @@
     },
     "Gasóleo especial": {
      "min": [
-      2.339,
-      "2026-11-16 00:00"
+      2.299,
+      "2026-11-23 00:00"
      ],
      "max": [
       2.459,
@@ -1067,8 +1067,8 @@
     },
     "Gasolina simples 95": {
      "min": [
-      1.979,
-      "2026-11-16 00:00"
+      1.949,
+      "2026-11-23 00:00"
      ],
      "max": [
       2.229,
@@ -1077,8 +1077,8 @@
     },
     "Gasolina especial 98": {
      "min": [
-      2.199,
-      "2026-11-16 00:00"
+      2.169,
+      "2026-11-23 00:00"
      ],
      "max": [
       2.459,
@@ -1182,6 +1182,6 @@
    }
   },
   "pagina_versao": "70f070d5",
-  "ultimo_grafico": "2026-11-22"
+  "ultimo_grafico": "2026-11-23"
  }
 }
