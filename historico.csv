@@ -723,3 +723,11 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-11-23 02:46,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasolina simples 95,1.999,1.974,-2.5,desceu,1.949,2026-11-18 13:25,2.224,2026-10-13 00:00
 2026-11-23 02:46,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasolina especial 95,2.079,2.044,-3.5,desceu,2.019,2026-11-18 13:25,2.294,2026-10-13 00:00
 2026-11-23 02:46,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasolina especial 98,2.229,2.194,-3.5,desceu,2.169,2026-11-18 13:25,2.424,2026-10-13 00:00
+2026-11-23 12:47,ALVES BANDEIRA Moita (Moita),Gasóleo simples,2.157,2.114,-4.3,desceu,2.114,2026-11-23 11:00,2.287,2026-11-02 10:50
+2026-11-23 12:47,ALVES BANDEIRA Moita (Moita),Gasóleo colorido,1.779,1.729,-5.0,desceu,1.729,2026-11-23 11:00,1.929,2026-11-02 10:50
+2026-11-23 12:47,ALVES BANDEIRA Moita (Moita),Gasolina simples 95,1.952,1.919,-3.3,desceu,1.919,2026-11-23 11:00,2.187,2026-10-12 15:35
+2026-11-23 12:47,ALVES BANDEIRA Moita (Moita),Gasolina 98,2.122,2.089,-3.3,desceu,2.089,2026-11-23 11:00,2.357,2026-10-12 15:35
+2026-11-23 12:47,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasóleo simples,2.209,2.174,-3.5,desceu,2.149,2026-11-18 09:30,2.339,2026-11-02 09:30
+2026-11-23 12:47,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasóleo especial,2.279,2.244,-3.5,desceu,2.219,2026-11-18 09:30,2.409,2026-11-02 09:30
+2026-11-23 12:47,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasolina simples 95,1.999,1.974,-2.5,desceu,1.949,2026-11-18 09:30,2.224,2026-10-13 00:00
+2026-11-23 12:47,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasolina especial 95,2.079,2.044,-3.5,desceu,2.019,2026-11-18 09:30,2.294,2026-10-13 00:00
