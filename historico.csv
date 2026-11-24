@@ -756,3 +756,11 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-11-24 00:53,BP Embra (Marinha Grande) (Embra),Gasolina especial 98,2.169,2.179,+1.0,subiu,2.169,2026-11-23 00:00,2.459,2026-10-12 00:00
 2026-11-24 00:53,BP Marinha Grande (Marinha Grande),Gasolina simples 95,1.949,1.959,+1.0,subiu,1.949,2026-11-23 00:00,2.229,2026-10-12 00:00
 2026-11-24 00:53,BP Marinha Grande (Marinha Grande),Gasolina especial 98,2.169,2.179,+1.0,subiu,2.169,2026-11-23 00:00,2.459,2026-10-12 00:00
+2026-11-24 10:56,OZ ENERGIA - MARINHA GRANDE (Amieirinha),Gasóleo simples,2.054,2.009,-4.5,desceu,2.009,2026-11-24 10:45,2.204,2026-10-26 00:00
+2026-11-24 10:56,OZ ENERGIA - MARINHA GRANDE (Amieirinha),Gasóleo especial,2.094,2.049,-4.5,desceu,2.049,2026-11-24 10:45,2.244,2026-10-26 00:00
+2026-11-24 10:56,OZ ENERGIA - MARINHA GRANDE (Amieirinha),Gasolina simples 95,1.854,1.819,-3.5,desceu,1.819,2026-11-24 10:45,2.104,2026-10-12 00:00
+2026-11-24 10:56,OZ ENERGIA - MARINHA GRANDE (Amieirinha),Gasolina 98,2.094,2.059,-3.5,desceu,2.059,2026-11-24 10:45,2.324,2026-10-12 00:00
+2026-11-24 10:56,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasóleo simples,2.156,2.159,+0.3,subiu,2.156,2026-11-23 16:00,2.329,2026-11-02 20:05
+2026-11-24 10:56,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasóleo especial,2.206,2.209,+0.3,subiu,2.206,2026-11-23 16:00,2.379,2026-11-02 20:05
+2026-11-24 10:56,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasóleo simples,2.156,2.159,+0.3,subiu,2.156,2026-11-23 15:55,2.329,2026-11-02 20:05
+2026-11-24 10:56,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasóleo especial,2.206,2.209,+0.3,subiu,2.206,2026-11-23 15:55,2.379,2026-11-02 20:05
