@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-25 04:14",
+ "atualizado": "2026-11-25 23:38",
  "grupos": {
   "Gasóleo simples": {
    "mais_barato": {
@@ -7,7 +7,7 @@
     "preco": 1.929,
     "preco_texto": "1,929"
    },
-   "media": 2.083,
+   "media": 2.082,
    "postos": [
     {
      "posto": "TRANSOGÁS",
@@ -76,8 +76,8 @@
     },
     {
      "posto": "REPSOL (Albergaria)",
-     "preco": 2.174,
-     "preco_texto": "2,174"
+     "preco": 2.169,
+     "preco_texto": "2,169"
     }
    ]
   },
@@ -146,8 +146,8 @@
     },
     {
      "posto": "REPSOL (Albergaria)",
-     "preco": 2.244,
-     "preco_texto": "2,244"
+     "preco": 2.239,
+     "preco_texto": "2,239"
     },
     {
      "posto": "BP (Embra)",
