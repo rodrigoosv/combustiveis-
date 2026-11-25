@@ -221,19 +221,19 @@
   "precos": {
    "Gasóleo especial": [
     "2,039 €/litro",
-    "23-11-2026 10:20"
+    "25-11-2026 00:30"
    ],
    "Biodiesel B15": [
     "2,009 €/litro",
-    "23-11-2026 10:20"
+    "25-11-2026 00:30"
    ],
    "Gasolina simples 95": [
     "1,899 €/litro",
-    "23-11-2026 10:20"
+    "25-11-2026 00:30"
    ],
    "Gasolina especial 95": [
     "1,834 €/litro",
-    "23-11-2026 10:20"
+    "25-11-2026 00:30"
    ]
   },
   "lat": 39.73963,
@@ -294,109 +294,109 @@
   "lon": -8.92391,
   "morada": "EN 242 (Av. Vítor Galo) Km 11,5"
  },
- "93075": {
-  "nome": "BP Embra (Marinha Grande) (Embra)",
-  "aviso": "BP (Embra)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,159 €/litro",
-    "24-11-2026 00:00"
-   ],
-   "Gasóleo especial": [
-    "2,299 €/litro",
-    "24-11-2026 00:00"
-   ],
-   "Gasolina simples 95": [
-    "1,959 €/litro",
-    "24-11-2026 00:00"
-   ],
-   "Gasolina especial 98": [
-    "2,179 €/litro",
-    "24-11-2026 00:00"
-   ]
-  },
-  "lat": 39.74759,
-  "lon": -8.904907,
-  "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
- },
  "67868": {
   "nome": "BP Marinha Grande (Marinha Grande)",
   "aviso": "BP (Marinha Grande)",
   "precos": {
    "Gasóleo simples": [
     "2,159 €/litro",
-    "24-11-2026 00:00"
+    "25-11-2026 00:00"
    ],
    "Gasóleo especial": [
     "2,299 €/litro",
-    "24-11-2026 00:00"
+    "25-11-2026 00:00"
    ],
    "Gasolina simples 95": [
     "1,959 €/litro",
-    "24-11-2026 00:00"
+    "25-11-2026 00:00"
    ],
    "Gasolina especial 98": [
     "2,179 €/litro",
-    "24-11-2026 00:00"
+    "25-11-2026 00:00"
    ]
   },
   "lat": 39.745975,
   "lon": -8.934596,
   "morada": "Av. Dr. José Henriques Vareda nº8"
  },
- "66582": {
-  "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
-  "aviso": "REPSOL (R. Videiro)",
+ "93075": {
+  "nome": "BP Embra (Marinha Grande) (Embra)",
+  "aviso": "BP (Embra)",
   "precos": {
    "Gasóleo simples": [
-    "2,174 €/litro",
-    "23-11-2026 00:00"
+    "2,159 €/litro",
+    "25-11-2026 00:00"
    ],
    "Gasóleo especial": [
-    "2,244 €/litro",
-    "23-11-2026 00:00"
+    "2,299 €/litro",
+    "25-11-2026 00:00"
    ],
    "Gasolina simples 95": [
-    "1,974 €/litro",
-    "23-11-2026 00:00"
-   ],
-   "Gasolina especial 95": [
-    "2,044 €/litro",
-    "23-11-2026 00:00"
+    "1,959 €/litro",
+    "25-11-2026 00:00"
    ],
    "Gasolina especial 98": [
-    "2,194 €/litro",
-    "23-11-2026 00:00"
+    "2,179 €/litro",
+    "25-11-2026 00:00"
    ]
   },
-  "lat": 39.74714,
-  "lon": -8.93429,
-  "morada": "Praceta do Vidreiro nº 12"
+  "lat": 39.74759,
+  "lon": -8.904907,
+  "morada": "E.N. 242, Km 9, Rua de Leiria, Embra"
  },
  "66596": {
   "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
   "aviso": "REPSOL (R. Mc)",
   "precos": {
    "Gasóleo simples": [
-    "2,174 €/litro",
-    "23-11-2026 10:00"
+    "2,164 €/litro",
+    "25-11-2026 00:00"
    ],
    "Gasóleo especial": [
-    "2,244 €/litro",
-    "23-11-2026 10:00"
+    "2,234 €/litro",
+    "25-11-2026 00:00"
    ],
    "Gasolina simples 95": [
-    "1,974 €/litro",
-    "23-11-2026 10:00"
+    "1,964 €/litro",
+    "25-11-2026 00:00"
    ],
    "Gasolina especial 95": [
-    "2,044 €/litro",
-    "23-11-2026 10:00"
+    "2,034 €/litro",
+    "25-11-2026 00:00"
    ]
   },
   "lat": 39.73495,
   "lon": -8.93242,
   "morada": "EN 242 Km 13,7"
+ },
+ "66582": {
+  "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
+  "aviso": "REPSOL (R. Videiro)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,164 €/litro",
+    "25-11-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,234 €/litro",
+    "25-11-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "1,964 €/litro",
+    "25-11-2026 00:00"
+   ],
+   "Gasolina especial 95": [
+    "2,034 €/litro",
+    "25-11-2026 00:00"
+   ],
+   "Gasolina especial 98": [
+    "2,184 €/litro",
+    "25-11-2026 00:00"
+   ]
+  },
+  "lat": 39.74714,
+  "lon": -8.93429,
+  "morada": "Praceta do Vidreiro nº 12"
  },
  "plenergy-404": {
   "nome": "PLENERGY (Marinha Grande)",
@@ -1179,6 +1179,7 @@
     }
    }
   },
-  "pagina_versao": "70f070d5"
+  "pagina_versao": "70f070d5",
+  "ultimo_grafico": "2026-11-25"
  }
 }

@@ -764,3 +764,12 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-11-24 10:56,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (1) (Embra)",Gasóleo especial,2.206,2.209,+0.3,subiu,2.206,2026-11-23 16:00,2.379,2026-11-02 20:05
 2026-11-24 10:56,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasóleo simples,2.156,2.159,+0.3,subiu,2.156,2026-11-23 15:55,2.329,2026-11-02 20:05
 2026-11-24 10:56,"GALP GASOGASGEST - GESTÃO DE P.A.'s, LDA. (2) (Marinha Grande)",Gasóleo especial,2.206,2.209,+0.3,subiu,2.206,2026-11-23 15:55,2.379,2026-11-02 20:05
+2026-11-25 04:14,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasóleo simples,2.174,2.164,-1.0,desceu,2.149,2026-11-18 09:30,2.339,2026-11-02 09:30
+2026-11-25 04:14,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasóleo especial,2.244,2.234,-1.0,desceu,2.219,2026-11-18 09:30,2.409,2026-11-02 09:30
+2026-11-25 04:14,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasolina simples 95,1.974,1.964,-1.0,desceu,1.949,2026-11-18 09:30,2.224,2026-10-13 00:00
+2026-11-25 04:14,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasolina especial 95,2.044,2.034,-1.0,desceu,2.019,2026-11-18 09:30,2.294,2026-10-13 00:00
+2026-11-25 04:14,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasóleo simples,2.174,2.164,-1.0,desceu,2.079,2026-11-16 00:00,2.339,2026-11-02 00:00
+2026-11-25 04:14,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasóleo especial,2.244,2.234,-1.0,desceu,2.219,2026-11-18 13:25,2.409,2026-11-02 00:00
+2026-11-25 04:14,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasolina simples 95,1.974,1.964,-1.0,desceu,1.949,2026-11-18 13:25,2.224,2026-10-13 00:00
+2026-11-25 04:14,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasolina especial 95,2.044,2.034,-1.0,desceu,2.019,2026-11-18 13:25,2.294,2026-10-13 00:00
+2026-11-25 04:14,REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande),Gasolina especial 98,2.194,2.184,-1.0,desceu,2.169,2026-11-18 13:25,2.424,2026-10-13 00:00
