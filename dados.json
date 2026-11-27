@@ -1,18 +1,18 @@
 {
- "atualizado": "2026-11-27 02:12",
+ "atualizado": "2026-11-27 10:53",
  "grupos": {
   "Gasóleo simples": {
    "mais_barato": {
     "posto": "PLENERGY",
-    "preco": 1.899,
-    "preco_texto": "1,899"
+    "preco": 1.869,
+    "preco_texto": "1,869"
    },
-   "media": 2.079,
+   "media": 2.077,
    "postos": [
     {
      "posto": "PLENERGY",
-     "preco": 1.899,
-     "preco_texto": "1,899"
+     "preco": 1.869,
+     "preco_texto": "1,869"
     },
     {
      "posto": "TRANSOGÁS",
@@ -76,23 +76,23 @@
     },
     {
      "posto": "REPSOL (R. Videiro)",
-     "preco": 2.164,
-     "preco_texto": "2,164"
+     "preco": 2.174,
+     "preco_texto": "2,174"
     }
    ]
   },
   "Gasóleo especial / plus": {
    "mais_barato": {
     "posto": "PLENERGY",
-    "preco": 1.949,
-    "preco_texto": "1,949"
+    "preco": 1.919,
+    "preco_texto": "1,919"
    },
-   "media": 2.146,
+   "media": 2.144,
    "postos": [
     {
      "posto": "PLENERGY",
-     "preco": 1.949,
-     "preco_texto": "1,949"
+     "preco": 1.919,
+     "preco_texto": "1,919"
     },
     {
      "posto": "TRANSOGÁS",
@@ -146,8 +146,8 @@
     },
     {
      "posto": "REPSOL (R. Videiro)",
-     "preco": 2.234,
-     "preco_texto": "2,234"
+     "preco": 2.244,
+     "preco_texto": "2,244"
     },
     {
      "posto": "BP (Embra)",
@@ -172,7 +172,7 @@
     "preco": 1.679,
     "preco_texto": "1,679"
    },
-   "media": 1.895,
+   "media": 1.896,
    "postos": [
     {
      "posto": "PLENERGY",
@@ -240,17 +240,17 @@
      "preco_texto": "1,959"
     },
     {
-     "posto": "REPSOL (R. Videiro)",
-     "preco": 1.964,
-     "preco_texto": "1,964"
-    },
-    {
      "posto": "REPSOL (Albergaria)",
      "preco": 1.974,
      "preco_texto": "1,974"
     },
     {
      "posto": "REPSOL (R. Mc)",
+     "preco": 1.974,
+     "preco_texto": "1,974"
+    },
+    {
+     "posto": "REPSOL (R. Videiro)",
      "preco": 1.974,
      "preco_texto": "1,974"
     }
@@ -262,7 +262,7 @@
     "preco": 1.729,
     "preco_texto": "1,729"
    },
-   "media": 1.948,
+   "media": 1.949,
    "postos": [
     {
      "posto": "PLENERGY",
@@ -290,17 +290,17 @@
      "preco_texto": "2,004"
     },
     {
-     "posto": "REPSOL (R. Videiro)",
-     "preco": 2.034,
-     "preco_texto": "2,034"
-    },
-    {
      "posto": "REPSOL (Albergaria)",
      "preco": 2.044,
      "preco_texto": "2,044"
     },
     {
      "posto": "REPSOL (R. Mc)",
+     "preco": 2.044,
+     "preco_texto": "2,044"
+    },
+    {
+     "posto": "REPSOL (R. Videiro)",
      "preco": 2.044,
      "preco_texto": "2,044"
     }
@@ -355,12 +355,12 @@
      "preco_texto": "2,184"
     },
     {
-     "posto": "REPSOL (R. Videiro)",
-     "preco": 2.184,
-     "preco_texto": "2,184"
+     "posto": "REPSOL (Albergaria)",
+     "preco": 2.194,
+     "preco_texto": "2,194"
     },
     {
-     "posto": "REPSOL (Albergaria)",
+     "posto": "REPSOL (R. Videiro)",
      "preco": 2.194,
      "preco_texto": "2,194"
     }
