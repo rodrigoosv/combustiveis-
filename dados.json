@@ -1,23 +1,23 @@
 {
- "atualizado": "2026-11-27 10:53",
+ "atualizado": "2026-11-27 19:58",
  "grupos": {
   "Gasóleo simples": {
    "mais_barato": {
-    "posto": "PLENERGY",
-    "preco": 1.869,
-    "preco_texto": "1,869"
+    "posto": "TRANSOGÁS",
+    "preco": 1.851,
+    "preco_texto": "1,851"
    },
-   "media": 2.077,
+   "media": 2.071,
    "postos": [
+    {
+     "posto": "TRANSOGÁS",
+     "preco": 1.851,
+     "preco_texto": "1,851"
+    },
     {
      "posto": "PLENERGY",
      "preco": 1.869,
      "preco_texto": "1,869"
-    },
-    {
-     "posto": "TRANSOGÁS",
-     "preco": 1.929,
-     "preco_texto": "1,929"
     },
     {
      "posto": "INTERMARCHÉ",
@@ -76,28 +76,28 @@
     },
     {
      "posto": "REPSOL (R. Videiro)",
-     "preco": 2.174,
-     "preco_texto": "2,174"
+     "preco": 2.164,
+     "preco_texto": "2,164"
     }
    ]
   },
   "Gasóleo especial / plus": {
    "mais_barato": {
-    "posto": "PLENERGY",
-    "preco": 1.919,
-    "preco_texto": "1,919"
+    "posto": "TRANSOGÁS",
+    "preco": 1.891,
+    "preco_texto": "1,891"
    },
-   "media": 2.144,
+   "media": 2.138,
    "postos": [
+    {
+     "posto": "TRANSOGÁS",
+     "preco": 1.891,
+     "preco_texto": "1,891"
+    },
     {
      "posto": "PLENERGY",
      "preco": 1.919,
      "preco_texto": "1,919"
-    },
-    {
-     "posto": "TRANSOGÁS",
-     "preco": 1.969,
-     "preco_texto": "1,969"
     },
     {
      "posto": "INTERMARCHÉ",
@@ -146,8 +146,8 @@
     },
     {
      "posto": "REPSOL (R. Videiro)",
-     "preco": 2.244,
-     "preco_texto": "2,244"
+     "preco": 2.234,
+     "preco_texto": "2,234"
     },
     {
      "posto": "BP (Embra)",
@@ -172,12 +172,17 @@
     "preco": 1.679,
     "preco_texto": "1,679"
    },
-   "media": 1.896,
+   "media": 1.886,
    "postos": [
     {
      "posto": "PLENERGY",
      "preco": 1.679,
      "preco_texto": "1,679"
+    },
+    {
+     "posto": "TRANSOGÁS",
+     "preco": 1.681,
+     "preco_texto": "1,681"
     },
     {
      "posto": "INTERMARCHÉ",
@@ -193,11 +198,6 @@
      "posto": "OZ Energia",
      "preco": 1.819,
      "preco_texto": "1,819"
-    },
-    {
-     "posto": "TRANSOGÁS",
-     "preco": 1.849,
-     "preco_texto": "1,849"
     },
     {
      "posto": "INPAR ENERGY",
