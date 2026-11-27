@@ -779,3 +779,7 @@ data_hora,posto,combustivel,preco_anterior,preco_novo,variacao_cent,direcao,mini
 2026-11-26 19:01,PLENERGY (Marinha Grande),Gasóleo plus,1.989,1.949,-4.0,desceu,1.949,2026-11-26 19:01,2.109,2026-11-03 15:10
 2026-11-26 19:01,PLENERGY (Marinha Grande),Gasolina 95 simples,1.719,1.679,-4.0,desceu,1.679,2026-11-26 19:01,1.949,2026-10-22 16:19
 2026-11-26 19:01,PLENERGY (Marinha Grande),Gasolina 95 plus,1.769,1.729,-4.0,desceu,1.729,2026-11-26 19:01,1.999,2026-10-22 16:19
+2026-11-27 02:12,REPSOL E.S. ALBERGARIA (Albergaria),Gasóleo simples,2.169,2.159,-1.0,desceu,2.149,2026-11-18 00:00,2.339,2026-11-02 23:00
+2026-11-27 02:12,REPSOL E.S. ALBERGARIA (Albergaria),Gasóleo especial,2.239,2.229,-1.0,desceu,2.219,2026-11-18 00:00,2.409,2026-11-02 23:00
+2026-11-27 02:12,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasolina simples 95,1.964,1.974,+1.0,subiu,1.949,2026-11-18 09:30,2.224,2026-10-13 00:00
+2026-11-27 02:12,REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva),Gasolina especial 95,2.034,2.044,+1.0,subiu,2.019,2026-11-18 09:30,2.294,2026-10-13 00:00

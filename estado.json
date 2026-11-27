@@ -59,27 +59,27 @@
   "precos": {
    "GPL Auto": [
     "1,129 €/litro",
-    "25-11-2026 18:35"
+    "27-11-2026 00:00"
    ],
    "Gasóleo simples": [
-    "2,169 €/litro",
-    "25-11-2026 18:35"
+    "2,159 €/litro",
+    "27-11-2026 00:00"
    ],
    "Gasóleo especial": [
-    "2,239 €/litro",
-    "25-11-2026 18:35"
+    "2,229 €/litro",
+    "27-11-2026 00:00"
    ],
    "Gasolina simples 95": [
     "1,974 €/litro",
-    "25-11-2026 18:35"
+    "27-11-2026 00:00"
    ],
    "Gasolina especial 95": [
     "2,044 €/litro",
-    "25-11-2026 18:35"
+    "27-11-2026 00:00"
    ],
    "Gasolina especial 98": [
     "2,194 €/litro",
-    "25-11-2026 18:35"
+    "27-11-2026 00:00"
    ]
   },
   "lat": 39.7454,
@@ -221,19 +221,19 @@
   "precos": {
    "Gasóleo especial": [
     "2,039 €/litro",
-    "26-11-2026 12:15"
+    "27-11-2026 00:30"
    ],
    "Biodiesel B15": [
     "2,009 €/litro",
-    "26-11-2026 12:15"
+    "27-11-2026 00:30"
    ],
    "Gasolina simples 95": [
     "1,899 €/litro",
-    "26-11-2026 12:15"
+    "27-11-2026 00:30"
    ],
    "Gasolina especial 95": [
     "1,834 €/litro",
-    "26-11-2026 12:15"
+    "27-11-2026 00:30"
    ]
   },
   "lat": 39.73963,
@@ -325,49 +325,24 @@
   "precos": {
    "Gasóleo simples": [
     "2,159 €/litro",
-    "26-11-2026 00:00"
+    "27-11-2026 00:00"
    ],
    "Gasóleo especial": [
     "2,299 €/litro",
-    "26-11-2026 00:00"
+    "27-11-2026 00:00"
    ],
    "Gasolina simples 95": [
     "1,959 €/litro",
-    "26-11-2026 00:00"
+    "27-11-2026 00:00"
    ],
    "Gasolina especial 98": [
     "2,179 €/litro",
-    "26-11-2026 00:00"
+    "27-11-2026 00:00"
    ]
   },
   "lat": 39.745975,
   "lon": -8.934596,
   "morada": "Av. Dr. José Henriques Vareda nº8"
- },
- "66596": {
-  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
-  "aviso": "REPSOL (R. Mc)",
-  "precos": {
-   "Gasóleo simples": [
-    "2,164 €/litro",
-    "25-11-2026 00:00"
-   ],
-   "Gasóleo especial": [
-    "2,234 €/litro",
-    "25-11-2026 00:00"
-   ],
-   "Gasolina simples 95": [
-    "1,964 €/litro",
-    "25-11-2026 00:00"
-   ],
-   "Gasolina especial 95": [
-    "2,034 €/litro",
-    "25-11-2026 00:00"
-   ]
-  },
-  "lat": 39.73495,
-  "lon": -8.93242,
-  "morada": "EN 242 Km 13,7"
  },
  "66582": {
   "nome": "REPSOL E.S. MAR. GRANDE - ROTUNDA (Marinha Grande)",
@@ -397,6 +372,31 @@
   "lat": 39.74714,
   "lon": -8.93429,
   "morada": "Praceta do Vidreiro nº 12"
+ },
+ "66596": {
+  "nome": "REPSOL E.S. MARINHA GRANDE (Rotunda. Z. Desportiva)",
+  "aviso": "REPSOL (R. Mc)",
+  "precos": {
+   "Gasóleo simples": [
+    "2,164 €/litro",
+    "27-11-2026 00:00"
+   ],
+   "Gasóleo especial": [
+    "2,234 €/litro",
+    "27-11-2026 00:00"
+   ],
+   "Gasolina simples 95": [
+    "1,974 €/litro",
+    "27-11-2026 00:00"
+   ],
+   "Gasolina especial 95": [
+    "2,044 €/litro",
+    "27-11-2026 00:00"
+   ]
+  },
+  "lat": 39.73495,
+  "lon": -8.93242,
+  "morada": "EN 242 Km 13,7"
  },
  "plenergy-404": {
   "nome": "PLENERGY (Marinha Grande)",
@@ -1180,6 +1180,6 @@
    }
   },
   "pagina_versao": "70f070d5",
-  "ultimo_grafico": "2026-11-26"
+  "ultimo_grafico": "2026-11-27"
  }
 }
