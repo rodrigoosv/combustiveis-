@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-27 19:58",
+ "atualizado": "2026-11-28 02:42",
  "grupos": {
   "Gasóleo simples": {
    "mais_barato": {
@@ -7,7 +7,7 @@
     "preco": 1.851,
     "preco_texto": "1,851"
    },
-   "media": 2.071,
+   "media": 2.072,
    "postos": [
     {
      "posto": "TRANSOGÁS",
@@ -71,13 +71,13 @@
     },
     {
      "posto": "REPSOL (R. Mc)",
-     "preco": 2.164,
-     "preco_texto": "2,164"
+     "preco": 2.169,
+     "preco_texto": "2,169"
     },
     {
      "posto": "REPSOL (R. Videiro)",
-     "preco": 2.164,
-     "preco_texto": "2,164"
+     "preco": 2.169,
+     "preco_texto": "2,169"
     }
    ]
   },
@@ -87,7 +87,7 @@
     "preco": 1.891,
     "preco_texto": "1,891"
    },
-   "media": 2.138,
+   "media": 2.139,
    "postos": [
     {
      "posto": "TRANSOGÁS",
@@ -141,13 +141,13 @@
     },
     {
      "posto": "REPSOL (R. Mc)",
-     "preco": 2.234,
-     "preco_texto": "2,234"
+     "preco": 2.239,
+     "preco_texto": "2,239"
     },
     {
      "posto": "REPSOL (R. Videiro)",
-     "preco": 2.234,
-     "preco_texto": "2,234"
+     "preco": 2.239,
+     "preco_texto": "2,239"
     },
     {
      "posto": "BP (Embra)",
